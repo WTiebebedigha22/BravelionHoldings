@@ -51,17 +51,17 @@ const Footer = () => {
             <div className="contact-details">
               <div className="contact-line">
                 <MapPin size={16} />
-                <span>Lekki, Lagos, Nigeria</span>
+                <span>No. 1 Udoekpa Street Mbiabong Etoi (Shelter Afrique) Uyo, Akwa Ibom, Nigeria.</span>
               </div>
 
-              <a href="tel:+2340000000000" className="contact-line link">
+              <a href="tel:+2347081728260" className="contact-line link">
                 <Phone size={16} />
-                <span>+234 XXX XXX XXXX</span>
+                <span>+234 708 172 8260</span>
               </a>
 
-              <a href="mailto:info@braveliongroup.com" className="contact-line link">
+              <a href="mailto:info@bravelionholdings.com" className="contact-line link">
                 <Mail size={16} />
-                <span>info@braveliongroup.com</span>
+                <span>info@bravelionholdings.com</span>
               </a>
             </div>
 

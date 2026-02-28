@@ -28,13 +28,13 @@ const Navbar = () => {
       <div className="top-bar">
         <div className="container top-bar__content">
           <div className="contact-info">
-            <a href="mailto:info@braveliongroup.com" className="contact-item">
+            <a href="mailto:info@bravelionholdings.com" className="contact-item">
               <Mail size={12} strokeWidth={2.5} />
-              <span>info@braveliongroup.com</span>
+              <span>info@bravelionholdings.com</span>
             </a>
-            <a href="tel:+2340000000000" className="contact-item">
+            <a href="tel:+2347081728260" className="contact-item">
               <Phone size={12} strokeWidth={2.5} />
-              <span>+234 XXX XXX XXXX</span>
+              <span>+234 708 172 8260</span>
             </a>
           </div>
 

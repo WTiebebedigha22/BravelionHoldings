@@ -27,20 +27,19 @@ const Contact = () => {
         <div className="contact-info">
           <div className="info-card">
             <h3>Head Office</h3>
-            <p>Plot 12 Business District</p>
-            <p>Lagos, Nigeria</p>
+            <p>No. 1 Udoekpa Street Mbiabong Etoi (Shelter Afrique) Uyo.</p>
+            <p>Akwa Ibom, Nigeria</p>
           </div>
 
           <div className="info-card">
             <h3>Email</h3>
-            <p>info@braveliongroup.com</p>
-            <p>training@braveliongroup.com</p>
+            <p>info@bravelionholdings.com</p>
+            <p>training@bravelionholdings.com</p>
           </div>
 
           <div className="info-card">
             <h3>Phone</h3>
-            <p>+234 800 000 0000</p>
-            <p>+234 801 000 0000</p>
+            <p>+234 708 172 8260</p>
           </div>
 
           <div className="info-card">
