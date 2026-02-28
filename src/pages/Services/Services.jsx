@@ -44,10 +44,10 @@ const Services = () => {
     },
     {
       title: "Facility & Asset Management",
-      description:
+      description: 
         "Comprehensive facility management services ensuring operational efficiency, preventive maintenance, and long-term asset sustainability.",
-      image:
-        "https://images.unsplash.com/photo-1581093588401-22b3f6f5f1b7?auto=format&fit=crop&q=80&w=800",
+      image: 
+        "https://images.unsplash.com/photo-1581094794329-c8112a89af12?auto=format&fit=crop&q=80&w=800", 
       tags: [
         "Facility Maintenance",
         "Asset Lifecycle Planning",
@@ -78,7 +78,7 @@ const Services = () => {
           <div className="service-badge">Integrated Solutions</div>
           <h1>Diversified <br />Professional Services</h1>
           <p>
-            Probework delivers real estate development, professional training,
+            We deliver real estate development, professional training,
             and strategic consultancy solutions designed to drive growth,
             sustainability, and long-term value.
           </p>

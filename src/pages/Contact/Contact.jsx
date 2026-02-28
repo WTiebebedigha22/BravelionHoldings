@@ -27,8 +27,8 @@ const Contact = () => {
         <div className="contact-info">
           <div className="info-card">
             <h3>Head Office</h3>
-            <p>No. 1 Udoekpa Street Mbiabong Etoi (Shelter Afrique) Uyo.</p>
-            <p>Akwa Ibom, Nigeria</p>
+            <p>No. 1 Udoekpa Street Mbiabong Etoi (Shelter Afrique), Uyo</p>
+            <p>Akwa Ibom, Nigeria.</p>
           </div>
 
           <div className="info-card">
