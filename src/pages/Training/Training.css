@@ -1,0 +1,304 @@
+:root {
+  --brave-navy: #0a1f44;
+  --brave-blue: #0d6efd;
+  --brave-light: #f4f7fb;
+  --text-grey: #5f6b7a;
+  --white: #ffffff;
+}
+
+/* ============================= */
+/* HERO SECTION */
+/* ============================= */
+
+.hse-hero {
+  height: 70vh;
+  background: linear-gradient(rgba(10, 31, 68, 0.85), rgba(10, 31, 68, 0.6)),
+              url('https://images.unsplash.com/photo-1523240795612-9a054b0db644?auto=format&fit=crop&q=80&w=2000') center/cover no-repeat;
+  display: flex;
+  align-items: center;
+  padding: 0 9%;
+}
+
+.hse-hero-overlay {
+  max-width: 750px;
+}
+
+.hse-title {
+  font-size: 3.8rem;
+  font-weight: 800;
+  color: #fff;
+  line-height: 1.1;
+  margin: 1.5rem 0;
+}
+
+.text-highlight {
+  color: var(--brave-blue);
+}
+
+.hse-subtitle {
+  color: rgba(255, 255, 255, 0.92);
+  max-width: 650px;
+  font-size: 1.2rem;
+  line-height: 1.7;
+}
+
+/* ============================= */
+/* STATS SECTION */
+/* ============================= */
+
+.hse-stats-container {
+  margin-top: -70px;
+  position: relative;
+  z-index: 10;
+  padding: 0 9%;
+}
+
+.hse-stats-grid {
+  background: var(--white);
+  display: flex;
+  justify-content: space-between;
+  padding: 50px;
+  border-radius: 20px;
+  box-shadow: 0 25px 60px rgba(0,0,0,0.08);
+}
+
+.stat-card {
+  text-align: center;
+  flex: 1;
+}
+
+.stat-number {
+  display: block;
+  font-size: 2.8rem;
+  font-weight: 800;
+  color: var(--brave-navy);
+}
+
+.stat-label {
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: var(--text-grey);
+  text-transform: uppercase;
+  letter-spacing: 1.5px;
+  margin-top: 10px;
+}
+
+.stat-divider {
+  width: 1px;
+  background: #eaeaea;
+}
+
+/* ============================= */
+/* TRAINING PILLARS */
+/* ============================= */
+
+.pillars-section {
+  padding: 120px 9%;
+  background: var(--brave-light);
+}
+
+.section-intro {
+  text-align: center;
+  margin-bottom: 60px;
+}
+
+.section-intro h2 {
+  font-size: 2.6rem;
+  color: var(--brave-navy);
+  font-weight: 800;
+  margin-top: 1rem;
+}
+
+.section-intro p {
+  max-width: 600px;
+  margin: 1rem auto 0;
+  color: var(--text-grey);
+}
+
+.blue-anchor-bar {
+  width: 60px;
+  height: 5px;
+  background: var(--brave-blue);
+  margin: 0 auto;
+}
+
+.pillar-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  gap: 2.5rem;
+}
+
+.pillar-card {
+  background: #fff;
+  border-radius: 18px;
+  overflow: hidden;
+  transition: all 0.35s ease;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+}
+
+.pillar-card:hover {
+  transform: translateY(-12px);
+  box-shadow: 0 20px 45px rgba(0,0,0,0.1);
+}
+
+.pillar-image {
+  height: 220px;
+  background-size: cover;
+  background-position: center;
+}
+
+.pillar-content {
+  padding: 2.2rem;
+}
+
+.pillar-content h3 {
+  font-size: 1.3rem;
+  color: var(--brave-navy);
+  margin-bottom: 1rem;
+}
+
+.pillar-content p {
+  color: var(--text-grey);
+  line-height: 1.7;
+}
+
+/* ============================= */
+/* PROGRAM AREAS SECTION */
+/* ============================= */
+
+.compliance-feature {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 5rem;
+  align-items: center;
+  padding: 120px 9%;
+}
+
+.main-p {
+  font-size: 1.1rem;
+  color: var(--text-grey);
+  margin: 1.5rem 0;
+  line-height: 1.7;
+}
+
+.compliance-list {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1.2rem;
+  margin-top: 1.5rem;
+}
+
+.check-item {
+  font-weight: 600;
+  color: var(--brave-navy);
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.check-item span {
+  color: var(--brave-blue);
+  font-weight: 800;
+}
+
+.compliance-visual {
+  position: relative;
+}
+
+.compliance-visual img {
+  width: 100%;
+  border-radius: 28px;
+  box-shadow: 0 20px 50px rgba(0,0,0,0.1);
+}
+
+.floating-badge {
+  position: absolute;
+  bottom: -30px;
+  right: -20px;
+  background: var(--brave-navy);
+  color: #fff;
+  padding: 18px 35px;
+  font-weight: 700;
+  border-radius: 12px;
+  box-shadow: 0 15px 30px rgba(0,0,0,0.25);
+  font-size: 0.9rem;
+}
+
+/* ============================= */
+/* FOOTER CTA */
+/* ============================= */
+
+.hse-footer-cta {
+  background: var(--brave-light);
+  padding: 100px 9%;
+  text-align: center;
+  border-radius: 24px;
+  margin: 100px 9%;
+}
+
+.cta-inner h3 {
+  font-size: 2rem;
+  color: var(--brave-navy);
+}
+
+.cta-inner p {
+  margin-top: 1rem;
+  color: var(--text-grey);
+}
+
+.cta-button {
+  background: var(--brave-navy);
+  color: #fff;
+  border: none;
+  padding: 18px 45px;
+  font-weight: 700;
+  border-radius: 6px;
+  cursor: pointer;
+  margin-top: 2rem;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  transition: 0.3s ease;
+}
+
+.cta-button:hover {
+  background: var(--brave-blue);
+}
+
+/* ============================= */
+/* RESPONSIVE */
+/* ============================= */
+
+@media (max-width: 992px) {
+  .compliance-feature {
+    grid-template-columns: 1fr;
+  }
+
+  .hse-stats-grid {
+    flex-direction: column;
+    gap: 30px;
+  }
+
+  .stat-divider {
+    height: 1px;
+    width: 100%;
+  }
+
+  .hse-title {
+    font-size: 2.6rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .hse-hero {
+    height: 60vh;
+  }
+
+  .hse-title {
+    font-size: 2.2rem;
+  }
+
+  .hse-footer-cta {
+    margin: 60px 5%;
+    padding: 70px 5%;
+  }
+}

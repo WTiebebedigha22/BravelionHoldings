@@ -1,0 +1,340 @@
+/* ============================= */
+/* --- Global Utilities --- */
+/* ============================= */
+.home-page {
+  --navy: #0b1f3a;
+  --blue: #0f4c81;
+  --light-blue: #eaf2fb;
+  --accent: #f4f6f9;
+  --text-dark: #1a1a1a;
+}
+
+.content-container {
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 0 5%;
+}
+
+/* ============================= */
+/* --- Hero Swiper --- */
+/* ============================= */
+.hero-swiper-wrapper {
+  height: 92vh;
+}
+
+.hero-slide {
+  height: 92vh;
+  background-size: cover;
+  background-position: center;
+  display: flex;
+  align-items: center;
+  padding-left: 10%;
+}
+
+.hero-content-box {
+  max-width: 700px;
+  color: #fff;
+}
+
+.hero-tag {
+  text-transform: uppercase;
+  letter-spacing: 3px;
+  font-weight: 700;
+  font-size: 0.85rem;
+  color: #ffffffcc;
+  display: block;
+  margin-bottom: 1rem;
+}
+
+.hero-content-box h1 {
+  font-size: clamp(2.5rem, 5vw, 4.5rem);
+  line-height: 1.1;
+  font-weight: 800;
+  margin-bottom: 1.5rem;
+}
+
+.hero-content-box p {
+  font-size: 1.25rem;
+  opacity: 0.95;
+  margin-bottom: 2.5rem;
+  max-width: 550px;
+}
+
+.hero-actions {
+  display: flex;
+  gap: 1.5rem;
+  width: fit-content;
+}
+
+/* ============================= */
+/* --- Intro Section --- */
+/* ============================= */
+.intro-section {
+  padding: 120px 0;
+}
+
+.intro-grid {
+  display: grid;
+  grid-template-columns: 1.5fr 1fr;
+  gap: 5rem;
+  align-items: flex-start;
+}
+
+.display-h2 {
+  font-size: 3rem;
+  color: var(--navy);
+  margin: 1.5rem 0;
+  font-weight: 800;
+}
+
+.lead-text {
+  font-size: 1.25rem;
+  color: #555;
+  line-height: 1.8;
+}
+
+.stat-box {
+  border-left: 4px solid var(--blue);
+  padding-left: 20px;
+  margin-bottom: 2rem;
+}
+
+.stat-number {
+  font-size: 3rem;
+  font-weight: 800;
+  color: var(--navy);
+  display: block;
+}
+
+.stat-label {
+  font-size: 0.9rem;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  color: #666;
+}
+
+.text-link {
+  color: var(--blue);
+  font-weight: 600;
+  text-decoration: none;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.text-link:hover {
+  text-decoration: underline;
+}
+
+/* ============================= */
+/* --- Highlights Section --- */
+/* ============================= */
+.highlights-section {
+  padding: 60px 0 0 0;
+}
+
+.highlight-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 4rem;
+  margin-bottom: 120px;
+  align-items: center;
+}
+
+.highlight-row.reverse {
+  direction: rtl;
+}
+
+.highlight-row.reverse .highlight-text {
+  direction: ltr;
+}
+
+.highlight-image {
+  height: 520px;
+  background-size: cover;
+  background-position: center;
+  border-radius: 18px;
+  position: relative;
+  box-shadow: 0 25px 60px rgba(0, 0, 0, 0.15);
+  transition: transform 0.5s ease;
+}
+
+.highlight-image:hover {
+  transform: scale(1.02);
+}
+
+.image-caption {
+  position: absolute;
+  bottom: 25px;
+  right: 25px;
+  background: #ffffff;
+  padding: 12px 22px;
+  font-weight: 700;
+  font-size: 0.75rem;
+  border-radius: 30px;
+  text-transform: uppercase;
+  color: var(--navy);
+  letter-spacing: 1px;
+}
+
+.icon-wrap {
+  width: 55px;
+  height: 55px;
+  background: var(--light-blue);
+  color: var(--blue);
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 1.5rem;
+}
+
+.highlight-text h3 {
+  font-size: 2rem;
+  color: var(--navy);
+  margin-bottom: 1.5rem;
+}
+
+.highlight-text p {
+  font-size: 1.1rem;
+  color: #555;
+  line-height: 1.8;
+  margin-bottom: 1.5rem;
+}
+
+.editorial-link {
+  color: var(--blue);
+  font-weight: 700;
+  text-decoration: none;
+}
+
+.editorial-link:hover {
+  text-decoration: underline;
+}
+
+/* ============================= */
+/* --- Brand Promise Banner --- */
+/* ============================= */
+.qhse-banner {
+  background: var(--navy);
+  padding: 120px 5%;
+  text-align: center;
+  color: #fff;
+  border-radius: 16px;
+  margin-bottom: 120px;
+}
+
+.qhse-banner h2 {
+  font-size: 2.5rem;
+  margin-bottom: 1.5rem;
+}
+
+.qhse-banner p {
+  max-width: 700px;
+  margin: 0 auto 2.5rem auto;
+  font-size: 1.15rem;
+  opacity: 0.9;
+}
+
+/* ============================= */
+/* --- Final CTA --- */
+/* ============================= */
+.final-cta {
+  background: var(--accent);
+  padding: 100px 5%;
+  text-align: center;
+  margin-bottom: 100px;
+  border-radius: 16px;
+}
+
+.cta-inner h2 {
+  font-size: 2.5rem;
+  color: var(--navy);
+  margin-bottom: 1rem;
+}
+
+.cta-inner p {
+  font-size: 1.15rem;
+  color: #555;
+  margin-bottom: 2.5rem;
+}
+
+.cta-buttons {
+  display: flex;
+  justify-content: center;
+  gap: 1.5rem;
+}
+
+/* ============================= */
+/* --- Common Buttons --- */
+/* ============================= */
+.pwr-btn {
+  padding: 15px 35px;
+  font-weight: 700;
+  text-decoration: none;
+  text-transform: uppercase;
+  font-size: 0.8rem;
+  letter-spacing: 1px;
+  transition: all 0.3s ease;
+  border-radius: 6px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.pwr-btn-primary {
+  background: var(--blue);
+  color: #fff;
+}
+
+.pwr-btn-primary:hover {
+  background: #0c3c66;
+  transform: translateY(-3px);
+}
+
+.pwr-btn-outline {
+  border: 2px solid #fff;
+  color: #fff;
+}
+
+.pwr-btn-outline:hover {
+  background: #fff;
+  color: var(--navy);
+}
+
+.pwr-btn-ghost {
+  border: 2px solid var(--navy);
+  color: var(--navy);
+  background: transparent;
+}
+
+.pwr-btn-ghost:hover {
+  background: var(--navy);
+  color: #fff;
+}
+
+/* ============================= */
+/* --- Responsive --- */
+/* ============================= */
+@media (max-width: 992px) {
+  .intro-grid,
+  .highlight-row {
+    grid-template-columns: 1fr;
+  }
+
+  .highlight-row.reverse {
+    direction: ltr;
+  }
+
+  .hero-actions {
+    flex-direction: column;
+  }
+
+  .cta-buttons {
+    flex-direction: column;
+  }
+
+  .hero-slide {
+    padding-left: 6%;
+  }
+}
