@@ -55,7 +55,7 @@ const Estates = () => {
                 <div className="hero-content-box">
                   <div className="accent-line"></div>
                   <span className="hero-tag">
-                    Probework Estates & Development
+                    Bravelion Estates & Development
                   </span>
                   <h1>{slide.title}</h1>
                   <p>{slide.subtitle}</p>
@@ -85,7 +85,7 @@ const Estates = () => {
                 Development.
               </h2>
               <p className="lead-text">
-                Probework Estates & Development delivers high-quality
+                Bravelion Estates & Development delivers high-quality
                 residential, commercial, and mixed-use projects tailored
                 for modern communities. We combine strategic planning,
                 architectural excellence, and long-term value creation.
