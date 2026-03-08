@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import { Mail, Phone, Menu, X, ArrowRight } from 'lucide-react';
-import "./navbar.css";
+import "./Navbar.css";
 
 const EstatesNavbar = () => {
   const [menuOpen, setMenuOpen] = useState(false);
