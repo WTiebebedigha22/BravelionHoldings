@@ -8,29 +8,35 @@ import Training from "./pages/Training/Training"
 import About from "./pages/About/About"
 import Contact from "./pages/Contact/Contact"
 
+// Layout WITH shared NavBar + Footer (Home, About, Contact)
+function DefaultLayout({ children }) {
+  return (
+    <>
+      <NavBar />
+      {children}
+      <Footer />
+    </>
+  )
+}
 
-
+// Layout WITHOUT shared NavBar + Footer (pages that have their own)
+function BareLayout({ children }) {
+  return <>{children}</>
+}
 
 function App() {
-
   return (
     <BrowserRouter>
-
       <Routes>
-        <Route path="/*" element={
-          <>
-          <NavBar/>
-            <Routes>
-              <Route path="/" element={<Home/>} />
-              <Route path="/estates" element={<Estates/>} />
-              <Route path="/services" element={<Services/>} />
-              <Route path="/training" element={<Training/>} />
-              <Route path="/about" element={<About/>} />
-              <Route path="/contact" element={<Contact/>} />
-            </Routes>
-          <Footer/>
-          </>
-        } />
+        {/* Pages that use the shared NavBar + Footer */}
+        <Route path="/" element={<DefaultLayout><Home /></DefaultLayout>} />
+        <Route path="/about" element={<DefaultLayout><About /></DefaultLayout>} />
+        <Route path="/contact" element={<DefaultLayout><Contact /></DefaultLayout>} />
+
+        {/* Pages with their own NavBar + Footer */}
+        <Route path="/estates" element={<BareLayout><Estates /></BareLayout>} />
+        <Route path="/services" element={<BareLayout><Services /></BareLayout>} />
+        <Route path="/training" element={<BareLayout><Training /></BareLayout>} />
       </Routes>
     </BrowserRouter>
   )

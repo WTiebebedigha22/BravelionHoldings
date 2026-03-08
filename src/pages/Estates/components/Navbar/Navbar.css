@@ -1,0 +1,358 @@
+/* ============================================================
+   ESTATES NAVBAR — navbar.css
+   Aesthetic: Luxury Real Estate · Deep Navy · Gold
+   ============================================================ */
+
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600&family=Jost:wght@300;400;500;600&display=swap');
+
+/* ===== CSS VARIABLES ===== */
+:root {
+  --navy:        #0b1d2e;
+  --navy-light:  #132438;
+  --gold:        #c9a84c;
+  --gold-light:  #e2c47a;
+  --gold-dim:    rgba(201, 168, 76, 0.15);
+  --white:       #ffffff;
+  --muted:       #94a3b8;
+  --topbar-h:    40px;
+  --navbar-h:    76px;
+  --transition:  0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* ===== RESET ===== */
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+/* ===== CONTAINER ===== */
+.container {
+  width: 100%;
+  max-width: 1260px;
+  margin: 0 auto;
+  padding: 0 32px;
+}
+
+/* ============================================================
+   HEADER WRAPPER
+   ============================================================ */
+.header-wrapper {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 1000;
+  font-family: 'Jost', sans-serif;
+  transition: box-shadow var(--transition), background var(--transition);
+}
+
+.header--scrolled .top-bar {
+  height: 0;
+  overflow: hidden;
+  padding: 0;
+  opacity: 0;
+  pointer-events: none;
+}
+
+.header--scrolled .navbar {
+  background: rgba(11, 29, 46, 0.97);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  box-shadow: 0 4px 32px rgba(0, 0, 0, 0.35);
+}
+
+/* ============================================================
+   TOP BAR
+   ============================================================ */
+.top-bar {
+  height: var(--topbar-h);
+  background-color: var(--navy);
+  border-bottom: 1px solid rgba(201, 168, 76, 0.2);
+  transition: height var(--transition), opacity var(--transition);
+  overflow: hidden;
+}
+
+.top-bar__content {
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.contact-info {
+  display: flex;
+  align-items: center;
+  gap: 24px;
+}
+
+.contact-item {
+  display: flex;
+  align-items: center;
+  gap: 7px;
+  text-decoration: none;
+  color: var(--muted);
+  font-size: 0.72rem;
+  font-weight: 400;
+  letter-spacing: 0.03em;
+  transition: color var(--transition);
+}
+
+.contact-item svg {
+  color: var(--gold);
+  flex-shrink: 0;
+}
+
+.contact-item:hover {
+  color: var(--gold-light);
+}
+
+.top-bar__right span {
+  font-size: 0.7rem;
+  font-weight: 300;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--gold);
+  opacity: 0.85;
+}
+
+/* ============================================================
+   NAVBAR
+   ============================================================ */
+.navbar {
+  height: var(--navbar-h);
+  background: var(--navy);
+  border-bottom: 1px solid rgba(201, 168, 76, 0.15);
+  transition: background var(--transition), box-shadow var(--transition);
+}
+
+.navbar__container {
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 32px;
+}
+
+/* ===== LOGO ===== */
+.navbar__BraveLion {
+  display: flex;
+  align-items: center;
+  flex-shrink: 0;
+  text-decoration: none;
+}
+
+.navbar__BraveLion img {
+  height: 44px;
+  width: auto;
+  object-fit: contain;
+  filter: brightness(1.05);
+  transition: opacity var(--transition);
+}
+
+.navbar__BraveLion:hover img {
+  opacity: 0.85;
+}
+
+/* ===== NAV LINKS ===== */
+.navbar__links {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  list-style: none;
+  margin-left: auto;
+}
+
+.navbar__links li a {
+  display: block;
+  padding: 8px 14px;
+  font-family: 'Jost', sans-serif;
+  font-size: 0.82rem;
+  font-weight: 400;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--muted);
+  text-decoration: none;
+  position: relative;
+  transition: color var(--transition);
+}
+
+/* Underline animation */
+.navbar__links li a::after {
+  content: '';
+  position: absolute;
+  bottom: 2px;
+  left: 14px;
+  right: 14px;
+  height: 1px;
+  background: var(--gold);
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform var(--transition);
+}
+
+.navbar__links li a:hover {
+  color: var(--white);
+}
+
+.navbar__links li a:hover::after,
+.navbar__links li a.active-link::after {
+  transform: scaleX(1);
+}
+
+.navbar__links li a.active-link {
+  color: var(--gold-light);
+}
+
+/* ===== CTA BUTTON ===== */
+.nav-cta a {
+  display: flex !important;
+  align-items: center;
+  gap: 8px;
+  margin-left: 12px;
+  padding: 10px 22px !important;
+  background: transparent;
+  border: 1px solid var(--gold);
+  color: var(--gold) !important;
+  font-size: 0.78rem !important;
+  font-weight: 500 !important;
+  letter-spacing: 0.1em !important;
+  text-transform: uppercase;
+  text-decoration: none;
+  transition: background var(--transition), color var(--transition), border-color var(--transition) !important;
+  white-space: nowrap;
+}
+
+.nav-cta a::after {
+  display: none !important;
+}
+
+.nav-cta a:hover {
+  background: var(--gold) !important;
+  color: var(--navy) !important;
+  border-color: var(--gold) !important;
+}
+
+.nav-cta a svg {
+  transition: transform var(--transition);
+}
+
+.nav-cta a:hover svg {
+  transform: translateX(4px);
+}
+
+/* ===== HAMBURGER TOGGLE ===== */
+.navbar__toggle {
+  display: none;
+  background: none;
+  border: 1px solid rgba(201, 168, 76, 0.3);
+  color: var(--gold);
+  padding: 7px;
+  cursor: pointer;
+  border-radius: 4px;
+  transition: background var(--transition), border-color var(--transition);
+  line-height: 0;
+}
+
+.navbar__toggle:hover {
+  background: var(--gold-dim);
+  border-color: var(--gold);
+}
+
+/* ===== OVERLAY ===== */
+.navbar__menu-overlay {
+  display: none;
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.55);
+  backdrop-filter: blur(2px);
+  z-index: 98;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity var(--transition);
+}
+
+.navbar__menu-overlay.active {
+  opacity: 1;
+  pointer-events: all;
+}
+
+/* ============================================================
+   RESPONSIVE — MOBILE
+   ============================================================ */
+@media (max-width: 900px) {
+  .navbar__toggle {
+    display: flex;
+  }
+
+  .navbar__menu-overlay {
+    display: block;
+  }
+
+  .navbar__links {
+    position: fixed;
+    top: 0;
+    right: -100%;
+    width: min(320px, 85vw);
+    height: 100dvh;
+    background: var(--navy-light);
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0;
+    padding: 80px 0 32px;
+    border-left: 1px solid rgba(201, 168, 76, 0.15);
+    z-index: 99;
+    transition: right var(--transition);
+    overflow-y: auto;
+  }
+
+  .navbar__links.active {
+    right: 0;
+  }
+
+  .navbar__links li {
+    width: 100%;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+  }
+
+  .navbar__links li a {
+    padding: 16px 28px;
+    font-size: 0.85rem;
+    letter-spacing: 0.08em;
+    width: 100%;
+  }
+
+  .navbar__links li a::after {
+    bottom: 12px;
+    left: 28px;
+    right: 28px;
+  }
+
+  .nav-cta {
+    margin-top: 24px;
+    padding: 0 24px;
+    width: 100%;
+    border-bottom: none !important;
+  }
+
+  .nav-cta a {
+    margin-left: 0 !important;
+    justify-content: center;
+    width: 100%;
+    padding: 13px 22px !important;
+  }
+
+  .contact-info {
+    display: none;
+  }
+
+  .top-bar__right span {
+    font-size: 0.65rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .container {
+    padding: 0 20px;
+  }
+
+  .navbar__BraveLion img {
+    height: 36px;
+  }
+}

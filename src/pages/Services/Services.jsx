@@ -1,5 +1,7 @@
 import React from 'react';
 import './Services.css';
+import ServicesNavbar from "./components/Navbar/Navbar";
+import ServicesFooter from "./components/Footer/Footer";
 
 const Services = () => {
   const serviceData = [
@@ -44,10 +46,10 @@ const Services = () => {
     },
     {
       title: "Facility & Asset Management",
-      description: 
+      description:
         "Comprehensive facility management services ensuring operational efficiency, preventive maintenance, and long-term asset sustainability.",
-      image: 
-        "https://images.unsplash.com/photo-1581094794329-c8112a89af12?auto=format&fit=crop&q=80&w=800", 
+      image:
+        "https://images.unsplash.com/photo-1581094794329-c8112a89af12?auto=format&fit=crop&q=80&w=800",
       tags: [
         "Facility Maintenance",
         "Asset Lifecycle Planning",
@@ -71,98 +73,104 @@ const Services = () => {
   ];
 
   return (
-    <div className="services-page">
-      {/* Hero Header */}
-      <section className="services-hero">
-        <div className="services-hero-overlay">
-          <div className="service-badge">Integrated Solutions</div>
-          <h1>Diversified <br />Professional Services</h1>
-          <p>
-            We deliver real estate development, professional training,
-            and strategic consultancy solutions designed to drive growth,
-            sustainability, and long-term value.
-          </p>
-        </div>
-      </section>
+    <>
+      <ServicesNavbar />
 
-      <div className="body-wrapper">
-        <section className="services-grid-section">
-          <div className="section-intro">
-            <div className="blue-anchor-bar"></div>
-            <h2>Our Service Portfolio</h2>
+      <div className="services-page">
+        {/* Hero Header */}
+        <section className="services-hero">
+          <div className="services-hero-overlay">
+            <div className="service-badge">Integrated Solutions</div>
+            <h1>Diversified <br />Professional Services</h1>
             <p>
-              A multidisciplinary approach combining development, training,
-              and advisory expertise under one trusted brand.
+              We deliver real estate development, professional training,
+              and strategic consultancy solutions designed to drive growth,
+              sustainability, and long-term value.
             </p>
-          </div>
-
-          <div className="services-grid">
-            {serviceData.map((service, index) => (
-              <div className="service-card" key={index}>
-                <div
-                  className="card-image"
-                  style={{
-                    backgroundImage: `linear-gradient(rgba(0,0,0,0.15), rgba(0,0,0,0.6)), url(${service.image})`
-                  }}
-                >
-                  <div className="card-image-overlay">
-                    <span className="service-number">0{index + 1}</span>
-                  </div>
-                </div>
-                <div className="card-content">
-                  <h3>{service.title}</h3>
-                  <p>{service.description}</p>
-                  <div className="tech-tags">
-                    {service.tags.map(tag => (
-                      <span key={tag} className="tag">{tag}</span>
-                    ))}
-                  </div>
-                </div>
-              </div>
-            ))}
           </div>
         </section>
 
-        {/* Featured Advisory Section */}
-        <section className="featured-solution-section">
-          <div className="featured-solution-box">
-            <div className="featured-text">
-              <p className="overline">Strategic Advisory</p>
-              <h3>Integrated Development & Training Framework</h3>
+        <div className="body-wrapper">
+          <section className="services-grid-section">
+            <div className="section-intro">
+              <div className="blue-anchor-bar"></div>
+              <h2>Our Service Portfolio</h2>
               <p>
-                From property development to workforce capacity building,
-                we provide the expertise and systems needed to deliver
-                measurable results across sectors.
+                A multidisciplinary approach combining development, training,
+                and advisory expertise under one trusted brand.
               </p>
-              <button className="cta-button-light">
-                Request Company Profile
-              </button>
             </div>
-            <div className="featured-image"></div>
-          </div>
-        </section>
 
-        {/* Governance & Standards */}
-        <div className="compliance-grid">
-          <div className="compliance-item">
-            <div className="blue-anchor-bar"></div>
-            <h4>Governance & Compliance</h4>
-            <p>
-              We operate in alignment with national regulatory frameworks,
-              ensuring ethical standards and operational transparency.
-            </p>
-          </div>
-          <div className="compliance-item">
-            <div className="blue-anchor-bar"></div>
-            <h4>Quality Assurance</h4>
-            <p>
-              Structured quality control processes ensure consistent delivery,
-              reliability, and client satisfaction across all divisions.
-            </p>
+            <div className="services-grid">
+              {serviceData.map((service, index) => (
+                <div className="service-card" key={index}>
+                  <div
+                    className="card-image"
+                    style={{
+                      backgroundImage: `linear-gradient(rgba(0,0,0,0.15), rgba(0,0,0,0.6)), url(${service.image})`
+                    }}
+                  >
+                    <div className="card-image-overlay">
+                      <span className="service-number">0{index + 1}</span>
+                    </div>
+                  </div>
+                  <div className="card-content">
+                    <h3>{service.title}</h3>
+                    <p>{service.description}</p>
+                    <div className="tech-tags">
+                      {service.tags.map(tag => (
+                        <span key={tag} className="tag">{tag}</span>
+                      ))}
+                    </div>
+                  </div>
+                </div>
+              ))}
+            </div>
+          </section>
+
+          {/* Featured Advisory Section */}
+          <section className="featured-solution-section">
+            <div className="featured-solution-box">
+              <div className="featured-text">
+                <p className="overline">Strategic Advisory</p>
+                <h3>Integrated Development & Training Framework</h3>
+                <p>
+                  From property development to workforce capacity building,
+                  we provide the expertise and systems needed to deliver
+                  measurable results across sectors.
+                </p>
+                <button className="cta-button-light">
+                  Request Company Profile
+                </button>
+              </div>
+              <div className="featured-image"></div>
+            </div>
+          </section>
+
+          {/* Governance & Standards */}
+          <div className="compliance-grid">
+            <div className="compliance-item">
+              <div className="blue-anchor-bar"></div>
+              <h4>Governance & Compliance</h4>
+              <p>
+                We operate in alignment with national regulatory frameworks,
+                ensuring ethical standards and operational transparency.
+              </p>
+            </div>
+            <div className="compliance-item">
+              <div className="blue-anchor-bar"></div>
+              <h4>Quality Assurance</h4>
+              <p>
+                Structured quality control processes ensure consistent delivery,
+                reliability, and client satisfaction across all divisions.
+              </p>
+            </div>
           </div>
         </div>
       </div>
-    </div>
+
+      <ServicesFooter />
+    </>
   );
 };
 

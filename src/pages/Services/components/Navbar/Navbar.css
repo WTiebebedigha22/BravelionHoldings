@@ -1,0 +1,324 @@
+/* ============================================================
+   SERVICES NAVBAR
+   ============================================================ */
+
+/* ===== RESET & BASE ===== */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+/* ===== HEADER WRAPPER ===== */
+.header-wrapper {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 1000;
+  transition: box-shadow 0.3s ease, background 0.3s ease;
+}
+
+.header--scrolled {
+  box-shadow: 0 2px 20px rgba(0, 0, 0, 0.25);
+}
+
+/* ===== TOP BAR ===== */
+.top-bar {
+  background-color: #0a1628;
+  padding: 8px 0;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+}
+
+.top-bar__content {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  flex-wrap: wrap;
+}
+
+.contact-info {
+  display: flex;
+  align-items: center;
+  gap: 24px;
+}
+
+.contact-item {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 0.75rem;
+  color: #94a3b8;
+  text-decoration: none;
+  transition: color 0.2s;
+}
+
+.contact-item:hover {
+  color: #2563eb;
+}
+
+.contact-item svg {
+  color: #2563eb;
+  flex-shrink: 0;
+}
+
+.top-bar__right span {
+  font-size: 0.75rem;
+  color: #64748b;
+  font-style: italic;
+  letter-spacing: 0.02em;
+}
+
+/* ===== CONTAINER ===== */
+.container {
+  width: 100%;
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 0 24px;
+}
+
+/* ===== NAVBAR ===== */
+.navbar {
+  background-color: #ffffff;
+  border-bottom: 1px solid #e2e8f0;
+  transition: background 0.3s ease;
+}
+
+.header--scrolled .navbar {
+  background-color: #ffffff;
+  box-shadow: 0 4px 24px rgba(0, 0, 0, 0.08);
+}
+
+.navbar__container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 68px;
+  gap: 32px;
+}
+
+/* ===== LOGO ===== */
+.navbar__BraveLion {
+  display: flex;
+  align-items: center;
+  flex-shrink: 0;
+  text-decoration: none;
+}
+
+.navbar__BraveLion img {
+  height: 42px;
+  width: auto;
+  display: block;
+}
+
+/* ===== NAV LINKS ===== */
+.navbar__links {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  margin-left: auto;
+}
+
+.navbar__links li a {
+  display: inline-block;
+  font-size: 0.875rem;
+  font-weight: 500;
+  color: #334155;
+  text-decoration: none;
+  padding: 8px 14px;
+  border-radius: 6px;
+  transition: color 0.2s, background 0.2s;
+  white-space: nowrap;
+}
+
+.navbar__links li a:hover {
+  color: #2563eb;
+  background-color: #eff6ff;
+}
+
+.navbar__links li a.active-link {
+  color: #2563eb;
+  font-weight: 600;
+  background-color: #eff6ff;
+}
+
+/* ===== CTA BUTTON ===== */
+.nav-cta a {
+  display: inline-flex !important;
+  align-items: center;
+  gap: 6px;
+  padding: 9px 18px !important;
+  background-color: #2563eb !important;
+  color: #ffffff !important;
+  font-size: 0.875rem !important;
+  font-weight: 600 !important;
+  border-radius: 6px !important;
+  text-decoration: none;
+  transition: background-color 0.2s, transform 0.2s !important;
+  white-space: nowrap;
+}
+
+.nav-cta a:hover {
+  background-color: #1d4ed8 !important;
+  color: #ffffff !important;
+  background: #1d4ed8 !important;
+  transform: translateY(-1px);
+}
+
+.nav-cta a svg {
+  transition: transform 0.2s;
+}
+
+.nav-cta a:hover svg {
+  transform: translateX(3px);
+}
+
+/* ===== MOBILE TOGGLE ===== */
+.navbar__toggle {
+  display: none;
+  background: none;
+  border: none;
+  cursor: pointer;
+  color: #334155;
+  padding: 6px;
+  border-radius: 6px;
+  transition: background 0.2s, color 0.2s;
+  flex-shrink: 0;
+}
+
+.navbar__toggle:hover {
+  background-color: #f1f5f9;
+  color: #2563eb;
+}
+
+/* ===== OVERLAY ===== */
+.navbar__menu-overlay {
+  display: none;
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.45);
+  z-index: 998;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.navbar__menu-overlay.active {
+  opacity: 1;
+}
+
+/* ===== RESPONSIVE ===== */
+@media (max-width: 1024px) {
+  .navbar__links li a {
+    font-size: 0.8rem;
+    padding: 8px 10px;
+  }
+}
+
+@media (max-width: 900px) {
+  .navbar__toggle {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 1001;
+  }
+
+  .navbar__menu-overlay {
+    display: block;
+    pointer-events: none;
+  }
+
+  .navbar__menu-overlay.active {
+    pointer-events: all;
+  }
+
+  .navbar__links {
+    position: fixed;
+    top: 0;
+    right: -100%;
+    width: min(320px, 85vw);
+    height: 100dvh;
+    background-color: #ffffff;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: flex-start;
+    padding: 88px 24px 40px;
+    gap: 4px;
+    z-index: 999;
+    overflow-y: auto;
+    transition: right 0.35s cubic-bezier(0.4, 0, 0.2, 1);
+    box-shadow: -8px 0 32px rgba(0, 0, 0, 0.12);
+  }
+
+  .navbar__links.active {
+    right: 0;
+  }
+
+  .navbar__links li {
+    width: 100%;
+  }
+
+  .navbar__links li a {
+    display: block;
+    width: 100%;
+    font-size: 0.95rem;
+    padding: 12px 16px;
+    border-radius: 8px;
+    color: #1e293b;
+  }
+
+  .navbar__links li a:hover,
+  .navbar__links li a.active-link {
+    background-color: #eff6ff;
+    color: #2563eb;
+  }
+
+  .nav-cta {
+    margin-top: 12px;
+    width: 100%;
+  }
+
+  .nav-cta a {
+    width: 100%;
+    justify-content: center;
+    padding: 13px 18px !important;
+    font-size: 0.95rem !important;
+    border-radius: 8px !important;
+  }
+
+  .contact-info {
+    gap: 12px;
+  }
+
+  .top-bar__right {
+    display: none;
+  }
+}
+
+@media (max-width: 480px) {
+  .container {
+    padding: 0 16px;
+  }
+
+  .navbar__BraveLion img {
+    height: 36px;
+  }
+
+  .contact-info {
+    gap: 10px;
+  }
+
+  .contact-item span {
+    display: none;
+  }
+
+  .contact-item svg {
+    width: 14px;
+    height: 14px;
+  }
+}

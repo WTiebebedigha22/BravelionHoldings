@@ -1,17 +1,15 @@
 import React, { useState, useEffect } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import { Mail, Phone, Menu, X, ArrowRight } from 'lucide-react';
-import "./navbar.css";
+import "./Navbar.css";
 
-const EstatesNavbar = () => {
+const ServicesNavbar = () => {
   const [menuOpen, setMenuOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
   const location = useLocation();
 
   useEffect(() => {
-    const handleScroll = () => {
-      setScrolled(window.scrollY > 50);
-    };
+    const handleScroll = () => setScrolled(window.scrollY > 50);
     window.addEventListener('scroll', handleScroll);
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
@@ -28,18 +26,17 @@ const EstatesNavbar = () => {
       <div className="top-bar">
         <div className="container top-bar__content">
           <div className="contact-info">
-            <a href="mailto:estates@bravelionholdings.com" className="contact-item">
+            <a href="mailto:services@bravelionholdings.com" className="contact-item">
               <Mail size={12} strokeWidth={2.5} />
-              <span>estates@bravelionholdings.com</span>
+              <span>services@bravelionholdings.com</span>
             </a>
             <a href="tel:+2347081728260" className="contact-item">
               <Phone size={12} strokeWidth={2.5} />
               <span>+234 708 172 8260</span>
             </a>
           </div>
-
           <div className="top-bar__right">
-            <span>Premium Real Estate & Development Across Africa.</span>
+            <span>Integrated Solutions. Measurable Results.</span>
           </div>
         </div>
       </div>
@@ -48,8 +45,8 @@ const EstatesNavbar = () => {
       <nav className="navbar">
         <div className="container navbar__container">
 
-          <Link to="/estates" className="navbar__BraveLion">
-            <img src="/BraveLion.png" alt="Bravelion Estates" />
+          <Link to="/services" className="navbar__BraveLion">
+            <img src="/BraveLion.png" alt="Bravelion Services" />
           </Link>
 
           <button
@@ -69,43 +66,52 @@ const EstatesNavbar = () => {
 
             <li>
               <Link
-                to="/estates/property"
-                className={location.pathname === "/estates/property" ? "active-link" : ""}
+                to="/services/real-estate"
+                className={location.pathname === "/services/real-estate" ? "active-link" : ""}
               >
-                Property
+                Real Estate
               </Link>
             </li>
 
             <li>
               <Link
-                to="/estates/why-us"
-                className={location.pathname === "/estates/why-us" ? "active-link" : ""}
+                to="/services/training"
+                className={location.pathname === "/services/training" ? "active-link" : ""}
               >
-                Why Us
+                Training & Certification
               </Link>
             </li>
 
             <li>
               <Link
-                to="/estates/insights"
-                className={location.pathname === "/estates/insights" ? "active-link" : ""}
+                to="/services/consultancy"
+                className={location.pathname === "/services/consultancy" ? "active-link" : ""}
               >
-                Insights & Opinion
+                Consultancy
               </Link>
             </li>
 
             <li>
               <Link
-                to="/estates/contact"
-                className={location.pathname === "/estates/contact" ? "active-link" : ""}
+                to="/services/facility-management"
+                className={location.pathname === "/services/facility-management" ? "active-link" : ""}
               >
-                Contact Us
+                Facility Management
+              </Link>
+            </li>
+
+            <li>
+              <Link
+                to="/services/advisory"
+                className={location.pathname === "/services/advisory" ? "active-link" : ""}
+              >
+                Investment Advisory
               </Link>
             </li>
 
             <li className="nav-cta">
-              <Link to="/estates/contact">
-                <span>Find a Property</span>
+              <Link to="/services/contact">
+                <span>Request a Profile</span>
                 <ArrowRight size={14} />
               </Link>
             </li>
@@ -117,4 +123,4 @@ const EstatesNavbar = () => {
   );
 };
 
-export default EstatesNavbar;
+export default ServicesNavbar;

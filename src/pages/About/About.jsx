@@ -62,16 +62,16 @@ const About = () => {
           <div className="vision-card">
             <h3>Our Vision</h3>
             <p>
-              To become a leading African enterprise group recognized for
-              operational excellence, ethical governance, and sustainable impact.
+              To build a globally respected brand that delivers practical, 
+              high-quality solutions across diverse industries, improving lives and creating enduring value.
             </p>
           </div>
 
           <div className="vision-card">
             <h3>Our Mission</h3>
             <p>
-              To build resilient businesses that deliver measurable value to
-              clients, partners, and communities through innovation and discipline.
+              We identify real needs and deliver reliable, well-executed solutions. 
+              Through expertise, innovation, and integrity, we provide measurable results our clients can consistently trust.
             </p>
           </div>
         </div>
