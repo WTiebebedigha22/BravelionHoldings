@@ -67,7 +67,7 @@ const ServicesNavbar = () => {
             <li>
               <Link
                 to="/services/real-estate"
-                className={location.pathname === "/services/real-estate" ? "active-link" : ""}
+                className={location.pathname === "/src/pages/Estates/Estates.jsx" ? "active-link" : ""}
               >
                 Real Estate
               </Link>
@@ -76,7 +76,7 @@ const ServicesNavbar = () => {
             <li>
               <Link
                 to="/services/training"
-                className={location.pathname === "/services/training" ? "active-link" : ""}
+                className={location.pathname === "/src/pages/Training/Training.jsx" ? "active-link" : ""}
               >
                 Training & Certification
               </Link>
