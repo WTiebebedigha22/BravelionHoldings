@@ -89,7 +89,7 @@ const EstatesFooter = () => {
               </li>
               <li>
                 <MapPin size={14} strokeWidth={2.5} />
-                <span>Lagos, Nigeria</span>
+                <span>No. 1 Udoekpa Street Mbiabong Etoi (Shelter Afrique), Uyo, Akwa Ibom, Nigeria</span>
               </li>
             </ul>
           </div>

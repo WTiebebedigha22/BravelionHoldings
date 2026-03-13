@@ -55,7 +55,7 @@ const Navbar = () => {
           <button 
             className="navbar__toggle" 
             onClick={() => setMenuOpen(!menuOpen)}
-            aria-label="Toggle navigation"
+            aria-label="Toggle navrigation"
           >
             {menuOpen ? <X size={24} /> : <Menu size={24} />}
           </button>
