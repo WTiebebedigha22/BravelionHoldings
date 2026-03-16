@@ -1,7 +1,6 @@
 import React, { useEffect, useRef, useState } from 'react';
 import TrainingNavbar from '../components/Navbar/Navbar';
 import TrainingFooter from '../components/Footer/Footer';
-import '../styles/training-shared.css';
 import './Courses.css';
 
 const categories = ['All', 'ICT & Digital', 'Vocational', 'Business', 'Finance', 'Health & Safety'];

@@ -1,7 +1,6 @@
 import React, { useEffect, useRef } from 'react';
 import TrainingNavbar from '../components/Navbar/Navbar';
 import TrainingFooter from '../components/Footer/Footer';
-import '../styles/training-shared.css';
 import './HSE.css';
 
 const programs = [

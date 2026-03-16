@@ -8,7 +8,25 @@ import Training from "./pages/Training/Training"
 import About from "./pages/About/About"
 import Contact from "./pages/Contact/Contact"
 
-// Layout WITH shared NavBar + Footer (Home, About, Contact)
+// Estates
+import Insights from "./pages/Estates/Insights/Insights"
+import WhyUs from "./pages/Estates/Why/WhyUs"
+
+// Services
+import EngineeringPage from "./pages/Services/Engineering/EngineeringPage"
+import EnergyPage from "./pages/Services/Energy/EnergyPage"
+import TrainingPage from "./pages/Services/Training/TrainingPage"
+import BusinessPage from "./pages/Services/Business/BusinessPage"
+
+// Training
+import CoursesPage from "./pages/Training/Courses/Courses"
+import HSEPage from "./pages/Training/HSE/Hse"
+import CertificationsPage from "./pages/Training/Certification/CertificationsPage"
+import CorporatePage from "./pages/Training/Corporate/CorporatePage"
+import SchedulePage from "./pages/Training/Schedule/Schedule"
+import EnrollPage from "./pages/Training/Enroll/Enroll"
+
+// Layout WITH shared NavBar + Footer
 function DefaultLayout({ children }) {
   return (
     <>
@@ -19,7 +37,7 @@ function DefaultLayout({ children }) {
   )
 }
 
-// Layout WITHOUT shared NavBar + Footer (pages that have their own)
+// Layout WITHOUT shared NavBar + Footer (pages manage their own)
 function BareLayout({ children }) {
   return <>{children}</>
 }
@@ -28,15 +46,33 @@ function App() {
   return (
     <BrowserRouter>
       <Routes>
-        {/* Pages that use the shared NavBar + Footer */}
-        <Route path="/" element={<DefaultLayout><Home /></DefaultLayout>} />
-        <Route path="/about" element={<DefaultLayout><About /></DefaultLayout>} />
+
+        {/* ── Shared layout ── */}
+        <Route path="/"        element={<DefaultLayout><Home /></DefaultLayout>} />
+        <Route path="/about"   element={<DefaultLayout><About /></DefaultLayout>} />
         <Route path="/contact" element={<DefaultLayout><Contact /></DefaultLayout>} />
 
-        {/* Pages with their own NavBar + Footer */}
-        <Route path="/estates" element={<BareLayout><Estates /></BareLayout>} />
-        <Route path="/services" element={<BareLayout><Services /></BareLayout>} />
-        <Route path="/training" element={<BareLayout><Training /></BareLayout>} />
+        {/* ── Estates ── */}
+        <Route path="/estates"          element={<BareLayout><Estates /></BareLayout>} />
+        <Route path="/estates/why"   element={<BareLayout><WhyUs /></BareLayout>} />
+        <Route path="/estates/insights" element={<BareLayout><Insights /></BareLayout>} />
+
+        {/* ── Services ── */}
+        <Route path="/services"              element={<BareLayout><Services /></BareLayout>} />
+        <Route path="/services/engineering"  element={<BareLayout><EngineeringPage /></BareLayout>} />
+        <Route path="/services/energy"       element={<BareLayout><EnergyPage /></BareLayout>} />
+        <Route path="/services/training"     element={<BareLayout><TrainingPage /></BareLayout>} />
+        <Route path="/services/business"     element={<BareLayout><BusinessPage /></BareLayout>} />
+
+        {/* ── Training ── */}
+        <Route path="/training"                element={<BareLayout><Training /></BareLayout>} />
+        <Route path="/training/courses"        element={<BareLayout><CoursesPage /></BareLayout>} />
+        <Route path="/training/hse"            element={<BareLayout><HSEPage /></BareLayout>} />
+        <Route path="/training/certifications" element={<BareLayout><CertificationsPage /></BareLayout>} />
+        <Route path="/training/corporate"      element={<BareLayout><CorporatePage /></BareLayout>} />
+        <Route path="/training/schedule"       element={<BareLayout><SchedulePage /></BareLayout>} />
+        <Route path="/training/enroll"         element={<BareLayout><EnrollPage /></BareLayout>} />
+
       </Routes>
     </BrowserRouter>
   )
