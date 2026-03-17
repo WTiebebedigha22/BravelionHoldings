@@ -69,7 +69,7 @@ const SchedulePage = () => {
         </section>
 
         <div className="tp-stats tp-reveal">
-          {[['18+','Sessions Scheduled'],['3','Locations'],['Online','& On-site'],['Apr–Jun','2025']].map(([n,l]) => (
+          {[['18+','Sessions Scheduled'],['3','Locations'],['Online','& On-site'],['3-8 Months','Duration']].map(([n,l]) => (
             <div className="tp-stat" key={l}><span className="tp-stat__num">{n}</span><span className="tp-stat__label">{l}</span></div>
           ))}
         </div>

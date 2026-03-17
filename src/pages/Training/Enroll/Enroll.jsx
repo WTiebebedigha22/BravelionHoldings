@@ -70,7 +70,7 @@ const EnrollPage = () => {
                   <div className="enroll-row">
                     <div className="enroll-field">
                       <label>Full Name *</label>
-                      <input type="text" name="name" value={form.name} onChange={handleChange} placeholder="e.g. Chukwuemeka Obi" required />
+                      <input type="text" name="name" value={form.name} onChange={handleChange} placeholder="e.g. Jack Aitken" required />
                     </div>
                     <div className="enroll-field">
                       <label>Email Address *</label>
@@ -80,7 +80,7 @@ const EnrollPage = () => {
 
                   <div className="enroll-row">
                     <div className="enroll-field">
-                      <label>Phone Number</label>
+                      <label>Phone Number *</label>
                       <input type="tel" name="phone" value={form.phone} onChange={handleChange} placeholder="+234 000 000 0000" />
                     </div>
                     <div className="enroll-field">
@@ -130,7 +130,7 @@ const EnrollPage = () => {
                   {[
                     ['📬', 'We receive your form and review it within a few hours.'],
                     ['📞', 'Our team contacts you to confirm your course, dates, and payment.'],
-                    ['💳', 'Payment is completed — we accept bank transfer, POS, and mobile money.'],
+                    ['💳', 'Payment is completed — we accept Bank transfer, POS, and Mobile money.'],
                     ['📦', 'You receive a confirmation email with course materials and venue/login details.'],
                     ['🎓', 'Attend your training and earn your certificate upon completion.'],
                   ].map(([icon, text], i) => (
@@ -143,8 +143,8 @@ const EnrollPage = () => {
               </div>
 
               <div className="enroll-info__contact">
-                <h4>Need Help Choosing?</h4>
-                <p>Speak to our training team directly — we'll match you to the right program.</p>
+                <h4>Having Trouble Choosing?</h4>
+                <p>Speak to our training team directly, Let us match you to the right program.</p>
                 <a href="mailto:training@bravelionholdings.com" className="enroll-contact-link">📧 training@bravelionholdings.com</a>
                 <a href="tel:+2347081728260" className="enroll-contact-link">📞 +234 708 172 8260</a>
               </div>
@@ -153,7 +153,7 @@ const EnrollPage = () => {
                 <span className="enroll-info__guarantee-icon">🛡</span>
                 <div>
                   <h4>Quality Guarantee</h4>
-                  <p>All programs are delivered by certified professionals. If you are not satisfied after Day 1, we will find an alternative arrangement — no questions asked.</p>
+                  <p>All programs are delivered by certified professionals. If you are not satisfied after Day 1, we will find an alternative arrangement — No questions asked.</p>
                 </div>
               </div>
             </div>

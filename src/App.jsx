@@ -11,6 +11,7 @@ import Contact from "./pages/Contact/Contact"
 // Estates
 import Insights from "./pages/Estates/Insights/Insights"
 import WhyUs from "./pages/Estates/Why/WhyUs"
+import Property from "./pages/Estates/Property/Property"
 
 // Services
 import EngineeringPage from "./pages/Services/Engineering/EngineeringPage"
@@ -56,6 +57,7 @@ function App() {
         <Route path="/estates"          element={<BareLayout><Estates /></BareLayout>} />
         <Route path="/estates/why"   element={<BareLayout><WhyUs /></BareLayout>} />
         <Route path="/estates/insights" element={<BareLayout><Insights /></BareLayout>} />
+        <Route path="/estates/property" element={<BareLayout><Property /></BareLayout>} />
 
         {/* ── Services ── */}
         <Route path="/services"              element={<BareLayout><Services /></BareLayout>} />
