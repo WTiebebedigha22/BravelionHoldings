@@ -9,9 +9,10 @@ import About from "./pages/About/About"
 import Contact from "./pages/Contact/Contact"
 
 // Estates
-import Insights from "./pages/Estates/Insights/Insights"
+import InsightsPage from "./pages/Estates/Insights/Insights"
 import WhyUs from "./pages/Estates/Why/WhyUs"
 import Property from "./pages/Estates/Property/Property"
+import InvestorRelations from "./pages/Estates/Investor Relations/InvestorRelations"
 
 // Services
 import EngineeringPage from "./pages/Services/Engineering/EngineeringPage"
@@ -56,7 +57,8 @@ function App() {
         {/* ── Estates ── */}
         <Route path="/estates"          element={<BareLayout><Estates /></BareLayout>} />
         <Route path="/estates/why"   element={<BareLayout><WhyUs /></BareLayout>} />
-        <Route path="/estates/insights" element={<BareLayout><Insights /></BareLayout>} />
+        <Route path="/estates/insights"   element={<BareLayout><InsightsPage /></BareLayout>} />
+        <Route path="/estates/investor-relations" element={<BareLayout><InvestorRelations /></BareLayout>} />
         <Route path="/estates/property" element={<BareLayout><Property /></BareLayout>} />
 
         {/* ── Services ── */}

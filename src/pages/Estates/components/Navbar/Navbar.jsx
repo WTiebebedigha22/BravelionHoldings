@@ -78,8 +78,8 @@ const EstatesNavbar = () => {
 
             <li>
               <Link
-                to="/estates/why-us"
-                className={location.pathname === "/estates/why-us" ? "active-link" : ""}
+                to="/estates/why"
+                className={location.pathname === "/estates/why" ? "active-link" : ""}
               >
                 Why Us
               </Link>
@@ -96,8 +96,8 @@ const EstatesNavbar = () => {
 
             <li>
               <Link
-                to="/estates/contact"
-                className={location.pathname === "/estates/contact" ? "active-link" : ""}
+                to="/contact"
+                className={location.pathname === "/contact" ? "active-link" : ""}
               >
                 Contact Us
               </Link>
