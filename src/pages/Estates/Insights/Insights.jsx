@@ -82,7 +82,7 @@ const categories = ['All', 'Market Report', 'Investment', 'Legal & Title', 'Neig
 const catColors = {
   'Market Report':       '#c9a84c',
   'Investment':          '#16a34a',
-  'Legal & Title':       '#2563eb',
+  'Legal & Title':       'goldenrod',
   'Neighbourhood Guide': '#dc2626',
   'Finance':             '#7c3aed',
   'Design & Development':'#0891b2',

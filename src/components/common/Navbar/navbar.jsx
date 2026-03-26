@@ -49,7 +49,7 @@ const Navbar = () => {
         <div className="container navbar__container">
 
           <Link to="/" className="navbar__BraveLion">
-            <img src="/BraveLion.png" alt="Bravelion Group BraveLion" />
+            <img src="/BraveLion.jpg" alt="Bravelion Group BraveLion" />
           </Link>
 
           <button 

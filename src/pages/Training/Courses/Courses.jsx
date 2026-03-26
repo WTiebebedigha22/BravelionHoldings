@@ -20,7 +20,7 @@ const courses = [
   { id: 'C12', cat: 'ICT & Digital',  icon: '🌐', title: 'Digital Entrepreneurship & E-Commerce',dur: '4 Days',  lvl: 'Intermediate', desc: 'Build and market an online business: e-commerce platforms, digital marketing basics, social media strategy, and payment integration.' },
 ];
 
-const lvlColor = { Beginner: '#16a34a', Intermediate: '#2563eb', Advanced: '#dc2626' };
+const lvlColor = { Beginner: '#16a34a', Intermediate: 'goldenrod', Advanced: '#dc2626' };
 
 const CoursesPage = () => {
   const [cat, setCat] = useState('All');

@@ -25,7 +25,7 @@ const schedule = [
 ];
 
 const typeColors = {
-  'ICT': '#2563eb', 'HSE': '#16a34a', 'Business': '#7c3aed',
+  'ICT': 'goldenrod', 'HSE': '#16a34a', 'Business': '#7c3aed',
   'Finance': '#d97706', 'Vocational': '#0891b2', 'Certification': '#dc2626',
 };
 
@@ -132,7 +132,7 @@ const SchedulePage = () => {
           {/* Legend */}
           <div className="sched-legend tp-reveal">
             <span className="sched-legend__title">Format legend:</span>
-            {[['Classroom','#f0fdf4','#16a34a'],['Online','#eff6ff','#2563eb'],['On-site','#fefce8','#d97706'],['Practical','#fdf4ff','#7c3aed']].map(([f,bg,c]) => (
+            {[['Classroom','#f0fdf4','#16a34a'],['Online','#eff6ff','goldenrod'],['On-site','#fefce8','#d97706'],['Practical','#fdf4ff','#7c3aed']].map(([f,bg,c]) => (
               <span key={f} className="sched-legend__item" style={{ background: bg, color: c }}>● {f}</span>
             ))}
           </div>

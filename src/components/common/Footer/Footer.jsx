@@ -15,7 +15,7 @@ const Footer = () => {
 
           {/* Column 1: Brand */}
           <div className="footer-column brand-col">
-            <img src="/BraveLion.png" alt="Bravelion Group BraveLion" className="footer-BraveLion" />
+            <img src="/BraveLion.jpg" alt="Bravelion Group BraveLion" className="footer-BraveLion" />
             <p className="brand-pitch">
               Bravelion Group is a diversified enterprise operating across 
               technical services, real estate development, and professional 
