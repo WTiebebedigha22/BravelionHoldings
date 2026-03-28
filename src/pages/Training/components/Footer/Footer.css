@@ -60,7 +60,7 @@
 }
 
 .footer__newsletter-form input:focus {
-  border-color: #16a34a;
+  border-color: goldenrod;
 }
 
 .footer__newsletter-form button {
@@ -68,7 +68,7 @@
   align-items: center;
   gap: 8px;
   padding: 12px 20px;
-  background-color: #16a34a;
+  background-color: goldenrod;
   color: #ffffff;
   font-weight: 700;
   font-size: 0.875rem;
@@ -128,9 +128,9 @@
 }
 
 .footer__socials a:hover {
-  background: #16a34a;
+  background: goldenrod;
   color: #ffffff;
-  border-color: #16a34a;
+  border-color: goldenrod;
 }
 
 .footer__col-title {
@@ -159,7 +159,7 @@
 }
 
 .footer__col-links li a:hover {
-  color: #16a34a;
+  color: goldenrod;
 }
 
 .footer__contact-list {
@@ -180,7 +180,7 @@
 }
 
 .footer__contact-list li svg {
-  color: #16a34a;
+  color: goldenrod;
   flex-shrink: 0;
   margin-top: 2px;
 }
@@ -192,7 +192,7 @@
 }
 
 .footer__contact-list li a:hover {
-  color: #16a34a;
+  color: goldenrod;
 }
 
 .footer__bottom {
@@ -225,7 +225,7 @@
 }
 
 .footer__bottom-links a:hover {
-  color: #16a34a;
+  color: goldenrod;
 }
 
 /* ===== RESPONSIVE ===== */

@@ -1,6 +1,6 @@
 /* ============================================================
    ESTATES NAVBAR — navbar.css
-   Aesthetic: Luxury Real Estate · Deep Navy · Gold
+   Aesthetic: Luxury Real Estate · Deep Navy · goldenrod
    ============================================================ */
 
 @import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600&family=Jost:wght@300;400;500;600&display=swap');
@@ -9,9 +9,9 @@
 :root {
   --navy:        #0b1d2e;
   --navy-light:  #132438;
-  --gold:        #c9a84c;
-  --gold-light:  #e2c47a;
-  --gold-dim:    rgba(201, 168, 76, 0.15);
+  --goldenrod:        #c9a84c;
+  --goldenrod-light:  #e2c47a;
+  --goldenrod-dim:    rgba(201, 168, 76, 0.15);
   --white:       #ffffff;
   --muted:       #94a3b8;
   --topbar-h:    40px;
@@ -95,12 +95,12 @@
 }
 
 .contact-item svg {
-  color: var(--gold);
+  color: var(--goldenrod);
   flex-shrink: 0;
 }
 
 .contact-item:hover {
-  color: var(--gold-light);
+  color: var(--goldenrod-light);
 }
 
 .top-bar__right span {
@@ -108,7 +108,7 @@
   font-weight: 300;
   letter-spacing: 0.12em;
   text-transform: uppercase;
-  color: var(--gold);
+  color: var(--goldenrod);
   opacity: 0.85;
 }
 
@@ -181,7 +181,7 @@
   left: 14px;
   right: 14px;
   height: 1px;
-  background: var(--gold);
+  background: var(--goldenrod);
   transform: scaleX(0);
   transform-origin: left;
   transition: transform var(--transition);
@@ -197,7 +197,7 @@
 }
 
 .navbar__links li a.active-link {
-  color: var(--gold-light);
+  color: var(--goldenrod-light);
 }
 
 /* ===== CTA BUTTON ===== */
@@ -208,8 +208,8 @@
   margin-left: 12px;
   padding: 10px 22px !important;
   background: transparent;
-  border: 1px solid var(--gold);
-  color: var(--gold) !important;
+  border: 1px solid var(--goldenrod);
+  color: var(--goldenrod) !important;
   font-size: 0.78rem !important;
   font-weight: 500 !important;
   letter-spacing: 0.1em !important;
@@ -224,9 +224,9 @@
 }
 
 .nav-cta a:hover {
-  background: var(--gold) !important;
+  background: var(--goldenrod) !important;
   color: var(--navy) !important;
-  border-color: var(--gold) !important;
+  border-color: var(--goldenrod) !important;
 }
 
 .nav-cta a svg {
@@ -242,7 +242,7 @@
   display: none;
   background: none;
   border: 1px solid rgba(201, 168, 76, 0.3);
-  color: var(--gold);
+  color: var(--goldenrod);
   padding: 7px;
   cursor: pointer;
   border-radius: 4px;
@@ -251,8 +251,8 @@
 }
 
 .navbar__toggle:hover {
-  background: var(--gold-dim);
-  border-color: var(--gold);
+  background: var(--goldenrod-dim);
+  border-color: var(--goldenrod);
 }
 
 /* ===== OVERLAY ===== */

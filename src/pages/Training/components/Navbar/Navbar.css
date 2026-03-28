@@ -55,11 +55,11 @@
 }
 
 .contact-item:hover {
-  color: #16a34a;
+  color: goldenrod;
 }
 
 .contact-item svg {
-  color: #16a34a;
+  color: goldenrod;
   flex-shrink: 0;
 }
 
@@ -133,12 +133,12 @@
 }
 
 .navbar__links li a:hover {
-  color: #16a34a;
+  color: goldenrod;
   background-color: #f0fdf4;
 }
 
 .navbar__links li a.active-link {
-  color: #16a34a;
+  color: goldenrod;
   font-weight: 600;
   background-color: #f0fdf4;
 }
@@ -149,7 +149,7 @@
   align-items: center;
   gap: 6px;
   padding: 9px 18px !important;
-  background-color: #16a34a !important;
+  background-color: goldenrod !important;
   color: #ffffff !important;
   font-size: 0.875rem !important;
   font-weight: 600 !important;
@@ -160,7 +160,7 @@
 }
 
 .nav-cta a:hover {
-  background-color: #15803d !important;
+  background-color: rgb(121, 92, 21)!important;
   color: #ffffff !important;
   transform: translateY(-1px);
 }
@@ -188,7 +188,7 @@
 
 .navbar__toggle:hover {
   background-color: #f1f5f9;
-  color: #16a34a;
+  color: goldenrod;
 }
 
 .navbar__menu-overlay {
@@ -268,7 +268,7 @@
   .navbar__links li a:hover,
   .navbar__links li a.active-link {
     background-color: #f0fdf4;
-    color: #16a34a;
+    color: goldenrod;
   }
 
   .nav-cta {

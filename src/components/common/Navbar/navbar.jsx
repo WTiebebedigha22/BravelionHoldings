@@ -34,7 +34,7 @@ const Navbar = () => {
             </a>
             <a href="tel:+2347081728260" className="contact-item">
               <Phone size={12} strokeWidth={2.5} />
-              <span>+234 708 172 8260</span>
+              <span>+2347081728260</span>
             </a>
           </div>
 

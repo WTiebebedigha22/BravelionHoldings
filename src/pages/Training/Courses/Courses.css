@@ -2,14 +2,14 @@
    COURSES PAGE — Bravelion Training
    Self-contained: includes all tp-* shared + courses-* styles
    Fonts: Playfair Display (display) + Nunito Sans (body)
-   Palette: forest green #16a34a · deep dark #071a0e
+   Palette: forest green goldenrod · deep dark #071a0e
    ============================================================ */
 
 @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;0,800;1,700&family=Nunito+Sans:wght@300;400;600;700;800&display=swap');
 
 /* ── TOKENS ── */
 :root {
-  --tg:       #16a34a;
+  --tg:       goldenrod;
   --tg-lt:    #22c55e;
   --tg-dk:    #15803d;
   --td:       #071a0e;

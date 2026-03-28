@@ -1,15 +1,15 @@
 /* ============================================================
    WHY US — BRAVELION ESTATES
-   Aesthetic: Luxury editorial — dark navy base, gold accents,
+   Aesthetic: Luxury editorial — dark navy base, goldenrod accents,
    serif display type, refined spacing, cinematic imagery
    ============================================================ */
 
 @import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400;1,600&family=DM+Sans:wght@300;400;500;600&display=swap');
 
 :root {
-  --gold: #c9a84c;
-  --gold-light: #e2c97e;
-  --gold-dark: #a8882e;
+  --goldenrod: #c9a84c;
+  --goldenrod-light: #e2c97e;
+  --goldenrod-dark: #a8882e;
   --navy: #0d1b2a;
   --navy-mid: #112240;
   --navy-light: #1a2e45;
@@ -46,7 +46,7 @@
 .wu-anchor-bar {
   width: 48px;
   height: 3px;
-  background: var(--gold);
+  background: var(--goldenrod);
   margin-bottom: 20px;
 }
 
@@ -65,13 +65,13 @@
   cursor: pointer;
 }
 
-.wu-btn--gold {
-  background: var(--gold);
+.wu-btn--goldenrod {
+  background: var(--goldenrod);
   color: var(--navy);
 }
 
-.wu-btn--gold:hover {
-  background: var(--gold-light);
+.wu-btn--goldenrod:hover {
+  background: var(--goldenrod-light);
   transform: translateY(-2px);
   box-shadow: 0 8px 24px rgba(201, 168, 76, 0.35);
 }
@@ -83,8 +83,8 @@
 }
 
 .wu-btn--outline:hover {
-  border-color: var(--gold);
-  color: var(--gold);
+  border-color: var(--goldenrod);
+  color: var(--goldenrod);
 }
 
 .wu-btn--ghost {
@@ -94,8 +94,8 @@
 }
 
 .wu-btn--ghost:hover {
-  border-color: var(--gold);
-  color: var(--gold);
+  border-color: var(--goldenrod);
+  color: var(--goldenrod);
 }
 
 /* ===== HERO ===== */
@@ -116,7 +116,7 @@
     center / cover no-repeat;
 }
 
-/* Diagonal gold accent */
+/* Diagonal goldenrod accent */
 .wu-hero__bg::after {
   content: '';
   position: absolute;
@@ -144,7 +144,7 @@
   font-weight: 600;
   letter-spacing: 0.2em;
   text-transform: uppercase;
-  color: var(--gold);
+  color: var(--goldenrod);
   margin-bottom: 24px;
   padding: 6px 16px;
   border: 1px solid rgba(201, 168, 76, 0.35);
@@ -162,7 +162,7 @@
 
 .wu-hero__title em {
   font-style: italic;
-  color: var(--gold-light);
+  color: var(--goldenrod-light);
 }
 
 .wu-hero__sub {
@@ -191,7 +191,7 @@
   display: block;
   width: 1px;
   height: 60px;
-  background: linear-gradient(to bottom, var(--gold), transparent);
+  background: linear-gradient(to bottom, var(--goldenrod), transparent);
   animation: scrollPulse 2s ease-in-out infinite;
 }
 
@@ -236,7 +236,7 @@
   font-family: var(--font-display);
   font-size: 3rem;
   font-weight: 700;
-  color: var(--gold);
+  color: var(--goldenrod);
   line-height: 1;
 }
 
@@ -363,18 +363,18 @@
   font-size: 0.875rem;
   font-weight: 600;
   letter-spacing: 0.04em;
-  color: var(--gold-dark);
+  color: var(--goldenrod-dark);
   text-decoration: none;
   transition: gap 0.2s, color 0.2s;
 }
 
 .wu-text-link:hover {
   gap: 14px;
-  color: var(--gold);
+  color: var(--goldenrod);
 }
 
 .wu-reason--flip .wu-text-link {
-  color: var(--gold);
+  color: var(--goldenrod);
 }
 
 /* ===== PILLARS ===== */
@@ -435,7 +435,7 @@
 
 .wu-pillar__icon {
   font-size: 1.1rem;
-  color: var(--gold);
+  color: var(--goldenrod);
   flex-shrink: 0;
 }
 
@@ -498,7 +498,7 @@
   font-family: var(--font-display);
   font-size: 5rem;
   line-height: 0.6;
-  color: var(--gold);
+  color: var(--goldenrod);
   opacity: 0.4;
   margin-bottom: 20px;
   display: block;
@@ -563,7 +563,7 @@
   font-weight: 600;
   letter-spacing: 0.2em;
   text-transform: uppercase;
-  color: var(--gold);
+  color: var(--goldenrod);
   margin-bottom: 24px;
 }
 

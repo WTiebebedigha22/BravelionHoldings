@@ -3,17 +3,17 @@
    Aesthetic: Luxury private wealth — private banking meets
    premium real estate. Restrained maximalism.
    Fonts: Playfair Display (display) + DM Serif Text (accent) + DM Sans (body)
-   Palette: deep charcoal #121820 · warm gold #c9a84c · ivory #f7f4ee
+   Palette: deep charcoal #121820 · warm goldenrod #c9a84c · ivory #f7f4ee
    ============================================================ */
 
 @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;0,800;1,400;1,600;1,700&family=DM+Serif+Text:ital@0;1&family=DM+Sans:wght@300;400;500;600;700&display=swap');
 
 /* ── TOKENS ── */
 :root {
-  --gold:        #c9a84c;
-  --gold-lt:     #e0c068;
-  --gold-dk:     #a8893a;
-  --gold-pale:   rgba(201,168,76,0.08);
+  --goldenrod:        #c9a84c;
+  --goldenrod-lt:     #e0c068;
+  --goldenrod-dk:     #a8893a;
+  --goldenrod-pale:   rgba(201,168,76,0.08);
   --char:        #121820;
   --char-2:      #1a2230;
   --char-3:      #222d3d;
@@ -47,12 +47,12 @@
 .ir-reveal.ir-in { opacity: 1; transform: none; }
 
 /* ── SHARED ATOMS ── */
-.ir-bar { width: 36px; height: 2px; background: var(--gold); margin-bottom: 18px; }
+.ir-bar { width: 36px; height: 2px; background: var(--goldenrod); margin-bottom: 18px; }
 
 .ir-label {
   font-size: 0.65rem; font-weight: 700;
   letter-spacing: 0.2em; text-transform: uppercase;
-  color: var(--gold);
+  color: var(--goldenrod);
   padding: 5px 14px;
   background: rgba(201,168,76,0.1);
   border: 1px solid rgba(201,168,76,0.25);
@@ -67,12 +67,12 @@
   display: inline-flex; align-items: center; gap: 7px;
   font-size: 0.875rem; font-weight: 700;
   letter-spacing: 0.04em; text-transform: uppercase;
-  color: var(--gold); text-decoration: none;
+  color: var(--goldenrod); text-decoration: none;
   padding-bottom: 3px;
   border-bottom: 1px solid rgba(201,168,76,0.4);
   transition: gap 0.2s, border-color 0.2s;
 }
-.ir-text-link:hover { gap: 12px; border-color: var(--gold); }
+.ir-text-link:hover { gap: 12px; border-color: var(--goldenrod); }
 
 /* ── BUTTONS ── */
 .ir-btn {
@@ -84,26 +84,26 @@
   border: none; cursor: pointer;
   transition: all 0.25s ease;
 }
-.ir-btn--gold { background: var(--gold); color: var(--char); }
-.ir-btn--gold:hover {
-  background: var(--gold-lt); transform: translateY(-2px);
+.ir-btn--goldenrod { background: var(--goldenrod); color: var(--char); }
+.ir-btn--goldenrod:hover {
+  background: var(--goldenrod-lt); transform: translateY(-2px);
   box-shadow: 0 10px 28px rgba(201,168,76,0.4);
 }
 .ir-btn--ghost {
   background: transparent; color: var(--ir-white);
   border: 1.5px solid rgba(255,255,255,0.3);
 }
-.ir-btn--ghost:hover { border-color: var(--gold-lt); color: var(--gold-lt); }
+.ir-btn--ghost:hover { border-color: var(--goldenrod-lt); color: var(--goldenrod-lt); }
 .ir-btn--outline {
   background: transparent; color: rgba(255,255,255,0.7);
   border: 1.5px solid rgba(255,255,255,0.15);
 }
-.ir-btn--outline:hover { border-color: var(--gold); color: var(--gold-lt); }
+.ir-btn--outline:hover { border-color: var(--goldenrod); color: var(--goldenrod-lt); }
 .ir-btn--outline-dark {
   background: transparent; color: var(--char);
   border: 1.5px solid rgba(18,24,32,0.2);
 }
-.ir-btn--outline-dark:hover { border-color: var(--gold); color: var(--gold-dk); }
+.ir-btn--outline-dark:hover { border-color: var(--goldenrod); color: var(--goldenrod-dk); }
 
 /* ══════════════════════════════════════════════════════════
    HERO
@@ -153,7 +153,7 @@
   color: var(--ir-white); margin-bottom: 26px;
   letter-spacing: -0.01em;
 }
-.ir-hero__title em { font-style: italic; color: var(--gold-lt); }
+.ir-hero__title em { font-style: italic; color: var(--goldenrod-lt); }
 
 .ir-hero__sub {
   font-size: 1rem; line-height: 1.82;
@@ -188,7 +188,7 @@
   display: block;
   font-size: 0.62rem; font-weight: 700;
   letter-spacing: 0.18em; text-transform: uppercase;
-  color: var(--gold); opacity: 0.75; margin-bottom: 18px;
+  color: var(--goldenrod); opacity: 0.75; margin-bottom: 18px;
 }
 
 .ir-hero__trust-metrics {
@@ -204,7 +204,7 @@
 .ir-tm__num {
   font-family: var(--ir-disp);
   font-size: 1.7rem; font-weight: 700;
-  color: var(--gold-lt); line-height: 1;
+  color: var(--goldenrod-lt); line-height: 1;
 }
 .ir-tm__label {
   font-size: 0.65rem; font-weight: 600;
@@ -244,7 +244,7 @@
 .ir-stat__num {
   font-family: var(--ir-disp);
   font-size: 2.8rem; font-weight: 700;
-  color: var(--gold); line-height: 1;
+  color: var(--goldenrod); line-height: 1;
 }
 .ir-stat__label {
   font-size: 0.68rem; font-weight: 600;
@@ -287,7 +287,7 @@
   transition: border-left-color 0.25s, transform 0.25s, box-shadow 0.25s;
 }
 .ir-why-card:hover {
-  border-left-color: var(--gold);
+  border-left-color: var(--goldenrod);
   transform: translateX(3px);
   box-shadow: 0 8px 28px rgba(18,24,32,0.08);
 }
@@ -335,13 +335,13 @@
 .ir-opp-tab:hover { background: var(--ivory); border-color: var(--ir-border); }
 .ir-opp-tab--active {
   background: var(--ivory); border-color: var(--ir-border);
-  border-left-color: var(--gold);
+  border-left-color: var(--goldenrod);
 }
 
 .ir-opp-tab__type {
   font-size: 0.62rem; font-weight: 800;
   letter-spacing: 0.1em; text-transform: uppercase;
-  color: var(--gold-dk);
+  color: var(--goldenrod-dk);
   background: rgba(201,168,76,0.1);
   padding: 2px 8px; border-radius: 2px;
   flex-shrink: 0;
@@ -381,7 +381,7 @@
 
 .ir-opp-panel__image-badge {
   position: absolute; bottom: 24px; left: 24px;
-  background: var(--gold); padding: 14px 20px; border-radius: 4px;
+  background: var(--goldenrod); padding: 14px 20px; border-radius: 4px;
   box-shadow: 0 8px 24px rgba(0,0,0,0.4);
   display: flex; flex-direction: column; gap: 3px;
 }
@@ -412,7 +412,7 @@
 .ir-opp-panel__type {
   display: block; font-size: 0.62rem; font-weight: 800;
   letter-spacing: 0.16em; text-transform: uppercase;
-  color: var(--gold-dk); margin-bottom: 12px;
+  color: var(--goldenrod-dk); margin-bottom: 12px;
 }
 
 .ir-opp-panel__title {
@@ -436,7 +436,7 @@
   display: flex; align-items: baseline; gap: 12px;
   padding: 16px 18px;
   background: var(--ir-white); border: 1px solid var(--ir-border);
-  border-left: 3px solid var(--gold);
+  border-left: 3px solid var(--goldenrod);
   border-radius: 4px; margin-bottom: 20px;
 }
 .ir-opp-panel__return-label {
@@ -445,7 +445,7 @@
 }
 .ir-opp-panel__return-val {
   font-family: var(--ir-disp);
-  font-size: 1.2rem; font-weight: 700; color: var(--gold-dk);
+  font-size: 1.2rem; font-weight: 700; color: var(--goldenrod-dk);
 }
 
 .ir-opp-panel__highlights {
@@ -456,7 +456,7 @@
   font-size: 0.68rem; font-weight: 700;
   letter-spacing: 0.05em; text-transform: uppercase;
   padding: 4px 12px;
-  background: rgba(201,168,76,0.1); color: var(--gold-dk);
+  background: rgba(201,168,76,0.1); color: var(--goldenrod-dk);
   border: 1px solid rgba(201,168,76,0.25); border-radius: 2px;
 }
 
@@ -466,7 +466,7 @@
 .ir-opp-panel__btns .ir-btn--outline {
   color: var(--char); border-color: rgba(18,24,32,0.2);
 }
-.ir-opp-panel__btns .ir-btn--outline:hover { border-color: var(--gold); color: var(--gold-dk); }
+.ir-opp-panel__btns .ir-btn--outline:hover { border-color: var(--goldenrod); color: var(--goldenrod-dk); }
 
 /* ══════════════════════════════════════════════════════════
    PROCESS
@@ -517,13 +517,13 @@
   width: 56px; height: 56px;
   display: flex; align-items: center; justify-content: center;
   background: var(--char-3); border: 2px solid rgba(201,168,76,0.3);
-  border-radius: 50%; color: var(--gold); margin-bottom: 20px;
+  border-radius: 50%; color: var(--goldenrod); margin-bottom: 20px;
   position: relative; z-index: 2;
   transition: background 0.25s, border-color 0.25s, box-shadow 0.25s;
 }
 .ir-step:hover .ir-step__num {
-  background: var(--gold); color: var(--char);
-  border-color: var(--gold);
+  background: var(--goldenrod); color: var(--char);
+  border-color: var(--goldenrod);
   box-shadow: 0 0 24px rgba(201,168,76,0.4);
 }
 
@@ -565,7 +565,7 @@
   display: block;
   font-size: 0.62rem; font-weight: 700;
   letter-spacing: 0.22em; text-transform: uppercase;
-  color: var(--gold); margin-bottom: 24px;
+  color: var(--goldenrod); margin-bottom: 24px;
 }
 
 .ir-break__content blockquote {
@@ -617,11 +617,11 @@
   font-family: var(--ir-disp);
   font-size: 1.05rem; font-weight: 700; color: var(--char); line-height: 1.3;
 }
-.ir-faq-item:hover .ir-faq-item__q span:first-child { color: var(--gold-dk); }
+.ir-faq-item:hover .ir-faq-item__q span:first-child { color: var(--goldenrod-dk); }
 
 .ir-faq-item__chevron {
   font-size: 1.4rem; line-height: 1; flex-shrink: 0;
-  color: var(--gold); font-weight: 300;
+  color: var(--goldenrod); font-weight: 300;
   transition: transform 0.25s;
 }
 .ir-faq-item--open .ir-faq-item__chevron { transform: rotate(45deg); }
@@ -665,7 +665,7 @@
   display: block;
   font-size: 0.65rem; font-weight: 700;
   letter-spacing: 0.2em; text-transform: uppercase;
-  color: var(--gold); opacity: 0.75; margin-bottom: 16px;
+  color: var(--goldenrod); opacity: 0.75; margin-bottom: 16px;
 }
 
 .ir-cta h2 {
@@ -693,7 +693,7 @@
 .ir-cta__card-title {
   font-family: var(--ir-disp);
   font-size: 1.1rem; font-weight: 700;
-  color: var(--gold); letter-spacing: 0.04em;
+  color: var(--goldenrod); letter-spacing: 0.04em;
 }
 
 .ir-cta__card-body {
@@ -707,7 +707,7 @@
   border-top: 1px solid rgba(255,255,255,0.07);
   transition: color 0.2s;
 }
-.ir-cta__contact-link:hover { color: var(--gold-lt); }
+.ir-cta__contact-link:hover { color: var(--goldenrod-lt); }
 
 .ir-cta__card-hours {
   display: flex; align-items: center; gap: 8px;

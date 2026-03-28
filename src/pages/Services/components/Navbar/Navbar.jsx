@@ -106,7 +106,7 @@ const ServicesNavbar = () => {
         <div className="container navbar__container">
 
           <Link to="/" className="navbar__BraveLion">
-            <img src="/BraveLion.jpg" alt="Bravelion Services" />
+            <img src="/BraveLion.png" alt="Bravelion Services" />
           </Link>
 
           <button

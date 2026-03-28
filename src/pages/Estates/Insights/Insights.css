@@ -2,16 +2,16 @@
    ESTATES INSIGHTS PAGE — Bravelion Estates
    Self-contained: all ins-* classes
    Fonts: Cormorant Garamond (display) + DM Sans (body)
-   Palette: deep navy #0d1b2a · warm gold #c9a84c · ivory #f8f6f1
+   Palette: deep navy #0d1b2a · warm goldenrod #c9a84c · ivory #f8f6f1
    ============================================================ */
 
 @import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400;1,600;1,700&family=DM+Sans:wght@300;400;500;600;700&display=swap');
 
 /* ── TOKENS ── */
 :root {
-  --gold:       #c9a84c;
-  --gold-lt:    #e0c068;
-  --gold-dk:    #a8893a;
+  --goldenrod:       #c9a84c;
+  --goldenrod-lt:    #e0c068;
+  --goldenrod-dk:    #a8893a;
   --navy:       #0d1b2a;
   --navy-mid:   #132233;
   --navy-lt:    #1c3047;
@@ -52,16 +52,16 @@
   border: none; cursor: pointer;
   transition: all 0.22s ease;
 }
-.ins-btn--gold { background: var(--gold); color: var(--navy); }
-.ins-btn--gold:hover {
-  background: var(--gold-lt); transform: translateY(-2px);
+.ins-btn--goldenrod { background: var(--goldenrod); color: var(--navy); }
+.ins-btn--goldenrod:hover {
+  background: var(--goldenrod-lt); transform: translateY(-2px);
   box-shadow: 0 8px 24px rgba(201, 168, 76, 0.38);
 }
 .ins-btn--ghost {
   background: transparent; color: var(--ins-white);
   border: 1.5px solid rgba(255, 255, 255, 0.35);
 }
-.ins-btn--ghost:hover { border-color: var(--gold-lt); color: var(--gold-lt); }
+.ins-btn--ghost:hover { border-color: var(--goldenrod-lt); color: var(--goldenrod-lt); }
 
 /* ══════════════════════════════════════════════════════════
    MASTHEAD
@@ -73,7 +73,7 @@
   overflow: hidden;
 }
 
-/* Fine gold crosshatch grid */
+/* Fine goldenrod crosshatch grid */
 .ins-masthead__bg {
   position: absolute; inset: 0; pointer-events: none;
   background-image:
@@ -105,7 +105,7 @@
 .ins-masthead__issue {
   font-size: 0.68rem; font-weight: 700;
   letter-spacing: 0.2em; text-transform: uppercase;
-  color: var(--gold); opacity: 0.85;
+  color: var(--goldenrod); opacity: 0.85;
 }
 
 .ins-masthead__date {
@@ -126,7 +126,7 @@
 }
 .ins-masthead__title em {
   font-style: italic;
-  color: var(--gold-lt);
+  color: var(--goldenrod-lt);
   display: block;
 }
 
@@ -136,16 +136,16 @@
   max-width: 560px;
 }
 
-/* Gold gradient rule at bottom */
+/* goldenrod gradient rule at bottom */
 .ins-masthead__rule {
   position: relative; z-index: 2;
   height: 3px;
   background: linear-gradient(
     90deg,
     transparent 0%,
-    var(--gold) 20%,
-    var(--gold-lt) 50%,
-    var(--gold) 80%,
+    var(--goldenrod) 20%,
+    var(--goldenrod-lt) 50%,
+    var(--goldenrod) 80%,
     transparent 100%
   );
 }
@@ -203,13 +203,13 @@
 
 .ins-kicker-line {
   display: block; width: 32px; height: 2px;
-  background: var(--gold); flex-shrink: 0;
+  background: var(--goldenrod); flex-shrink: 0;
 }
 
 .ins-featured__kicker span:last-child {
   font-size: 0.68rem; font-weight: 800;
   letter-spacing: 0.18em; text-transform: uppercase;
-  color: var(--gold);
+  color: var(--goldenrod);
 }
 
 .ins-featured__title {
@@ -247,10 +247,10 @@
   letter-spacing: 0.06em; text-transform: uppercase;
   color: var(--navy); text-decoration: none;
   padding-bottom: 4px;
-  border-bottom: 2px solid var(--gold);
+  border-bottom: 2px solid var(--goldenrod);
   transition: gap 0.2s, color 0.2s;
 }
-.ins-read-btn:hover { gap: 16px; color: var(--gold-dk); }
+.ins-read-btn:hover { gap: 16px; color: var(--goldenrod-dk); }
 .ins-read-btn__arrow { font-size: 1rem; }
 
 /* ══════════════════════════════════════════════════════════
@@ -267,7 +267,7 @@
   flex-shrink: 0;
   font-size: 0.62rem; font-weight: 800;
   letter-spacing: 0.18em; text-transform: uppercase;
-  color: var(--gold); opacity: 0.7;
+  color: var(--goldenrod); opacity: 0.7;
   padding: 14px 20px 14px 24px;
   border-right: 1px solid rgba(201, 168, 76, 0.15);
   background: var(--navy-mid);
@@ -335,7 +335,7 @@
   border: 1.5px solid var(--ins-border); border-radius: 2px;
   cursor: pointer; transition: all 0.2s ease;
 }
-.ins-filter:hover { border-color: var(--gold); color: var(--gold-dk); }
+.ins-filter:hover { border-color: var(--goldenrod); color: var(--goldenrod-dk); }
 .ins-filter--active {
   background: var(--navy); color: var(--ins-white);
   border-color: var(--navy);
@@ -350,7 +350,7 @@
   transition: border-color 0.2s, box-shadow 0.2s;
 }
 .ins-search:focus {
-  border-color: var(--gold);
+  border-color: var(--goldenrod);
   box-shadow: 0 0 0 3px rgba(201, 168, 76, 0.1);
 }
 .ins-search::placeholder { color: #94a3b8; }
@@ -461,7 +461,7 @@
 
 .ins-card__link {
   font-size: 0.78rem; font-weight: 800;
-  color: var(--gold-dk); text-decoration: none;
+  color: var(--goldenrod-dk); text-decoration: none;
   letter-spacing: 0.04em;
   transition: color 0.2s, letter-spacing 0.2s;
 }
@@ -500,7 +500,7 @@
   display: block;
   font-size: 0.65rem; font-weight: 800;
   letter-spacing: 0.2em; text-transform: uppercase;
-  color: var(--gold); opacity: 0.75; margin-bottom: 18px;
+  color: var(--goldenrod); opacity: 0.75; margin-bottom: 18px;
 }
 
 .ins-newsletter__title {
@@ -509,7 +509,7 @@
   font-weight: 700; color: var(--ins-white);
   line-height: 1.1; margin-bottom: 16px;
 }
-.ins-newsletter__title em { font-style: italic; color: var(--gold-lt); }
+.ins-newsletter__title em { font-style: italic; color: var(--goldenrod-lt); }
 
 .ins-newsletter__sub {
   font-size: 0.95rem; line-height: 1.8;
@@ -531,7 +531,7 @@
   transition: border-color 0.2s, background 0.2s;
 }
 .ins-nl-input:focus {
-  border-color: var(--gold);
+  border-color: var(--goldenrod);
   background: rgba(201, 168, 76, 0.06);
 }
 .ins-nl-input::placeholder { color: rgba(255, 255, 255, 0.3); }
@@ -540,12 +540,12 @@
   padding: 14px 24px;
   font-family: var(--ins-sans); font-size: 0.875rem;
   font-weight: 800; letter-spacing: 0.03em;
-  background: var(--gold); color: var(--navy);
+  background: var(--goldenrod); color: var(--navy);
   border: none; border-radius: 3px; cursor: pointer;
   transition: background 0.22s, transform 0.22s, box-shadow 0.22s;
 }
 .ins-nl-btn:hover {
-  background: var(--gold-lt); transform: translateY(-2px);
+  background: var(--goldenrod-lt); transform: translateY(-2px);
   box-shadow: 0 8px 24px rgba(201, 168, 76, 0.38);
 }
 
@@ -560,7 +560,7 @@
 .ins-cta {
   background: var(--ins-off);
   padding: 96px 24px; text-align: center;
-  border-top: 3px solid var(--gold);
+  border-top: 3px solid var(--goldenrod);
   position: relative; overflow: hidden;
 }
 
@@ -583,7 +583,7 @@
   display: block;
   font-size: 0.65rem; font-weight: 800;
   letter-spacing: 0.2em; text-transform: uppercase;
-  color: var(--gold-dk); margin-bottom: 16px;
+  color: var(--goldenrod-dk); margin-bottom: 16px;
 }
 
 .ins-cta h2 {

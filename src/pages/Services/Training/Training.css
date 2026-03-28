@@ -2,14 +2,14 @@
    TRAINING & DEVELOPMENT PAGE — Services Division
    Bravelion Holdings
    Fonts: Playfair Display (display) + Nunito Sans (body)
-   Palette: deep forest #071a0e · green #16a34a · amber #f59e0b
+   Palette: deep forest #071a0e · green goldenrod · amber #f59e0b
    ============================================================ */
 
 @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;0,800;1,700&family=Nunito+Sans:wght@300;400;600;700;800&display=swap');
 
 /* ── TOKENS ── */
 :root {
-  --tg:         #16a34a;
+  --tg:         goldenrod;
   --tg-lt:      #22c55e;
   --tg-dk:      #15803d;
   --td-dark:    #071a0e;

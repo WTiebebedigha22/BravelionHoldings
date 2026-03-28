@@ -2,16 +2,16 @@
    PROPERTY LISTINGS PAGE — Bravelion Estates
    Self-contained: all pr-* classes
    Fonts: Cormorant Garamond (display) + DM Sans (body)
-   Palette: deep navy #0d1b2a · gold #c9a84c
+   Palette: deep navy #0d1b2a · goldenrod #c9a84c
    ============================================================ */
 
 @import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,600;0,700;1,600;1,700&family=DM+Sans:wght@300;400;500;600;700&display=swap');
 
 /* ── TOKENS ── */
 :root {
-  --gold:       #c9a84c;
-  --gold-lt:    #e0c068;
-  --gold-dk:    #a8893a;
+  --goldenrod:       #c9a84c;
+  --goldenrod-lt:    #e0c068;
+  --goldenrod-dk:    #a8893a;
   --navy:       #0d1b2a;
   --navy-mid:   #132233;
   --navy-lt:    #1c3047;
@@ -51,27 +51,27 @@
   border: none; cursor: pointer;
   transition: all 0.22s ease;
 }
-.pr-btn--gold { background: var(--gold); color: var(--navy); }
-.pr-btn--gold:hover {
-  background: var(--gold-lt); transform: translateY(-2px);
+.pr-btn--goldenrod { background: var(--goldenrod); color: var(--navy); }
+.pr-btn--goldenrod:hover {
+  background: var(--goldenrod-lt); transform: translateY(-2px);
   box-shadow: 0 8px 24px rgba(201, 168, 76, 0.38);
 }
 .pr-btn--ghost {
   background: transparent; color: #fff;
   border: 1.5px solid rgba(255, 255, 255, 0.35);
 }
-.pr-btn--ghost:hover { border-color: var(--gold-lt); color: var(--gold-lt); }
+.pr-btn--ghost:hover { border-color: var(--goldenrod-lt); color: var(--goldenrod-lt); }
 .pr-btn--outline-lt {
   background: transparent; color: var(--navy);
   border: 1.5px solid rgba(13, 27, 42, 0.22);
 }
-.pr-btn--outline-lt:hover { border-color: var(--gold); color: var(--gold-dk); }
+.pr-btn--outline-lt:hover { border-color: var(--goldenrod); color: var(--goldenrod-dk); }
 
 /* ── LABELS ── */
 .pr-label {
   font-size: 0.68rem; font-weight: 700;
   letter-spacing: 0.18em; text-transform: uppercase;
-  color: var(--gold);
+  color: var(--goldenrod);
   padding: 5px 14px;
   background: rgba(201, 168, 76, 0.12);
   border: 1px solid rgba(201, 168, 76, 0.28);
@@ -131,7 +131,7 @@
   color: var(--pr-white); margin-bottom: 24px;
   letter-spacing: -0.01em;
 }
-.pr-hero__title em { font-style: italic; color: var(--gold-lt); }
+.pr-hero__title em { font-style: italic; color: var(--goldenrod-lt); }
 
 .pr-hero__sub {
   font-size: 1rem; line-height: 1.8;
@@ -163,7 +163,7 @@
 .pr-hero__kpi-num {
   font-family: var(--pr-disp);
   font-size: 2.2rem; font-weight: 700;
-  color: var(--gold); line-height: 1;
+  color: var(--goldenrod); line-height: 1;
 }
 .pr-hero__kpi-label {
   font-size: 0.7rem; font-weight: 600;
@@ -191,7 +191,7 @@
   transition: border-color 0.2s, box-shadow 0.2s;
 }
 .pr-search:focus {
-  border-color: var(--gold);
+  border-color: var(--goldenrod);
   box-shadow: 0 0 0 3px rgba(201, 168, 76, 0.12);
 }
 .pr-search::placeholder { color: #94a3b8; }
@@ -209,8 +209,8 @@
   border-radius: 3px; color: var(--pr-slate);
   cursor: pointer; transition: all 0.2s ease;
 }
-.pr-filter:hover { border-color: var(--gold); color: var(--gold-dk); }
-.pr-filter--active { background: var(--gold); color: var(--navy); border-color: var(--gold); }
+.pr-filter:hover { border-color: var(--goldenrod); color: var(--goldenrod-dk); }
+.pr-filter--active { background: var(--goldenrod); color: var(--navy); border-color: var(--goldenrod); }
 
 .pr-controls__right {
   display: flex; align-items: center; gap: 14px; margin-left: auto; flex-shrink: 0;
@@ -229,7 +229,7 @@
   background: var(--pr-white); outline: none; cursor: pointer;
   transition: border-color 0.2s;
 }
-.pr-sort:focus { border-color: var(--gold); }
+.pr-sort:focus { border-color: var(--goldenrod); }
 
 /* ══════════════════════════════════════════════════════════
    LISTINGS
@@ -327,7 +327,7 @@
 
 .pr-card__price {
   font-size: 1.05rem; font-weight: 800;
-  color: var(--gold-dk); letter-spacing: 0.01em;
+  color: var(--goldenrod-dk); letter-spacing: 0.01em;
 }
 
 /* Specs row */
@@ -368,10 +368,10 @@
   padding: 9px 0;
   font-size: 0.8rem; font-weight: 800;
   color: var(--pr-white); text-decoration: none;
-  background: var(--gold); border-radius: 3px;
+  background: var(--goldenrod); border-radius: 3px;
   transition: background 0.2s, transform 0.2s;
 }
-.pr-card__cta:hover { background: var(--gold-lt); transform: translateY(-1px); }
+.pr-card__cta:hover { background: var(--goldenrod-lt); transform: translateY(-1px); }
 
 .pr-card__cta-sec {
   flex: 1; text-align: center;
@@ -383,7 +383,7 @@
   border-radius: 3px;
   transition: border-color 0.2s, color 0.2s;
 }
-.pr-card__cta-sec:hover { border-color: var(--gold); color: var(--gold-dk); }
+.pr-card__cta-sec:hover { border-color: var(--goldenrod); color: var(--goldenrod-dk); }
 
 /* ══════════════════════════════════════════════════════════
    CTA SECTION
@@ -420,7 +420,7 @@
   display: block;
   font-size: 0.68rem; font-weight: 700;
   letter-spacing: 0.2em; text-transform: uppercase;
-  color: var(--gold); opacity: 0.75; margin-bottom: 18px;
+  color: var(--goldenrod); opacity: 0.75; margin-bottom: 18px;
 }
 
 .pr-cta h2 {
