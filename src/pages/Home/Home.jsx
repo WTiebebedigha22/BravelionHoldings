@@ -33,11 +33,11 @@ const Home = () => {
       <section className="home-hero">
         <div className="hero-overlay">
           <h1 className="hero-title">
-            Building Africa’s Future <br />
-            <span className="text-highlight">Through Excellence.</span>
+            Built on Trust,<br />
+            <span className="text-highlight">Driven on trust.</span>
           </h1>
           <p className="hero-description">
-            Bravelion Group is a diversified enterprise operating across 
+            Bravelion holding is a diversified enterprise operating across 
             technical services, real estate development, and professional training — 
             delivering impact-driven solutions across Africa.
           </p>

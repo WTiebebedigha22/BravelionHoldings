@@ -153,7 +153,7 @@ const properties = [
 ];
 
 const statusColors = {
-  'For Sale':  { bg: '#f0fdf4', color: '#15803d', border: 'rgba(21,128,61,0.2)' },
+  'For Sale':  { bg: '#f0fdf4', color: 'goldenrod', border: 'rgba(21,128,61,0.2)' },
   'For Rent':  { bg: '#eff6ff', color: '#1d4ed8', border: 'rgba(29,78,216,0.2)' },
   'For Lease': { bg: '#fefce8', color: '#a16207', border: 'rgba(161,98,7,0.2)'  },
   'Off-Plan':  { bg: '#fdf4ff', color: '#7e22ce', border: 'rgba(126,34,206,0.2)'},

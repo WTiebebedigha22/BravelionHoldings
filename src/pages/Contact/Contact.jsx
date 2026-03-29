@@ -27,19 +27,38 @@ const Contact = () => {
         <div className="contact-info">
           <div className="info-card">
             <h3>Head Office</h3>
+            <p>NHouse T4034 Brains & Hammers Estate, 5th Avenue, Gwarimpa</p>
+            <p>Abuja, Nigeria.</p>
+          </div>
+          
+          <div className="info-card">
+            <h3>Regional Office</h3>
             <p>No. 1 Udoekpa Street Mbiabong Etoi (Shelter Afrique), Uyo</p>
             <p>Akwa Ibom, Nigeria.</p>
+          </div>
+          
+          <div className="info-card">
+            <h3>Field/Project Office</h3>
+            <p>No.14, Essenem Street, Iwuoachang, Ibeno,</p>
+            <p>Akwa Ibom, Nigeria.</p>
+          </div>
+          
+          <div className="info-card">
+            <h3>international Office</h3>
+            <p>16 Twin Salis Strokes Strret, West Beach, Table view</p>
+            <p>Cape Town, 7441 South Africa.</p>
           </div>
 
           <div className="info-card">
             <h3>Email</h3>
             <p>info@bravelionholdings.com</p>
             <p>training@bravelionholdings.com</p>
+            <p>services@bravelionholdings.com</p>
           </div>
 
           <div className="info-card">
             <h3>Phone</h3>
-            <p>+234 708 172 8260</p>
+            <a href="tel:+2347081728260">+234 708 172 8260</a>
           </div>
 
           <div className="info-card">

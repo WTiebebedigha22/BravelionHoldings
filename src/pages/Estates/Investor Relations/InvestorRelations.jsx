@@ -85,7 +85,7 @@ const faqs = [
 ];
 
 const statusStyle = {
-  Open:      { bg: '#f0fdf4', color: '#15803d', border: 'rgba(21,128,61,0.25)' },
+  Open:      { bg: '#f0fdf4', color: 'goldenrod', border: 'rgba(21,128,61,0.25)' },
   Limited:   { bg: '#fefce8', color: '#a16207', border: 'rgba(161,98,7,0.25)' },
   Exclusive: { bg: '#fdf4ff', color: '#7e22ce', border: 'rgba(126,34,206,0.25)' },
 };

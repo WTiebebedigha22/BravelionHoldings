@@ -90,6 +90,14 @@ const ServicesFooter = () => {
               </li>
               <li>
                 <MapPin size={14} strokeWidth={2.5} />
+                <span>House T4034 Brains & Hammers Estate, 5th Avenue, Gwarimpa, Abuja, Nigeria</span>
+              </li>
+              <li>
+                <MapPin size={14} strokeWidth={2.5} />
+                <span>No.14, Essenem Street, Iwuoachang, Ibeno, Akwa Ibom, Nigeria.</span>
+              </li>
+              <li>
+                <MapPin size={14} strokeWidth={2.5} />
                 <span>No. 1 Udoekpa Street Mbiabong Etoi (Shelter Afrique), Uyo, Akwa Ibom, Nigeria</span>
               </li>
             </ul>

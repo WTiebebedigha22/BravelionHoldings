@@ -74,6 +74,13 @@ const About = () => {
               Through expertise, innovation, and integrity, we provide measurable results our clients can consistently trust.
             </p>
           </div>
+
+          <div className="vision-card">
+            <h3>Our Motto</h3>
+            <p>
+              Built on Trust, Driven by Results.
+            </p>
+          </div>
         </div>
       </section>
 

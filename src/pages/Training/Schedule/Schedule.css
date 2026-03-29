@@ -77,7 +77,7 @@
   font-size: .68rem; font-weight: 800; letter-spacing: .05em;
   padding: 3px 9px; border-radius: 3px;
 }
-.sched-format--classroom { background: #f0fdf4; color: #15803d; }
+.sched-format--classroom { background: #f0fdf4; color: goldenrod; }
 .sched-format--online    { background: #eff6ff; color: #1d4ed8; }
 .sched-format--onsite    { background: #fefce8; color: #a16207; }
 .sched-format--practical { background: #fdf4ff; color: #6d28d9; }
