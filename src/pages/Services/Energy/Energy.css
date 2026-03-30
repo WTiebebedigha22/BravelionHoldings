@@ -1,16 +1,16 @@
 /* ============================================================
    ENERGY & OIL GAS PAGE — Bravelion Holdings
    Fonts: Barlow Condensed (display) + IBM Plex Sans (body)
-   Palette: petroleum slate #0c1520 · electric orange #f97316
+   Palette: petroleum slate · goldenrod 
    ============================================================ */
 
 @import url('https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@400;600;700;800&family=IBM+Plex+Sans:wght@300;400;500;600;700&display=swap');
 
 /* ── TOKENS ── */
 :root {
-  --en-orange:     #f97316;
-  --en-orange-lt:  #fb923c;
-  --en-orange-dk:  #ea580c;
+  --en-orange:     goldenrod;
+  --en-orange-lt:  rgb(247, 187, 36);
+  --en-orange-dk:  rgb(156, 118, 22);
   --en-slate:      #0c1520;
   --en-slate-mid:  #111c2a;
   --en-slate-lt:   #182233;
