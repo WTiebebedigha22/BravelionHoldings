@@ -27,7 +27,7 @@ const Contact = () => {
         <div className="contact-info">
           <div className="info-card">
             <h3>Head Office</h3>
-            <p>NHouse T4034 Brains & Hammers Estate, 5th Avenue, Gwarimpa</p>
+            <p>House T4034 Brains & Hammers Estate, 5th Avenue, Gwarimpa</p>
             <p>Abuja, Nigeria.</p>
           </div>
           
@@ -44,7 +44,7 @@ const Contact = () => {
           </div>
           
           <div className="info-card">
-            <h3>international Office</h3>
+            <h3>International Office</h3>
             <p>16 Twin Salis Strokes Strret, West Beach, Table view</p>
             <p>Cape Town, 7441 South Africa.</p>
           </div>
@@ -99,14 +99,7 @@ const Contact = () => {
       </section>
 
       {/* ================= MAP SECTION ================= */}
-      <section className="map-section">
-        <iframe
-          title="Bravelion Location"
-          src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d31716.378...replace_with_real_map"
-          allowFullScreen=""
-          loading="lazy"
-        ></iframe>
-      </section>
+      +
 
       {/* ================= CTA ================= */}
       <section className="contact-cta">

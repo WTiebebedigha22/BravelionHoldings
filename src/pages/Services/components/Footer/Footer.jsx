@@ -32,6 +32,7 @@ const ServicesFooter = () => {
           <div className="footer__brand">
             <Link to="/services">
               <img src="/BraveLion.png" alt="Bravelion Services" className="footer__logo" />
+              <img src="/logo.png" alt="Bravelion Services" className="footer__logo" />
             </Link>
             <p className="footer__tagline">
               Delivering real estate development, professional training, and strategic consultancy solutions that drive growth and long-term value.

@@ -16,6 +16,7 @@ const Footer = () => {
           {/* Column 1: Brand */}
           <div className="footer-column brand-col">
             <img src="/BraveLion.png" alt="Bravelion Group BraveLion" className="footer-BraveLion" />
+            <img src="/logo.png" alt="Bravelion Group BraveLion" className="footer-BraveLion" />
             <p className="brand-pitch">
               Bravelion Group is a diversified enterprise operating across 
               technical services, real estate development, and professional 
@@ -39,9 +40,8 @@ const Footer = () => {
             <h4 className="footer-heading">Corporate</h4>
             <ul className="footer-links">
               <li><Link to="/about">About Bravelion</Link></li>
-              <li><Link to="/leadership">Leadership</Link></li>
               <li><Link to="/contact">Corporate Office</Link></li>
-              <li><Link to="/careers">Careers</Link></li>
+              <li><Link to="/training">Corporate Trainings</Link></li>
             </ul>
           </div>
 
@@ -51,7 +51,7 @@ const Footer = () => {
             <div className="contact-details">
               <div className="contact-line">
                 <MapPin size={16} />
-                <span>No. 1 Udoekpa Street Mbiabong Etoi (Shelter Afrique) Uyo, Akwa Ibom, Nigeria.</span>
+                <span>House T4034 Brains & Hammers Estate, 5th Avenue, Gwarimpa, Abuja, Nigeria.</span>
               </div>
 
               <a href="tel:+2347081728260" className="contact-line link">

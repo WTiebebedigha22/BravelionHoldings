@@ -32,6 +32,7 @@ const EstatesFooter = () => {
           <div className="footer__brand">
             <Link to="/estates">
               <img src="/BraveLion.png" alt="Bravelion Estates" className="footer__logo" />
+              <img src="/logo.png" alt="Bravelion Estates" className="footer__logo" />
             </Link>
             <p className="footer__tagline">
               Premium Real Estate & Development Across Africa. Building wealth through strategic property investment.

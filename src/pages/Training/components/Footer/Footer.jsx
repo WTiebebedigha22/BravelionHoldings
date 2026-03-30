@@ -32,6 +32,7 @@ const TrainingFooter = () => {
           <div className="footer__brand">
             <Link to="/training">
               <img src="/BraveLion.png" alt="Bravelion Training" className="footer__logo" />
+              <img src="/logo.png" alt="Bravelion Training" className="footer__logo" />
             </Link>
             <p className="footer__tagline">
               Industry-driven training and certification programs designed to equip professionals with practical skills across safety, project management, and technical operations.
