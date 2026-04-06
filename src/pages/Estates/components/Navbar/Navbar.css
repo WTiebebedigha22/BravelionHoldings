@@ -150,6 +150,84 @@
   opacity: 0.85;
 }
 
+.navbar__division {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-left: 14px;
+}
+
+.navbar__division-pipe {
+  display: block;
+  width: 1px;
+  height: 26px;
+  background: rgba(201, 168, 76, 0.35);
+  flex-shrink: 0;
+}
+
+.navbar__division-name {
+  font-family: 'Cormorant Garamond', Georgia, serif;
+  font-size: 0.85rem;
+  font-weight: 500;
+  font-style: italic;
+  color: var(--goldenrod);
+  letter-spacing: 0.06em;
+  white-space: nowrap;
+  opacity: 0.9;
+}
+
+/* ===== GROUP SITE LINK ===== */
+.nav-group-link a {
+  display: block;
+  padding: 8px 14px;
+  font-family: 'Jost', sans-serif;
+  font-size: 0.75rem;
+  font-weight: 400;
+  letter-spacing: 0.06em;
+  color: var(--muted);
+  text-decoration: none;
+  position: relative;
+  transition: color var(--transition);
+  opacity: 0.7;
+}
+
+.nav-group-link a::after {
+  display: none;
+}
+
+.nav-group-link a:hover {
+  color: var(--goldenrod-light);
+  opacity: 1;
+}
+
+/* ============================================================
+   RESPONSIVE — inherit mobile rules from base Navbar.css,
+   override only what's different for Estates.
+   ============================================================ */
+@media (max-width: 900px) {
+
+  /* Division name hides on mobile — logo alone is enough */
+  .navbar__division {
+    display: none;
+  }
+
+  /* Group link sits above the CTA in the drawer */
+  .nav-group-link {
+    margin-top: auto;
+    padding: 0 24px;
+    width: 100%;
+    border-bottom: none !important;
+    border-top: 1px solid rgba(201, 168, 76, 0.1) !important;
+  }
+
+  .nav-group-link a {
+    padding: 14px 0;
+    font-size: 0.78rem;
+    opacity: 0.6;
+    letter-spacing: 0.08em;
+  }
+}
+
 /* ===== NAV LINKS ===== */
 .navbar__links {
   display: flex;
@@ -318,7 +396,110 @@
     width: 100%;
   }
 
-  .navbar__links li a::after {
+  .navbar__links li a::after {/* ==============================================
+   ESTATES NAVBAR OVERRIDES
+   Append these rules to your existing navbar.css
+   ============================================== */
+
+/* ── Top bar accent colour for Estates ── */
+.topbar--estates {
+  background: linear-gradient(90deg, var(--navy-deep, #060f22) 0%, #0d2b1e 100%);
+}
+
+/* ── Navbar tint ── */
+.navbar--estates {
+  border-bottom-color: #d4e8dd;
+}
+
+/* ── Active underline: green-gold for Estates ── */
+.navbar--estates .navbar__link-dot {
+  background: #2d8c5a;
+}
+
+/* ── Division badge next to logo ── */
+.navbar__division-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  margin-left: 10px;
+  padding: 3px 9px;
+  background: #e8f5ee;
+  color: #1a6e42;
+  border: 1px solid #c3e0cf;
+  border-radius: 3px;
+  font-size: 0.65rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  line-height: 1;
+}
+
+/* ── End slot: group link + CTA ── */
+.navbar__end {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  margin-left: auto;          /* pushes end slot to far right */
+  flex-shrink: 0;
+}
+
+/* Override default .navbar__links margin so end slot controls spacing */
+.navbar--estates .navbar__links {
+  margin-left: 0;
+}
+
+.navbar__group-link {
+  font-size: 0.72rem;
+  font-weight: 500;
+  color: var(--text-subtle, #8a93a6);
+  text-decoration: none;
+  letter-spacing: 0.03em;
+  white-space: nowrap;
+  transition: color var(--speed);
+}
+.navbar__group-link:hover { color: var(--text-muted, #5a6478); }
+
+/* Estates CTA — green accent instead of navy */
+.navbar__cta--estates {
+  background: #1a6e42;
+}
+.navbar__cta--estates:hover { background: #155836; }
+
+/* ── Mobile drawer estates CTA ── */
+.mobile-drawer__cta--estates {
+  background: #1a6e42;
+}
+.mobile-drawer__cta--estates:hover { background: #155836; }
+
+/* ── Mobile: back to group link ── */
+.mobile-drawer__group-link {
+  display: block;
+  text-align: center;
+  font-size: 0.78rem;
+  font-weight: 500;
+  color: var(--text-subtle, #8a93a6);
+  text-decoration: none;
+  padding: 0.25rem 0;
+  transition: color var(--speed);
+}
+.mobile-drawer__group-link:hover { color: var(--text-muted, #5a6478); }
+
+/* ── Active left border on mobile: estates green ── */
+.navbar--estates ~ .mobile-drawer .mobile-drawer__link--active {
+  border-left-color: #2d8c5a;
+}
+
+/* ==============================================
+   RESPONSIVE
+   ============================================== */
+@media (max-width: 920px) {
+  /* Hide "← Group Site" text link on mid-size screens, keep CTA */
+  .navbar__group-link { display: none; }
+}
+
+@media (max-width: 860px) {
+  .navbar__end { display: none; }
+}
     bottom: 12px;
     left: 28px;
     right: 28px;

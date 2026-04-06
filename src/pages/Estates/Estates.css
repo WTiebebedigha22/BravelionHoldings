@@ -1,340 +1,573 @@
-/* ============================= */
-/* --- Global Utilities --- */
-/* ============================= */
-.home-page {
-  --navy: #0b1f3a;
-  --blue: #0f4c81;
-  --light-blue: #eaf2fb;
-  --accent: #f4f6f9;
-  --text-dark: #1a1a1a;
+/* ============================================================
+   ESTATES PAGE
+   Design system: Cormorant Garamond + Jost, Navy + Goldenrod
+   Variables: --navy, --navy-light, --goldenrod, --goldenrod-light,
+              --goldenrod-dim, --white, --muted, --transition
+   ============================================================ */
+
+/* ===== BASE ===== */
+.estates-page {
+  font-family: 'Jost', sans-serif;
+  color: var(--navy);
+  background: #fff;
+  padding-top: calc(var(--topbar-h, 40px) + var(--navbar-h, 76px));
 }
 
-.content-container {
-  max-width: 1400px;
+.estates-container {
+  width: 100%;
+  max-width: 1260px;
   margin: 0 auto;
-  padding: 0 5%;
+  padding: 0 32px;
 }
 
-/* ============================= */
-/* --- Hero Swiper --- */
-/* ============================= */
-.hero-swiper-wrapper {
-  height: 92vh;
-}
-
-.hero-slide {
-  height: 92vh;
-  background-size: cover;
-  background-position: center;
-  display: flex;
-  align-items: center;
-  padding-left: 10%;
-}
-
-.hero-content-box {
-  max-width: 700px;
-  color: #fff;
-}
-
-.hero-tag {
-  text-transform: uppercase;
-  letter-spacing: 3px;
-  font-weight: 700;
-  font-size: 0.85rem;
-  color: #ffffffcc;
+/* ===== SHARED UTILITIES ===== */
+.estates-eyebrow {
   display: block;
+  font-family: 'Jost', sans-serif;
+  font-size: 0.68rem;
+  font-weight: 600;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--goldenrod);
   margin-bottom: 1rem;
 }
+.estates-eyebrow.light { color: rgba(201,168,76,0.7); }
 
-.hero-content-box h1 {
-  font-size: clamp(2.5rem, 5vw, 4.5rem);
-  line-height: 1.1;
-  font-weight: 800;
-  margin-bottom: 1.5rem;
-}
-
-.hero-content-box p {
-  font-size: 1.25rem;
-  opacity: 0.95;
-  margin-bottom: 2.5rem;
-  max-width: 550px;
-}
-
-.hero-actions {
-  display: flex;
-  gap: 1.5rem;
-  width: fit-content;
-}
-
-/* ============================= */
-/* --- Intro Section --- */
-/* ============================= */
-.intro-section {
-  padding: 120px 0;
-}
-
-.intro-grid {
-  display: grid;
-  grid-template-columns: 1.5fr 1fr;
-  gap: 5rem;
-  align-items: flex-start;
-}
-
-.display-h2 {
-  font-size: 3rem;
-  color: var(--navy);
-  margin: 1.5rem 0;
-  font-weight: 800;
-}
-
-.lead-text {
-  font-size: 1.25rem;
-  color: #555;
-  line-height: 1.8;
-}
-
-.stat-box {
-  border-left: 4px solid var(--blue);
-  padding-left: 20px;
-  margin-bottom: 2rem;
-}
-
-.stat-number {
-  font-size: 3rem;
-  font-weight: 800;
-  color: var(--navy);
-  display: block;
-}
-
-.stat-label {
-  font-size: 0.9rem;
-  text-transform: uppercase;
-  letter-spacing: 1px;
-  color: #666;
-}
-
-.text-link {
-  color: var(--blue);
-  font-weight: 600;
-  text-decoration: none;
+.estates-link-arrow {
   display: inline-flex;
   align-items: center;
   gap: 6px;
+  font-size: 0.82rem;
+  font-weight: 500;
+  color: var(--navy);
+  text-decoration: none;
+  border-bottom: 1px solid var(--navy);
+  padding-bottom: 2px;
+  letter-spacing: 0.04em;
+  transition: color var(--transition), border-color var(--transition);
 }
+.estates-link-arrow:hover { color: var(--goldenrod); border-color: var(--goldenrod); }
 
-.text-link:hover {
-  text-decoration: underline;
-}
-
-/* ============================= */
-/* --- Highlights Section --- */
-/* ============================= */
-.highlights-section {
-  padding: 60px 0 0 0;
-}
-
-.highlight-row {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 4rem;
-  margin-bottom: 120px;
+/* ===== BUTTONS ===== */
+.estates-btn-primary {
+  display: inline-flex;
   align-items: center;
+  gap: 8px;
+  padding: 0.875rem 2rem;
+  background: var(--goldenrod);
+  color: var(--navy);
+  font-family: 'Jost', sans-serif;
+  font-size: 0.82rem;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  text-decoration: none;
+  border-radius: 2px;
+  transition: background var(--transition), transform var(--transition);
+}
+.estates-btn-primary:hover { background: var(--goldenrod-light); transform: translateY(-2px); }
+
+.estates-btn-outline {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 0.875rem 2rem;
+  border: 1px solid rgba(255,255,255,0.35);
+  color: rgba(255,255,255,0.85);
+  font-family: 'Jost', sans-serif;
+  font-size: 0.82rem;
+  font-weight: 500;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  text-decoration: none;
+  border-radius: 2px;
+  transition: border-color var(--transition), color var(--transition), background var(--transition);
+}
+.estates-btn-outline:hover { border-color: rgba(255,255,255,0.7); color: #fff; background: rgba(255,255,255,0.06); }
+
+.estates-btn-outline-gold {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 0.875rem 2rem;
+  border: 1px solid var(--goldenrod);
+  color: var(--goldenrod);
+  font-family: 'Jost', sans-serif;
+  font-size: 0.82rem;
+  font-weight: 500;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  text-decoration: none;
+  border-radius: 2px;
+  transition: background var(--transition), color var(--transition);
+}
+.estates-btn-outline-gold:hover { background: var(--goldenrod); color: var(--navy); }
+
+/* ============================================================
+   HERO SLIDER
+   ============================================================ */
+.estates-hero {
+  position: relative;
+  height: 100vh;
+  min-height: 600px;
 }
 
-.highlight-row.reverse {
-  direction: rtl;
+.estates-swiper {
+  width: 100%;
+  height: 100%;
 }
 
-.highlight-row.reverse .highlight-text {
-  direction: ltr;
-}
-
-.highlight-image {
-  height: 520px;
+.estates-slide {
+  width: 100%;
+  height: 100%;
   background-size: cover;
   background-position: center;
-  border-radius: 18px;
-  position: relative;
-  box-shadow: 0 25px 60px rgba(0, 0, 0, 0.15);
-  transition: transform 0.5s ease;
-}
-
-.highlight-image:hover {
-  transform: scale(1.02);
-}
-
-.image-caption {
-  position: absolute;
-  bottom: 25px;
-  right: 25px;
-  background: #ffffff;
-  padding: 12px 22px;
-  font-weight: 700;
-  font-size: 0.75rem;
-  border-radius: 30px;
-  text-transform: uppercase;
-  color: var(--navy);
-  letter-spacing: 1px;
-}
-
-.icon-wrap {
-  width: 55px;
-  height: 55px;
-  background: var(--light-blue);
-  color: var(--blue);
-  border-radius: 12px;
   display: flex;
-  align-items: center;
-  justify-content: center;
-  margin-bottom: 1.5rem;
+  align-items: flex-end;
+  padding-bottom: 10vh;
 }
 
-.highlight-text h3 {
-  font-size: 2rem;
-  color: var(--navy);
-  margin-bottom: 1.5rem;
-}
-
-.highlight-text p {
-  font-size: 1.1rem;
-  color: #555;
-  line-height: 1.8;
-  margin-bottom: 1.5rem;
-}
-
-.editorial-link {
-  color: var(--blue);
-  font-weight: 700;
-  text-decoration: none;
-}
-
-.editorial-link:hover {
-  text-decoration: underline;
-}
-
-/* ============================= */
-/* --- Brand Promise Banner --- */
-/* ============================= */
-.qhse-banner {
-  background: var(--navy);
-  padding: 120px 5%;
-  text-align: center;
+.estates-slide__content {
+  width: 100%;
+  max-width: 1260px;
+  margin: 0 auto;
+  padding: 0 32px;
   color: #fff;
-  border-radius: 16px;
-  margin-bottom: 120px;
 }
 
-.qhse-banner h2 {
-  font-size: 2.5rem;
+.estates-slide__tag {
+  display: inline-block;
+  font-size: 0.65rem;
+  font-weight: 600;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--goldenrod);
+  border: 1px solid rgba(201,168,76,0.4);
+  padding: 4px 12px;
   margin-bottom: 1.5rem;
+  border-radius: 1px;
 }
 
-.qhse-banner p {
-  max-width: 700px;
-  margin: 0 auto 2.5rem auto;
-  font-size: 1.15rem;
-  opacity: 0.9;
+.estates-slide__title {
+  font-family: 'Cormorant Garamond', Georgia, serif;
+  font-size: clamp(3rem, 6.5vw, 5.5rem);
+  font-weight: 600;
+  line-height: 1.05;
+  letter-spacing: -0.01em;
+  margin-bottom: 1.25rem;
+  max-width: 780px;
 }
 
-/* ============================= */
-/* --- Final CTA --- */
-/* ============================= */
-.final-cta {
-  background: var(--accent);
-  padding: 100px 5%;
-  text-align: center;
-  margin-bottom: 100px;
-  border-radius: 16px;
-}
-
-.cta-inner h2 {
-  font-size: 2.5rem;
-  color: var(--navy);
-  margin-bottom: 1rem;
-}
-
-.cta-inner p {
-  font-size: 1.15rem;
-  color: #555;
+.estates-slide__sub {
+  font-size: 1rem;
+  color: rgba(255,255,255,0.65);
+  line-height: 1.75;
+  max-width: 520px;
   margin-bottom: 2.5rem;
 }
 
-.cta-buttons {
+.estates-slide__actions {
   display: flex;
-  justify-content: center;
-  gap: 1.5rem;
+  align-items: center;
+  gap: 1rem;
+  flex-wrap: wrap;
 }
 
-/* ============================= */
-/* --- Common Buttons --- */
-/* ============================= */
-.pwr-btn {
-  padding: 15px 35px;
-  font-weight: 700;
-  text-decoration: none;
+/* Slide controls */
+.hero-controls {
+  position: absolute;
+  bottom: 2.5rem;
+  right: 32px;
+  z-index: 10;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 1rem;
+}
+
+.hero-counter {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  color: rgba(255,255,255,0.45);
+  font-family: 'Cormorant Garamond', Georgia, serif;
+  font-size: 0.85rem;
+}
+
+.hero-counter__current {
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: var(--goldenrod);
+}
+
+.hero-counter__sep {
+  display: block;
+  width: 24px;
+  height: 1px;
+  background: rgba(255,255,255,0.25);
+}
+
+.hero-bullets {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.hero-bullet {
+  display: block;
+  width: 2px;
+  height: 24px;
+  background: rgba(255,255,255,0.2);
+  border: none;
+  cursor: pointer;
+  transition: background var(--transition), height var(--transition);
+  border-radius: 1px;
+}
+
+.hero-bullet--active {
+  background: var(--goldenrod);
+  height: 40px;
+}
+
+/* Scroll cue */
+.hero-scroll-cue {
+  position: absolute;
+  bottom: 2.5rem;
+  left: 32px;
+  z-index: 10;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+  color: rgba(255,255,255,0.35);
+  font-size: 0.62rem;
+  font-weight: 500;
+  letter-spacing: 0.18em;
   text-transform: uppercase;
-  font-size: 0.8rem;
-  letter-spacing: 1px;
-  transition: all 0.3s ease;
-  border-radius: 6px;
+}
+
+.hero-scroll-line {
+  width: 1px;
+  height: 44px;
+  background: linear-gradient(to bottom, rgba(255,255,255,0.35), transparent);
+  animation: scrollPulse 2.2s ease-in-out infinite;
+}
+
+@keyframes scrollPulse {
+  0%, 100% { opacity: 0.35; transform: scaleY(1); }
+  50%       { opacity: 1;    transform: scaleY(1.15); }
+}
+
+/* ============================================================
+   INTRODUCTION
+   ============================================================ */
+.estates-intro {
+  padding: 7rem 0;
+  background: #fff;
+}
+
+.estates-intro__grid {
+  display: grid;
+  grid-template-columns: 1.4fr 1fr;
+  gap: 6rem;
+  align-items: start;
+}
+
+.estates-intro__text h2 {
+  font-family: 'Cormorant Garamond', Georgia, serif;
+  font-size: clamp(2.2rem, 4vw, 3.25rem);
+  font-weight: 600;
+  line-height: 1.15;
+  color: var(--navy);
+  margin-bottom: 1.5rem;
+}
+
+.estates-intro__text p {
+  font-size: 0.9rem;
+  color: #5a6478;
+  line-height: 1.85;
+  margin-bottom: 1rem;
+}
+
+.estates-intro__text .estates-link-arrow { margin-top: 0.75rem; }
+
+.estates-intro__stats {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0;
+  border: 1px solid #e4e6e0;
+  border-radius: 2px;
+  overflow: hidden;
+}
+
+.estates-intro__stat {
+  padding: 2rem 1.5rem;
+  border-right: 1px solid #e4e6e0;
+  border-bottom: 1px solid #e4e6e0;
+  text-align: center;
+}
+.estates-intro__stat:nth-child(2n)  { border-right: none; }
+.estates-intro__stat:nth-child(3),
+.estates-intro__stat:nth-child(4)   { border-bottom: none; }
+
+.estates-intro__stat-value {
+  display: block;
+  font-family: 'Cormorant Garamond', Georgia, serif;
+  font-size: 2.5rem;
+  font-weight: 600;
+  color: var(--navy);
+  line-height: 1;
+}
+
+.estates-intro__stat-label {
+  display: block;
+  font-size: 0.68rem;
+  font-weight: 500;
+  color: #8a93a6;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  margin-top: 0.5rem;
+}
+
+/* ============================================================
+   FEATURE ROWS
+   ============================================================ */
+.estates-features {
+  padding: 0 0 7rem;
+}
+
+.feature-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0;
+  border-top: 1px solid #e4e6e0;
+}
+
+.feature-row--reverse { direction: rtl; }
+.feature-row--reverse > * { direction: ltr; }
+
+.feature-row__image {
+  position: relative;
+  overflow: hidden;
+  aspect-ratio: 4/3;
+}
+
+.feature-row__image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  transition: transform 0.6s var(--transition);
+}
+.feature-row:hover .feature-row__image img { transform: scale(1.04); }
+
+.feature-row__caption {
+  position: absolute;
+  bottom: 16px;
+  left: 16px;
   display: inline-flex;
   align-items: center;
+  gap: 4px;
+  font-size: 0.7rem;
+  font-weight: 500;
+  color: rgba(255,255,255,0.65);
+  background: rgba(11,29,46,0.6);
+  padding: 4px 10px;
+  border-radius: 2px;
+  letter-spacing: 0.06em;
+}
+
+.feature-row__text {
+  padding: 4rem 4rem 4rem 5rem;
+  display: flex;
+  flex-direction: column;
   justify-content: center;
+  background: #fafaf8;
 }
 
-.pwr-btn-primary {
-  background: var(--blue);
-  color: #fff;
+.feature-row--reverse .feature-row__text {
+  padding: 4rem 5rem 4rem 4rem;
 }
 
-.pwr-btn-primary:hover {
-  background: #0c3c66;
-  transform: translateY(-3px);
+.feature-row__icon-wrap {
+  width: 40px;
+  height: 40px;
+  border: 1px solid rgba(201,168,76,0.35);
+  border-radius: 2px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--goldenrod);
+  margin-bottom: 1.5rem;
 }
 
-.pwr-btn-outline {
-  border: 2px solid #fff;
-  color: #fff;
-}
-
-.pwr-btn-outline:hover {
-  background: #fff;
+.feature-row__text h3 {
+  font-family: 'Cormorant Garamond', Georgia, serif;
+  font-size: clamp(1.6rem, 2.5vw, 2.1rem);
+  font-weight: 600;
   color: var(--navy);
+  line-height: 1.2;
+  margin-bottom: 1rem;
 }
 
-.pwr-btn-ghost {
-  border: 2px solid var(--navy);
-  color: var(--navy);
-  background: transparent;
+.feature-row__text p {
+  font-size: 0.875rem;
+  color: #5a6478;
+  line-height: 1.8;
+  margin-bottom: 1.75rem;
 }
 
-.pwr-btn-ghost:hover {
+/* ============================================================
+   BRAND PROMISE
+   ============================================================ */
+.estates-promise {
   background: var(--navy);
-  color: #fff;
+  padding: 7rem 0;
 }
 
-/* ============================= */
-/* --- Responsive --- */
-/* ============================= */
-@media (max-width: 992px) {
-  .intro-grid,
-  .highlight-row {
-    grid-template-columns: 1fr;
-  }
+.estates-promise__inner {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 6rem;
+  align-items: start;
+}
 
-  .highlight-row.reverse {
-    direction: ltr;
-  }
+.estates-promise__text h2 {
+  font-family: 'Cormorant Garamond', Georgia, serif;
+  font-size: clamp(2.2rem, 4vw, 3.25rem);
+  font-weight: 600;
+  line-height: 1.15;
+  color: #fff;
+  margin-bottom: 1.25rem;
+}
 
-  .hero-actions {
-    flex-direction: column;
-  }
+.estates-promise__text p {
+  font-size: 0.9rem;
+  color: rgba(255,255,255,0.55);
+  line-height: 1.85;
+  margin-bottom: 2rem;
+}
 
-  .cta-buttons {
-    flex-direction: column;
-  }
+.estates-promise__pillars {
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+  border-top: 1px solid rgba(201,168,76,0.15);
+}
 
-  .hero-slide {
-    padding-left: 6%;
-  }
+.promise-pillar {
+  display: flex;
+  gap: 1.25rem;
+  align-items: flex-start;
+  padding: 1.5rem 0;
+  border-bottom: 1px solid rgba(201,168,76,0.1);
+}
+
+.promise-pillar__icon {
+  width: 34px;
+  height: 34px;
+  border: 1px solid rgba(201,168,76,0.3);
+  border-radius: 2px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--goldenrod);
+  flex-shrink: 0;
+  margin-top: 2px;
+}
+
+.promise-pillar h4 {
+  font-family: 'Jost', sans-serif;
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: var(--goldenrod-light);
+  letter-spacing: 0.04em;
+  margin-bottom: 0.375rem;
+}
+
+.promise-pillar p {
+  font-size: 0.825rem;
+  color: rgba(255,255,255,0.45);
+  line-height: 1.65;
+}
+
+/* ============================================================
+   FINAL CTA
+   ============================================================ */
+.estates-cta {
+  padding: 7rem 0;
+  background: #fafaf8;
+  border-top: 1px solid #e4e6e0;
+}
+
+.estates-cta__inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 3rem;
+  flex-wrap: wrap;
+}
+
+.estates-cta__text h2 {
+  font-family: 'Cormorant Garamond', Georgia, serif;
+  font-size: clamp(2rem, 4vw, 3rem);
+  font-weight: 600;
+  color: var(--navy);
+  line-height: 1.15;
+  margin: 0.5rem 0;
+}
+
+.estates-cta__text p {
+  font-size: 0.9rem;
+  color: #5a6478;
+  line-height: 1.7;
+}
+
+.estates-cta__actions {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  flex-wrap: wrap;
+  flex-shrink: 0;
+}
+
+/* CTA outline button (on light bg) */
+.estates-cta .estates-btn-outline {
+  border-color: rgba(11,29,46,0.3);
+  color: var(--navy);
+}
+.estates-cta .estates-btn-outline:hover {
+  border-color: var(--navy);
+  background: rgba(11,29,46,0.05);
+}
+
+/* ============================================================
+   RESPONSIVE
+   ============================================================ */
+@media (max-width: 1024px) {
+  .estates-intro__grid   { grid-template-columns: 1fr; gap: 3.5rem; }
+  .estates-promise__inner { grid-template-columns: 1fr; gap: 3.5rem; }
+}
+
+@media (max-width: 900px) {
+  .feature-row,
+  .feature-row--reverse { grid-template-columns: 1fr; direction: ltr; }
+  .feature-row__image   { aspect-ratio: 16/9; }
+  .feature-row__text,
+  .feature-row--reverse .feature-row__text { padding: 2.5rem 2rem; }
+  .estates-cta__inner   { flex-direction: column; align-items: flex-start; }
+}
+
+@media (max-width: 768px) {
+  .estates-slide__title  { font-size: 2.5rem; }
+  .estates-intro__stats  { grid-template-columns: 1fr 1fr; }
+  .hero-controls         { right: 20px; }
+  .hero-scroll-cue       { display: none; }
+}
+
+@media (max-width: 480px) {
+  .estates-container     { padding: 0 20px; }
+  .estates-slide__title  { font-size: 2rem; }
+  .estates-slide__actions { flex-direction: column; align-items: flex-start; }
+  .estates-intro__stats  { grid-template-columns: 1fr 1fr; }
 }
