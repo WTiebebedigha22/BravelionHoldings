@@ -71,10 +71,9 @@ const EstatesNavbar = () => {
             aria-label="Bravelion Estates — Home"
           >
             <img src="/BraveLion.png" alt="Bravelion Group" />
-            <div className="navbar__division-badge">
-              <span className="badge__divider" />
-              <span className="badge__name">Estates &amp; Development</span>
-            </div>
+          </Link>
+          <Link to="/" className="navbar__logo" aria-label="Bravelion Group — Home">
+            <img src="/logo.png" alt="Bravelion Group" />
           </Link>
 
           {/* Desktop links */}
@@ -94,22 +93,6 @@ const EstatesNavbar = () => {
 
           {/* Back to Group + CTA */}
           <div className="navbar__end">
-            <Link to="/" className="navbar__group-link">
-              <svg
-                width="14"
-                height="14"
-                viewBox="0 0 24 24"
-                fill="none"
-                stroke="currentColor"
-                strokeWidth="2"
-                strokeLinecap="round"
-                strokeLinejoin="round"
-              >
-                <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z" />
-                <polyline points="9 22 9 12 15 12 15 22" />
-              </svg>
-              Group
-            </Link>
             <Link
               to="/estates/contact"
               className="navbar__cta navbar__cta--estates"

@@ -717,6 +717,9 @@
   border-top: 1px solid rgba(255,255,255,0.07);
 }
 
+.ir-cta__btns .ir-btn--outline { color: var(--ir-white); border-color: rgba(255,255,255,0.3); }
+.ir-cta__btns .ir-btn--outline:hover { border-color: var(--goldenrod); color: var(--goldenrod-lt); }
+
 /* ══════════════════════════════════════════════════════════
    RESPONSIVE
 ══════════════════════════════════════════════════════════ */

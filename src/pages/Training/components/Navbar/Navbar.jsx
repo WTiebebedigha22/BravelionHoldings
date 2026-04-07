@@ -48,6 +48,9 @@ const TrainingNavbar = () => {
           <Link to="/" className="navbar__BraveLion">
             <img src="/BraveLion.png" alt="Bravelion Training" />
           </Link>
+          <Link to="/" className="navbar__BraveLion">
+            <img src="/logo.png" alt="Bravelion Training" />
+          </Link>
 
           <button
             className="navbar__toggle"

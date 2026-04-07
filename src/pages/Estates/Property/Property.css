@@ -437,6 +437,8 @@
 
 .pr-cta__btns { display: flex; gap: 12px; justify-content: center; flex-wrap: wrap; }
 
+.pr-cta__btns .pr-btn { color:#a8893a; gap: 14px; border-color: #a8893a50; border-radius: 12px;}
+
 /* ══════════════════════════════════════════════════════════
    RESPONSIVE
 ══════════════════════════════════════════════════════════ */

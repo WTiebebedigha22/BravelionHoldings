@@ -603,6 +603,11 @@
   justify-content: center; flex-wrap: wrap;
 }
 
+.ins-cta__btns .ins-btn {
+  color: var(--goldenrod); border-color: var(--goldenrod);
+  border-radius: 12px;
+}
+
 /* ══════════════════════════════════════════════════════════
    RESPONSIVE
 ══════════════════════════════════════════════════════════ */

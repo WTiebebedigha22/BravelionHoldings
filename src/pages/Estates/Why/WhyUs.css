@@ -590,6 +590,8 @@
   flex-wrap: wrap;
 }
 
+.wu-cta__buttons .wu-btn { color:#a8893a; gap: 14px; border-color: #a8893a50; border-radius: 12px;}
+
 /* ===== RESPONSIVE ===== */
 @media (max-width: 1024px) {
   .wu-reason__text {

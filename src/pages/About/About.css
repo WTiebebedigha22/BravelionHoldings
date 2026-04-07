@@ -324,7 +324,7 @@
   font-family: var(--font-display);
   font-size: 2.5rem;
   font-weight: 400;
-  color: var(--border);
+  color: var(--gold);
   line-height: 1;
 }
 
@@ -368,7 +368,7 @@
   transition: background var(--speed), color var(--speed);
   flex-shrink: 0;
 }
-.division-link:hover { background: var(--navy); color: white; }
+.division-link:hover { background: var(--navy); color: var(--gold); }
 
 /* =========================
    REAL ESTATE PROJECTS
@@ -756,11 +756,11 @@
   font-family: var(--font-display);
   font-size: 3.5rem;
   font-weight: 400;
-  color: var(--bg-muted);
+  color: var(--gold);
   line-height: 1;
   margin-bottom: 1.5rem;
 }
-.vmm-accent .vmm-number { color: rgba(255,255,255,0.1); }
+.vmm-accent .vmm-number { color: rgba(218, 165, 32, 0.7) }
 
 .vmm-card h3 {
   font-family: var(--font-display);
