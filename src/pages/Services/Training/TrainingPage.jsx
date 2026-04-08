@@ -1,4 +1,3 @@
-/* eslint-disable no-unused-vars */
 import React, { useEffect, useRef, useState } from 'react';
 import ServicesNavbar from '../components/Navbar/Navbar';
 import ServicesFooter from '../components/Footer/Footer';
@@ -119,231 +118,150 @@ const outcomes = [
 
 const TrainingDevPage = () => {
   const [activeProgram, setActiveProgram] = useState(0);
-  const [activeFilter, setActiveFilter] = useState('all');
   const observerRef = useRef(null);
 
   useEffect(() => {
     observerRef.current = new IntersectionObserver(
-      (entries) => entries.forEach(e => e.isIntersecting && e.target.classList.add('td-in-view')),
+      (entries) => entries.forEach(e => e.isIntersecting && e.target.classList.add('cert-visible')),
       { threshold: 0.1 }
     );
-    document.querySelectorAll('.td-reveal').forEach(el => observerRef.current.observe(el));
+    document.querySelectorAll('.cert-reveal').forEach(el => observerRef.current.observe(el));
     return () => observerRef.current?.disconnect();
   }, []);
 
   return (
-    <>
+    <div className="cert-page td-theme">
       <ServicesNavbar />
 
-      <div className="td-page">
-
-        {/* ══ HERO ══ */}
-        <section className="td-hero">
-          <div className="td-hero__bg" />
-          <div className="td-hero__content">
-
-            <div className="td-hero__left">
-              <div className="td-hero__eyebrow-row">
-                <span className="td-eyebrow-tag">Training &amp; Development</span>
-                <span className="td-eyebrow-tag td-eyebrow-tag--dim">Bravelion Holdings</span>
-              </div>
-
-              <h1 className="td-hero__title">
-                Invest in Skills.<br />
-                <em>Transform</em><br />
-                Careers.
-              </h1>
-
-              <p className="td-hero__sub">
-                Six specialized training divisions — digital skills, professional
-                certification, vocational development, entrepreneurship, financial
-                literacy, and health & safety — all under one institute.
+      {/* ══ ORGANIC HERO ══ */}
+      <section className="td-hero-wrap">
+        <div className="td-hero-blob" />
+        <div className="cert-container">
+          <div className="td-hero-grid cert-reveal">
+            <div className="td-hero-info">
+              <span className="cert-eyebrow dark">Institute of Professional Growth</span>
+              <h1 className="td-main-title">Invest in Skills. <br /><em>Transform</em> <br />Careers.</h1>
+              <p className="cert-hero__sub">
+                Bridging the gap between theory and industry expertise through six specialized 
+                training divisions designed for the modern Nigerian professional.
               </p>
-
-              <div className="td-hero__actions">
-                <a href="/contact" className="td-btn td-btn--green">Enroll Today</a>
-                <a href="#td-programs" className="td-btn td-btn--ghost">Browse Programs</a>
-              </div>
-
-              <div className="td-hero__badges">
-                {programs.map(p => (
-                  <span key={p.id} className="td-hero__badge">
-                    <span>{p.icon}</span> {p.label}
-                  </span>
-                ))}
+              <div className="td-hero-btns">
+                <a href="/contact" className="td-btn-solid">Enroll Today</a>
+                <a href="#td-programs" className="td-btn-text">Browse Curricula <span>↓</span></a>
               </div>
             </div>
 
-            <div className="td-hero__right">
-              {/* Stacked program cards preview */}
-              <div className="td-hero__cards">
-                {programs.slice(0, 3).map((p, i) => (
-                  <div
-                    key={p.id}
-                    className="td-hero__card"
-                    style={{
-                      backgroundImage: `linear-gradient(rgba(7,26,14,0.65), rgba(7,26,14,0.85)), url(${p.image})`,
-                      transform: `translateY(${i * 12}px) scale(${1 - i * 0.04})`,
-                      zIndex: 3 - i,
-                    }}
-                  >
-                    <span className="td-hero__card-icon">{p.icon}</span>
-                    <span className="td-hero__card-label">{p.label}</span>
-                    <span className="td-hero__card-id">{p.id}</span>
-                  </div>
-                ))}
-                <div className="td-hero__card-stat">
-                  <span className="td-hero__card-stat-num">500+</span>
-                  <span className="td-hero__card-stat-label">Professionals Trained</span>
+            <div className="td-hero-stack">
+              {programs.slice(0, 3).map((p, i) => (
+                <div key={p.id} className={`td-stack-card card-${i}`}>
+                   <img src={p.image} alt={p.label} />
+                   <div className="td-card-overlay">
+                      <span className="td-card-icon">{p.icon}</span>
+                      <span className="td-card-name">{p.label}</span>
+                   </div>
                 </div>
-              </div>
+              ))}
             </div>
-
           </div>
-        </section>
+        </div>
+      </section>
 
-        {/* ══ STATS ══ */}
-        <section className="td-stats td-reveal">
-          <div className="td-stats__inner">
+      {/* ══ LEARNING STATS ══ */}
+      <section className="td-stats-section cert-reveal">
+        <div className="cert-container">
+          <div className="td-stats-grid">
             {stats.map((s, i) => (
-              <div className="td-stat" key={i}>
-                <span className="td-stat__num">{s.num}</span>
-                <span className="td-stat__label">{s.label}</span>
+              <div className="td-stat-box" key={i}>
+                <span className="td-stat-num">{s.num}</span>
+                <span className="td-stat-label">{s.label}</span>
               </div>
             ))}
           </div>
-        </section>
+        </div>
+      </section>
 
-        {/* ══ INTRO ══ */}
-        <section className="td-intro td-reveal">
-          <div className="td-intro__inner">
-            <div className="td-intro__left">
-              <div className="td-bar" />
-              <h2>A Full Training Ecosystem<br />for Every Professional.</h2>
-              <p>
-                Whether you are an individual seeking career advancement, a corporate
-                team building capacity, or an organization meeting regulatory training
-                requirements — our institute has a program built for your needs.
-              </p>
-              <a href="/contact" className="td-text-link">Request a training brochure <span>→</span></a>
-            </div>
-            <div className="td-intro__right">
-              <div className="td-outcomes-grid">
-                {outcomes.map((o, i) => (
-                  <div className="td-outcome" key={i}>
-                    <span className="td-outcome__icon">{o.icon}</span>
-                    <h4>{o.title}</h4>
-                    <p>{o.desc}</p>
-                  </div>
-                ))}
-              </div>
-            </div>
+      {/* ══ OUTCOMES SECTION ══ */}
+      <section className="td-outcomes cert-reveal">
+        <div className="cert-container">
+          <div className="td-section-header">
+             <span className="cert-eyebrow dark">The Bravelion Advantage</span>
+             <h2>A Full Training Ecosystem</h2>
           </div>
-        </section>
-
-        {/* ══ PROGRAMS ══ */}
-        <section className="td-programs" id="td-programs">
-          <div className="td-programs__header td-reveal">
-            <div className="td-bar" />
-            <h2>Our Training Programs</h2>
-            <p>Six divisions. Hundreds of professionals trained. One trusted institute.</p>
+          <div className="td-outcome-cards">
+             {outcomes.map((o, i) => (
+               <div className="td-outcome-item" key={i}>
+                  <div className="td-outcome-icon">{o.icon}</div>
+                  <h4>{o.title}</h4>
+                  <p>{o.desc}</p>
+               </div>
+             ))}
           </div>
+        </div>
+      </section>
 
-          {/* Program selector */}
-          <div className="td-selector td-reveal">
+      {/* ══ PROGRAM SELECTOR ══ */}
+      <section className="td-programs-main" id="td-programs">
+        <div className="cert-container">
+          <div className="td-tabs-container cert-reveal">
             {programs.map((p, i) => (
-              <button
-                key={p.id}
-                className={`td-selector__btn ${activeProgram === i ? 'active' : ''}`}
+              <button 
+                key={p.id} 
+                className={`td-tab ${activeProgram === i ? 'active' : ''}`}
                 onClick={() => setActiveProgram(i)}
               >
-                <span className="td-selector__icon">{p.icon}</span>
-                <span className="td-selector__label">{p.label}</span>
-                <span className="td-selector__id">{p.id}</span>
+                <span className="td-tab-idx">{p.id}</span>
+                <span className="td-tab-label">{p.label}</span>
               </button>
             ))}
           </div>
 
-          {/* Program panels */}
-          <div className="td-panel-wrap">
+          <div className="td-active-panel cert-reveal">
             {programs.map((p, i) => (
-              <div
-                key={p.id}
-                id={p.anchor}
-                className={`td-panel ${activeProgram === i ? 'td-panel--active' : ''}`}
-              >
-                <div className="td-panel__image-side">
-                  <div
-                    className="td-panel__image"
-                    style={{ backgroundImage: `url(${p.image})` }}
-                  />
-                  <div className="td-panel__image-num">{p.id}</div>
-                  <div className="td-panel__image-icon">{p.icon}</div>
-                </div>
-
-                <div className="td-panel__text-side">
-                  <span className="td-panel__eyebrow">{p.label}</span>
-                  <h3 className="td-panel__title">{p.title}</h3>
-                  <p className="td-panel__desc">{p.desc}</p>
-
-                  <div className="td-panel__highlights">
-                    <p className="td-panel__hl-head">Program coverage:</p>
-                    <ul>
+              <div key={p.id} className={`td-panel-content ${activeProgram === i ? 'active' : ''}`}>
+                <div className="td-panel-inner">
+                  <div className="td-panel-text">
+                    <span className="td-panel-tag">{p.label}</span>
+                    <h3>{p.title}</h3>
+                    <p className="td-panel-p">{p.desc}</p>
+                    
+                    <div className="td-highlights-list">
                       {p.highlights.map((h, j) => (
-                        <li key={j}>
-                          <span className="td-check">▸</span>
+                        <div className="td-hl-item" key={j}>
+                          <span className="td-bullet"></span>
                           <span>{h}</span>
-                        </li>
+                        </div>
                       ))}
-                    </ul>
-                  </div>
+                    </div>
 
-                  <div className="td-panel__tags">
-                    {p.tags.map(t => <span key={t} className="td-tag">{t}</span>)}
+                    <div className="td-panel-footer">
+                       <div className="td-tag-wrap">
+                          {p.tags.map(t => <span key={t} className="td-mini-tag">{t}</span>)}
+                       </div>
+                       <a href="/contact" className="td-btn-solid">Enroll Now</a>
+                    </div>
                   </div>
-
-                  <div className="td-panel__btns">
-                    <a href="/contact" className="td-btn td-btn--green">Enroll in This Program</a>
-                    <a href="/contact" className="td-btn td-btn--outline">Request Brochure</a>
+                  <div className="td-panel-image">
+                    <img src={p.image} alt={p.title} />
                   </div>
                 </div>
               </div>
             ))}
           </div>
-        </section>
+        </div>
+      </section>
 
-        {/* ══ VISUAL BREAK ══ */}
-        <section className="td-visual-break">
-          <div className="td-visual-break__img" />
-          <div className="td-visual-break__content">
+      {/* ══ JOURNEY BREAK ══ */}
+      <section className="td-quote-break">
+         <div className="cert-container cert-reveal">
             <blockquote>
-              "At Bravelion, we believe professional development is not a one-time event
-              — it's a continuous journey toward excellence."
+              "At Bravelion, we believe professional development is not a one-time event — 
+              it's a continuous journey toward excellence."
             </blockquote>
-            <a href="/contact" className="td-btn td-btn--ghost-light">Start Your Journey</a>
-          </div>
-        </section>
-
-        {/* ══ CTA ══ */}
-        <section className="td-cta td-reveal">
-          <div className="td-cta__inner">
-            <span className="td-cta__eyebrow">Ready to Learn?</span>
-            <h2>Advance Your Career<br />with Bravelion Training.</h2>
-            <p>
-              Enroll in one of our professional development programs and gain
-              the competitive edge your career deserves.
-            </p>
-            <div className="td-cta__btns">
-              <a href="/contact" className="td-btn td-btn--green">Enroll Now</a>
-              <a href="/services" className="td-btn td-btn--outline-dark">All Services</a>
-            </div>
-          </div>
-        </section>
-
-      </div>
+         </div>
+      </section>
 
       <ServicesFooter />
-    </>
+    </div>
   );
 };
 

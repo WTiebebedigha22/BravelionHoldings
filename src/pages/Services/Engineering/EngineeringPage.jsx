@@ -92,230 +92,152 @@ const EngineeringPage = () => {
 
   useEffect(() => {
     observerRef.current = new IntersectionObserver(
-      (entries) => entries.forEach(e => e.isIntersecting && e.target.classList.add('eng-in-view')),
+      (entries) => entries.forEach(e => e.isIntersecting && e.target.classList.add('cert-visible')),
       { threshold: 0.1 }
     );
-    document.querySelectorAll('.eng-reveal').forEach(el => observerRef.current.observe(el));
+    document.querySelectorAll('.cert-reveal').forEach(el => observerRef.current.observe(el));
     return () => observerRef.current?.disconnect();
   }, []);
 
   return (
-    <>
+    <div className="cert-page">
       <ServicesNavbar />
 
-      <div className="eng-page">
-
-        {/* ══ HERO ══ */}
-        <section className="eng-hero">
-          <div className="eng-hero__grid-overlay" />
-          <div className="eng-hero__body">
-
-            <div className="eng-hero__left">
-              <div className="eng-hero__tag-row">
-                <span className="eng-hero__tag">Engineering &amp; Construction</span>
-                <span className="eng-hero__tag eng-hero__tag--outline">Bravelion Holdings</span>
-              </div>
-              <h1 className="eng-hero__title">
-                Built to Last.<br />
-                <span className="eng-hero__title-stroke">Engineered</span><br />
-                to Perform.
-              </h1>
-              <p className="eng-hero__sub">
-                From heavy civil construction and electrical installation to mechanical
-                systems and waste management — Bravelion delivers complete,
-                multi-discipline engineering solutions across Nigeria.
+      {/* ══ GEOMETRIC HERO ══ */}
+      <section className="cert-hero eng-hero-custom">
+        <div className="eng-grid-bg" />
+        <div className="cert-container">
+          <div className="eng-hero-layout cert-reveal">
+            <div className="eng-hero-content">
+              <span className="cert-eyebrow light">Foundations of Excellence</span>
+              <h1>Built to Last. <br /><span className="cert-highlight">Engineered</span> <br />to Perform.</h1>
+              <p className="cert-hero__sub">
+                From structural civil works to complex electrical distribution and sustainable 
+                waste management, Bravelion provides the technical backbone for Nigeria's infrastructure.
               </p>
-              <div className="eng-hero__actions">
-                <a href="/contact" className="eng-btn eng-btn--primary">Request a Quote</a>
-                <a href="#eng-services" className="eng-btn eng-btn--ghost-white">Explore Services</a>
-              </div>
-              <div className="eng-hero__discipline-strip">
-                {['Electrical', 'Civil', 'Mechanical', 'Construction', 'Power & Solar', 'Waste Mgmt'].map((d, i) => (
-                  <span key={i} className="eng-discipline">{d}</span>
-                ))}
+              <div className="cert-hero__actions">
+                <a href="#eng-services" className="cert-btn-primary">View Disciplines</a>
+                <a href="/contact" className="cert-btn-outline">Request Quote</a>
               </div>
             </div>
-
-            <div className="eng-hero__right">
-              <div className="eng-hero__image-stack">
-                <div
-                  className="eng-hero__img eng-hero__img--main"
-                  style={{ backgroundImage: `url('https://images.unsplash.com/photo-1621905251918-48416bd8575a?auto=format&fit=crop&q=80&w=800')` }}
-                />
-                <div
-                  className="eng-hero__img eng-hero__img--secondary"
-                  style={{ backgroundImage: `url('https://images.unsplash.com/photo-1504307651254-35680f356dfd?auto=format&fit=crop&q=80&w=600')` }}
-                />
-                <div className="eng-hero__float-card">
-                  <span className="eng-hero__float-num">10+</span>
-                  <span className="eng-hero__float-label">Years Engineering<br />Excellence</span>
+            
+            <div className="eng-hero-visual">
+              <div className="eng-image-main">
+                <img src="https://images.unsplash.com/photo-1541888946425-d81bb19480c5?auto=format&fit=crop&q=80&w=800" alt="Construction" />
+                <div className="eng-stat-sticker">
+                  <strong>10+</strong>
+                  <span>Years of Projects</span>
                 </div>
               </div>
             </div>
-
           </div>
-        </section>
+        </div>
+      </section>
 
-        {/* ══ STATS ══ */}
-        <section className="eng-stats eng-reveal">
-          <div className="eng-stats__inner">
+      {/* ══ TECHNICAL STATS ══ */}
+      <section className="eng-stats-bar cert-reveal">
+        <div className="cert-container">
+          <div className="eng-stats-flex">
             {stats.map((s, i) => (
-              <div className="eng-stat" key={i}>
-                <span className="eng-stat__num">{s.num}</span>
-                <span className="eng-stat__label">{s.label}</span>
+              <div className="eng-stat-item" key={i}>
+                <span className="eng-stat-val">{s.num}</span>
+                <span className="eng-stat-lab">{s.label}</span>
               </div>
             ))}
           </div>
-        </section>
+        </div>
+      </section>
 
-        {/* ══ INTRO ══ */}
-        <section className="eng-intro eng-reveal">
-          <div className="eng-intro__inner">
-            <div className="eng-intro__left">
-              <div className="eng-bar" />
-              <h2>Multidisciplinary Engineering<br />Under One Roof.</h2>
-            </div>
-            <div className="eng-intro__right">
-              <p>
-                Our engineering division brings together electrical, civil, mechanical,
-                and environmental expertise — enabling clients to engage a single
-                accountable partner for complex, multi-discipline projects.
-              </p>
-              <p>
-                From initial scoping and feasibility through to final commissioning
-                and long-term maintenance, we deliver on every promise with
-                documented quality standards and full regulatory compliance.
-              </p>
-              <a href="/contact" className="eng-text-link">
-                Speak to our engineering team <span>→</span>
-              </a>
-            </div>
-          </div>
-        </section>
-
-        {/* ══ SERVICE TABS ══ */}
-        <section className="eng-services" id="eng-services">
-          <div className="eng-services__header eng-reveal">
-            <div className="eng-bar" />
-            <h2>Our Engineering Divisions</h2>
-            <p>Four specialist disciplines. One integrated delivery team.</p>
-          </div>
-
-          <div className="eng-tabs eng-reveal">
-            {services.map((svc, i) => (
-              <button
-                key={svc.id}
-                className={`eng-tab ${activeService === i ? 'eng-tab--active' : ''}`}
-                onClick={() => setActiveService(i)}
-              >
-                <span className="eng-tab__icon">{svc.icon}</span>
-                <span className="eng-tab__label">{svc.label}</span>
-                <span className="eng-tab__id">{svc.id}</span>
-              </button>
-            ))}
-          </div>
-
-          <div className="eng-panel">
-            {services.map((svc, i) => (
-              <div
-                key={svc.id}
-                id={svc.anchor}
-                className={`eng-panel__item ${activeService === i ? 'eng-panel__item--active' : ''}`}
-              >
-                <div className="eng-panel__image-wrap">
-                  <div
-                    className="eng-panel__image"
-                    style={{
-                      backgroundImage: `linear-gradient(to right, rgba(8,18,34,0.85) 0%, rgba(8,18,34,0.2) 60%, transparent 100%), url(${svc.image})`
-                    }}
-                  />
-                  <div className="eng-panel__image-id">{svc.id}</div>
-                </div>
-
-                <div className="eng-panel__content">
-                  <span className="eng-panel__eyebrow">{svc.label}</span>
-                  <h3 className="eng-panel__title">{svc.title}</h3>
-                  <p className="eng-panel__desc">{svc.desc}</p>
-
-                  <div className="eng-panel__highlights">
-                    <p className="eng-panel__highlights-heading">What we deliver:</p>
-                    <ul>
-                      {svc.highlights.map((h, j) => (
-                        <li key={j}>
-                          <span className="eng-check">◆</span>
-                          <span>{h}</span>
-                        </li>
-                      ))}
-                    </ul>
-                  </div>
-
-                  <div className="eng-panel__tags">
-                    {svc.tags.map(t => <span key={t} className="eng-tag">{t}</span>)}
-                  </div>
-
-                  <a href="/contact" className="eng-btn eng-btn--primary eng-panel__cta">
-                    Enquire About This Service
-                  </a>
-                </div>
-              </div>
-            ))}
-          </div>
-        </section>
-
-        {/* ══ CAPABILITIES ══ */}
-        <section className="eng-capabilities eng-reveal">
-          <div className="eng-capabilities__inner">
-            <div className="eng-capabilities__header">
-              <div className="eng-bar" />
-              <h2>How We Deliver</h2>
-              <p>Six core capabilities that underpin every project we take on.</p>
-            </div>
-            <div className="eng-capabilities__grid">
-              {capabilities.map((cap, i) => (
-                <div className="eng-cap-card eng-reveal" key={i} style={{ transitionDelay: `${i * 0.08}s` }}>
-                  <span className="eng-cap-card__num">0{i + 1}</span>
-                  <h4>{cap.title}</h4>
-                  <p>{cap.desc}</p>
-                </div>
+      {/* ══ SERVICE NAVIGATOR ══ */}
+      <section className="eng-portfolio" id="eng-services">
+        <div className="cert-container">
+          <div className="eng-section-top cert-reveal">
+            <span className="cert-eyebrow dark">Engineering Divisions</span>
+            <h2 className="section-title">Multi-Discipline Delivery</h2>
+            
+            <div className="eng-tab-strip">
+              {services.map((svc, i) => (
+                <button 
+                  key={svc.id}
+                  className={`eng-tab-btn ${activeService === i ? 'active' : ''}`}
+                  onClick={() => setActiveService(i)}
+                >
+                  <span className="tab-idx">{svc.id}</span>
+                  <span className="tab-name">{svc.label.split('·')[0]}</span>
+                </button>
               ))}
             </div>
           </div>
-        </section>
 
-        {/* ══ VISUAL BREAK ══ */}
-        <section className="eng-visual-break">
-          <div className="eng-visual-break__image" />
-          <div className="eng-visual-break__overlay">
-            <blockquote>
-              "Structural integrity, compliance, and sustainable engineering —
-              non-negotiable on every Bravelion project."
-            </blockquote>
-            <a href="/about" className="eng-btn eng-btn--ghost-white" style={{ marginTop: '28px' }}>
-              Our Company Values
-            </a>
+          <div className="eng-active-display cert-reveal">
+            {services.map((svc, i) => (
+              <div key={svc.id} className={`eng-panel-view ${activeService === i ? 'active' : ''}`}>
+                <div className="eng-panel-grid">
+                  <div className="eng-panel-info">
+                    <span className="eng-panel-tag">{svc.label}</span>
+                    <h3>{svc.title}</h3>
+                    <p>{svc.desc}</p>
+                    
+                    <div className="eng-checklist">
+                      {svc.highlights.map((h, j) => (
+                        <div className="check-item" key={j}>
+                          <span className="check-bullet"></span>
+                          {h}
+                        </div>
+                      ))}
+                    </div>
+
+                    <div className="eng-panel-bottom">
+                       <div className="eng-tags-cloud">
+                          {svc.tags.map(t => <span key={t} className="eng-mini-tag">{t}</span>)}
+                       </div>
+                       <a href="/contact" className="cert-btn-primary">Enquire for Project</a>
+                    </div>
+                  </div>
+                  <div className="eng-panel-media">
+                    <img src={svc.image} alt={svc.title} />
+                  </div>
+                </div>
+              </div>
+            ))}
           </div>
-        </section>
+        </div>
+      </section>
 
-        {/* ══ CTA ══ */}
-        <section className="eng-cta eng-reveal">
-          <div className="eng-cta__inner">
-            <span className="eng-cta__eye">Start a Project</span>
-            <h2>Ready to Build Something<br />That Lasts?</h2>
-            <p>
-              Talk to our engineering team about your next project —
-              from feasibility and design through to final delivery and maintenance.
-            </p>
-            <div className="eng-cta__btns">
-              <a href="/contact" className="eng-btn eng-btn--primary">Get in Touch</a>
-              <a href="/services" className="eng-btn eng-btn--outline-dark">View All Services</a>
+      {/* ══ CAPABILITIES GRID ══ */}
+      <section className="eng-delivery-block">
+        <div className="cert-container">
+          <div className="eng-delivery-header cert-reveal">
+            <span className="cert-eyebrow light">Operational Standards</span>
+            <h2>How We Deliver.</h2>
+          </div>
+          <div className="eng-delivery-grid">
+            {capabilities.map((cap, i) => (
+              <div className="eng-cap-card cert-reveal" key={i}>
+                <span className="eng-cap-index">0{i+1}</span>
+                <h4>{cap.title}</h4>
+                <p>{cap.desc}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* ══ QUOTE & VALUES ══ */}
+      <section className="eng-vision-break">
+         <div className="cert-container">
+            <div className="eng-vision-content cert-reveal">
+               <blockquote>
+                 "Structural integrity, compliance, and sustainable engineering — 
+                 non-negotiable on every project we commission."
+               </blockquote>
+               <a href="/about" className="cert-btn-outline">Our Values</a>
             </div>
-          </div>
-        </section>
-
-      </div>
+         </div>
+      </section>
 
       <ServicesFooter />
-    </>
+    </div>
   );
 };
 

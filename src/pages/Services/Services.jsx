@@ -4,11 +4,11 @@ import ServicesNavbar from "./components/Navbar/Navbar";
 import ServicesFooter from "./components/Footer/Footer";
 
 const categories = [
-  { id: 'all', label: 'All Services' },
+  { id: 'all', label: 'Complete Portfolio' },
   { id: 'engineering', label: 'Engineering' },
-  { id: 'training', label: 'Training' },
-  { id: 'energy', label: 'Energy' },
-  { id: 'business', label: 'Business' },
+  { id: 'training', label: 'Professional Development' },
+  { id: 'energy', label: 'Energy & Power' },
+  { id: 'business', label: 'Strategic Operations' },
 ];
 
 const services = [
@@ -160,9 +160,9 @@ const services = [
 
 const stats = [
   { number: '16+', label: 'Service Divisions' },
-  { number: '500+', label: 'Projects Delivered' },
-  { number: '10+', label: 'Years of Excellence' },
-  { number: '98%', label: 'Client Retention Rate' },
+  { number: '500+', label: 'Engagements' },
+  { number: '10+', label: 'Years Experience' },
+  { number: '98%', label: 'Retention' },
 ];
 
 const Services = () => {
@@ -177,199 +177,144 @@ const Services = () => {
     observerRef.current = new IntersectionObserver(
       (entries) => {
         entries.forEach((entry) => {
-          if (entry.isIntersecting) entry.target.classList.add('in-view');
+          if (entry.isIntersecting) entry.target.classList.add('cert-visible');
         });
       },
       { threshold: 0.1 }
     );
-    document.querySelectorAll('.reveal').forEach(el => observerRef.current.observe(el));
+    document.querySelectorAll('.cert-reveal').forEach(el => observerRef.current.observe(el));
     return () => observerRef.current?.disconnect();
   }, []);
 
-  useEffect(() => {
-    // Re-observe after filter changes
-    setTimeout(() => {
-      document.querySelectorAll('.reveal:not(.in-view)').forEach(el => {
-        observerRef.current?.observe(el);
-      });
-    }, 50);
-  }, [activeCategory]);
-
   return (
-    <>
+    <div className="cert-page">
       <ServicesNavbar />
 
-      <div className="sv-page">
-
-        {/* ===== HERO ===== */}
-        <section className="sv-hero">
-          <div className="sv-hero__bg" />
-          <div className="sv-hero__content">
-            <span className="sv-hero__eyebrow">Bravelion Holdings — Service Portfolio</span>
-            <h1 className="sv-hero__title">
-              Diversified. <br />
-              <em>Integrated.</em> <br />
-              Delivered.
-            </h1>
-            <p className="sv-hero__sub">
-              From electrical engineering and energy consultancy to professional
-              training, logistics, and civil construction — Bravelion delivers
-              across 16 service divisions with measurable results.
+      {/* ===== HERO ===== */}
+      <section className="cert-hero sv-hero-custom">
+        <div className="cert-container">
+          <div className="cert-hero__inner cert-reveal">
+            <span className="cert-eyebrow light">Core Competencies</span>
+            <h1>Multidisciplinary <br /> <span className="cert-highlight">Excellence.</span></h1>
+            <p className="cert-hero__sub">
+              Bravelion Holdings operates at the intersection of technical precision and strategic 
+              foresight, delivering integrated solutions across 16 specialized divisions.
             </p>
-            <div className="sv-hero__actions">
-              <a href="/contact" className="sv-btn sv-btn--blue">Speak to an Expert</a>
-              <a href="#services-grid" className="sv-btn sv-btn--outline">Explore Services</a>
+            <div className="cert-hero__actions">
+              <a href="#services-grid" className="cert-btn-primary">Explore Portfolio</a>
+              <a href="/contact" className="cert-btn-outline">Corporate Inquiry</a>
             </div>
           </div>
-          <div className="sv-hero__index-strip">
-            {services.slice(0, 8).map(s => (
-              <span key={s.id} className="sv-hero__index-item">{s.id}. {s.title.split(' ').slice(0, 3).join(' ')}</span>
-            ))}
-          </div>
-        </section>
+        </div>
+      </section>
 
-        {/* ===== STATS ===== */}
-        <section className="sv-stats reveal">
-          <div className="sv-stats__inner">
+      {/* ===== STATS BAND ===== */}
+      <section className="sv-stats-band cert-reveal">
+        <div className="cert-container">
+          <div className="sv-stats-grid">
             {stats.map((s, i) => (
-              <div className="sv-stat" key={i}>
-                <span className="sv-stat__num">{s.number}</span>
-                <span className="sv-stat__label">{s.label}</span>
+              <div className="sv-stat-item" key={i}>
+                <span className="sv-stat-num">{s.number}</span>
+                <span className="sv-stat-label">{s.label}</span>
               </div>
             ))}
           </div>
-        </section>
+        </div>
+      </section>
 
-        {/* ===== INTRO ===== */}
-        <section className="sv-intro reveal">
-          <div className="sv-intro__inner">
-            <div className="sv-intro__left">
-              <div className="sv-anchor-bar" />
-              <h2>One Trusted Partner. <br />Across Every Sector.</h2>
-            </div>
-            <div className="sv-intro__right">
-              <p>
-                Bravelion Holdings operates as a multidisciplinary solutions
-                provider, delivering engineering, energy, training, logistics,
-                and consultancy services to government bodies, private enterprises,
-                and communities across Nigeria and beyond.
-              </p>
-              <p>
-                Our integrated model means clients benefit from a single
-                accountable partner — reducing procurement complexity while
-                gaining access to a full spectrum of technical and professional expertise.
-              </p>
-            </div>
-          </div>
-        </section>
-
-        {/* ===== SERVICES GRID ===== */}
-        <section className="sv-grid-section" id="services-grid">
-          <div className="sv-grid-section__header reveal">
-            <div className="sv-anchor-bar" />
-            <h2>Our Service Portfolio</h2>
-            <p>16 integrated service divisions built to solve real problems.</p>
-          </div>
-
-          {/* Filter Tabs */}
-          <div className="sv-filters reveal">
-            {categories.map(cat => (
-              <button
-                key={cat.id}
-                className={`sv-filter-btn ${activeCategory === cat.id ? 'active' : ''}`}
-                onClick={() => setActiveCategory(cat.id)}
-              >
-                {cat.label}
-              </button>
-            ))}
-          </div>
-
-          {/* Cards */}
-          <div className="sv-grid">
-            {filtered.map((service, i) => (
-              <div
-                className="sv-card reveal"
-                key={service.id}
-                style={{ transitionDelay: `${(i % 4) * 0.08}s` }}
-              >
-                <div
-                  className="sv-card__image"
-                  style={{
-                    backgroundImage: `linear-gradient(rgba(0,0,0,0.1), rgba(10,22,40,0.75)), url(${service.image})`
-                  }}
+      {/* ===== FILTER SECTION ===== */}
+      <section className="sv-portfolio" id="services-grid">
+        <div className="cert-container">
+          <div className="sv-portfolio__header cert-reveal">
+            <span className="cert-eyebrow dark">Selection</span>
+            <h2 className="section-title">Industrial Solutions</h2>
+            
+            <div className="cert-filters">
+              {categories.map(cat => (
+                <button
+                  key={cat.id}
+                  className={`cert-filter ${activeCategory === cat.id ? 'cert-filter--active' : ''}`}
+                  onClick={() => setActiveCategory(cat.id)}
                 >
-                  <span className="sv-card__letter">{service.id}</span>
-                  <span className="sv-card__icon">{service.icon}</span>
-                </div>
-                <div className="sv-card__body">
-                  <h3>{service.title}</h3>
-                  <p>{service.desc}</p>
-                  <div className="sv-card__tags">
-                    {service.tags.map(tag => (
-                      <span key={tag} className="sv-tag">{tag}</span>
-                    ))}
-                  </div>
-                  <a href="/contact" className="sv-card__link">
-                    Enquire <span>→</span>
-                  </a>
-                </div>
-              </div>
-            ))}
-          </div>
-        </section>
-
-        {/* ===== STANDARDS BAND ===== */}
-        <section className="sv-standards reveal">
-          <div className="sv-standards__inner">
-            <div className="sv-standards__left">
-              <div className="sv-anchor-bar" />
-              <h2>Governed by Standards. <br />Driven by Results.</h2>
-              <p>
-                Every service we deliver is backed by regulatory compliance,
-                quality assurance processes, and a culture of accountability
-                that puts client outcomes first.
-              </p>
-              <a href="/contact" className="sv-btn sv-btn--blue" style={{ marginTop: '32px', display: 'inline-flex' }}>
-                Request Company Profile
-              </a>
-            </div>
-            <div className="sv-standards__grid">
-              {[
-                { label: 'Regulatory Compliance', desc: 'Aligned with national and sector-specific regulatory frameworks.' },
-                { label: 'Quality Assurance', desc: 'Structured QA/QC processes on every engagement.' },
-                { label: 'HSE Integration', desc: 'Safety embedded into every project and service delivery.' },
-                { label: 'Client Accountability', desc: 'Clear reporting, milestones, and outcome tracking.' },
-              ].map((item, i) => (
-                <div className="sv-standard-card" key={i}>
-                  <span className="sv-standard-card__num">0{i + 1}</span>
-                  <h4>{item.label}</h4>
-                  <p>{item.desc}</p>
-                </div>
+                  {cat.label}
+                </button>
               ))}
             </div>
           </div>
-        </section>
 
-        {/* ===== CTA ===== */}
-        <section className="sv-cta reveal">
-          <div className="sv-cta__inner">
-            <span className="sv-cta__eyebrow">Work With Us</span>
-            <h2>Ready to Start a Project <br />or Enroll in a Program?</h2>
-            <p>
-              Whether you need an engineering solution, a training program,
-              or a strategic consultant — our team is ready to deliver.
-            </p>
-            <div className="sv-cta__buttons">
-              <a href="/contact" className="sv-btn sv-btn--blue">Get in Touch</a>
-              <a href="/about" className="sv-btn sv-btn--ghost">About Bravelion</a>
+          <div className="sv-portfolio__grid">
+            {filtered.map((service) => (
+              <div className="sv-portfolio-card cert-reveal" key={service.id}>
+                <div className="sv-card-media">
+                  <img src={service.image} alt={service.title} loading="lazy" />
+                  <div className="sv-card-overlay">
+                    <span className="sv-card-icon">{service.icon}</span>
+                  </div>
+                  <span className="sv-card-index">{service.id}</span>
+                </div>
+                <div className="sv-card-content">
+                  <span className="sv-card-cat">{service.category}</span>
+                  <h3>{service.title}</h3>
+                  <p>{service.desc}</p>
+                  <div className="sv-card-tags">
+                    {service.tags.slice(0, 3).map(tag => (
+                      <span key={tag} className="sv-mini-tag">{tag}</span>
+                    ))}
+                  </div>
+                  <a href="/contact" className="sv-card-link">Request Consultation →</a>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* ===== STANDARDS (NAVY BLOCK) ===== */}
+      <section className="sv-standards-block">
+        <div className="cert-container">
+          <div className="sv-standards-inner">
+            <div className="sv-standards-text cert-reveal">
+              <span className="cert-eyebrow light">Operational Rigor</span>
+              <h2>Global Standards. <br />Local Impact.</h2>
+              <p>Every engagement is governed by rigorous QA/QC protocols and international safety benchmarks.</p>
+              <a href="/contact" className="cert-btn-primary">Company Profile</a>
+            </div>
+            <div className="sv-standards-grid-cards">
+               {[
+                { t: 'Compliance', d: 'Aligned with national regulatory frameworks.' },
+                { t: 'Quality Control', d: 'Structured QA processes on every project.' },
+                { t: 'Safety First', d: 'HSE protocols embedded in our DNA.' },
+                { t: 'Integrity', d: 'Transparent reporting and accountability.' }
+               ].map((item, i) => (
+                 <div className="sv-rigor-card cert-reveal" key={i}>
+                    <span className="rigor-num">0{i+1}</span>
+                    <h4>{item.t}</h4>
+                    <p>{item.d}</p>
+                 </div>
+               ))}
             </div>
           </div>
-        </section>
+        </div>
+      </section>
 
-      </div>
+      {/* ===== CTA ===== */}
+      <section className="cert-cta">
+        <div className="cert-container">
+          <div className="cert-cta__inner cert-reveal">
+            <div className="cert-cta__text">
+              <span className="cert-eyebrow light">Contact Us</span>
+              <h2>Partner With Excellence.</h2>
+              <p>Let's discuss how our multidisciplinary team can support your objectives.</p>
+            </div>
+            <div className="cert-cta__actions">
+              <a href="/contact" className="cert-btn-primary">Initiate Discussion</a>
+            </div>
+          </div>
+        </div>
+      </section>
 
       <ServicesFooter />
-    </>
+    </div>
   );
 };
 

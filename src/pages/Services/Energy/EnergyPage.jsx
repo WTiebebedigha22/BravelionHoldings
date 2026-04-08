@@ -96,267 +96,158 @@ const EnergyPage = () => {
 
   useEffect(() => {
     observerRef.current = new IntersectionObserver(
-      (entries) => entries.forEach(e => e.isIntersecting && e.target.classList.add('en-in-view')),
+      (entries) => entries.forEach(e => e.isIntersecting && e.target.classList.add('cert-visible')),
       { threshold: 0.1 }
     );
-    document.querySelectorAll('.en-reveal').forEach(el => observerRef.current.observe(el));
+    document.querySelectorAll('.cert-reveal').forEach(el => observerRef.current.observe(el));
     return () => observerRef.current?.disconnect();
   }, []);
 
   const svc = services[activeService];
 
   return (
-    <>
+    <div className="cert-page">
       <ServicesNavbar />
-      <div className="en-page">
 
-        {/* ══ HERO ══ */}
-        <section className="en-hero">
-          <div className="en-hero__bg" />
-          <div className="en-hero__inner">
-
-            <div className="en-hero__left">
-              <div className="en-hero__label-row">
-                <span className="en-label">Energy &amp; Oil Gas</span>
-                <span className="en-label en-label--dim">Bravelion Holdings</span>
-              </div>
-              <h1 className="en-hero__title">
-                Power.<br />
-                <em>Process.</em><br />
-                Precision.
-              </h1>
-              <p className="en-hero__sub">
-                Specialized energy and oil & gas services — from field operations
-                training and consultancy to solar installations and power distribution.
-                Built for the demands of Africa's evolving energy sector.
+      {/* ══ HERO SECTION ══ */}
+      <section className="cert-hero en-hero-custom">
+        <div className="cert-container">
+          <div className="en-hero-split cert-reveal">
+            <div className="en-hero-text">
+              <span className="cert-eyebrow light">Strategic Infrastructure</span>
+              <h1>Power. <br /><span className="cert-highlight">Precision.</span> <br />Process.</h1>
+              <p className="cert-hero__sub">
+                Specialized energy and oil & gas services designed for Africa's 
+                evolving industrial landscape—from regulatory consultancy to 
+                renewable power distribution.
               </p>
-              <div className="en-hero__actions">
-                <a href="/contact" className="en-btn en-btn--orange">Request Consultation</a>
-                <a href="#en-services" className="en-btn en-btn--ghost">Explore Services</a>
+              <div className="cert-hero__actions">
+                <a href="#en-services" className="cert-btn-primary">Explore Divisions</a>
+                <a href="/contact" className="cert-btn-outline">Consult Our Team</a>
               </div>
             </div>
 
-            <div className="en-hero__right">
-              <div className="en-hero__selector">
-                <p className="en-hero__selector-label">Our Four Energy Divisions</p>
-                {services.map((s, i) => (
-                  <button
-                    key={s.id + s.anchor}
-                    className={`en-hero__svc ${activeService === i ? 'en-hero__svc--active' : ''}`}
-                    onClick={() => setActiveService(i)}
-                  >
-                    <span className="en-hero__svc-icon">{s.icon}</span>
-                    <div className="en-hero__svc-body">
-                      <span className="en-hero__svc-label">{s.label}</span>
-                      <span className="en-hero__svc-stat">{s.stat.val} · {s.stat.label}</span>
-                    </div>
-                    <div className="en-hero__svc-indicator" />
-                  </button>
-                ))}
-              </div>
-
-              <div className="en-hero__preview-card">
-                <div
-                  className="en-hero__preview-img"
-                  style={{ backgroundImage: `url(${svc.image})` }}
-                />
-                <div className="en-hero__preview-footer">
-                  <span className="en-hero__preview-id">{svc.id}</span>
-                  <span className="en-hero__preview-name">{svc.label}</span>
-                  <span className="en-hero__preview-stat">{svc.stat.val} {svc.stat.label}</span>
-                </div>
-              </div>
+            <div className="en-hero-visual-panel">
+               <div className="en-visual-main">
+                  <img src={svc.image} alt={svc.label} className="en-main-img" />
+                  <div className="en-visual-badge">
+                    <span className="badge-val">{svc.stat.val}</span>
+                    <span className="badge-lab">{svc.stat.label}</span>
+                  </div>
+               </div>
             </div>
           </div>
-        </section>
+        </div>
+      </section>
 
-        {/* ══ STATS ══ */}
-        <section className="en-stats en-reveal">
-          <div className="en-stats__inner">
+      {/* ══ SECTOR STATS ══ */}
+      <section className="en-stats-strip cert-reveal">
+        <div className="cert-container">
+          <div className="en-stats-grid">
             {stats.map((s, i) => (
-              <div className="en-stat" key={i}>
-                <span className="en-stat__num">{s.num}</span>
-                <span className="en-stat__label">{s.label}</span>
+              <div className="en-stat-box" key={i}>
+                <span className="en-stat-num">{s.num}</span>
+                <span className="en-stat-label">{s.label}</span>
               </div>
             ))}
           </div>
-        </section>
+        </div>
+      </section>
 
-        {/* ══ INTRO ══ */}
-        <section className="en-intro en-reveal">
-          <div className="en-intro__inner">
-            <div className="en-intro__left">
-              <div className="en-bar" />
-              <h2>Africa's Energy Sector<br />Demands More.<br />We Deliver It.</h2>
-              <a href="/contact" className="en-text-link">Partner with our energy team <span>→</span></a>
-            </div>
-            <div className="en-intro__right">
-              <p>
-                From crude oil fields to solar rooftops — Bravelion's energy division
-                provides the technical expertise, regulatory knowledge, and operational
-                capacity needed to navigate one of the world's most complex and consequential
-                industries.
-              </p>
-              <p>
-                Our team combines decades of field experience with structured consultancy
-                frameworks, ensuring every engagement produces tangible, measurable outcomes
-                for our clients and their organizations.
-              </p>
-            </div>
-          </div>
-        </section>
-
-        {/* ══ SERVICES ══ */}
-        <section className="en-services" id="en-services">
-          <div className="en-services__header en-reveal">
-            <div className="en-bar" />
-            <h2>Energy Service Divisions</h2>
-            <p>Four specialized divisions. One integrated energy partner.</p>
-          </div>
-
-          <div className="en-tabs en-reveal">
-            {services.map((s, i) => (
-              <button
-                key={`tab-${s.anchor}`}
-                className={`en-tab ${activeService === i ? 'en-tab--active' : ''}`}
-                onClick={() => setActiveService(i)}
-              >
-                <div className="en-tab__top">
-                  <span className="en-tab__icon">{s.icon}</span>
-                  <span className="en-tab__id">{s.id}</span>
-                </div>
-                <span className="en-tab__label">{s.label}</span>
-                <span className="en-tab__stat">{s.stat.val}</span>
-              </button>
-            ))}
-          </div>
-
-          <div className="en-panels">
-            {services.map((s, i) => (
-              <div
-                key={s.anchor}
-                id={s.anchor}
-                className={`en-panel ${activeService === i ? 'en-panel--active' : ''}`}
-              >
-                <div className="en-panel__image-wrap">
-                  <div
-                    className="en-panel__image"
-                    style={{ backgroundImage: `url(${s.image})` }}
-                  />
-                  <div className="en-panel__image-overlay">
-                    <div className="en-panel__float-stat">
-                      <span className="en-panel__float-val">{s.stat.val}</span>
-                      <span className="en-panel__float-label">{s.stat.label}</span>
-                    </div>
-                    <span className="en-panel__image-id">{s.id}</span>
-                  </div>
-                </div>
-
-                <div className="en-panel__content">
-                  <span className="en-panel__eyebrow">{s.label}</span>
-                  <h3 className="en-panel__title">{s.title}</h3>
-                  <p className="en-panel__desc">{s.desc}</p>
-
-                  <div className="en-panel__highlights">
-                    <p className="en-panel__hl-head">What we deliver:</p>
-                    <ul>
-                      {s.highlights.map((h, j) => (
-                        <li key={j}>
-                          <span className="en-check">◈</span>
-                          <span>{h}</span>
-                        </li>
-                      ))}
-                    </ul>
-                  </div>
-
-                  <div className="en-panel__tags">
-                    {s.tags.map(t => <span key={t} className="en-tag">{t}</span>)}
-                  </div>
-
-                  <div className="en-panel__btns">
-                    <a href="/contact" className="en-btn en-btn--orange">Request This Service</a>
-                    <a href="/contact" className="en-btn en-btn--ghost-dark">Download Profile</a>
-                  </div>
-                </div>
-              </div>
-            ))}
-          </div>
-        </section>
-
-        {/* ══ CAPABILITIES ══ */}
-        <section className="en-capabilities en-reveal">
-          <div className="en-capabilities__inner">
-            <div className="en-capabilities__header">
-              <div className="en-bar" />
-              <h2>What Sets Our Energy Division Apart</h2>
-              <p>Technical depth. Regulatory alignment. Real-world outcomes.</p>
-            </div>
-            <div className="en-capabilities__grid">
-              {capabilities.map((cap, i) => (
-                <div className="en-cap-card en-reveal" key={i} style={{ transitionDelay: `${i * 0.08}s` }}>
-                  <span className="en-cap-card__icon">{cap.icon}</span>
-                  <h4>{cap.title}</h4>
-                  <p>{cap.desc}</p>
-                </div>
+      {/* ══ INTEGRATED SERVICES ══ */}
+      <section className="en-services-section" id="en-services">
+        <div className="cert-container">
+          <div className="en-section-header cert-reveal">
+            <span className="cert-eyebrow dark">Industrial Portfolio</span>
+            <h2 className="section-title">Energy Service Divisions</h2>
+            
+            <div className="en-tab-nav">
+              {services.map((s, i) => (
+                <button 
+                  key={s.id} 
+                  className={`en-nav-item ${activeService === i ? 'active' : ''}`}
+                  onClick={() => setActiveService(i)}
+                >
+                  <span className="nav-id">{s.id}</span>
+                  <span className="nav-label">{s.label}</span>
+                </button>
               ))}
             </div>
           </div>
-        </section>
 
-        {/* ══ VISUAL BREAK ══ */}
-        <section className="en-visual-break">
-          <div className="en-visual-break__bg" />
-          <div className="en-visual-break__content">
-            <p className="en-visual-break__overline">The Energy Imperative</p>
-            <blockquote>
-              "Nigeria's energy future demands expertise, discipline,
-              and a commitment to operational excellence. That is what
-              we bring to every engagement."
-            </blockquote>
-            <div className="en-visual-break__pills">
-              {['Oil & Gas', 'Solar Power', 'Field Training', 'Energy Consultancy'].map(item => (
-                <span key={item} className="en-visual-break__pill">{item}</span>
-              ))}
-            </div>
-          </div>
-        </section>
+          <div className="en-active-panel cert-reveal">
+            <div className="en-panel-grid">
+              <div className="en-panel-content">
+                <span className="panel-cat">Technical Division</span>
+                <h3>{svc.title}</h3>
+                <p className="panel-desc">{svc.desc}</p>
+                
+                <div className="panel-deliverables">
+                  <h4>Core Deliverables</h4>
+                  <ul>
+                    {svc.highlights.map((h, j) => (
+                      <li key={j}><span>◈</span> {h}</li>
+                    ))}
+                  </ul>
+                </div>
 
-        {/* ══ CTA ══ */}
-        <section className="en-cta en-reveal">
-          <div className="en-cta__inner">
-            <div className="en-cta__left">
-              <span className="en-cta__eye">Ready to Engage?</span>
-              <h2>Power Your Project<br />with Bravelion Energy.</h2>
-              <p>
-                Whether you need field training, strategic consultancy, solar installation,
-                or oil & gas advisory — our energy team is ready to scope, plan, and deliver.
-              </p>
-              <div className="en-cta__btns">
-                <a href="/contact" className="en-btn en-btn--orange">Start a Project</a>
-                <a href="/services" className="en-btn en-btn--outline-dark">All Services</a>
+                <div className="panel-footer">
+                  <div className="panel-tags">
+                    {svc.tags.map(t => <span key={t} className="en-mini-tag">{t}</span>)}
+                  </div>
+                  <a href="/contact" className="cert-btn-primary">Initiate Project Scope</a>
+                </div>
               </div>
-            </div>
-            <div className="en-cta__right">
-              <div className="en-cta__contact-card">
-                <p className="en-cta__card-title">Reach Our Energy Team</p>
-                <p className="en-cta__card-body">
-                  Contact us directly to discuss your project scope, training requirements,
-                  or consultancy needs.
-                </p>
-                <a href="mailto:services@bravelionholdings.com" className="en-cta__card-contact">
-                  📧 services@bravelionholdings.com
-                </a>
-                <a href="tel:+2347081728260" className="en-cta__card-contact">
-                  📞 +234 708 172 8260
-                </a>
+              <div className="en-panel-side-media">
+                <img src={svc.image} alt="Service Visual" />
+                <div className="en-side-stat-overlay">
+                  <strong>{svc.stat.val}</strong>
+                  <span>{svc.stat.label}</span>
+                </div>
               </div>
             </div>
           </div>
-        </section>
+        </div>
+      </section>
 
-      </div>
+      {/* ══ CAPABILITIES ══ */}
+      <section className="en-cap-block">
+        <div className="cert-container">
+          <div className="en-cap-grid">
+            <div className="en-cap-intro cert-reveal">
+               <span className="cert-eyebrow light">Competitive Edge</span>
+               <h2>Engineered for Excellence.</h2>
+               <p>Our division combines technical depth with regulatory alignment to ensure verifiable outcomes.</p>
+            </div>
+            {capabilities.map((cap, i) => (
+              <div className="en-cap-item cert-reveal" key={i}>
+                <span className="cap-icon">{cap.icon}</span>
+                <h4>{cap.title}</h4>
+                <p>{cap.desc}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* ══ CTA SECTION ══ */}
+      <section className="cert-cta">
+        <div className="cert-container">
+          <div className="cert-cta__inner cert-reveal">
+            <div className="cert-cta__text">
+              <span className="cert-eyebrow light">Contact Us</span>
+              <h2>Power Your Project.</h2>
+              <p>Discuss your technical scope or consultancy requirements with our lead engineers.</p>
+            </div>
+            <div className="cert-cta__actions">
+              <a href="/contact" className="cert-btn-primary">Request Consultation</a>
+            </div>
+          </div>
+        </div>
+      </section>
+
       <ServicesFooter />
-    </>
+    </div>
   );
 };
 

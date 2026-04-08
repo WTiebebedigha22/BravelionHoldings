@@ -1,184 +1,163 @@
-import React, { useEffect, useRef, useState } from 'react';
+import React, { useEffect, useRef } from 'react';
 import TrainingNavbar from '../components/Navbar/Navbar';
 import TrainingFooter from '../components/Footer/Footer';
 import './Corporate.css';
 
 const packages = [
-  {
-    tier: 'Starter',
-    icon: '🌱',
-    price: 'From ₦150,000',
-    tagline: 'For small teams (up to 10)',
-    features: ['1 course module (2–3 days)', 'Classroom or on-site delivery', 'Course materials included', 'Certificate of participation', 'Basic post-training report'],
-    cta: 'Book Starter',
-    highlight: false,
-  },
-  {
-    tier: 'Professional',
-    icon: '⚡',
-    price: 'From ₦480,000',
-    tagline: 'For growing teams (up to 25)',
-    features: ['3 course modules (up to 2 weeks)', 'Classroom + on-site delivery', 'Full materials & workbooks', 'Industry-recognised certificates', 'Pre/post skills assessment', 'Dedicated training coordinator'],
-    cta: 'Book Professional',
-    highlight: true,
-  },
-  {
-    tier: 'Enterprise',
-    icon: '🏢',
-    price: 'Custom Pricing',
-    tagline: 'For large organizations (25+)',
-    features: ['Unlimited modules & cohorts', 'Fully bespoke curriculum', 'Regulatory compliance alignment', 'LMS integration & tracking', 'Quarterly impact reports', 'Dedicated account manager'],
-    cta: 'Request Enterprise Quote',
-    highlight: false,
-  },
-];
-
-const sectors = [
-  { icon: '⛽', name: 'Oil & Gas',           desc: 'HSE, technical skills, regulatory compliance, and field operations training.' },
-  { icon: '🏥', name: 'Healthcare',           desc: 'Patient safety, wellness, first aid, and professional development programs.' },
-  { icon: '🏗',  name: 'Construction',         desc: 'Site safety, supervisory skills, quality management, and project delivery.' },
-  { icon: '🏦', name: 'Financial Services',   desc: 'Compliance, financial literacy, leadership, and customer service training.' },
-  { icon: '📡', name: 'Telecom & Technology', desc: 'ICT skills, cybersecurity awareness, digital transformation programs.' },
-  { icon: '🎓', name: 'Education',            desc: 'Educator capacity building, ICT integration, and institutional leadership.' },
+  { tier: 'Starter', icon: '🌱', code: 'CP-10', price: 'From ₦150,000', tagline: 'Small team excellence (up to 10)', features: ['1 course module (2–3 days)', 'On-site delivery', 'Course materials included', 'Certificate of participation', 'Basic post-training report'] },
+  { tier: 'Professional', icon: '⚡', code: 'CP-25', price: 'From ₦480,000', tagline: 'Strategic growth (up to 25)', features: ['3 course modules', 'Blended Learning options', 'Full materials & workbooks', 'Industry certificates', 'Pre/post skills assessment', 'Dedicated coordinator'] },
+  { tier: 'Enterprise', icon: '🏢', code: 'CP-MAX', price: 'Custom Quote', tagline: 'Full organizational scale (25+)', features: ['Unlimited modules & cohorts', 'Bespoke curriculum', 'LMS integration & tracking', 'Quarterly impact reports', 'Dedicated account manager'] },
 ];
 
 const CorporatePage = () => {
-  const [activeTier, setActiveTier] = useState(1);
   const obs = useRef(null);
 
   useEffect(() => {
     obs.current = new IntersectionObserver(
-      es => es.forEach(e => e.isIntersecting && e.target.classList.add('tp-visible')),
-      { threshold: 0.08 }
+      es => es.forEach(e => e.isIntersecting && e.target.classList.add('cert-visible')),
+      { threshold: 0.1 }
     );
-    document.querySelectorAll('.tp-reveal').forEach(el => obs.current.observe(el));
+    document.querySelectorAll('.cert-reveal').forEach(el => obs.current.observe(el));
     return () => obs.current?.disconnect();
   }, []);
 
   return (
-    <>
+    <div className="cert-page">
       <TrainingNavbar />
-      <div className="tp">
 
-        <section className="tp-hero corp-hero">
-          <div className="tp-hero__glow" />
-          <div className="tp-hero__inner corp-hero__inner">
-            <div className="corp-hero__left">
-              <div className="tp-hero__label">🏢 Corporate Training</div>
-              <h1 className="tp-hero__title">Train Your Team.<br /><em>Transform</em><br />Your Business.</h1>
-              <p className="tp-hero__sub">Bespoke corporate training programs designed around your organizational needs, industry requirements, and team capacity goals.</p>
-              <div className="tp-hero__actions">
-                <a href="/training/enroll" className="tp-btn tp-btn--green">Request a Program</a>
-                <a href="#corp-packages" className="tp-btn tp-btn--ghost">View Packages</a>
-              </div>
-            </div>
-            <div className="corp-hero__right">
-              {sectors.slice(0,4).map(s => (
-                <div className="corp-hero__sector" key={s.name}>
-                  <span>{s.icon}</span>
-                  <span>{s.name}</span>
-                </div>
-              ))}
+      {/* HERO SECTION */}
+      <section className="cert-hero">
+        <div className="cert-container">
+          <div className="cert-hero__inner cert-reveal">
+            <span className="cert-eyebrow light">Strategic Human Capital</span>
+            <h1>Architecting <br /> High-Performance <span className="cert-highlight">Workforces</span></h1>
+            <p className="cert-hero__sub">
+              Bespoke corporate training programs designed around your organizational needs, industry requirements, and team capacity goals.
+            </p>
+            <div className="cert-hero__actions">
+              <a href="/enroll" className="cert-btn-primary">Request Briefing</a>
+              <a href="#packages" className="cert-btn-outline">View Packages</a>
             </div>
           </div>
-        </section>
-
-        <div className="tp-stats tp-reveal">
-          {[['50+','Organizations Trained'],['100%','Bespoke Design'],['6','Industry Sectors'],['500+','Employees Upskilled']].map(([n,l]) => (
-            <div className="tp-stat" key={l}><span className="tp-stat__num">{n}</span><span className="tp-stat__label">{l}</span></div>
-          ))}
         </div>
 
-        {/* WHY CORPORATE */}
-        <section className="tp-section tp-reveal">
-          <div className="tp-section__header">
-            <div className="tp-bar" /><h2>Why Choose Corporate Training?</h2>
-            <p>Investing in your team is the highest-ROI business decision you can make.</p>
+        <div className="cert-hero__strip">
+          <div className="cert-container cert-hero__strip-inner">
+            <span className="cert-hero__strip-label">Sectors:</span>
+            {['Oil & Gas', 'Fintech', 'Healthcare', 'Construction', 'Telecoms'].map(s => (
+              <span key={s} className="cert-code-badge">{s}</span>
+            ))}
           </div>
-          <div className="tp-cards">
+        </div>
+      </section>
+
+      {/* STATS SECTION */}
+      <section className="cert-stats cert-reveal">
+        <div className="cert-container">
+          <div className="cert-stats__grid">
+            <div className="cert-stat">
+              <span className="cert-stat__value">50+</span>
+              <span className="cert-stat__label">Enterprises Trained</span>
+            </div>
+            <div className="cert-stat__divider"></div>
+            <div className="cert-stat">
+              <span className="cert-stat__value">100%</span>
+              <span className="cert-stat__label">Bespoke Design</span>
+            </div>
+            <div className="cert-stat__divider"></div>
+            <div className="cert-stat">
+              <span className="cert-stat__value">12k+</span>
+              <span className="cert-stat__label">Professionals Upskilled</span>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* THE METHODOLOGY (Pathway) */}
+      <section className="cert-pathway">
+        <div className="cert-container">
+          <div className="cert-pathway__header cert-reveal">
+            <div>
+              <span className="cert-eyebrow light">The Roadmap</span>
+              <h2>Our Strategic Methodology</h2>
+              <p>A proven lifecycle for sustainable skill development.</p>
+            </div>
+            <a href="/consultation" className="cert-link-arrow">Consult an Architect →</a>
+          </div>
+
+          <div className="cert-steps">
             {[
-              { icon: '🎯', title: 'Bespoke Content',     body: 'Every program is tailored to your industry, your processes, and your team specific skill gaps — not generic off-the-shelf content.' },
-              { icon: '📍', title: 'On-Site Delivery',    body: 'We come to you. Training at your workplace maximizes attendance, relevance, and immediate applicability of new skills.' },
-              { icon: '📊', title: 'Measurable Impact',   body: 'Pre and post-training assessments with detailed reports showing skills improvement and ROI for your investment.' },
-              { icon: '🤝', title: 'Dedicated Support',   body: 'A dedicated training coordinator manages your program end-to-end — scheduling, logistics, materials, and follow-up.' },
-              { icon: '📜', title: 'Compliant Outcomes',  body: 'Programs aligned with regulatory requirements, industry standards, and certification bodies relevant to your sector.' },
-              { icon: '🔄', title: 'Ongoing Partnership', body: 'We build long-term training partnerships — quarterly programs, refresher courses, and annual development plans.' },
-            ].map(item => (
-              <div className="tp-card" key={item.title}>
-                <span className="tp-card__icon">{item.icon}</span>
-                <h4 className="tp-card__title">{item.title}</h4>
-                <p className="tp-card__body">{item.body}</p>
+              { n: '01', t: 'Diagnostic', d: 'Comprehensive analysis of skill gaps and organizational goals.' },
+              { n: '02', t: 'Design', d: 'Custom curriculum architecture tailored to your specific sector.' },
+              { n: '03', t: 'Delivery', d: 'Expert-led sessions at your facility or our global hubs.' },
+              { n: '04', t: 'Impact', d: 'Data-driven reporting showing ROI and performance shifts.' }
+            ].map(step => (
+              <div className="cert-step cert-reveal" key={step.n}>
+                <div className="cert-step__number">{step.n}</div>
+                <h4>{step.t}</h4>
+                <p>{step.d}</p>
               </div>
             ))}
           </div>
-        </section>
+        </div>
+      </section>
 
-        {/* PACKAGES */}
-        <div className="corp-packages-bg" id="corp-packages">
-          <div className="corp-packages">
-            <div className="corp-packages__header tp-reveal">
-              <div className="tp-bar" /><h2>Training Packages</h2>
-              <p>Flexible packages for teams of all sizes. Custom pricing available for all options.</p>
-            </div>
-            <div className="corp-tiers tp-reveal">
-              {packages.map((pkg, i) => (
-                <div
-                  key={pkg.tier}
-                  className={`corp-tier ${pkg.highlight ? 'corp-tier--featured' : ''} ${activeTier === i ? 'corp-tier--active' : ''}`}
-                  onClick={() => setActiveTier(i)}
-                >
-                  {pkg.highlight && <span className="corp-tier__badge">Most Popular</span>}
-                  <span className="corp-tier__icon">{pkg.icon}</span>
-                  <h3 className="corp-tier__name">{pkg.tier}</h3>
-                  <p className="corp-tier__tagline">{pkg.tagline}</p>
-                  <p className="corp-tier__price">{pkg.price}</p>
-                  <ul className="corp-tier__features">
-                    {pkg.features.map(f => (
-                      <li key={f}><span className="hse-check">✦</span><span>{f}</span></li>
+      {/* PACKAGES (Cert List Style) */}
+      <section className="cert-list-section" id="packages">
+        <div className="cert-container">
+          <div className="cert-list-header cert-reveal">
+            <span className="cert-eyebrow dark">Training Solutions</span>
+            <h2>Engagement Tiers</h2>
+            <p>Flexible packages scalable to your organization's current headcount.</p>
+          </div>
+
+          <div className="cert-grid cert-reveal">
+            {packages.map((pkg) => (
+              <div className="cert-card" key={pkg.tier}>
+                <div className="cert-card__top">
+                  <span className="cert-card__icon">{pkg.icon}</span>
+                  <span className="cert-card__code">{pkg.code}</span>
+                </div>
+                <span className="cert-card__area">Corporate Program</span>
+                <h3 className="cert-card__title">{pkg.tier} Tier</h3>
+                <p className="cert-card__desc">{pkg.tagline}</p>
+                <ul style={{ listStyle: 'none', padding: 0, marginBottom: '1.5rem' }}>
+                    {pkg.features.slice(0, 3).map(f => (
+                        <li key={f} style={{ fontSize: '0.75rem', color: '#5a6478', marginBottom: '4px' }}>• {f}</li>
                     ))}
-                  </ul>
-                  <a href="/training/enroll" className={`tp-btn ${pkg.highlight ? 'tp-btn--green' : 'tp-btn--outline'}`} style={{ marginTop: 'auto', width: '100%', justifyContent: 'center' }}>
-                    {pkg.cta}
-                  </a>
-                </div>
-              ))}
-            </div>
-          </div>
-        </div>
-
-        {/* SECTORS */}
-        <section className="tp-section tp-reveal">
-          <div className="tp-section__header">
-            <div className="tp-bar" /><h2>Industries We Serve</h2>
-            <p>Sector-specific programs for the unique demands of each industry.</p>
-          </div>
-          <div className="corp-sectors">
-            {sectors.map(s => (
-              <div className="corp-sector-card" key={s.name}>
-                <span className="corp-sector-card__icon">{s.icon}</span>
-                <div>
-                  <h4 className="corp-sector-card__name">{s.name}</h4>
-                  <p className="corp-sector-card__desc">{s.desc}</p>
-                </div>
+                </ul>
+                <a href="/enroll" className="cert-card__cta">Book Program →</a>
               </div>
             ))}
-          </div>
-        </section>
-
-        <div className="tp-cta-strip tp-reveal">
-          <div className="tp-cta-strip__inner">
-            <span className="tp-cta-strip__eye">Let's Talk</span>
-            <h2>Build a Program for<br />Your Organization.</h2>
-            <p>Tell us about your team, your industry, and your training goals — we'll design the right program.</p>
-            <div className="tp-cta-strip__btns">
-              <a href="/training/enroll" className="tp-btn tp-btn--green">Request a Corporate Program</a>
-              <a href="/contact" className="tp-btn tp-btn--ghost">Speak to Our Team</a>
+            <div className="cert-card" style={{ background: 'var(--navy)', color: '#fff' }}>
+                <span className="cert-card__area" style={{ color: 'var(--goldenrod)' }}>Custom</span>
+                <h3 className="cert-card__title" style={{ color: '#fff' }}>Bespoke Lab</h3>
+                <p className="cert-card__desc" style={{ color: 'rgba(255,255,255,0.5)' }}>Need something entirely unique? Let's build it from scratch.</p>
+                <a href="/contact" className="cert-link-arrow" style={{ color: 'var(--goldenrod)', borderColor: 'var(--goldenrod)' }}>Inquire Now →</a>
             </div>
           </div>
         </div>
-      </div>
+      </section>
+
+      {/* FINAL CTA */}
+      <section className="cert-cta">
+        <div className="cert-container">
+          <div className="cert-cta__inner cert-reveal">
+            <div className="cert-cta__text">
+              <span className="cert-eyebrow light">Elevate Your Team</span>
+              <h2>Ready to Transform Your <br /> Organizational Performance?</h2>
+              <p>Join the ranks of high-performing Nigerian enterprises investing in their greatest asset.</p>
+            </div>
+            <div className="cert-cta__actions">
+              <a href="/enroll" className="cert-btn-primary">Secure a Proposal</a>
+              <a href="/contact" className="cert-btn-outline">Speak to an Architect</a>
+            </div>
+          </div>
+        </div>
+      </section>
+
       <TrainingFooter />
-    </>
+    </div>
   );
 };
 
