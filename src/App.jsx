@@ -1,12 +1,13 @@
 import { BrowserRouter, Route, Routes } from "react-router-dom"
 import NavBar from "./components/common/Navbar/navbar"
 import Footer from "./components/common/Footer/Footer"
+import ScrollToTop from "./components/features/ScrollToTop"
 import Home from "./pages/Home/Home"
 import Estates from "./pages/Estates/Estates"
 import Services from "./pages/Services/Services"
 import Training from "./pages/Training/Training"
 import About from "./pages/About/About"
-import Contact from "./pages/Contact/Contact"
+import Contact from "./pages/Contact/Contact" 
 
 // Estates
 import InsightsPage from "./pages/Estates/Insights/Insights"
@@ -47,6 +48,8 @@ function BareLayout({ children }) {
 function App() {
   return (
     <BrowserRouter>
+      <ScrollToTop />
+      
       <Routes>
 
         {/* ── Shared layout ── */}
