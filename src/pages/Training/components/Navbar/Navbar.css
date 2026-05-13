@@ -80,7 +80,7 @@
 
 /* ===== NAVBAR ===== */
 .navbar {
-  background-color: #ffffff;
+  background-color: #020325;
   border-bottom: 1px solid #e2e8f0;
   transition: background 0.3s ease;
 }
@@ -134,7 +134,7 @@
 
 .navbar__links li a:hover {
   color: goldenrod;
-  background-color: #f0fdf4;
+  background-color: transparent;
 }
 
 .navbar__links li a.active-link {

@@ -77,7 +77,7 @@
    NAVBAR
    ========================= */
 .navbar {
-  background: var(--bg, #fff);
+  background: #060f22;
   border-bottom: 1px solid var(--border, #e4e6e0);
   transition: box-shadow var(--speed) var(--ease), background var(--speed);
 }

@@ -49,7 +49,7 @@ const TrainingNavbar = () => {
             <img src="/BraveLion.png" alt="Bravelion Training" />
           </Link>
           <Link to="/" className="navbar__BraveLion">
-            <img src="/logo.png" alt="Bravelion Training" />
+            <img src="/image.png" alt="Bravelion Training" />
           </Link>
 
           <button

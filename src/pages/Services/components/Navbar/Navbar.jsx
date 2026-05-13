@@ -59,7 +59,7 @@ const ServicesNavbar = () => {
               <img src="/BraveLion.png" alt="Bravelion Services" />
             </Link>
             <Link to="/" className="navbar__logo">
-              <img src="/logo.png" alt="Bravelion Home" />
+              <img src="/image.png" alt="Bravelion Home" />
             </Link>
           </div>
 

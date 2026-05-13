@@ -53,8 +53,8 @@
   transition: color 0.2s;
 }
 
-.contact-item:hover { color: #2563eb; }
-.contact-item svg { color: #2563eb; flex-shrink: 0; }
+.contact-item:hover { color: goldenrod; }
+.contact-item svg { color: goldenrod; flex-shrink: 0; }
 
 .top-bar__right span {
   font-size: 0.75rem;
@@ -72,7 +72,7 @@
 
 /* ===== NAVBAR ===== */
 .navbar {
-  background-color: #ffffff;
+  background-color: #020325;
   border-bottom: 1px solid #e2e8f0;
 }
 
@@ -118,13 +118,13 @@
 }
 
 .navbar__link:hover {
-  color: #2563eb;
-  background-color: #f1f5f9;
+  color: goldenrod;
+  background-color: transparent;
 }
 
 /* Active Link Indicator */
 .navbar__link.active-link {
-  color: #2563eb;
+  color: goldenrod;
 }
 
 .navbar__link.active-link::after {
@@ -134,7 +134,7 @@
   left: 16px;
   right: 16px;
   height: 2px;
-  background-color: #2563eb;
+  background-color: goldenrod;
   border-radius: 2px;
 }
 
@@ -144,7 +144,7 @@
   align-items: center;
   gap: 8px;
   padding: 10px 20px;
-  background-color: #2563eb;
+  background-color: goldenrod;
   color: #ffffff;
   font-size: 0.85rem;
   font-weight: 600;

@@ -73,7 +73,7 @@ const EstatesNavbar = () => {
             <img src="/BraveLion.png" alt="Bravelion Group" />
           </Link>
           <Link to="/" className="navbar__logo" aria-label="Bravelion Group — Home">
-            <img src="/logo.png" alt="Bravelion Group" />
+            <img src="/image.png" alt="Bravelion Group" />
           </Link>
 
           {/* Desktop links */}
