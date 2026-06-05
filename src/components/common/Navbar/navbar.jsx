@@ -1,21 +1,27 @@
-import React, { useState, useEffect } from "react";
+/* eslint-disable react-hooks/set-state-in-effect */
+import React, { useState, useEffect, useRef } from "react";
 import { Link, useLocation } from "react-router-dom";
-import { Mail, Phone, Menu, X, ArrowUpRight } from "lucide-react";
+import { Mail, Phone, Menu, X, ArrowUpRight, ChevronDown } from "lucide-react";
 import "./navbar.css";
 
+const divisionGroups = [
+  { label: "Bravelion Services", to: "/services"},
+  { label: "Bravelion Estates & Development", to: "/estates"},
+  { label: "Bravelion Training & Consulting", to: "/training"},
+];
+
 const navLinks = [
-  { label: "Home",                  to: "/" },
-  { label: "Services",              to: "/services" },
-  { label: "Estates & Development", to: "/estates" },
-  { label: "Training & Consulting", to: "/training" },
-  { label: "About",                 to: "/about" },
-  { label: "Contact",               to: "/contact" },
+  { label: "Home", to: "/" },
+  { label: "About", to: "/about" },
+  { label: "Contact", to: "/contact" },
 ];
 
 const Navbar = () => {
-  const [menuOpen, setMenuOpen]   = useState(false);
-  const [scrolled, setScrolled]   = useState(false);
-  const location                  = useLocation();
+  const [menuOpen, setMenuOpen] = useState(false);
+  const [scrolled, setScrolled] = useState(false);
+  const [dropdownOpen, setDropdownOpen] = useState(false);
+  const dropdownRef = useRef(null);
+  const location = useLocation();
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 60);
@@ -24,18 +30,35 @@ const Navbar = () => {
   }, []);
 
   useEffect(() => {
-    // eslint-disable-next-line react-hooks/set-state-in-effect
     setMenuOpen(false);
+    setDropdownOpen(false);
   }, [location]);
 
-  /* lock body scroll when mobile menu is open */
+  // Close dropdown when clicking outside
+  useEffect(() => {
+    const handleClickOutside = (event) => {
+      if (dropdownRef.current && !dropdownRef.current.contains(event.target)) {
+        setDropdownOpen(false);
+      }
+    };
+    document.addEventListener("mousedown", handleClickOutside);
+    return () => document.removeEventListener("mousedown", handleClickOutside);
+  }, []);
+
+  // Lock body scroll when mobile menu is open
   useEffect(() => {
     document.body.style.overflow = menuOpen ? "hidden" : "";
     return () => { document.body.style.overflow = ""; };
   }, [menuOpen]);
 
-  const isActive = (to) =>
-    to === "/" ? location.pathname === "/" : location.pathname.startsWith(to);
+  const isActive = (to) => {
+    if (to === "/") return location.pathname === "/";
+    return location.pathname.startsWith(to);
+  };
+
+  const isDivisionActive = () => {
+    return divisionGroups.some(group => location.pathname.startsWith(group.to));
+  };
 
   return (
     <header className={`site-header${scrolled ? " site-header--scrolled" : ""}`}>
@@ -84,6 +107,34 @@ const Navbar = () => {
                 </Link>
               </li>
             ))}
+            
+            {/* Divisions Dropdown - contains Services, Estates, Training */}
+            <li className="navbar__dropdown" ref={dropdownRef}>
+              <button
+                className={`navbar__dropdown-btn${isDivisionActive() ? " navbar__dropdown-btn--active" : ""}`}
+                onClick={() => setDropdownOpen(!dropdownOpen)}
+                aria-expanded={dropdownOpen}
+              >
+                Divisions
+                <ChevronDown 
+                  size={14} 
+                  className={`navbar__dropdown-icon${dropdownOpen ? " navbar__dropdown-icon--rotated" : ""}`}
+                />
+              </button>
+              <div className={`navbar__dropdown-menu${dropdownOpen ? " navbar__dropdown-menu--open" : ""}`}>
+                {divisionGroups.map((group) => (
+                  <Link
+                    key={group.to}
+                    to={group.to}
+                    className={`navbar__dropdown-item${location.pathname === group.to ? " navbar__dropdown-item--active" : ""}`}
+                    onClick={() => setDropdownOpen(false)}
+                  >
+                    <div className="navbar__dropdown-item-label">{group.label}</div>
+                    <div className="navbar__dropdown-item-desc">{group.description}</div>
+                  </Link>
+                ))}
+              </div>
+            </li>
           </ul>
 
           {/* Desktop CTA */}
@@ -128,11 +179,31 @@ const Navbar = () => {
         </div>
 
         <ul className="mobile-drawer__links">
+          {/* Divisions section in mobile - expanded list */}
+          <li className="mobile-drawer__section">
+            <div className="mobile-drawer__section-title">Divisions</div>
+            <div className="mobile-drawer__sub-links">
+              {divisionGroups.map((group) => (
+                <Link
+                  key={group.to}
+                  to={group.to}
+                  className={`mobile-drawer__sub-link${location.pathname === group.to ? " mobile-drawer__sub-link--active" : ""}`}
+                  onClick={() => setMenuOpen(false)}
+                >
+                  {group.label}
+                  <ArrowUpRight size={14} className="mobile-drawer__arrow" />
+                </Link>
+              ))}
+            </div>
+          </li>
+          
+          {/* Other nav links */}
           {navLinks.map((link, i) => (
             <li key={link.to} style={{ "--i": i }}>
               <Link
                 to={link.to}
                 className={`mobile-drawer__link${isActive(link.to) ? " mobile-drawer__link--active" : ""}`}
+                onClick={() => setMenuOpen(false)}
               >
                 {link.label}
                 <ArrowUpRight size={14} className="mobile-drawer__arrow" />

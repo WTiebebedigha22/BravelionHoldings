@@ -16,6 +16,8 @@ import Property from "./pages/Estates/Property/Property"
 import InvestorRelations from "./pages/Estates/Investor Relations/InvestorRelations"
 
 // Services
+import Advisory from "./pages/Services/Advisory/AdvisoryPage"
+import Consulting from "./pages/Services/Consulting/ConsultingPage"
 import EngineeringPage from "./pages/Services/Engineering/EngineeringPage"
 import EnergyPage from "./pages/Services/Energy/EnergyPage"
 import TrainingPage from "./pages/Services/Training/TrainingPage"
@@ -66,6 +68,8 @@ function App() {
 
         {/* ── Services ── */}
         <Route path="/services"              element={<BareLayout><Services /></BareLayout>} />
+        <Route path="/services/advisory"     element={<BareLayout><Advisory /></BareLayout>} />
+        <Route path="/services/consulting"   element={<BareLayout><Consulting /></BareLayout>} />
         <Route path="/services/engineering"  element={<BareLayout><EngineeringPage /></BareLayout>} />
         <Route path="/services/energy"       element={<BareLayout><EnergyPage /></BareLayout>} />
         <Route path="/services/training"     element={<BareLayout><TrainingPage /></BareLayout>} />

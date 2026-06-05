@@ -61,7 +61,7 @@ const ServicesFooter = () => {
               <li><Link to="/services/advisory">Investment Advisory</Link></li>
               <li><Link to="/services/training">Training & Certification</Link></li>
               <li><Link to="/services/facility-management">Facility Management</Link></li>
-              <li><Link to="/services/consultancy">Business Consultancy</Link></li>
+              <li><Link to="/services/consulting">Business Consultancy</Link></li>
             </ul>
           </div>
 
