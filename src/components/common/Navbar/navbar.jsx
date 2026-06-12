@@ -5,9 +5,9 @@ import { Mail, Phone, Menu, X, ArrowUpRight, ChevronDown } from "lucide-react";
 import "./navbar.css";
 
 const divisionGroups = [
-  { label: "Bravelion Services", to: "/services"},
-  { label: "Bravelion Estates & Development", to: "/estates"},
-  { label: "Bravelion Training & Consulting", to: "/training"},
+  { label: "Bravelion Services", to: "/services" },
+  { label: "Bravelion Estates & Development", to: "/estates" },
+  { label: "Bravelion Training & Consulting", to: "/training" },
 ];
 
 const navLinks = [
@@ -34,7 +34,6 @@ const Navbar = () => {
     setDropdownOpen(false);
   }, [location]);
 
-  // Close dropdown when clicking outside
   useEffect(() => {
     const handleClickOutside = (event) => {
       if (dropdownRef.current && !dropdownRef.current.contains(event.target)) {
@@ -45,7 +44,6 @@ const Navbar = () => {
     return () => document.removeEventListener("mousedown", handleClickOutside);
   }, []);
 
-  // Lock body scroll when mobile menu is open
   useEffect(() => {
     document.body.style.overflow = menuOpen ? "hidden" : "";
     return () => { document.body.style.overflow = ""; };
@@ -56,9 +54,14 @@ const Navbar = () => {
     return location.pathname.startsWith(to);
   };
 
-  const isDivisionActive = () => {
-    return divisionGroups.some(group => location.pathname.startsWith(group.to));
-  };
+  const isDivisionActive = () =>
+    divisionGroups.some((group) => isActive(group.to));
+
+  // All mobile items in one flat list for consistent stagger animation
+  const allMobileItems = [
+    ...divisionGroups.map((g) => ({ ...g, isDivision: true })),
+    ...navLinks,
+  ];
 
   return (
     <header className={`site-header${scrolled ? " site-header--scrolled" : ""}`}>
@@ -107,17 +110,18 @@ const Navbar = () => {
                 </Link>
               </li>
             ))}
-            
-            {/* Divisions Dropdown - contains Services, Estates, Training */}
+
+            {/* Divisions dropdown — uses navbar__dropdown-btn matching link styles exactly */}
             <li className="navbar__dropdown" ref={dropdownRef}>
               <button
                 className={`navbar__dropdown-btn${isDivisionActive() ? " navbar__dropdown-btn--active" : ""}`}
-                onClick={() => setDropdownOpen(!dropdownOpen)}
+                onClick={() => setDropdownOpen((v) => !v)}
                 aria-expanded={dropdownOpen}
+                aria-haspopup="true"
               >
                 Divisions
-                <ChevronDown 
-                  size={14} 
+                <ChevronDown
+                  size={14}
                   className={`navbar__dropdown-icon${dropdownOpen ? " navbar__dropdown-icon--rotated" : ""}`}
                 />
               </button>
@@ -126,11 +130,10 @@ const Navbar = () => {
                   <Link
                     key={group.to}
                     to={group.to}
-                    className={`navbar__dropdown-item${location.pathname === group.to ? " navbar__dropdown-item--active" : ""}`}
+                    className={`navbar__dropdown-item${isActive(group.to) ? " navbar__dropdown-item--active" : ""}`}
                     onClick={() => setDropdownOpen(false)}
                   >
-                    <div className="navbar__dropdown-item-label">{group.label}</div>
-                    <div className="navbar__dropdown-item-desc">{group.description}</div>
+                    {group.label}
                   </Link>
                 ))}
               </div>
@@ -179,33 +182,14 @@ const Navbar = () => {
         </div>
 
         <ul className="mobile-drawer__links">
-          {/* Divisions section in mobile - expanded list */}
-          <li className="mobile-drawer__section">
-            <div className="mobile-drawer__section-title">Divisions</div>
-            <div className="mobile-drawer__sub-links">
-              {divisionGroups.map((group) => (
-                <Link
-                  key={group.to}
-                  to={group.to}
-                  className={`mobile-drawer__sub-link${location.pathname === group.to ? " mobile-drawer__sub-link--active" : ""}`}
-                  onClick={() => setMenuOpen(false)}
-                >
-                  {group.label}
-                  <ArrowUpRight size={14} className="mobile-drawer__arrow" />
-                </Link>
-              ))}
-            </div>
-          </li>
-          
-          {/* Other nav links */}
-          {navLinks.map((link, i) => (
-            <li key={link.to} style={{ "--i": i }}>
+          {allMobileItems.map((item, i) => (
+            <li key={item.to} style={{ "--i": i }}>
               <Link
-                to={link.to}
-                className={`mobile-drawer__link${isActive(link.to) ? " mobile-drawer__link--active" : ""}`}
+                to={item.to}
+                className={`mobile-drawer__link${isActive(item.to) ? " mobile-drawer__link--active" : ""}`}
                 onClick={() => setMenuOpen(false)}
               >
-                {link.label}
+                {item.label}
                 <ArrowUpRight size={14} className="mobile-drawer__arrow" />
               </Link>
             </li>
