@@ -1,3 +1,4 @@
+/* eslint-disable no-unused-vars */
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import { ArrowRight, MapPin, Mail, Phone, Clock, ArrowUpRight } from "lucide-react";
@@ -68,14 +69,48 @@ const services = [
   "Partnership / Investment",
 ];
 
+/* ─── FORM SUBMISSION CONFIG ──────────────────────────────────
+   Submits silently in the background via FormSubmit.co's AJAX
+   endpoint — no page reload, no email client popup.
+
+   One-time setup: the FIRST submission triggers an activation
+   email sent to info@bravelionholdings.com. Click the link inside
+   it once, and every submission after that is delivered straight
+   to the inbox automatically.
+   ────────────────────────────────────────────────────────────── */
+const FORM_ENDPOINT = "https://formsubmit.co/ajax/info@bravelionholdings.com";
+
 /* ─── COMPONENT ─────────────────────────────────────────────── */
 
 const Contact = () => {
   const [submitted, setSubmitted] = useState(false);
+  const [submitting, setSubmitting] = useState(false);
+  const [error, setError] = useState(false);
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    setSubmitted(true);
+    setError(false);
+    setSubmitting(true);
+
+    const form = e.currentTarget;
+    const formData = new FormData(form);
+
+    try {
+      const res = await fetch(FORM_ENDPOINT, {
+        method: "POST",
+        headers: { Accept: "application/json" },
+        body: formData,
+      });
+
+      if (!res.ok) throw new Error("Submission failed");
+
+      setSubmitted(true);
+      form.reset();
+    } catch (err) {
+      setError(true);
+    } finally {
+      setSubmitting(false);
+    }
   };
 
   return (
@@ -180,25 +215,30 @@ const Contact = () => {
                 </div>
 
                 <form className="contact-form" onSubmit={handleSubmit} noValidate>
+                  {/* Hidden config for FormSubmit.co */}
+                  <input type="hidden" name="_subject" value="New inquiry — Bravelion website" />
+                  <input type="hidden" name="_template" value="table" />
+                  <input type="hidden" name="_captcha" value="false" />
+
                   <div className="form-row">
                     <div className="form-field">
                       <label>Full Name <span>*</span></label>
-                      <input type="text" placeholder="e.g. Adaeze Okafor" required />
+                      <input type="text" name="name" placeholder="e.g. Adaeze Okafor" required />
                     </div>
                     <div className="form-field">
                       <label>Email Address <span>*</span></label>
-                      <input type="email" placeholder="you@company.com" required />
+                      <input type="email" name="email" placeholder="you@company.com" required />
                     </div>
                   </div>
 
                   <div className="form-row">
                     <div className="form-field">
                       <label>Phone Number</label>
-                      <input type="tel" placeholder="+234 000 000 0000" />
+                      <input type="tel" name="phone" placeholder="+234 000 000 0000" />
                     </div>
                     <div className="form-field">
                       <label>Service of Interest</label>
-                      <select>
+                      <select name="service" defaultValue="">
                         <option value="">Select a service</option>
                         {services.map((s) => (
                           <option key={s}>{s}</option>
@@ -210,11 +250,11 @@ const Contact = () => {
                   <div className="form-row">
                     <div className="form-field">
                       <label>Your Location</label>
-                      <input type="text" placeholder="City, Country" />
+                      <input type="text" name="location" placeholder="City, Country" />
                     </div>
                     <div className="form-field">
                       <label>Engagement Type</label>
-                      <select>
+                      <select name="engagement_type" defaultValue="">
                         <option value="">Select locale</option>
                         <option>National</option>
                         <option>International</option>
@@ -224,11 +264,22 @@ const Contact = () => {
 
                   <div className="form-field full-width">
                     <label>Message <span>*</span></label>
-                    <textarea rows="6" placeholder="Tell us about your project, requirement, or inquiry..." required />
+                    <textarea rows="6" name="message" placeholder="Tell us about your project, requirement, or inquiry..." required />
                   </div>
 
-                  <button type="submit" className="contact-submit">
-                    Submit Inquiry <ArrowRight size={16} />
+                  {error && (
+                    <p className="form-error">
+                      Something went wrong sending your message. Please try again, or email us
+                      directly at <a href="mailto:info@bravelionholdings.com">info@bravelionholdings.com</a>.
+                    </p>
+                  )}
+
+                  <button type="submit" className="contact-submit" disabled={submitting}>
+                    {submitting ? "Sending..." : (
+                      <>
+                        Submit Inquiry <ArrowRight size={16} />
+                      </>
+                    )}
                   </button>
                 </form>
               </>
