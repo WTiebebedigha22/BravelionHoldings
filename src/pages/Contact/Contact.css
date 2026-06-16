@@ -454,6 +454,42 @@
 
 .sidebar-eyebrow.light { color: rgba(255,255,255,0.45); }
 
+
+.PhoneInput {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  border: 1px solid var(--input-border, #d1d5db);
+  border-radius: 6px;
+  padding: 0 12px;
+  background: var(--input-bg, #fff);
+  transition: border-color 0.2s, box-shadow 0.2s;
+}
+
+.PhoneInput:focus-within {
+  border-color: var(--accent, #b4913c);
+  box-shadow: 0 0 0 2px rgba(180, 145, 60, 0.2);
+}
+
+.PhoneInputInput {
+  border: none;
+  outline: none;
+  background: transparent;
+  padding: 10px 0;
+  font-size: 0.9rem;
+  width: 100%;
+  color: inherit;
+}
+
+.PhoneInputCountrySelect {
+  border: none;
+  background: transparent;
+  outline: none;
+  cursor: pointer;
+  font-size: 0.9rem;
+  color: inherit;
+}
+
 /* =========================
    RESPONSIVE
    ========================= */

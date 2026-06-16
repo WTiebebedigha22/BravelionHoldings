@@ -2,6 +2,8 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import { ArrowRight, MapPin, Mail, Phone, Clock, ArrowUpRight } from "lucide-react";
+import PhoneInput from 'react-phone-number-input';
+import 'react-phone-number-input/style.css';
 import "./Contact.css";
 
 /* ─── DATA ─────────────────────────────────────────────────── */
@@ -38,9 +40,9 @@ const contacts = [
     icon: Mail,
     label: "Email",
     lines: [
-      { text: "info@bravelionholdings.com",     href: "mailto:info@bravelionholdings.com" },
-      { text: "training@bravelionholdings.com",  href: "mailto:training@bravelionholdings.com" },
-      { text: "services@bravelionholdings.com",  href: "mailto:services@bravelionholdings.com" },
+      { text: "info@bravelionholdings.com",    href: "mailto:info@bravelionholdings.com" },
+      { text: "training@bravelionholdings.com", href: "mailto:training@bravelionholdings.com" },
+      { text: "services@bravelionholdings.com", href: "mailto:services@bravelionholdings.com" },
     ],
   },
   {
@@ -69,20 +71,12 @@ const services = [
   "Partnership / Investment",
 ];
 
-/* ─── FORM SUBMISSION CONFIG ──────────────────────────────────
-   Submits silently in the background via FormSubmit.co's AJAX
-   endpoint — no page reload, no email client popup.
-
-   One-time setup: the FIRST submission triggers an activation
-   email sent to info@bravelionholdings.com. Click the link inside
-   it once, and every submission after that is delivered straight
-   to the inbox automatically.
-   ────────────────────────────────────────────────────────────── */
 const FORM_ENDPOINT = "https://formsubmit.co/ajax/info@bravelionholdings.com";
 
 /* ─── COMPONENT ─────────────────────────────────────────────── */
 
 const Contact = () => {
+  const [phoneNumber, setPhoneNumber] = useState('');
   const [submitted, setSubmitted] = useState(false);
   const [submitting, setSubmitting] = useState(false);
   const [error, setError] = useState(false);
@@ -95,6 +89,9 @@ const Contact = () => {
     const form = e.currentTarget;
     const formData = new FormData(form);
 
+    // Inject PhoneInput's controlled value into FormData
+    formData.set("phone", phoneNumber || "");
+
     try {
       const res = await fetch(FORM_ENDPOINT, {
         method: "POST",
@@ -105,6 +102,7 @@ const Contact = () => {
       if (!res.ok) throw new Error("Submission failed");
 
       setSubmitted(true);
+      setPhoneNumber('');
       form.reset();
     } catch (err) {
       setError(true);
@@ -234,7 +232,14 @@ const Contact = () => {
                   <div className="form-row">
                     <div className="form-field">
                       <label>Phone Number</label>
-                      <input type="tel" name="phone" placeholder="+234 000 000 0000" />
+                      <PhoneInput
+                        defaultCountry="NG"
+                        value={phoneNumber}
+                        onChange={setPhoneNumber}
+                        placeholder="708 172 8260"
+                        international
+                        withCountryCallingCode
+                      />
                     </div>
                     <div className="form-field">
                       <label>Service of Interest</label>

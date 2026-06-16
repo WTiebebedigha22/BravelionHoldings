@@ -1,5 +1,7 @@
 /* eslint-disable no-unused-vars */
 import React, { useEffect, useRef, useState } from 'react';
+import PhoneInput from 'react-phone-number-input';
+import 'react-phone-number-input/style.css';
 import TrainingNavbar from '../components/Navbar/Navbar';
 import TrainingFooter from '../components/Footer/Footer';
 import './Enroll.css';
@@ -14,20 +16,13 @@ const courseOptions = [
   'Other / Not Listed',
 ];
 
-/* ─── FORM SUBMISSION CONFIG ────────────────────────────────────
-   Submits to the primary address via FormSubmit's AJAX endpoint.
-   A CC hidden field forwards every submission to the second address.
-
-   One-time setup: the FIRST submission triggers an activation
-   email to info@bravelionholdings.com — click the link once and
-   all future submissions are delivered automatically.
-   ────────────────────────────────────────────────────────────── */
 const FORM_ENDPOINT = "https://formsubmit.co/ajax/info@bravelionholdings.com";
 
 const EnrollPage = () => {
   const [form, setForm] = useState({
-    name: '', email: '', phone: '', org: '', course: '', type: 'Individual', message: '',
+    name: '', email: '', org: '', course: '', type: 'Individual', message: '',
   });
+  const [phoneNumber, setPhoneNumber] = useState('');
   const [submitted, setSubmitted] = useState(false);
   const [submitting, setSubmitting] = useState(false);
   const [error, setError] = useState(false);
@@ -53,6 +48,9 @@ const EnrollPage = () => {
 
     const formEl = e.currentTarget;
     const formData = new FormData(formEl);
+
+    // Inject the phone number from controlled state into FormData
+    formData.set('phone', phoneNumber || '');
 
     try {
       const res = await fetch(FORM_ENDPOINT, {
@@ -144,9 +142,14 @@ const EnrollPage = () => {
                   <div className="form-row">
                     <div className="form-group">
                       <label>Phone Number</label>
-                      <input
-                        type="tel" name="phone" value={form.phone}
-                        onChange={handleChange} placeholder="+234..." />
+                      <PhoneInput
+                        defaultCountry="NG"
+                        value={phoneNumber}
+                        onChange={setPhoneNumber}
+                        placeholder="708 172 8260"
+                        international
+                        withCountryCallingCode
+                      />
                     </div>
                     <div className="form-group">
                       <label>Organization</label>
@@ -166,7 +169,6 @@ const EnrollPage = () => {
 
                   <div className="form-group full-width">
                     <label>Enrollment Type</label>
-                    {/* Hidden input carries the toggle value into FormData */}
                     <input type="hidden" name="enrollment_type" value={form.type} />
                     <div className="cert-filters" style={{ marginBottom: 0 }}>
                       {['Individual', 'Corporate / Team'].map(t => (
