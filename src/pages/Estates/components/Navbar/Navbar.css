@@ -1,22 +1,29 @@
 /* ============================================================
-   ESTATES NAVBAR — navbar.css
-   Aesthetic: Luxury Real Estate · Deep Navy · goldenrod
+   ESTATES NAVBAR — Navbar.css
+   Mobile-first luxury real estate aesthetic
+   Deep navy drawer · gold accents · Cormorant + Jost
    ============================================================ */
 
-@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600&family=Jost:wght@300;400;500;600&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Jost:wght@300;400;500;600&display=swap');
 
 /* ===== CSS VARIABLES ===== */
 :root {
-  --navy:        #0b1d2e;
-  --navy-light:  #132438;
-  --goldenrod:        #c9a84c;
-  --goldenrod-light:  #e2c47a;
-  --goldenrod-dim:    rgba(201, 168, 76, 0.15);
-  --white:       #ffffff;
-  --muted:       #94a3b8;
-  --topbar-h:    40px;
-  --navbar-h:    76px;
-  --transition:  0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  --navy:           #0b1d2e;
+  --navy-light:     #132438;
+  --navy-drawer:    #0d1f32;
+  --navy-mid:       #1a2f44;
+  --gold:           #c9a84c;
+  --gold-light:     #e2c47a;
+  --gold-dim:       rgba(201, 168, 76, 0.12);
+  --gold-border:    rgba(201, 168, 76, 0.22);
+  --white:          #ffffff;
+  --muted:          #94a3b8;
+  --muted-dim:      rgba(148, 163, 184, 0.5);
+  --green-accent:   #2d8c5a;
+  --topbar-h:       40px;
+  --navbar-h:       76px;
+  --transition:     0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  --ease-out:       cubic-bezier(0.2, 0.9, 0.4, 1);
 }
 
 /* ===== RESET ===== */
@@ -33,83 +40,78 @@
 /* ============================================================
    HEADER WRAPPER
    ============================================================ */
-.header-wrapper {
+.site-header {
   position: fixed;
   top: 0;
   left: 0;
   right: 0;
   z-index: 1000;
   font-family: 'Jost', sans-serif;
-  transition: box-shadow var(--transition), background var(--transition);
+  transition: box-shadow var(--transition);
 }
 
-.header--scrolled .top-bar {
+.site-header--scrolled .topbar {
   height: 0;
   overflow: hidden;
-  padding: 0;
   opacity: 0;
   pointer-events: none;
 }
 
-.header--scrolled .navbar {
-  background: rgba(11, 29, 46, 0.97);
-  backdrop-filter: blur(16px);
-  -webkit-backdrop-filter: blur(16px);
-  box-shadow: 0 4px 32px rgba(0, 0, 0, 0.35);
+.site-header--scrolled .navbar {
+  box-shadow: 0 2px 24px rgba(0, 0, 0, 0.4);
 }
 
 /* ============================================================
    TOP BAR
    ============================================================ */
-.top-bar {
+.topbar {
   height: var(--topbar-h);
-  background-color: var(--navy);
-  border-bottom: 1px solid rgba(201, 168, 76, 0.2);
+  background: var(--navy);
+  border-bottom: 1px solid var(--gold-border);
+  display: flex;
+  align-items: center;
   transition: height var(--transition), opacity var(--transition);
   overflow: hidden;
 }
 
-.top-bar__content {
-  height: 100%;
+.topbar--estates {
+  background: linear-gradient(90deg, var(--navy) 0%, #0d2b1e 100%);
+}
+
+.topbar__inner {
   display: flex;
   align-items: center;
   justify-content: space-between;
+  gap: 1.5rem;
 }
 
-.contact-info {
+.topbar__contacts {
   display: flex;
   align-items: center;
-  gap: 24px;
+  gap: 1.5rem;
 }
 
-.contact-item {
-  display: flex;
+.topbar__item {
+  display: inline-flex;
   align-items: center;
-  gap: 7px;
-  text-decoration: none;
+  gap: 5px;
+  font-size: 0.7rem;
   color: var(--muted);
-  font-size: 0.72rem;
-  font-weight: 400;
-  letter-spacing: 0.03em;
+  text-decoration: none;
+  letter-spacing: 0.02em;
   transition: color var(--transition);
 }
+.topbar__item svg { color: var(--gold); flex-shrink: 0; }
+.topbar__item:hover { color: var(--gold-light); }
 
-.contact-item svg {
-  color: var(--goldenrod);
-  flex-shrink: 0;
-}
-
-.contact-item:hover {
-  color: var(--goldenrod-light);
-}
-
-.top-bar__right span {
-  font-size: 0.7rem;
+.topbar__tagline {
+  font-size: 0.68rem;
   font-weight: 300;
-  letter-spacing: 0.12em;
+  letter-spacing: 0.1em;
   text-transform: uppercase;
-  color: var(--goldenrod);
-  opacity: 0.85;
+  color: var(--gold);
+  opacity: 0.75;
+  white-space: nowrap;
 }
 
 /* ============================================================
@@ -118,304 +120,35 @@
 .navbar {
   height: var(--navbar-h);
   background: var(--navy);
-  border-bottom: 1px solid rgba(201, 168, 76, 0.15);
+  border-bottom: 1px solid var(--gold-border);
   transition: background var(--transition), box-shadow var(--transition);
 }
 
-.navbar__container {
+.navbar--estates {
+  border-bottom-color: rgba(45, 140, 90, 0.25);
+}
+
+.navbar__inner {
   height: 100%;
   display: flex;
   align-items: center;
-  justify-content: space-between;
-  gap: 32px;
+  gap: 2rem;
 }
 
-/* ===== LOGO ===== */
-.navbar__BraveLion {
+/* Logo */
+.navbar__logo {
   display: flex;
   align-items: center;
   flex-shrink: 0;
   text-decoration: none;
 }
-
-.navbar__BraveLion img {
-  height: 44px;
+.navbar__logo img {
+  height: 38px;
   width: auto;
-  object-fit: contain;
-  filter: brightness(1.05);
-  transition: opacity var(--transition);
-}
-
-.navbar__BraveLion:hover img {
-  opacity: 0.85;
-}
-
-.navbar__division {
-  display: flex;
-  align-items: center;
-  gap: 12px;
-  margin-left: 14px;
-}
-
-.navbar__division-pipe {
   display: block;
-  width: 1px;
-  height: 26px;
-  background: rgba(201, 168, 76, 0.35);
-  flex-shrink: 0;
 }
 
-.navbar__division-name {
-  font-family: 'Cormorant Garamond', Georgia, serif;
-  font-size: 0.85rem;
-  font-weight: 500;
-  font-style: italic;
-  color: var(--goldenrod);
-  letter-spacing: 0.06em;
-  white-space: nowrap;
-  opacity: 0.9;
-}
-
-/* ===== GROUP SITE LINK ===== */
-.nav-group-link a {
-  display: block;
-  padding: 8px 14px;
-  font-family: 'Jost', sans-serif;
-  font-size: 0.75rem;
-  font-weight: 400;
-  letter-spacing: 0.06em;
-  color: var(--muted);
-  text-decoration: none;
-  position: relative;
-  transition: color var(--transition);
-  opacity: 0.7;
-}
-
-.nav-group-link a::after {
-  display: none;
-}
-
-.nav-group-link a:hover {
-  color: var(--goldenrod-light);
-  opacity: 1;
-}
-
-/* ============================================================
-   RESPONSIVE — inherit mobile rules from base Navbar.css,
-   override only what's different for Estates.
-   ============================================================ */
-@media (max-width: 900px) {
-
-  /* Division name hides on mobile — logo alone is enough */
-  .navbar__division {
-    display: none;
-  }
-
-  /* Group link sits above the CTA in the drawer */
-  .nav-group-link {
-    margin-top: auto;
-    padding: 0 24px;
-    width: 100%;
-    border-bottom: none !important;
-    border-top: 1px solid rgba(201, 168, 76, 0.1) !important;
-  }
-
-  .nav-group-link a {
-    padding: 14px 0;
-    font-size: 0.78rem;
-    opacity: 0.6;
-    letter-spacing: 0.08em;
-  }
-}
-
-/* ===== NAV LINKS ===== */
-.navbar__links {
-  display: flex;
-  align-items: center;
-  gap: 4px;
-  list-style: none;
-  margin-left: auto;
-}
-
-.navbar__links li a {
-  display: block;
-  padding: 8px 14px;
-  font-family: 'Jost', sans-serif;
-  font-size: 0.82rem;
-  font-weight: 400;
-  letter-spacing: 0.06em;
-  text-transform: uppercase;
-  color: var(--muted);
-  text-decoration: none;
-  position: relative;
-}
-
-/* Underline animation */
-.navbar__links li a::after {
-  content: '';
-  position: absolute;
-  bottom: 2px;
-  left: 14px;
-  right: 14px;
-  height: 1px;
-  background: var(--goldenrod);
-  transform: scaleX(0);
-  transform-origin: left;
-  transition: transform var(--transition);
-}
-
-.navbar__links li a:hover {
-  color: var(--goldenrod-light);
-}
-
-.navbar__links li a:hover::after,
-.navbar__links li a.active-link::after {
-  transform: scaleX(1);
-}
-
-.navbar__links li a.active-link {
-  color: var(--goldenrod-light);
-}
-
-/* ===== CTA BUTTON ===== */
-.nav-cta a {
-  display: flex !important;
-  align-items: center;
-  gap: 8px;
-  margin-left: 12px;
-  padding: 10px 22px !important;
-  background: transparent;
-  border: 1px solid var(--goldenrod);
-  color: var(--goldenrod) !important;
-  font-size: 0.78rem !important;
-  font-weight: 500 !important;
-  letter-spacing: 0.1em !important;
-  text-transform: uppercase;
-  text-decoration: none;
-  transition: background var(--transition), color var(--transition), border-color var(--transition) !important;
-  white-space: nowrap;
-}
-
-.nav-cta a::after {
-  display: none !important;
-}
-
-.nav-cta a:hover {
-  background: var(--goldenrod) !important;
-  color: var(--navy) !important;
-  border-color: var(--goldenrod) !important;
-}
-
-.nav-cta a svg {
-  transition: transform var(--transition);
-}
-
-.nav-cta a:hover svg {
-  transform: translateX(4px);
-}
-
-/* ===== HAMBURGER TOGGLE ===== */
-.navbar__toggle {
-  display: none;
-  background: none;
-  border: 1px solid rgba(201, 168, 76, 0.3);
-  color: var(--goldenrod);
-  padding: 7px;
-  cursor: pointer;
-  border-radius: 4px;
-  transition: background var(--transition), border-color var(--transition);
-  line-height: 0;
-}
-
-.navbar__toggle:hover {
-  background: var(--goldenrod-dim);
-  border-color: var(--goldenrod);
-}
-
-/* ===== OVERLAY ===== */
-.navbar__menu-overlay {
-  display: none;
-  position: fixed;
-  inset: 0;
-  background: rgba(0, 0, 0, 0.55);
-  backdrop-filter: blur(2px);
-  z-index: 98;
-  opacity: 0;
-  pointer-events: none;
-  transition: opacity var(--transition);
-}
-
-.navbar__menu-overlay.active {
-  opacity: 1;
-  pointer-events: all;
-}
-
-/* ============================================================
-   RESPONSIVE — MOBILE
-   ============================================================ */
-@media (max-width: 900px) {
-  .navbar__toggle {
-    display: flex;
-  }
-
-  .navbar__menu-overlay {
-    display: block;
-  }
-
-  .navbar__links {
-    position: fixed;
-    top: 0;
-    right: -100%;
-    width: min(320px, 85vw);
-    height: 100dvh;
-    background: var(--navy-light);
-    flex-direction: column;
-    align-items: flex-start;
-    gap: 0;
-    padding: 80px 0 32px;
-    border-left: 1px solid rgba(201, 168, 76, 0.15);
-    z-index: 99;
-    transition: right var(--transition);
-    overflow-y: auto;
-  }
-
-  .navbar__links.active {
-    right: 0;
-  }
-
-  .navbar__links li {
-    width: 100%;
-    border-bottom: 1px solid rgba(255, 255, 255, 0.05);
-  }
-
-  .navbar__links li a {
-    padding: 16px 28px;
-    font-size: 0.85rem;
-    letter-spacing: 0.08em;
-    width: 100%;
-  }
-
-  .navbar__links li a::after {/* ==============================================
-   ESTATES NAVBAR OVERRIDES
-   Append these rules to your existing navbar.css
-   ============================================== */
-
-/* ── Top bar accent colour for Estates ── */
-.topbar--estates {
-  background: linear-gradient(90deg, var(--navy-deep, #060f22) 0%, #0d2b1e 100%);
-}
-
-/* ── Navbar tint ── */
-.navbar--estates {
-  border-bottom-color: #d4e8dd;
-}
-
-/* ── Active underline: green-gold for Estates ── */
-.navbar--estates .navbar__link-dot {
-  background: #2d8c5a;
-}
-
-/* ── Division badge next to logo ── */
+/* Division badge */
 .navbar__division-badge {
   display: inline-flex;
   align-items: center;
@@ -433,106 +166,333 @@
   line-height: 1;
 }
 
-/* ── End slot: group link + CTA ── */
+/* Desktop nav links */
+.navbar__links {
+  display: flex;
+  align-items: center;
+  gap: 0;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  margin-left: auto;
+}
+
+.navbar__link {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  padding: 0 1rem;
+  height: 35px;
+  font-size: 0.78rem;
+  font-weight: 400;
+  letter-spacing: 0.07em;
+  text-transform: uppercase;
+  color: var(--muted);
+  text-decoration: none;
+  transition: color var(--transition);
+}
+.navbar__link:hover { color: var(--gold-light); }
+.navbar__link--active { color: var(--gold); font-weight: 500; }
+
+.navbar__link-dot {
+  position: absolute;
+  bottom: 0;
+  left: 1rem;
+  right: 1rem;
+  height: 1px;
+  background: var(--green-accent);
+  border-radius: 1px 1px 0 0;
+}
+
+/* End slot */
 .navbar__end {
   display: flex;
   align-items: center;
   gap: 0.75rem;
-  margin-left: auto;          /* pushes end slot to far right */
   flex-shrink: 0;
-}
-
-/* Override default .navbar__links margin so end slot controls spacing */
-.navbar--estates .navbar__links {
-  margin-left: 0;
 }
 
 .navbar__group-link {
   font-size: 0.72rem;
-  font-weight: 500;
-  color: var(--text-subtle, #8a93a6);
+  color: var(--muted-dim);
   text-decoration: none;
   letter-spacing: 0.03em;
-  white-space: nowrap;
-  transition: color var(--speed);
+  transition: color var(--transition);
 }
-.navbar__group-link:hover { color: var(--text-muted, #5a6478); }
+.navbar__group-link:hover { color: var(--muted); }
 
-/* Estates CTA — green accent instead of navy */
-.navbar__cta--estates {
-  background: #1a6e42;
+/* CTA */
+.navbar__cta {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 0.5rem 1.2rem;
+  font-size: 0.75rem;
+  font-weight: 600;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  text-decoration: none;
+  border-radius: 2px;
+  transition: background var(--transition), transform var(--transition);
+  white-space: nowrap;
+  background: var(--gold);
+  color: var(--navy);
 }
+.navbar__cta:hover { transform: translateY(-1px); }
+.navbar__cta--estates { background: #1a6e42; color: #fff; }
 .navbar__cta--estates:hover { background: #155836; }
 
-/* ── Mobile drawer estates CTA ── */
-.mobile-drawer__cta--estates {
-  background: #1a6e42;
+/* Mobile toggle */
+.navbar__toggle {
+  display: none;
+  align-items: center;
+  justify-content: center;
+  width: 38px;
+  height: 38px;
+  border: 1px solid var(--gold-border);
+  border-radius: 2px;
+  background: transparent;
+  color: var(--gold);
+  cursor: pointer;
+  flex-shrink: 0;
+  transition: background var(--transition), border-color var(--transition);
+  margin-left: auto;
 }
+.navbar__toggle:hover { background: var(--gold-dim); border-color: var(--gold); }
+.navbar__toggle--open { border-color: var(--gold); color: var(--gold); }
+
+/* ============================================================
+   MOBILE OVERLAY
+   ============================================================ */
+.mobile-overlay {
+  display: none;
+  position: fixed;
+  inset: 0;
+  background: rgba(6, 15, 34, 0.7);
+  z-index: 1100;
+  opacity: 0;
+  transition: opacity 0.3s var(--ease-out);
+  pointer-events: none;
+}
+.mobile-overlay--open {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+/* ============================================================
+   MOBILE DRAWER — Luxury dark edition
+   ============================================================ */
+.mobile-drawer {
+  display: none;
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  width: min(320px, 88vw);
+  background: var(--navy-drawer);
+  z-index: 1200;
+  flex-direction: column;
+  transform: translateX(100%);
+  transition: transform 0.38s var(--ease-out);
+  overflow: hidden;
+  border-left: 1px solid var(--gold-border);
+}
+.mobile-drawer--open { transform: translateX(0); }
+
+/* ── Drawer Header ── */
+.mobile-drawer__head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 1.25rem 1.5rem;
+  border-bottom: 1px solid var(--gold-border);
+  flex-shrink: 0;
+  background: var(--navy);
+}
+
+/* Override toggle inside dark drawer */
+.mobile-drawer__head .navbar__toggle {
+  border-color: var(--gold-border);
+  color: var(--gold);
+  margin-left: 0;
+}
+.mobile-drawer__head .navbar__toggle:hover {
+  background: var(--gold-dim);
+  border-color: var(--gold);
+}
+.mobile-drawer__head .navbar__toggle--open {
+  border-color: var(--gold);
+  color: var(--gold);
+}
+
+/* ── Nav Links List ── */
+.mobile-drawer__links {
+  list-style: none;
+  padding: 0.5rem 0;
+  margin: 0;
+  flex: 1;
+  overflow-y: auto;
+}
+
+/* Stagger entrance animation */
+.mobile-drawer__links li {
+  opacity: 0;
+  transform: translateX(20px);
+  transition:
+    opacity 0.28s ease calc(var(--i, 0) * 0.06s),
+    transform 0.28s ease calc(var(--i, 0) * 0.06s);
+}
+.mobile-drawer--open .mobile-drawer__links li {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+/* Individual link rows */
+.mobile-drawer__link {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 1rem 1.5rem;
+  font-family: 'Jost', sans-serif;
+  font-size: 0.82rem;
+  font-weight: 400;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--muted);
+  text-decoration: none;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.04);
+  transition: color var(--transition), background var(--transition), padding-left var(--transition);
+  position: relative;
+}
+.mobile-drawer__link::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  width: 2px;
+  background: var(--green-accent);
+  transform: scaleY(0);
+  transform-origin: bottom;
+  transition: transform 0.2s var(--ease-out);
+}
+.mobile-drawer__link:hover {
+  color: var(--gold-light);
+  background: rgba(201, 168, 76, 0.04);
+  padding-left: 1.75rem;
+}
+.mobile-drawer__link:hover::before {
+  transform: scaleY(1);
+}
+.mobile-drawer__link--active {
+  color: var(--gold);
+  font-weight: 500;
+  background: var(--gold-dim);
+  padding-left: 1.75rem;
+}
+.mobile-drawer__link--active::before {
+  transform: scaleY(1);
+}
+
+.mobile-drawer__arrow {
+  color: var(--muted-dim);
+  flex-shrink: 0;
+  transition: color var(--transition), transform var(--transition);
+}
+.mobile-drawer__link:hover .mobile-drawer__arrow,
+.mobile-drawer__link--active .mobile-drawer__arrow {
+  color: var(--gold);
+  transform: translate(2px, -2px);
+}
+
+/* ── Drawer Footer ── */
+.mobile-drawer__foot {
+  padding: 1.25rem 1.5rem;
+  border-top: 1px solid var(--gold-border);
+  background: var(--navy);
+  display: flex;
+  flex-direction: column;
+  gap: 0.875rem;
+  flex-shrink: 0;
+}
+
+.mobile-drawer__cta {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  padding: 0.875rem;
+  font-family: 'Jost', sans-serif;
+  font-size: 0.78rem;
+  font-weight: 600;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  text-decoration: none;
+  border-radius: 2px;
+  transition: background var(--transition), transform var(--transition);
+  background: var(--gold);
+  color: var(--navy);
+}
+.mobile-drawer__cta:hover { transform: translateY(-1px); }
+.mobile-drawer__cta--estates { background: #1a6e42; color: #fff; }
 .mobile-drawer__cta--estates:hover { background: #155836; }
 
-/* ── Mobile: back to group link ── */
+/* Back to group link */
 .mobile-drawer__group-link {
   display: block;
   text-align: center;
-  font-size: 0.78rem;
-  font-weight: 500;
-  color: var(--text-subtle, #8a93a6);
+  font-size: 0.72rem;
+  font-weight: 400;
+  letter-spacing: 0.06em;
+  color: var(--muted-dim);
   text-decoration: none;
   padding: 0.25rem 0;
-  transition: color var(--speed);
+  transition: color var(--transition);
 }
-.mobile-drawer__group-link:hover { color: var(--text-muted, #5a6478); }
+.mobile-drawer__group-link:hover { color: var(--gold); }
 
-/* ── Active left border on mobile: estates green ── */
-.navbar--estates ~ .mobile-drawer .mobile-drawer__link--active {
-  border-left-color: #2d8c5a;
+/* Contact items in footer */
+.mobile-drawer__contacts {
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
+  padding-top: 0.25rem;
+  border-top: 1px solid rgba(255, 255, 255, 0.05);
 }
 
-/* ==============================================
+/* Override topbar__item inside dark drawer footer */
+.mobile-drawer__contacts .topbar__item {
+  color: var(--muted-dim);
+  font-size: 0.68rem;
+  letter-spacing: 0.03em;
+}
+.mobile-drawer__contacts .topbar__item:hover { color: var(--gold-light); }
+.mobile-drawer__contacts .topbar__item svg { color: var(--gold); opacity: 0.7; }
+
+/* ============================================================
    RESPONSIVE
-   ============================================== */
+   ============================================================ */
+@media (max-width: 1024px) {
+  .navbar__link { padding: 0 0.75rem; font-size: 0.75rem; }
+}
+
 @media (max-width: 920px) {
-  /* Hide "← Group Site" text link on mid-size screens, keep CTA */
   .navbar__group-link { display: none; }
 }
 
 @media (max-width: 860px) {
+  .navbar__links,
   .navbar__end { display: none; }
-}
-    bottom: 12px;
-    left: 28px;
-    right: 28px;
-  }
-
-  .nav-cta {
-    margin-top: 24px;
-    padding: 0 24px;
-    width: 100%;
-    border-bottom: none !important;
-  }
-
-  .nav-cta a {
-    margin-left: 0 !important;
-    justify-content: center;
-    width: 100%;
-    padding: 13px 22px !important;
-  }
-
-  .contact-info {
-    display: none;
-  }
-
-  .top-bar__right span {
-    font-size: 0.65rem;
-  }
+  .navbar__toggle { display: flex; }
+  .mobile-overlay,
+  .mobile-drawer { display: flex; }
+  .topbar__tagline { display: none; }
 }
 
 @media (max-width: 480px) {
-  .container {
-    padding: 0 20px;
-  }
-
-  .navbar__BraveLion img {
-    height: 36px;
-  }
+  .container { padding: 0 20px; }
+  .topbar__contacts { gap: 1rem; }
+  .topbar__item span { display: none; }
+  .navbar__logo img { height: 32px; }
 }

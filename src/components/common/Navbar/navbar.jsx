@@ -20,6 +20,7 @@ const Navbar = () => {
   const [menuOpen, setMenuOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
   const [dropdownOpen, setDropdownOpen] = useState(false);
+  const [mobileDropdownOpen, setMobileDropdownOpen] = useState(false);
   const dropdownRef = useRef(null);
   const location = useLocation();
 
@@ -32,6 +33,7 @@ const Navbar = () => {
   useEffect(() => {
     setMenuOpen(false);
     setDropdownOpen(false);
+    setMobileDropdownOpen(false);
   }, [location]);
 
   useEffect(() => {
@@ -56,12 +58,6 @@ const Navbar = () => {
 
   const isDivisionActive = () =>
     divisionGroups.some((group) => isActive(group.to));
-
-  // All mobile items in one flat list for consistent stagger animation
-  const allMobileItems = [
-    ...divisionGroups.map((g) => ({ ...g, isDivision: true })),
-    ...navLinks,
-  ];
 
   return (
     <header className={`site-header${scrolled ? " site-header--scrolled" : ""}`}>
@@ -111,7 +107,7 @@ const Navbar = () => {
               </li>
             ))}
 
-            {/* Divisions dropdown — uses navbar__dropdown-btn matching link styles exactly */}
+            {/* Divisions dropdown — desktop */}
             <li className="navbar__dropdown" ref={dropdownRef}>
               <button
                 className={`navbar__dropdown-btn${isDivisionActive() ? " navbar__dropdown-btn--active" : ""}`}
@@ -182,7 +178,8 @@ const Navbar = () => {
         </div>
 
         <ul className="mobile-drawer__links">
-          {allMobileItems.map((item, i) => (
+          {/* Regular nav links */}
+          {navLinks.map((item, i) => (
             <li key={item.to} style={{ "--i": i }}>
               <Link
                 to={item.to}
@@ -194,6 +191,38 @@ const Navbar = () => {
               </Link>
             </li>
           ))}
+
+          {/* Divisions — accordion row */}
+          <li style={{ "--i": navLinks.length }}>
+            <button
+              className={`mobile-drawer__accordion-btn${isDivisionActive() ? " mobile-drawer__link--active" : ""}`}
+              onClick={() => setMobileDropdownOpen((v) => !v)}
+              aria-expanded={mobileDropdownOpen}
+            >
+              <span>Divisions</span>
+              <ChevronDown
+                size={15}
+                className={`mobile-drawer__accordion-icon${mobileDropdownOpen ? " mobile-drawer__accordion-icon--open" : ""}`}
+              />
+            </button>
+
+            {/* Accordion panel */}
+            <div
+              className={`mobile-drawer__accordion-panel${mobileDropdownOpen ? " mobile-drawer__accordion-panel--open" : ""}`}
+            >
+              {divisionGroups.map((group) => (
+                <Link
+                  key={group.to}
+                  to={group.to}
+                  className={`mobile-drawer__sub-link${isActive(group.to) ? " mobile-drawer__sub-link--active" : ""}`}
+                  onClick={() => setMenuOpen(false)}
+                >
+                  {group.label}
+                  <ArrowUpRight size={13} className="mobile-drawer__arrow" />
+                </Link>
+              ))}
+            </div>
+          </li>
         </ul>
 
         <div className="mobile-drawer__foot">

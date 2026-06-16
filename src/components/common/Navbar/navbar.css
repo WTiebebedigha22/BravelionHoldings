@@ -160,7 +160,7 @@
   border-radius: 2px 2px 0 0;
 }
 
-/* ===== DROPDOWN ===== */
+/* ===== DESKTOP DROPDOWN ===== */
 .navbar__dropdown {
   position: relative;
   display: flex;
@@ -404,6 +404,100 @@
 }
 .mobile-drawer__link--active .mobile-drawer__arrow { color: var(--gold); }
 
+/* =========================
+   MOBILE ACCORDION — DIVISIONS
+   ========================= */
+
+/* Trigger row — visually identical to .mobile-drawer__link */
+.mobile-drawer__accordion-btn {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 1rem 1.5rem;
+  font-size: 0.9rem;
+  font-weight: 500;
+  color: var(--text-muted, #5a6478);
+  background: none;
+  border: none;
+  border-bottom: 1px solid var(--border, #e4e6e0);
+  cursor: pointer;
+  font-family: inherit;
+  text-align: left;
+  transition: color var(--speed), background var(--speed);
+}
+.mobile-drawer__accordion-btn:hover {
+  color: var(--gold);
+  background: var(--bg-off, #f8f8f5);
+}
+
+/* Active state mirrors .mobile-drawer__link--active */
+.mobile-drawer__accordion-btn.mobile-drawer__link--active {
+  color: var(--gold);
+  font-weight: 700;
+  border-left: 3px solid var(--gold);
+  padding-left: calc(1.5rem - 3px);
+  background: var(--bg-off, #f8f8f5);
+}
+
+/* Chevron */
+.mobile-drawer__accordion-icon {
+  color: var(--text-subtle, #8a93a6);
+  flex-shrink: 0;
+  transition: transform 0.25s var(--ease), color var(--speed);
+}
+.mobile-drawer__accordion-btn:hover .mobile-drawer__accordion-icon {
+  color: var(--gold);
+}
+.mobile-drawer__accordion-icon--open {
+  transform: rotate(180deg);
+  color: var(--gold);
+}
+
+/* Collapsible panel */
+.mobile-drawer__accordion-panel {
+  max-height: 0;
+  overflow: hidden;
+  background: var(--bg-off, #f8f8f5);
+  transition: max-height 0.32s var(--ease);
+}
+.mobile-drawer__accordion-panel--open {
+  max-height: 320px;
+}
+
+/* Division sub-links */
+.mobile-drawer__sub-link {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0.85rem 1.5rem 0.85rem 2rem;
+  font-size: 0.83rem;
+  font-weight: 500;
+  color: var(--text-muted, #5a6478);
+  text-decoration: none;
+  border-bottom: 1px solid var(--border, #e4e6e0);
+  transition: color var(--speed), background var(--speed);
+}
+.mobile-drawer__sub-link:last-child {
+  border-bottom: none;
+}
+.mobile-drawer__sub-link:hover {
+  color: var(--gold);
+  background: #f0ebd6;
+}
+.mobile-drawer__sub-link--active {
+  color: var(--gold);
+  font-weight: 700;
+  border-left: 3px solid var(--gold);
+  padding-left: calc(2rem - 3px);
+}
+.mobile-drawer__sub-link--active .mobile-drawer__arrow {
+  color: var(--gold);
+}
+
+/* =========================
+   DRAWER FOOTER
+   ========================= */
 .mobile-drawer__foot {
   padding: 1.5rem;
   border-top: 1px solid var(--border);

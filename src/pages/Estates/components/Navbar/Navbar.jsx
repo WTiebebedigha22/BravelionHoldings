@@ -132,9 +132,6 @@ const EstatesNavbar = () => {
             onClick={() => setMenuOpen(false)}
           >
             <img src="/BraveLion.png" alt="Bravelion Group" />
-            <span className="navbar__division-badge">
-              <Building2 size={10} /> Estates
-            </span>
           </Link>
           <button
             className="navbar__toggle navbar__toggle--open"
