@@ -59,8 +59,8 @@ const testimonials = [
   },
   {
     quote: 'Their site inspection process and transparent pricing gave me the confidence to invest. My ROI has exceeded projections in year one.',
-    name: 'Fatima Al-Hassan',
-    title: 'Real Estate Investor, Port Harcourt',
+    name: 'Joy Williams',
+    title: 'Real Estate Investor, Lesotho',
   },
 ];
 

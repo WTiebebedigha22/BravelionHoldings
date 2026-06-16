@@ -76,7 +76,7 @@ const Navbar = () => {
             </a>
           </div>
           <span className="topbar__tagline">
-            Building Africa's Future Through Excellence.
+            Building Global Value Through Excellence.
           </span>
         </div>
       </div>

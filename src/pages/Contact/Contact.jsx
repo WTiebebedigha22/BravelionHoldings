@@ -67,8 +67,8 @@ const services = [
   "Real Estate",
   "Consultancy",
   "Engineering Services",
-  "NDT & Inspection",
   "Partnership / Investment",
+  "Other Services",
 ];
 
 const FORM_ENDPOINT = "https://formsubmit.co/ajax/info@bravelionholdings.com";
@@ -89,7 +89,6 @@ const Contact = () => {
     const form = e.currentTarget;
     const formData = new FormData(form);
 
-    // Inject PhoneInput's controlled value into FormData
     formData.set("phone", phoneNumber || "");
 
     try {
@@ -221,7 +220,7 @@ const Contact = () => {
                   <div className="form-row">
                     <div className="form-field">
                       <label>Full Name <span>*</span></label>
-                      <input type="text" name="name" placeholder="e.g. Adaeze Okafor" required />
+                      <input type="text" name="name" placeholder="e.g. John Doe" required />
                     </div>
                     <div className="form-field">
                       <label>Email Address <span>*</span></label>
@@ -260,7 +259,7 @@ const Contact = () => {
                     <div className="form-field">
                       <label>Engagement Type</label>
                       <select name="engagement_type" defaultValue="">
-                        <option value="">Select locale</option>
+                        <option value="">Select</option>
                         <option>National</option>
                         <option>International</option>
                       </select>
