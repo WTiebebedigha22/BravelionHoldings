@@ -70,7 +70,6 @@ const TrainingFooter = () => {
             <h4 className="footer__col-title">Quick Links</h4>
             <ul className="footer__col-links">
               <li><Link to="/training/enroll">Enroll Now</Link></li>
-              <li><Link to="/training/verify">Verify Certificate</Link></li>
               <li><Link to="/about">About Bravelion</Link></li>
               <li><Link to="/services">Our Services</Link></li>
               <li><Link to="/contact">Contact Us</Link></li>

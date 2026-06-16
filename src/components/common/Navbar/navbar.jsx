@@ -136,11 +136,6 @@ const Navbar = () => {
             </li>
           </ul>
 
-          {/* Desktop CTA */}
-          <Link to="/contact" className="navbar__cta">
-            Partner With Us <ArrowUpRight size={13} />
-          </Link>
-
           {/* Mobile toggle */}
           <button
             className={`navbar__toggle${menuOpen ? " navbar__toggle--open" : ""}`}

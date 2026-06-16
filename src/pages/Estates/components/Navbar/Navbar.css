@@ -435,8 +435,8 @@
   color: var(--navy);
 }
 .mobile-drawer__cta:hover { transform: translateY(-1px); }
-.mobile-drawer__cta--estates { background: #1a6e42; color: #fff; }
-.mobile-drawer__cta--estates:hover { background: #155836; }
+.mobile-drawer__cta--estates { background: var(--gold); color: #fff; }
+.mobile-drawer__cta--estates:hover { background: var(--gold-dim); }
 
 /* Back to group link */
 .mobile-drawer__group-link {

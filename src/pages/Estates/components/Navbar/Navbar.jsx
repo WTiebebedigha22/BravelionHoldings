@@ -158,7 +158,7 @@ const EstatesNavbar = () => {
 
         <div className="mobile-drawer__foot">
           <Link
-            to="/estates/contact"
+            to="/contact"
             className="mobile-drawer__cta mobile-drawer__cta--estates"
             onClick={() => setMenuOpen(false)}
           >
