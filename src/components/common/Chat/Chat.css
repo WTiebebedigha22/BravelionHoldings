@@ -1,0 +1,278 @@
+/* =============================================
+   ChatButton — Floating WhatsApp Chat Widget
+   Place alongside ChatButton.jsx
+   ============================================= */
+
+/* Root container — sits above everything */
+.chat-widget {
+  position: fixed;
+  bottom: 28px;
+  right: 28px;
+  z-index: 9999;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 12px;
+
+  /* Hidden until JS mounts */
+  opacity: 0;
+  transform: translateY(12px);
+  transition: opacity 0.4s ease, transform 0.4s ease;
+  pointer-events: none;
+}
+
+.chat-widget--visible {
+  opacity: 1;
+  transform: translateY(0);
+  pointer-events: all;
+}
+
+/* ── Trigger button ────────────────────────── */
+.chat-trigger {
+  width: 58px;
+  height: 58px;
+  border-radius: 50%;
+  border: none;
+  cursor: pointer;
+  /* Dynamically falls back to standard WhatsApp green if --accent isn't set */
+  background: linear-gradient(135deg, var(--accent, #25D366) 0%, #1da850 100%);
+  color: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 4px 20px rgba(29, 168, 80, 0.4), 0 1px 4px rgba(0, 0, 0, 0.2);
+  transition: transform 0.25s cubic-bezier(0.34, 1.56, 0.64, 1),
+              box-shadow 0.25s ease;
+  flex-shrink: 0;
+  position: relative;
+}
+
+.chat-trigger:hover {
+  transform: scale(1.08);
+  box-shadow: 0 6px 28px rgba(29, 168, 80, 0.5), 0 2px 6px rgba(0, 0, 0, 0.25);
+}
+
+.chat-trigger:active {
+  transform: scale(0.96);
+}
+
+/* Icon swap — chat ↔ close */
+.chat-trigger__icon {
+  position: absolute;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: opacity 0.2s ease, transform 0.25s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+.chat-trigger__icon--chat {
+  opacity: 1;
+  transform: scale(1) rotate(0deg);
+}
+.chat-trigger__icon--close {
+  opacity: 0;
+  transform: scale(0.5) rotate(-90deg);
+}
+
+.chat-trigger--open .chat-trigger__icon--chat {
+  opacity: 0;
+  transform: scale(0.5) rotate(90deg);
+}
+.chat-trigger--open .chat-trigger__icon--close {
+  opacity: 1;
+  transform: scale(1) rotate(0deg);
+}
+
+/* Pulse ring (draws attention on first load) */
+.chat-trigger::before {
+  content: '';
+  position: absolute;
+  inset: -4px;
+  border-radius: 50%;
+  border: 2px solid rgba(37, 211, 102, 0.45);
+  animation: chat-pulse 2.8s ease-out 1.2s 3;
+}
+
+@keyframes chat-pulse {
+  0%   { transform: scale(1);   opacity: 0.8; }
+  70%  { transform: scale(1.35); opacity: 0; }
+  100% { transform: scale(1.35); opacity: 0; }
+}
+
+/* ── Chat panel ────────────────────────────── */
+.chat-panel {
+  width: 340px;
+  background: #fff;
+  border-radius: 16px;
+  box-shadow: 0 12px 40px rgba(13, 35, 64, 0.15), 0 2px 8px rgba(0, 0, 0, 0.06);
+  overflow: hidden;
+  transform-origin: bottom right;
+
+  /* Closed state */
+  opacity: 0;
+  transform: scale(0.88) translateY(12px);
+  pointer-events: none;
+  transition: opacity 0.28s cubic-bezier(0.4, 0, 0.2, 1),
+              transform 0.28s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+.chat-panel--open {
+  opacity: 1;
+  transform: scale(1) translateY(0);
+  pointer-events: all;
+}
+
+/* Header adapts to division colors via CSS variables */
+.chat-panel__header {
+  background: linear-gradient(135deg, var(--accent) 0%, #0d2340 100%);
+  padding: 16px 18px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  color: #fff;
+}
+
+.chat-panel__header-info {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.chat-panel__status-dot {
+  width: 9px;
+  height: 9px;
+  border-radius: 50%;
+  background: #4ade80;
+  box-shadow: 0 0 0 2px rgba(74, 222, 128, 0.35);
+  flex-shrink: 0;
+}
+
+.chat-panel__title {
+  font-size: 0.95rem;
+  font-weight: 700;
+  letter-spacing: 0.01em;
+  margin: 0 0 1px;
+}
+
+.chat-panel__subtitle {
+  font-size: 0.75rem;
+  opacity: 0.7;
+  margin: 0;
+}
+
+.chat-panel__close {
+  background: none;
+  border: none;
+  color: rgba(255, 255, 255, 0.7);
+  font-size: 0.85rem;
+  cursor: pointer;
+  padding: 4px 6px;
+  border-radius: 6px;
+  transition: color 0.15s, background 0.15s;
+  line-height: 1;
+}
+
+.chat-panel__close:hover {
+  color: #fff;
+  background: rgba(255, 255, 255, 0.12);
+}
+
+/* Body container optimized for layout flow */
+.chat-panel__body {
+  padding: 18px;
+  background: #f8fafc;
+}
+
+.chat-panel__body--whatsapp {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+/* Greeting box utilizing contextual lightness values */
+.chat-panel__greeting-box {
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+  background: var(--accent-light, #f1f5f9);
+  padding: 14px 16px;
+  border-radius: 12px;
+  border: 1px solid rgba(0, 0, 0, 0.03);
+}
+
+.chat-panel__avatar {
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, var(--accent) 0%, #0d2340 100%);
+  color: #fff;
+  font-size: 0.7rem;
+  font-weight: 700;
+  letter-spacing: 0.03em;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.08);
+}
+
+.chat-panel__greeting-text {
+  font-size: 0.875rem;
+  color: #1e293b;
+  line-height: 1.5;
+  margin: 0;
+}
+
+/* WhatsApp Direct Messaging Action Button */
+.chat-panel__wa-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  width: 100%;
+  background-color: #25D366; /* Standout Official WhatsApp Green */
+  color: #ffffff;
+  border: none;
+  padding: 12px 18px;
+  font-size: 0.9rem;
+  font-weight: 600;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: background-color 0.2s ease, transform 0.1s ease, box-shadow 0.2s ease;
+  box-sizing: border-box;
+  font-family: inherit;
+  box-shadow: 0 4px 14px rgba(37, 211, 102, 0.35);
+}
+
+.chat-panel__wa-btn:hover {
+  background-color: #20ba5a;
+  box-shadow: 0 6px 18px rgba(37, 211, 102, 0.45);
+}
+
+.chat-panel__wa-btn:active {
+  transform: scale(0.98);
+}
+
+/* ── Responsive ─────────────────────────────── */
+@media (max-width: 480px) {
+  .chat-widget {
+    bottom: 20px;
+    right: 16px;
+  }
+
+  .chat-panel {
+    width: calc(100vw - 32px);
+  }
+}
+
+/* ── Reduced motion ─────────────────────────── */
+@media (prefers-reduced-motion: reduce) {
+  .chat-widget,
+  .chat-panel,
+  .chat-trigger,
+  .chat-trigger__icon,
+  .chat-trigger::before {
+    transition: none;
+    animation: none;
+  }
+}

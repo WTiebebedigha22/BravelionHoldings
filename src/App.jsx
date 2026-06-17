@@ -2,6 +2,7 @@ import { BrowserRouter, Route, Routes } from "react-router-dom"
 import NavBar from "./components/common/Navbar/navbar"
 import Footer from "./components/common/Footer/Footer"
 import ScrollToTop from "./components/features/ScrollToTop"
+import ChatButton from "./components/common/Chat/Chat"
 import Home from "./pages/Home/Home"
 import Estates from "./pages/Estates/Estates"
 import Services from "./pages/Services/Services"
@@ -51,7 +52,8 @@ function App() {
   return (
     <BrowserRouter>
       <ScrollToTop />
-      
+      <ChatButton />
+
       <Routes>
 
         {/* ── Shared layout ── */}
