@@ -451,7 +451,7 @@
   align-items: center;
   gap: 4px;
   font-size: 0.72rem;
-  color: rgba(255,255,255,0.5);
+  color: rgba(255,255,255);
 }
 
 .project-body {
@@ -481,7 +481,7 @@
 
 .project-body p {
   font-size: 0.825rem;
-  color: rgba(255,255,255,0.55);
+  color: rgba(255,255,255);
   line-height: 1.7;
   flex: 1;
   margin-bottom: 1rem;

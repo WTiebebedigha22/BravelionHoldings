@@ -12,6 +12,7 @@ const realEstateProjects = [
     location: "Abuja, FCT",
     type: "Residential Estate",
     status: "Completed",
+    image: "https://images.unsplash.com/photo-1580587771525-78b9dba3b914?auto=format&fit=crop&q=80&w=800&h=180",
     description:
       "A gated residential development featuring 24 premium terrace and semi-detached homes with smart-home integration, landscaped communal areas, and 24-hour security.",
     highlights: ["24 Units", "Smart-Home Ready", "Gated Community"],
@@ -22,6 +23,7 @@ const realEstateProjects = [
     location: "Lekki, Lagos",
     type: "Mixed-Use Development",
     status: "Ongoing",
+    image: "https://images.unsplash.com/photo-1486325212027-8081e485255e?auto=format&fit=crop&q=80&w=800&h=180",
     description:
       "A multi-storey mixed-use facility combining Grade-A office floors, ground-level retail units, and structured parking — designed to serve the fast-growing Lekki corridor.",
     highlights: ["12 Office Floors", "Retail Units", "800+ Car Park"],
@@ -32,6 +34,7 @@ const realEstateProjects = [
     location: "Port Harcourt, Rivers",
     type: "Luxury Apartments",
     status: "Completed",
+    image: "https://images.unsplash.com/photo-1545324418-cc1a3fa10c00?auto=format&fit=crop&q=80&w=800&h=180",
     description:
       "Forty waterfront luxury apartments across two towers, offering panoramic river views, rooftop amenities, gym facilities, and underground secure parking.",
     highlights: ["40 Luxury Units", "Waterfront Views", "Rooftop Amenities"],
@@ -42,6 +45,7 @@ const realEstateProjects = [
     location: "Ogun State",
     type: "Industrial / Logistics",
     status: "In Planning",
+    image: "https://images.unsplash.com/photo-1586528116311-ad8dd3c8310d?auto=format&fit=crop&q=80&w=800&h=180",
     description:
       "A large-scale logistics and light-industrial park designed to support manufacturing clusters, cold-chain storage, and last-mile distribution operations.",
     highlights: ["50-Hectare Site", "Cold-Chain Storage", "Road & Rail Access"],
@@ -50,32 +54,26 @@ const realEstateProjects = [
 
 const ndtServices = [
   {
-    icon: "🔬",
     title: "Ultrasonic Testing (UT)",
     description: "High-frequency sound wave inspection for internal defects in welds, pipelines, and structural steel without material damage.",
   },
   {
-    icon: "🧲",
     title: "Magnetic Particle Testing (MT)",
     description: "Detection of surface and near-surface discontinuities in ferromagnetic materials across oil & gas and construction sectors.",
   },
   {
-    icon: "💡",
     title: "Radiographic Testing (RT)",
     description: "X-ray and gamma-ray imaging for weld quality verification and detection of internal flaws in pressure vessels and pipelines.",
   },
   {
-    icon: "🔍",
     title: "Visual & Optical Inspection",
     description: "Systematic visual assessment using borescopes, drones, and remote cameras for confined spaces and elevated structures.",
   },
   {
-    icon: "⚡",
     title: "Eddy Current Testing (ECT)",
     description: "Electromagnetic technique for detecting surface cracks and measuring conductivity in heat exchangers and tubing.",
   },
   {
-    icon: "📐",
     title: "Structural Integrity Assessment",
     description: "Comprehensive fitness-for-service evaluations and remaining life assessments for ageing infrastructure and industrial assets.",
   },
@@ -272,7 +270,12 @@ const About = () => {
             {realEstateProjects.map((project) => (
               <div className="project-card" key={project.id}>
                 <div className="project-image">
-                  <Building2 size={40} className="project-placeholder-icon" />
+                  <img
+                    src={project.image}
+                    alt={project.title}
+                    className="project-img"
+                    loading="lazy"
+                  />
                   <span className={`project-status status-${project.status.toLowerCase().replace(/\s+/g, "-")}`}>
                     {project.status}
                   </span>
