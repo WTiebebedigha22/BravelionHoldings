@@ -14,7 +14,7 @@ const WHATSAPP_DATA = {
 
   services: {
     label: 'Services',
-    accent: '#1a3a5c',
+    accent: '#1a5c3a',
     accentLight: '#e8f0f8',
     greeting: 'Need help choosing the right strategic or engineering service? Let\'s discuss your project requirements on WhatsApp.',
     templateMessage: 'Hello Bravelion Services, I would like to make an inquiry regarding your consulting and corporate advisory services.',
@@ -22,7 +22,7 @@ const WHATSAPP_DATA = {
 
   training: {
     label: 'Training',
-    accent: '#7c3a00',
+    accent: '#1a5c3a',
     accentLight: '#fdf0e6',
     greeting: 'Interested in a professional course or corporate HSE certification? Message our admissions desk on WhatsApp.',
     templateMessage: 'Hello Bravelion Training, I am interested in your professional training programs and would like to find out about upcoming cohorts.',
@@ -38,7 +38,7 @@ const WHATSAPP_DATA = {
 };
 
 // ─── Your Company Phone Number (Include country code, no "+" or dashes) ────
-const WHATSAPP_NUMBER = '+2347081728260'; // Replace with your actual company WhatsApp number
+const WHATSAPP_NUMBER = '+2347081728260';
 
 // ─── Determine which division the user is in ───────────────────────────────
 function useDivision() {
