@@ -19,7 +19,6 @@ const services = [
     desc: 'Comprehensive engineering services spanning electrical systems, civil infrastructure, mechanical operations, and industrial equipment supply and maintenance.',
     tags: ['Electrical', 'Civil Works', 'Mechanical', 'Equipment Supply', 'Maintenance'],
     image: 'https://images.unsplash.com/photo-1621905251918-48416bd8575a?auto=format&fit=crop&q=80&w=800',
-    icon: '⚡',
   },
   {
     id: 'B',
@@ -28,7 +27,6 @@ const services = [
     desc: 'Specialized training and consultancy programs built for the oil and gas sector, covering field operations, energy systems, and technical compliance.',
     tags: ['Oil & Gas', 'Field Operations', 'Energy Training', 'Technical Consultancy'],
     image: 'https://images.unsplash.com/photo-1518709268805-4e9042af9f23?auto=format&fit=crop&q=80&w=800',
-    icon: '🛢',
   },
   {
     id: 'C',
@@ -37,7 +35,6 @@ const services = [
     desc: 'Empowering entrepreneurs and business leaders with practical training in business strategy, management systems, and digital technology integration.',
     tags: ['Entrepreneurship', 'Business Management', 'ICT', 'Strategy'],
     image: 'https://images.unsplash.com/photo-1552664730-d307ca884978?auto=format&fit=crop&q=80&w=800',
-    icon: '📊',
   },
   {
     id: 'D',
@@ -46,7 +43,6 @@ const services = [
     desc: 'End-to-end electrical project delivery including rural and urban electrification, power distribution networks, automation controls, and solar/inverter systems.',
     tags: ['Electrification', 'Solar Systems', 'Inverter', 'Automation', 'Power Distribution'],
     image: 'https://images.unsplash.com/photo-1509391366360-2e959784a276?auto=format&fit=crop&q=80&w=800',
-    icon: '🔌',
   },
   {
     id: 'E',
@@ -55,7 +51,6 @@ const services = [
     desc: 'Full-scope construction and civil engineering services from groundworks and structural builds to finishing — delivered on time, on budget, and to spec.',
     tags: ['Construction', 'Civil Engineering', 'Structural Works', 'Project Delivery'],
     image: 'https://images.unsplash.com/photo-1504307651254-35680f356dfd?auto=format&fit=crop&q=80&w=800',
-    icon: '🏗',
   },
   {
     id: 'F',
@@ -64,7 +59,6 @@ const services = [
     desc: 'Reliable transportation and logistics solutions for goods and personnel, supporting industrial operations, project sites, and commercial supply chains.',
     tags: ['Transportation', 'Logistics', 'Supply Chain', 'Fleet Management'],
     image: 'https://images.unsplash.com/photo-1586528116311-ad8dd3c8310d?auto=format&fit=crop&q=80&w=800',
-    icon: '🚛',
   },
   {
     id: 'G',
@@ -73,7 +67,6 @@ const services = [
     desc: 'End-to-end import and export facilitation, including trade documentation, customs compliance, and international procurement support.',
     tags: ['Import', 'Export', 'Trade', 'Procurement', 'Customs'],
     image: 'https://images.unsplash.com/photo-1578575437130-527eed3abbec?auto=format&fit=crop&q=80&w=800',
-    icon: '🌍',
   },
   {
     id: 'H',
@@ -82,7 +75,6 @@ const services = [
     desc: 'Sustainable and compliant waste management services for industrial, commercial, and community environments — including collection, treatment, and disposal.',
     tags: ['Waste Management', 'Environmental', 'Sustainability', 'Industrial Waste'],
     image: 'https://images.unsplash.com/photo-1532996122724-e3c354a0b15b?auto=format&fit=crop&q=80&w=800',
-    icon: '♻',
   },
   {
     id: 'I',
@@ -91,7 +83,6 @@ const services = [
     desc: 'Hands-on operational training for oil and gas field environments — covering safety protocols, energy management, equipment handling, and technical upskilling.',
     tags: ['Oil & Gas', 'Field Operations', 'Energy', 'Technical Training'],
     image: 'https://images.unsplash.com/photo-1611273426858-450d8e3c9fce?auto=format&fit=crop&q=80&w=800',
-    icon: '⛽',
   },
   {
     id: 'J',
@@ -100,7 +91,6 @@ const services = [
     desc: 'Future-ready digital skills training covering software tools, cybersecurity fundamentals, data literacy, and technology-driven innovation for professionals.',
     tags: ['ICT', 'Digital Skills', 'Cybersecurity', 'Innovation', 'Data'],
     image: 'https://images.unsplash.com/photo-1517694712202-14dd9538aa97?auto=format&fit=crop&q=80&w=800',
-    icon: '💻',
   },
   {
     id: 'K',
@@ -109,7 +99,6 @@ const services = [
     desc: 'Structured certification pathways and skills upgrading programs aligned with industry standards and regulatory requirements across multiple sectors.',
     tags: ['Certification', 'Skills Upgrading', 'Professional Development', 'Compliance'],
     image: 'https://images.unsplash.com/photo-1523240795612-9a054b0db644?auto=format&fit=crop&q=80&w=800',
-    icon: '🎓',
   },
   {
     id: 'L',
@@ -118,7 +107,6 @@ const services = [
     desc: 'Strategic energy consultancy services supporting project feasibility, energy audits, renewable integration, and regulatory compliance for energy sector clients.',
     tags: ['Energy Consultancy', 'Feasibility', 'Renewables', 'Audit', 'Compliance'],
     image: 'https://images.unsplash.com/photo-1473341304170-971dccb5ac1e?auto=format&fit=crop&q=80&w=800',
-    icon: '💡',
   },
   {
     id: 'M',
@@ -127,7 +115,6 @@ const services = [
     desc: 'Practical vocational training and professional capacity building programs designed to close skills gaps and build a competent, job-ready workforce.',
     tags: ['Vocational Training', 'Capacity Building', 'Workforce', 'Skills Development'],
     image: 'https://images.unsplash.com/photo-1581094794329-c8112a89af12?auto=format&fit=crop&q=80&w=800',
-    icon: '🔧',
   },
   {
     id: 'N',
@@ -136,7 +123,6 @@ const services = [
     desc: 'Full-service catering, professional event management, and general contracting for corporate, industrial, and community projects of all scales.',
     tags: ['Catering', 'Event Management', 'General Contracting', 'Corporate Events'],
     image: 'https://images.unsplash.com/photo-1555244162-803834f70033?auto=format&fit=crop&q=80&w=800',
-    icon: '🎪',
   },
   {
     id: 'O',
@@ -145,7 +131,6 @@ const services = [
     desc: 'Practical investment and financial literacy programs equipping individuals and organizations to make informed financial decisions and build long-term wealth.',
     tags: ['Investment', 'Financial Literacy', 'Wealth Management', 'Personal Finance'],
     image: 'https://images.unsplash.com/photo-1554224155-6726b3ff858f?auto=format&fit=crop&q=80&w=800',
-    icon: '📈',
   },
   {
     id: 'P',
@@ -153,8 +138,7 @@ const services = [
     title: 'Health, Safety & Wellness Trainings',
     desc: 'Comprehensive HSE and wellness training programs covering workplace safety, emergency response, mental health awareness, and regulatory health standards.',
     tags: ['HSE', 'Workplace Safety', 'Wellness', 'Emergency Response', 'Health'],
-    image: 'https://images.unsplash.com/photo-1576091160399-112ba8d25d1f?auto=format&fit=crop&q=80&w=800',
-    icon: '🛡',
+    image: 'https://images.unsplash.com/photo-1516841273335-e39b37888115?auto=format&fit=crop&q=80&w=800',
   },
 ];
 

@@ -23,7 +23,7 @@ const pillars = [
     tag: "Technical Mastery",
     title: "Industry-Focused Training Programs.",
     body: "Practical, industry-aligned programmes designed to equip professionals with real-world skills across engineering, real estate, project management, safety, and business operations.",
-    image: "https://images.unsplash.com/photo-1581091870627-3f5de3b0b3d1?auto=format&fit=crop&q=80&w=1400",
+    image: "https://images.unsplash.com/photo-1581092335397-9583eb92d232?auto=format&fit=crop&q=80&w=1400",
     caption: "Technical Training",
   },
   {

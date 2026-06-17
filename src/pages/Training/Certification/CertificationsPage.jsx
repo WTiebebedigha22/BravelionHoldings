@@ -10,14 +10,14 @@ import "./Certifications.css";
 const areas = ["All", "Health & Safety", "ICT", "Project Mgmt", "Finance", "Engineering", "Operations"];
 
 const certs = [
-  { code: "NEBOSH IGC", area: "Health & Safety", icon: "⛑",  title: "NEBOSH International General Certificate",  desc: "The globally recognised HSE qualification for health and safety professionals. Covers risk assessment, hazard management, and workplace safety law." },
-  { code: "ISO 45001",  area: "Health & Safety", icon: "🔒", title: "ISO 45001 Lead Implementer",                 desc: "Full implementation training for the international occupational health and safety management system standard — audit-ready certification." },
-  { code: "PMP",        area: "Project Mgmt",    icon: "📋", title: "Project Management Professional (PMP)",     desc: "Preparation for the PMI PMP certification — covering project initiation, planning, execution, monitoring, and closure frameworks." },
-  { code: "CompTIA",    area: "ICT",             icon: "💻", title: "CompTIA IT Fundamentals+",                  desc: "Entry-level IT certification covering hardware, software, networking, and security concepts for non-technical and technical professionals." },
-  { code: "IOSH",       area: "Health & Safety", icon: "🛡",  title: "IOSH Managing Safely",                     desc: "Practical safety management training for line managers and supervisors — one of the most widely held safety qualifications globally." },
-  { code: "CPA",        area: "Finance",         icon: "📊", title: "Certified Public Accountant (CPA) Prep",   desc: "Structured preparation for the CPA examination covering auditing, financial accounting, regulation, and business environment concepts." },
-  { code: "COREN",      area: "Engineering",     icon: "⚙️", title: "COREN Registration Prep (Nigeria)",         desc: "Preparation support for the Council for the Regulation of Engineering in Nigeria — covering professional practice and competency requirements." },
-  { code: "Six Sigma",  area: "Operations",      icon: "📈", title: "Lean Six Sigma Green Belt",                desc: "Process improvement methodology training covering DMAIC, waste elimination, statistical analysis tools, and quality management frameworks." },
+  { code: "NEBOSH IGC", area: "Health & Safety", icon: "",  title: "NEBOSH International General Certificate",  desc: "The globally recognised HSE qualification for health and safety professionals. Covers risk assessment, hazard management, and workplace safety law." },
+  { code: "ISO 45001",  area: "Health & Safety", icon: "", title: "ISO 45001 Lead Implementer",                 desc: "Full implementation training for the international occupational health and safety management system standard — audit-ready certification." },
+  { code: "PMP",        area: "Project Mgmt",    icon: "", title: "Project Management Professional (PMP)",     desc: "Preparation for the PMI PMP certification — covering project initiation, planning, execution, monitoring, and closure frameworks." },
+  { code: "CompTIA",    area: "ICT",             icon: "", title: "CompTIA IT Fundamentals+",                  desc: "Entry-level IT certification covering hardware, software, networking, and security concepts for non-technical and technical professionals." },
+  { code: "IOSH",       area: "Health & Safety", icon: "",  title: "IOSH Managing Safely",                     desc: "Practical safety management training for line managers and supervisors — one of the most widely held safety qualifications globally." },
+  { code: "CPA",        area: "Finance",         icon: "", title: "Certified Public Accountant (CPA) Prep",   desc: "Structured preparation for the CPA examination covering auditing, financial accounting, regulation, and business environment concepts." },
+  { code: "COREN",      area: "Engineering",     icon: "", title: "COREN Registration Prep (Nigeria)",         desc: "Preparation support for the Council for the Regulation of Engineering in Nigeria — covering professional practice and competency requirements." },
+  { code: "Six Sigma",  area: "Operations",      icon: "", title: "Lean Six Sigma Green Belt",                desc: "Process improvement methodology training covering DMAIC, waste elimination, statistical analysis tools, and quality management frameworks." },
 ];
 
 const stats = [

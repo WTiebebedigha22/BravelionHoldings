@@ -62,6 +62,7 @@
   gap: 0.625rem;
 }
 
+/* Hero office chips — clickable map links */
 .hero-office-chip {
   display: inline-flex;
   align-items: center;
@@ -73,6 +74,13 @@
   font-weight: 500;
   color: rgba(255,255,255,0.6);
   letter-spacing: 0.05em;
+  text-decoration: none;
+  transition: border-color 0.18s ease, color 0.18s ease, transform 0.18s ease;
+}
+.hero-office-chip:hover {
+  border-color: var(--gold);
+  color: var(--gold);
+  transform: translateY(-1px);
 }
 
 /* =========================
@@ -151,6 +159,24 @@
   font-size: 0.76rem;
   color: var(--text-subtle);
   margin-top: 2px;
+}
+
+/* "View on map" link under each sidebar office */
+.office-map-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 3px;
+  margin-top: 0.4rem;
+  font-size: 0.72rem;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  color: var(--gold);
+  text-decoration: none;
+  transition: opacity 0.15s ease;
+}
+.office-map-link:hover {
+  opacity: 0.7;
+  text-decoration: underline;
 }
 
 .sidebar-divider {
@@ -304,6 +330,20 @@
 
 .contact-form textarea { resize: vertical; min-height: 130px; }
 
+.form-error {
+  font-size: 0.82rem;
+  color: #c0392b;
+  background: rgba(192, 57, 43, 0.06);
+  border: 1px solid rgba(192, 57, 43, 0.2);
+  border-radius: 3px;
+  padding: 0.75rem 1rem;
+  line-height: 1.6;
+}
+.form-error a {
+  color: #c0392b;
+  font-weight: 600;
+}
+
 .contact-submit {
   display: inline-flex;
   align-items: center;
@@ -321,7 +361,14 @@
   align-self: flex-start;
   transition: background var(--speed), transform var(--speed);
 }
-.contact-submit:hover { background: var(--navy-mid, #0f2a5a); transform: translateY(-2px); }
+.contact-submit:hover:not(:disabled) {
+  background: var(--navy-mid, #0f2a5a);
+  transform: translateY(-2px);
+}
+.contact-submit:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
 
 /* =========================
    SUCCESS STATE
@@ -418,8 +465,6 @@
   flex-shrink: 0;
 }
 
-/* Reuse About.css button classes if imported globally,
-   otherwise define them locally here: */
 .btn-primary-gold {
   display: inline-flex;
   align-items: center;
@@ -454,40 +499,45 @@
 
 .sidebar-eyebrow.light { color: rgba(255,255,255,0.45); }
 
-
+/* =========================
+   PHONE INPUT OVERRIDES
+   ========================= */
 .PhoneInput {
   display: flex;
   align-items: center;
   gap: 8px;
-  border: 1px solid var(--input-border, #d1d5db);
-  border-radius: 0px;
+  border: 1px solid var(--border, #d1d5db);
+  border-radius: 3px;
   padding: 0 12px;
-  background: var(--input-bg, #fff);
+  background: transparent;
   transition: border-color 0.2s, box-shadow 0.2s;
 }
 
 .PhoneInput:focus-within {
-  border-color: var(--accent, #b4913c);
-  box-shadow: 0 0 0 2px rgba(180, 145, 60, 0.2);
+  border-color: var(--navy);
+  box-shadow: none;
 }
 
 .PhoneInputInput {
   border: none;
   outline: none;
   background: transparent;
-  padding: 10px 0;
-  font-size: 0.9rem;
+  padding: 0.75rem 0;
+  font-size: 0.875rem;
+  font-family: var(--font-body);
   width: 100%;
-  color: inherit;
+  color: var(--text);
 }
+
+.PhoneInputInput::placeholder { color: var(--text-subtle); }
 
 .PhoneInputCountrySelect {
   border: none;
   background: transparent;
   outline: none;
   cursor: pointer;
-  font-size: 0.9rem;
-  color: inherit;
+  font-size: 0.875rem;
+  color: var(--text);
 }
 
 /* =========================
@@ -515,4 +565,7 @@
 @media (max-width: 480px) {
   .contact-form-wrapper { padding: 1.5rem 1rem; }
   .contact-hero { padding: 6rem 0 4rem; }
+  .contact-main { padding: 4rem 1rem; }
+  .contact-cta { padding: 4rem 1rem; }
+  .hero-office-chip { font-size: 0.68rem; padding: 4px 10px; }
 }

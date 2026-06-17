@@ -11,14 +11,14 @@ import "./HSE.css";
 /* ─── DATA ─────────────────────────────────────────────────── */
 
 const programs = [
-  { icon: "⛑",  title: "Workplace Safety Fundamentals",      dur: "2 Days",  cert: true,  desc: "Hazard identification, risk assessment matrices, PPE standards, and incident reporting procedures for all workplace environments." },
-  { icon: "🔥", title: "Fire Safety & Emergency Response",   dur: "1 Day",   cert: true,  desc: "Fire prevention protocols, extinguisher handling, evacuation planning, and emergency coordination for designated site wardens." },
-  { icon: "🩺", title: "First Aid & Basic Life Support",     dur: "2 Days",  cert: true,  desc: "CPR, wound management, fracture support, shock response, and first responder protocols certified to international standards." },
-  { icon: "🧠", title: "Mental Health & Wellbeing at Work",  dur: "1 Day",   cert: false, desc: "Workplace stress management, burnout prevention, mental health first aid awareness, and building a psychologically safe team culture." },
-  { icon: "⚡", title: "Electrical Safety in the Workplace", dur: "2 Days",  cert: true,  desc: "Electrical hazard identification, lockout/tagout procedures, arc flash awareness, and safe work practices around live systems." },
-  { icon: "🏗",  title: "Construction & Site Safety",         dur: "3 Days",  cert: true,  desc: "Site safety management, working at heights, scaffolding standards, excavation safety, and contractor management compliance." },
-  { icon: "☢", title: "Chemical Handling & COSHH",          dur: "2 Days",  cert: true,  desc: "Safe handling of hazardous substances, COSHH assessment, storage regulations, spill response, and exposure prevention." },
-  { icon: "🌡", title: "HSE Management Systems (ISO 45001)", dur: "5 Days",  cert: true,  desc: "Full implementation pathway for ISO 45001 occupational health and safety management systems including audit and documentation." },
+  { icon: "",  title: "Workplace Safety Fundamentals",      dur: "2 Days",  cert: true,  desc: "Hazard identification, risk assessment matrices, PPE standards, and incident reporting procedures for all workplace environments." },
+  { icon: "", title: "Fire Safety & Emergency Response",   dur: "1 Day",   cert: true,  desc: "Fire prevention protocols, extinguisher handling, evacuation planning, and emergency coordination for designated site wardens." },
+  { icon: "", title: "First Aid & Basic Life Support",     dur: "2 Days",  cert: true,  desc: "CPR, wound management, fracture support, shock response, and first responder protocols certified to international standards." },
+  { icon: "", title: "Mental Health & Wellbeing at Work",  dur: "1 Day",   cert: false, desc: "Workplace stress management, burnout prevention, mental health first aid awareness, and building a psychologically safe team culture." },
+  { icon: "", title: "Electrical Safety in the Workplace", dur: "2 Days",  cert: true,  desc: "Electrical hazard identification, lockout/tagout procedures, arc flash awareness, and safe work practices around live systems." },
+  { icon: "",  title: "Construction & Site Safety",         dur: "3 Days",  cert: true,  desc: "Site safety management, working at heights, scaffolding standards, excavation safety, and contractor management compliance." },
+  { icon: "", title: "Chemical Handling & COSHH",          dur: "2 Days",  cert: true,  desc: "Safe handling of hazardous substances, COSHH assessment, storage regulations, spill response, and exposure prevention." },
+  { icon: "", title: "HSE Management Systems (ISO 45001)", dur: "5 Days",  cert: true,  desc: "Full implementation pathway for ISO 45001 occupational health and safety management systems including audit and documentation." },
 ];
 
 const stats = [

@@ -7,7 +7,6 @@ const services = [
   {
     id: 'A',
     anchor: 'electrical',
-    icon: '⚡',
     label: 'Electrical · Civil · Mechanical',
     title: 'Electrical, Civil & Mechanical Services',
     desc: 'Comprehensive engineering solutions spanning electrical systems, civil infrastructure, mechanical operations, and industrial equipment supply and maintenance. We handle everything from initial assessment through to long-term service contracts.',
@@ -23,7 +22,6 @@ const services = [
   {
     id: 'E',
     anchor: 'construction',
-    icon: '🏗',
     label: 'Construction & Civil',
     title: 'Construction & Civil Works',
     desc: 'Full-scope construction and civil engineering from groundworks and structural builds to finishing — delivered on time, on budget, and to specification. We manage the entire project lifecycle with rigorous quality control at every phase.',
@@ -39,7 +37,6 @@ const services = [
   {
     id: 'D',
     anchor: 'installation',
-    icon: '🔌',
     label: 'Power & Electrification',
     title: 'Electrical Facilities & Projects Installation',
     desc: 'End-to-end electrical project delivery including rural and urban electrification, power distribution networks, industrial controls and automation systems, and complete solar and inverter installations for off-grid and grid-tied applications.',
@@ -55,7 +52,6 @@ const services = [
   {
     id: 'H',
     anchor: 'waste',
-    icon: '♻',
     label: 'Waste Management',
     title: 'Waste Management Solutions',
     desc: 'Sustainable, regulatory-compliant waste management services for industrial, commercial, and community environments — covering collection, treatment, processing, and compliant disposal with full environmental documentation.',
@@ -123,7 +119,7 @@ const EngineeringPage = () => {
             
             <div className="eng-hero-visual">
               <div className="eng-image-main">
-                <img src="https://images.unsplash.com/photo-1541888946425-d81bb19480c5?auto=format&fit=crop&q=80&w=800" alt="Construction" />
+                <img src="https://images.unsplash.com/photo-1504307651254-35680f356dfd?auto=format&fit=crop&q=80&w=800" alt="Construction" />
                 <div className="eng-stat-sticker">
                   <strong>10+</strong>
                   <span>Years of Projects</span>

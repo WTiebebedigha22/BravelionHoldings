@@ -14,24 +14,28 @@ const offices = [
     city: "Abuja",
     address: "House T4034 Brains & Hammers Estate, 5th Avenue, Gwarimpa",
     country: "Abuja, Nigeria",
+    mapUrl: "https://www.google.com/maps/search/?api=1&query=Brains+and+Hammers+Estate+5th+Avenue+Gwarimpa+Abuja+Nigeria",
   },
   {
     label: "Regional Office",
     city: "Uyo",
     address: "No. 1 Udoekpa Street Mbiabong Etoi (Shelter Afrique), Uyo",
     country: "Akwa Ibom, Nigeria",
+    mapUrl: "https://www.google.com/maps/search/?api=1&query=Udoekpa+Street+Mbiabong+Etoi+Shelter+Afrique+Uyo+Akwa+Ibom+Nigeria",
   },
   {
     label: "Field / Project Office",
     city: "Ibeno",
     address: "No. 14, Essenem Street, Iwuoachang, Ibeno",
     country: "Akwa Ibom, Nigeria",
+    mapUrl: "https://www.google.com/maps/search/?api=1&query=Essenem+Street+Iwuoachang+Ibeno+Akwa+Ibom+Nigeria",
   },
   {
     label: "International Office",
     city: "Cape Town",
     address: "16 Twin Salis Strokes Street, West Beach, Table View",
     country: "Cape Town 7441, South Africa",
+    mapUrl: "https://www.google.com/maps/search/?api=1&query=West+Beach+Table+View+Cape+Town+7441+South+Africa",
   },
 ];
 
@@ -127,10 +131,17 @@ const Contact = () => {
           </p>
           <div className="contact-hero-offices">
             {offices.map((o) => (
-              <div className="hero-office-chip" key={o.city}>
+              <a
+                key={o.city}
+                href={o.mapUrl}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="hero-office-chip"
+                title={`${o.label} — ${o.address}`}
+              >
                 <MapPin size={11} />
                 <span>{o.city}</span>
-              </div>
+              </a>
             ))}
           </div>
         </div>
@@ -153,6 +164,14 @@ const Contact = () => {
                       <span className="office-label">{o.label} — {o.city}</span>
                       <p className="office-address">{o.address}</p>
                       <p className="office-country">{o.country}</p>
+                      <a
+                        href={o.mapUrl}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="office-map-link"
+                      >
+                        View on map <ArrowUpRight size={11} />
+                      </a>
                     </div>
                   </div>
                 ))}

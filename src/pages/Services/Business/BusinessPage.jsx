@@ -7,7 +7,6 @@ const services = [
   {
     id: 'F',
     anchor: 'logistics',
-    icon: '🚛',
     label: 'Transportation · Logistics',
     title: 'Transportation & Logistics Services',
     desc: 'Reliable transportation and logistics solutions for goods and personnel — supporting industrial operations, project sites, corporate organizations, and commercial supply chains across Nigeria with a professional, punctual, and accountable approach.',
@@ -23,7 +22,6 @@ const services = [
   {
     id: 'G',
     anchor: 'trade',
-    icon: '🌍',
     label: 'Import · Export',
     title: 'Import & Export of Goods and Services',
     desc: 'End-to-end import and export facilitation including trade documentation, customs compliance, international procurement, and supply chain coordination — enabling Nigerian businesses to trade seamlessly across borders.',
@@ -39,7 +37,6 @@ const services = [
   {
     id: 'N',
     anchor: 'catering',
-    icon: '🎪',
     label: 'Catering · Event Management',
     title: 'Catering & Event Management',
     desc: 'Full-service catering and professional event management for corporate functions, industrial site catering, product launches, conferences, and community events of all scales — executed with precision and attention to detail.',
@@ -55,7 +52,6 @@ const services = [
   {
     id: 'N2',
     anchor: 'contracting',
-    icon: '📋',
     label: 'General Contracting',
     title: 'General Contracting Services',
     desc: 'Versatile general contracting covering procurement, project execution, facility support, and administrative contracting for government bodies, enterprises, and institutions — with reliable documentation and full compliance management.',

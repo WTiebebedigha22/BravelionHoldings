@@ -11,7 +11,6 @@ const programs = [
   {
     id: "J",
     anchor: "ict",
-    icon: "💻",
     label: "ICT & Digital Skills",
     title: "ICT, Digital Skills & Innovation Trainings",
     desc: "Future-ready digital skills training covering software productivity tools, cybersecurity fundamentals, data literacy, cloud computing, and technology-driven innovation for professionals across all industries.",
@@ -27,7 +26,6 @@ const programs = [
   {
     id: "K",
     anchor: "certification",
-    icon: "🎓",
     label: "Certification Programmes",
     title: "Certification & Skills Upgrading Programmes",
     desc: "Structured certification pathways and skills upgrading programmes aligned with industry standards and regulatory requirements — preparing professionals for globally recognised qualifications across multiple sectors.",
@@ -43,7 +41,6 @@ const programs = [
   {
     id: "M",
     anchor: "vocational",
-    icon: "🔧",
     label: "Vocational Development",
     title: "Vocational & Professional Capacity Development",
     desc: "Practical vocational training and professional capacity building programmes designed to close skills gaps and build a competent, job-ready workforce for industry, enterprise, and community development.",
@@ -59,7 +56,6 @@ const programs = [
   {
     id: "C",
     anchor: "entrepreneurship",
-    icon: "📊",
     label: "Entrepreneurship & Business",
     title: "Entrepreneurship, Business Management & ICT",
     desc: "Empowering entrepreneurs and business leaders with practical training in business strategy, management systems, financial planning, and digital technology integration to build resilient, growth-oriented enterprises.",
@@ -75,7 +71,6 @@ const programs = [
   {
     id: "O",
     anchor: "financial",
-    icon: "📈",
     label: "Investment & Finance",
     title: "Investment & Financial Literacy Trainings",
     desc: "Practical investment and financial literacy programmes equipping individuals and organisations to make informed financial decisions, manage risk intelligently, and build sustainable long-term wealth.",
@@ -91,7 +86,6 @@ const programs = [
   {
     id: "P",
     anchor: "hse",
-    icon: "🛡",
     label: "Health, Safety & Wellness",
     title: "Health, Safety & Wellness Trainings",
     desc: "Comprehensive HSE and wellness training programmes covering workplace safety standards, emergency response procedures, mental health awareness, and regulatory health compliance for organisations across all sectors.",
@@ -114,10 +108,10 @@ const stats = [
 ];
 
 const outcomes = [
-  { icon: "🎯", title: "Practical Skills",      desc: "Every programme is built around real-world application, not just theory." },
-  { icon: "📋", title: "Industry Alignment",    desc: "Curricula co-developed with sector professionals and regulatory frameworks." },
-  { icon: "🏅", title: "Recognised Outcomes",   desc: "Certificates and qualifications recognised by employers and institutions." },
-  { icon: "🔄", title: "Continuous Learning",   desc: "Structured pathways that grow with your career and organisation." },
+  { title: "Practical Skills",      desc: "Every programme is built around real-world application, not just theory." },
+  { title: "Industry Alignment",    desc: "Curricula co-developed with sector professionals and regulatory frameworks." },
+  { title: "Recognised Outcomes",   desc: "Certificates and qualifications recognised by employers and institutions." },
+  { title: "Continuous Learning",   desc: "Structured pathways that grow with your career and organisation." },
 ];
 
 /* ─── COMPONENT ─────────────────────────────────────────────── */

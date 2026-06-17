@@ -4,9 +4,9 @@ import TrainingFooter from '../components/Footer/Footer';
 import './Corporate.css';
 
 const packages = [
-  { tier: 'Starter', icon: '🌱', code: 'CP-10', price: 'From ₦150,000', tagline: 'Small team excellence (up to 10)', features: ['1 course module (2–3 days)', 'On-site delivery', 'Course materials included', 'Certificate of participation', 'Basic post-training report'] },
-  { tier: 'Professional', icon: '⚡', code: 'CP-25', price: 'From ₦480,000', tagline: 'Strategic growth (up to 25)', features: ['3 course modules', 'Blended Learning options', 'Full materials & workbooks', 'Industry certificates', 'Pre/post skills assessment', 'Dedicated coordinator'] },
-  { tier: 'Enterprise', icon: '🏢', code: 'CP-MAX', price: 'Custom Quote', tagline: 'Full organizational scale (25+)', features: ['Unlimited modules & cohorts', 'Bespoke curriculum', 'LMS integration & tracking', 'Quarterly impact reports', 'Dedicated account manager'] },
+  { tier: 'Starter', icon: '', code: 'CP-10', price: 'From ₦150,000', tagline: 'Small team excellence (up to 10)', features: ['1 course module (2–3 days)', 'On-site delivery', 'Course materials included', 'Certificate of participation', 'Basic post-training report'] },
+  { tier: 'Professional', icon: '', code: 'CP-25', price: 'From ₦480,000', tagline: 'Strategic growth (up to 25)', features: ['3 course modules', 'Blended Learning options', 'Full materials & workbooks', 'Industry certificates', 'Pre/post skills assessment', 'Dedicated coordinator'] },
+  { tier: 'Enterprise', icon: '', code: 'CP-MAX', price: 'Custom Quote', tagline: 'Full organizational scale (25+)', features: ['Unlimited modules & cohorts', 'Bespoke curriculum', 'LMS integration & tracking', 'Quarterly impact reports', 'Dedicated account manager'] },
 ];
 
 const CorporatePage = () => {
