@@ -442,7 +442,7 @@ const PropertyPage = () => {
               acquisition.
             </p>
             <div className="pr-hero__actions">
-              <a href="/estates/contact" className="pr-btn pr-btn--gold">
+              <a href="/contact" className="pr-btn pr-btn--gold">
                 Speak to an Agent
               </a>
               <a href="#pr-listings" className="pr-btn pr-btn--ghost">
