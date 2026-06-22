@@ -94,7 +94,7 @@ const EstatesNavbar = () => {
           {/* Back to Group + CTA */}
           <div className="navbar__end">
             <Link
-              to="/estates/contact"
+              to="/contact"
               className="navbar__cta navbar__cta--estates"
             >
               Find a Property <ArrowUpRight size={13} />

@@ -80,9 +80,9 @@ const Footer = () => {
             &copy; {currentYear} Bravelion Group. All Rights Reserved.
           </p>
           <div className="legal-links">
-            <Link to="/privacy">Privacy Policy</Link>
+            <Link to="/#">Privacy Policy</Link>
             <span className="dot">•</span>
-            <Link to="/terms">Terms of Service</Link>
+            <Link to="/#">Terms of Service</Link>
           </div>
         </div>
       </div>

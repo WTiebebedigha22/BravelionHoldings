@@ -103,8 +103,8 @@ const TrainingFooter = () => {
         <div className="container footer__bottom-content">
           <p>&copy; {new Date().getFullYear()} Bravelion Training & Consulting. All rights reserved.</p>
           <div className="footer__bottom-links">
-            <Link to="/training/privacy-policy">Privacy Policy</Link>
-            <Link to="/training/terms">Terms of Use</Link>
+            <Link to="#">Privacy Policy</Link>
+            <Link to="#">Terms of Use</Link>
           </div>
         </div>
       </div>

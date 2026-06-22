@@ -103,8 +103,8 @@ const EstatesFooter = () => {
         <div className="container footer__bottom-content">
           <p>&copy; {new Date().getFullYear()} Bravelion Estates & Development. All rights reserved.</p>
           <div className="footer__bottom-links">
-            <Link to="/estates/privacy-policy">Privacy Policy</Link>
-            <Link to="/estates/terms">Terms of Use</Link>
+            <Link to="#">Privacy Policy</Link>
+            <Link to="#">Terms of Use</Link>
           </div>
         </div>
       </div>

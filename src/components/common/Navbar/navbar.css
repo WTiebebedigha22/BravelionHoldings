@@ -516,6 +516,7 @@
   gap: 1rem;
   position: relative;
   z-index: 10;
+  flex-shrink: 0;
 }
 
 .mobile-drawer__cta {

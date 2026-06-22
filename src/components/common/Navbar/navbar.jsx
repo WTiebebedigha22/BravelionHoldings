@@ -158,6 +158,7 @@ const Navbar = () => {
       <div
         className={`mobile-drawer${menuOpen ? " mobile-drawer--open" : ""}`}
         aria-hidden={!menuOpen}
+        onClick={(e) => e.stopPropagation()}
       >
         <div className="mobile-drawer__head">
           <Link to="/" className="navbar__logo" onClick={() => setMenuOpen(false)}>

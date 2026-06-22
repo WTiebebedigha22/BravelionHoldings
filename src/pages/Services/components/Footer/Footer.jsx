@@ -112,8 +112,8 @@ const ServicesFooter = () => {
         <div className="container footer__bottom-content">
           <p>&copy; {new Date().getFullYear()} Bravelion Holdings. All rights reserved.</p>
           <div className="footer__bottom-links">
-            <Link to="/services/privacy-policy">Privacy Policy</Link>
-            <Link to="/services/terms">Terms of Use</Link>
+            <Link to="#">Privacy Policy</Link>
+            <Link to="#">Terms of Use</Link>
           </div>
         </div>
       </div>
