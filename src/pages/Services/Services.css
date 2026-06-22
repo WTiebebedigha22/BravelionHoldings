@@ -2,11 +2,113 @@
    SERVICES PAGE: NAVY & GOLDENROD REDESIGN
    ============================================================ */
 
+/* ============================================================
+   SERVICES PAGE HERO (FIXED + RESPONSIVE + TYPOGRAPHY CLEAN)
+   ============================================================ */
+
 .sv-hero-custom {
-    background: linear-gradient(rgba(11,29,46,0.9), rgba(11,29,46,0.9)), 
-                url('https://images.unsplash.com/photo-1497366216548-37526070297c?auto=format&fit=crop&q=80&w=2000');
+    position: relative;
+    min-height: 85vh;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+
+    padding: 7rem 0;
+
+    background:
+        linear-gradient(
+            rgba(11,29,46,0.88),
+            rgba(11,29,46,0.88)
+        ),
+        url('https://images.unsplash.com/photo-1497366216548-37526070297c?auto=format&fit=crop&q=80&w=2000');
+
     background-size: cover;
     background-position: center;
+    background-repeat: no-repeat;
+
+    color: #fff;
+    overflow: hidden;
+}
+
+/* Container spacing consistency */
+.sv-hero-custom .cert-container {
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+    box-sizing: border-box;
+}
+
+/* HERO TEXT */
+.sv-hero-custom h1 {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: clamp(2.4rem, 5vw, 4.5rem);
+    line-height: 1.1;
+    font-weight: 600;
+    margin-bottom: 1.2rem;
+    color: #ffffff;
+}
+
+.sv-hero-custom p {
+    font-family: 'Jost', sans-serif;
+    font-size: 1rem;
+    line-height: 1.7;
+    color: rgba(255,255,255,0.75);
+    max-width: 600px;
+}
+
+/* HERO ACTIONS */
+.sv-hero-custom .cert-hero__actions {
+    display: flex;
+    gap: 1rem;
+    flex-wrap: wrap;
+    margin-top: 2rem;
+}
+
+/* ============================================================
+   MOBILE FIX (PREVENT ZOOMED-IN / CROPPED HERO)
+   ============================================================ */
+
+@media (max-width: 1024px) {
+    .sv-hero-custom {
+        min-height: 75vh;
+    }
+}
+
+@media (max-width: 768px) {
+    .sv-hero-custom {
+        min-height: 70vh;
+        padding: 5rem 0;
+        background-position: center top;
+    }
+
+    .sv-hero-custom h1 {
+        font-size: 2.3rem;
+    }
+
+    .sv-hero-custom p {
+        font-size: 0.95rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .sv-hero-custom {
+        min-height: 65vh;
+        padding: 4.5rem 0;
+    }
+
+    .sv-hero-custom h1 {
+        font-size: 2rem;
+    }
+
+    .sv-hero-custom p {
+        font-size: 0.9rem;
+    }
+
+    .sv-hero-custom .cert-hero__actions {
+        flex-direction: column;
+        align-items: flex-start;
+    }
 }
 
 /* Stats Band */
