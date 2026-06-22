@@ -51,6 +51,48 @@ const Navbar = () => {
     return () => { document.body.style.overflow = ""; };
   }, [menuOpen]);
 
+  // Focus trap & restore for mobile drawer
+  useEffect(() => {
+    const drawer = document.querySelector('.mobile-drawer');
+    const focusableSelector = 'a[href], area[href], input:not([disabled]), select:not([disabled]), textarea:not([disabled]), button:not([disabled]), [tabindex]:not([tabindex="-1"])';
+    let previousActive = null;
+
+    const handleKeyDown = (e) => {
+      if (!menuOpen) return;
+      if (e.key === 'Escape') {
+        setMenuOpen(false);
+      }
+      if (e.key === 'Tab') {
+        const focusables = drawer ? Array.from(drawer.querySelectorAll(focusableSelector)) : [];
+        if (!focusables.length) return;
+        const first = focusables[0];
+        const last = focusables[focusables.length - 1];
+        if (e.shiftKey && document.activeElement === first) {
+          e.preventDefault();
+          last.focus();
+        } else if (!e.shiftKey && document.activeElement === last) {
+          e.preventDefault();
+          first.focus();
+        }
+      }
+    };
+
+    if (menuOpen) {
+      previousActive = document.activeElement;
+      // focus first focusable inside drawer
+      setTimeout(() => {
+        const focusables = drawer ? drawer.querySelectorAll(focusableSelector) : null;
+        if (focusables && focusables[0]) focusables[0].focus();
+      }, 50);
+      document.addEventListener('keydown', handleKeyDown);
+    }
+
+    return () => {
+      document.removeEventListener('keydown', handleKeyDown);
+      try { previousActive?.focus?.(); } catch (e) { /* ignore */ }
+    };
+  }, [menuOpen]);
+
   const isActive = (to) => {
     if (to === "/") return location.pathname === "/";
     return location.pathname.startsWith(to);
@@ -88,9 +130,6 @@ const Navbar = () => {
           {/* Logo */}
           <Link to="/" className="navbar__logo" aria-label="Bravelion Group — Home">
             <img src="/BraveLion.png" alt="Bravelion Group" />
-          </Link>
-          <Link to="/" className="navbar__logo" aria-label="Bravelion Group — Home">
-            <img src="/image.png" alt="Bravelion Group" />
           </Link>
 
           {/* Desktop links */}
@@ -143,6 +182,7 @@ const Navbar = () => {
             aria-label={menuOpen ? "Close menu" : "Open menu"}
             aria-expanded={menuOpen}
           >
+            <span className="sr-only">{menuOpen ? 'Close menu' : 'Open menu'}</span>
             {menuOpen ? <X size={20} /> : <Menu size={20} />}
           </button>
         </div>
@@ -157,6 +197,8 @@ const Navbar = () => {
 
       <div
         className={`mobile-drawer${menuOpen ? " mobile-drawer--open" : ""}`}
+        role="dialog"
+        aria-modal={menuOpen}
         aria-hidden={!menuOpen}
         onClick={(e) => e.stopPropagation()}
       >
@@ -169,6 +211,7 @@ const Navbar = () => {
             onClick={() => setMenuOpen(false)}
             aria-label="Close menu"
           >
+            <span className="sr-only">Close menu</span>
             <X size={20} />
           </button>
         </div>
