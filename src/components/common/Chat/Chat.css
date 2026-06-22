@@ -260,8 +260,11 @@
     right: 16px;
   }
 
+  /* Use percentage of containing block and enforce box-sizing to avoid 100vw issues */
   .chat-panel {
-    width: calc(100vw - 32px);
+    width: calc(100% - 32px);
+    max-width: 640px;
+    box-sizing: border-box;
   }
 }
 
