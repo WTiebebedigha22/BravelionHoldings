@@ -1,0 +1,55 @@
+/* Responsive utilities and small accessibility/touch fixes */
+
+/* Make images, pictures, videos, iframes scale to their container */
+img, picture, video, iframe {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+
+/* Utility class for explicitly responsive images */
+.responsive-img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+
+/* Visually-hidden / screen-reader-only */
+.sr-only {
+  position: absolute !important;
+  width: 1px !important;
+  height: 1px !important;
+  padding: 0 !important;
+  margin: -1px !important;
+  overflow: hidden !important;
+  clip: rect(0 0 0 0) !important;
+  white-space: nowrap !important;
+  border: 0 !important;
+}
+
+/* Make small interactive controls meet touch target minima */
+.navbar__toggle,
+.chat-trigger,
+button,
+a.button {
+  min-width: 44px;
+  min-height: 44px;
+  touch-action: manipulation;
+}
+
+/* Visible focus for keyboard users using the brand color variable if set */
+.navbar__toggle:focus,
+button:focus,
+a:focus {
+  outline: 3px solid rgba(218,165,32,0.15);
+  outline-offset: 2px;
+}
+
+/* Optional debug: prevent accidental horizontal overflow in extreme cases */
+/* Uncomment only if you still see body overflow after fixes */
+/*
+html, body {
+  max-width: 100%;
+  overflow-x: hidden;
+}
+*/
