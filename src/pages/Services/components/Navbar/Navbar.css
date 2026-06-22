@@ -206,6 +206,16 @@
 }
 
 /* ============================================================
+   RESPONSIVE — 1024px tweak
+   ============================================================ */
+@media (max-width: 1024px) {
+  .navbar__links li a {
+    font-size: 0.8rem;
+    padding: 8px 10px;
+  }
+}
+
+/* ============================================================
    MOBILE DRAWER
    ============================================================ */
 @media (max-width: 900px) {
@@ -299,15 +309,8 @@
 
 /* ===== SMALL SCREEN ===== */
 @media (max-width: 480px) {
-  .container {
-    padding: 0 16px;
-  }
-
-  .navbar__brand img {
-    height: 36px;
-  }
-
-  .contact-item span {
-    display: none;
-  }
+  .container { padding: 0 16px; }
+  .navbar__BraveLion img { height: 36px; }
+  .contact-item span { display: none; }
+  .contact-item svg { width: 14px; height: 14px; }
 }
