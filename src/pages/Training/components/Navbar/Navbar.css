@@ -318,7 +318,6 @@
     font-weight: 500;
     background: var(--gold-dim);
     padding-left: 1.75rem;
-    /* kill desktop green bg */
     background-color: var(--gold-dim);
   }
   .navbar__links li a.active-link::before {
