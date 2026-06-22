@@ -1,20 +1,13 @@
-/* Responsive utilities and small accessibility/touch fixes */
+/* Global utilities & base
+   - .sr-only for accessibility
+   - responsive image helpers used across pages
+   - focus outline styles and touch target minimums
+*/
 
-/* Make images, pictures, videos, iframes scale to their container */
-img, picture, video, iframe {
-  max-width: 100%;
-  height: auto;
-  display: block;
+:root {
+  --focus: #ffd166;
 }
 
-/* Utility class for explicitly responsive images */
-.responsive-img {
-  max-width: 100%;
-  height: auto;
-  display: block;
-}
-
-/* Visually-hidden / screen-reader-only */
 .sr-only {
   position: absolute !important;
   width: 1px !important;
@@ -22,34 +15,51 @@ img, picture, video, iframe {
   padding: 0 !important;
   margin: -1px !important;
   overflow: hidden !important;
-  clip: rect(0 0 0 0) !important;
+  clip: rect(0, 0, 0, 0) !important;
   white-space: nowrap !important;
   border: 0 !important;
 }
 
-/* Make small interactive controls meet touch target minima */
-.navbar__toggle,
-.chat-trigger,
-button,
-a.button {
-  min-width: 44px;
-  min-height: 44px;
-  touch-action: manipulation;
+/* make pictures fill their container for hero/slider patterns */
+.picture--cover,
+.responsive-img,
+picture.responsive {
+  display: block;
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
 }
 
-/* Visible focus for keyboard users using the brand color variable if set */
-.navbar__toggle:focus,
-button:focus,
-a:focus {
-  outline: 3px solid rgba(218,165,32,0.15);
+.picture--cover img,
+.responsive-img img,
+picture.responsive img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+/* Focus outlines */
+:focus {
+  outline: 3px solid var(--focus);
   outline-offset: 2px;
 }
 
-/* Optional debug: prevent accidental horizontal overflow in extreme cases */
-/* Uncomment only if you still see body overflow after fixes */
-/*
-html, body {
-  max-width: 100%;
-  overflow-x: hidden;
+/* Minimum touch target (44x44) helpers */
+.touch-target {
+  min-width: 44px;
+  min-height: 44px;
+  padding: 8px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
 }
-*/
+
+/* Prevent horizontal overflow due to 100vw calc in mobile panels */
+.container {
+  max-width: 1260px;
+  margin: 0 auto;
+  padding: 0 20px;
+  box-sizing: border-box;
+}
