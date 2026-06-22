@@ -1,3 +1,4 @@
+/* eslint-disable react-hooks/set-state-in-effect */
 import React, { useState, useEffect } from "react";
 import { Link, useLocation } from "react-router-dom";
 import { Mail, Phone, Menu, X, ArrowUpRight } from "lucide-react";
@@ -6,28 +7,31 @@ import "./Navbar.css";
 const servicesLinks = [
   { label: "Engineering", to: "/services/engineering" },
   { label: "Energy & Gas", to: "/services/energy" },
-  { label: "Training",     to: "/services/training" },
-  { label: "Operations",   to: "/services/business" },
+  { label: "Training", to: "/services/training" },
+  { label: "Operations", to: "/services/business" },
 ];
 
 const ServicesNavbar = () => {
   const [menuOpen, setMenuOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
+
   const location = useLocation();
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 60);
-    window.addEventListener("scroll", onScroll, { passive: true });
+
+    window.addEventListener("scroll", onScroll);
+
     return () => window.removeEventListener("scroll", onScroll);
   }, []);
 
   useEffect(() => {
-    // eslint-disable-next-line react-hooks/set-state-in-effect
     setMenuOpen(false);
   }, [location]);
 
   useEffect(() => {
     document.body.style.overflow = menuOpen ? "hidden" : "";
+
     return () => {
       document.body.style.overflow = "";
     };
@@ -36,131 +40,211 @@ const ServicesNavbar = () => {
   const isActive = (to) => location.pathname === to;
 
   return (
-    <header className={`site-header${scrolled ? " site-header--scrolled" : ""}`}>
+    <header className={`header-wrapper ${scrolled ? "header--scrolled" : ""}`}>
 
-      {/* ===== TOP BAR ===== */}
-      <div className="topbar topbar--services">
-        <div className="container topbar__inner">
-          <div className="topbar__contacts">
-            <a href="mailto:services@bravelionholdings.com" className="topbar__item">
-              <Mail size={11} strokeWidth={2.5} />
-              services@bravelionholdings.com
+      {/* TOP BAR */}
+
+      <div className="top-bar">
+
+        <div className="container top-bar__content">
+
+          <div className="contact-info">
+
+            <a
+              href="mailto:services@bravelionholdings.com"
+              className="contact-item"
+            >
+              <Mail size={12} />
+              <span>services@bravelionholdings.com</span>
             </a>
-            <a href="tel:+2347081728260" className="topbar__item">
-              <Phone size={11} strokeWidth={2.5} />
-              +234 708 172 8260
+
+            <a
+              href="tel:+2347081728260"
+              className="contact-item"
+            >
+              <Phone size={12} />
+              <span>+234 708 172 8260</span>
             </a>
+
           </div>
-          <span className="topbar__tagline">
-            Integrated Solutions. Measurable Results.
-          </span>
+
+          <div className="top-bar__right">
+
+            <span>
+              Integrated Solutions. Measurable Results.
+            </span>
+
+          </div>
+
         </div>
+
       </div>
 
-      {/* ===== MAIN NAV ===== */}
-      <nav className="navbar navbar--services">
-        <div className="container navbar__inner">
+      {/* NAVBAR */}
 
-          <Link to="/services" className="navbar__logo" aria-label="Bravelion Services — Home">
-            <img src="/BraveLion.png" alt="Bravelion Group" />
-          </Link>
-          <Link to="/" className="navbar__logo" aria-label="Bravelion Group — Home">
-            <img src="/image.png" alt="Bravelion Group" />
-          </Link>
+      <nav className="navbar">
 
-          {/* Desktop links */}
+        <div className="container navbar__container">
+
+          <div className="navbar__brand">
+
+            <Link
+              to="/services"
+              className="navbar__logo"
+            >
+              <img
+                src="/BraveLion.png"
+                alt="Bravelion Services"
+              />
+            </Link>
+
+            <Link
+              to="/"
+              className="navbar__logo navbar__logo--group"
+            >
+              <img
+                src="/image.png"
+                alt="Bravelion Group"
+              />
+            </Link>
+
+          </div>
+
+          {/* DESKTOP LINKS */}
+
           <ul className="navbar__links">
+
             {servicesLinks.map((link) => (
+
               <li key={link.to}>
+
                 <Link
                   to={link.to}
-                  className={`navbar__link${isActive(link.to) ? " navbar__link--active" : ""}`}
+                  className={isActive(link.to) ? "active-link" : ""}
                 >
                   {link.label}
-                  {isActive(link.to) && <span className="navbar__link-dot" />}
                 </Link>
+
               </li>
+
             ))}
+
           </ul>
 
           {/* CTA */}
-          <div className="navbar__end">
-            <Link to="/contact" className="navbar__cta navbar__cta--services">
-              Request Profile <ArrowUpRight size={13} />
+
+          <div className="nav-cta">
+
+            <Link to="/contact">
+
+              Request Profile
+
+              <ArrowUpRight size={14} />
+
             </Link>
+
           </div>
 
-          {/* Mobile toggle */}
+          {/* MOBILE TOGGLE */}
+
           <button
-            className={`navbar__toggle${menuOpen ? " navbar__toggle--open" : ""}`}
-            onClick={() => setMenuOpen((v) => !v)}
-            aria-label={menuOpen ? "Close menu" : "Open menu"}
-            aria-expanded={menuOpen}
+            className="navbar__toggle"
+            onClick={() => setMenuOpen(!menuOpen)}
           >
+
             {menuOpen ? <X size={20} /> : <Menu size={20} />}
+
           </button>
+
         </div>
+
       </nav>
 
-      {/* ===== MOBILE OVERLAY ===== */}
+      {/* OVERLAY */}
+
       <div
-        className={`mobile-overlay${menuOpen ? " mobile-overlay--open" : ""}`}
+        className={`mobile-overlay ${menuOpen ? "active" : ""}`}
         onClick={() => setMenuOpen(false)}
-        aria-hidden="true"
       />
 
-      {/* ===== MOBILE DRAWER ===== */}
+      {/* MOBILE DRAWER */}
+
       <div
-        className={`mobile-drawer${menuOpen ? " mobile-drawer--open" : ""}`}
-        aria-hidden={!menuOpen}
+        className={`mobile-drawer ${menuOpen ? "active" : ""}`}
       >
-        <div className="mobile-drawer__head">
-          <Link to="/services" className="navbar__logo" onClick={() => setMenuOpen(false)}>
-            <img src="/BraveLion.png" alt="Bravelion Group" />
-          </Link>
-          <button
-            className="navbar__toggle navbar__toggle--open"
+
+        <div className="mobile-head">
+
+          <Link
+            to="/services"
             onClick={() => setMenuOpen(false)}
-            aria-label="Close menu"
           >
+
+            <img
+              src="/BraveLion.png"
+              alt="Bravelion"
+            />
+
+          </Link>
+
+          <button
+            className="navbar__toggle"
+            onClick={() => setMenuOpen(false)}
+          >
+
             <X size={20} />
+
           </button>
+
         </div>
 
-        <ul className="mobile-drawer__links">
-          {servicesLinks.map((link, i) => (
-            <li key={link.to} style={{ "--i": i }}>
+        <ul>
+
+          {servicesLinks.map((link) => (
+
+            <li key={link.to}>
+
               <Link
                 to={link.to}
-                className={`mobile-drawer__link${isActive(link.to) ? " mobile-drawer__link--active" : ""}`}
+                onClick={() => setMenuOpen(false)}
+                className={isActive(link.to) ? "active-link" : ""}
               >
+
                 {link.label}
-                <ArrowUpRight size={14} className="mobile-drawer__arrow" />
+
+                <ArrowUpRight size={14} />
+
               </Link>
+
             </li>
+
           ))}
+
         </ul>
 
-        <div className="mobile-drawer__foot">
+        <div className="mobile-footer">
+
           <Link
             to="/contact"
-            className="mobile-drawer__cta mobile-drawer__cta--services"
+            className="mobile-cta"
             onClick={() => setMenuOpen(false)}
           >
-            Request Profile <ArrowUpRight size={14} />
+
+            Request Profile
+
           </Link>
-          <Link to="/" className="mobile-drawer__group-link">
-            ← Back to Bravelion Group
+
+          <Link
+            to="/"
+            onClick={() => setMenuOpen(false)}
+          >
+
+            ← Back to Group
+
           </Link>
-          <div className="mobile-drawer__contacts">
-            <a href="mailto:services@bravelionholdings.com" className="topbar__item">
-              <Mail size={12} /> services@bravelionholdings.com
-            </a>
-            <a href="tel:+2347081728260" className="topbar__item">
-              <Phone size={12} /> +234 708 172 8260
-            </a>
-          </div>
+
         </div>
+
       </div>
 
     </header>
