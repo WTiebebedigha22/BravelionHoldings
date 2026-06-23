@@ -1,7 +1,8 @@
 import React, { useState, useEffect } from "react";
 import { Link, useLocation } from "react-router-dom";
 import { Mail, Phone, Menu, X, ArrowUpRight } from "lucide-react";
-import "./Navbar.css";
+import "../../../../components/common/Navbar/navbar.css";
+
 
 const trainingLinks = [
   { label: "Courses",            to: "/training/courses" },
@@ -15,6 +16,7 @@ const TrainingNavbar = () => {
   const [menuOpen, setMenuOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
   const location = useLocation();
+
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 60);

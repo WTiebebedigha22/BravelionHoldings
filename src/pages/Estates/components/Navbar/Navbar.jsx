@@ -1,7 +1,10 @@
 import React, { useState, useEffect } from "react";
 import { Link, useLocation } from "react-router-dom";
 import { Mail, Phone, Menu, X, ArrowUpRight, Building2 } from "lucide-react";
-import "./Navbar.css";
+import "../../../../components/common/Navbar/navbar.css";
+
+
+
 
 const estatesLinks = [
   { label: "Property", to: "/estates/property" },
@@ -33,7 +36,11 @@ const EstatesNavbar = () => {
     };
   }, [menuOpen]);
 
-  const isActive = (to) => location.pathname === to;
+  const isActive = (to) => {
+    if (to === "/") return location.pathname === "/";
+    return location.pathname.startsWith(to);
+  };
+
 
   return (
     <header
