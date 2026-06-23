@@ -1,3 +1,7 @@
+/* ============================================================
+   NAVBAR — Navy / Gold · Luxury dark drawer · Mobile-first
+   ============================================================ */
+
 *, *::before, *::after {
   box-sizing: border-box;
   margin: 0;
@@ -11,7 +15,7 @@
   --gold-dim:      rgba(218, 165, 32, 0.1);
   --gold-border:   rgba(218, 165, 32, 0.2);
 
-  --navy-top:      #0a1628;
+  --navy-top:      #0a1a0f;
   --navy-dark:     #020325;
   --navy-drawer:   #0d1f32;
   --navy-head:     #0b1d2e;
@@ -24,13 +28,14 @@
   --speed:         0.3s;
 }
 
-/* ===== HEADER ===== */
+/* ===== HEADER WRAPPER ===== */
 .header-wrapper {
   position: fixed;
   top: 0;
   left: 0;
   width: 100%;
   z-index: 1000;
+  transition: box-shadow var(--speed) ease, background var(--speed) ease;
 }
 
 .header--scrolled {
@@ -46,16 +51,16 @@
 
 .top-bar__content {
   display: flex;
-  justify-content: space-between;
   align-items: center;
+  justify-content: space-between;
   gap: 16px;
   flex-wrap: wrap;
 }
 
 .contact-info {
   display: flex;
-  gap: 24px;
   align-items: center;
+  gap: 24px;
 }
 
 .contact-item {
@@ -72,10 +77,16 @@
   color: var(--gold);
 }
 
-.top-bar__right {
+.contact-item svg {
+  color: var(--gold);
+  flex-shrink: 0;
+}
+
+.top-bar__right span {
   font-size: 0.75rem;
   color: #64748b;
   font-style: italic;
+  letter-spacing: 0.02em;
 }
 
 /* ===== CONTAINER ===== */
@@ -90,6 +101,7 @@
 .navbar {
   background-color: var(--navy-dark);
   border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+  transition: background var(--speed) ease;
 }
 
 .header--scrolled .navbar {
@@ -105,24 +117,28 @@
 }
 
 /* ===== BRAND ===== */
-.navbar__brand {
+.navbar__BraveLion {
   display: flex;
   align-items: center;
-  gap: 12px;
   flex-shrink: 0;
+  text-decoration: none;
 }
 
-.navbar__brand img {
+.navbar__BraveLion img {
   height: 42px;
+  width: auto;
+  display: block;
 }
 
-/* ===== LINKS ===== */
+/* ===== DESKTOP NAV LINKS ===== */
 .navbar__links {
   display: flex;
+  align-items: center;
   gap: 4px;
   list-style: none;
+  margin: 0;
+  padding: 0;
   margin-left: auto;
-  align-items: center;
 }
 
 .navbar__links li a {
@@ -133,51 +149,51 @@
   text-decoration: none;
   padding: 8px 14px;
   border-radius: 6px;
-  transition: 0.2s;
+  transition: color 0.2s, background 0.2s;
+  white-space: nowrap;
 }
 
 .navbar__links li a:hover {
   color: var(--gold);
 }
 
-.navbar__link--active {
+.navbar__links li a.active-link {
   color: var(--gold);
   font-weight: 600;
   background: var(--gold-dim);
 }
 
-/* active dot */
-.navbar__link-dot {
-  display: inline-block;
-  width: 6px;
-  height: 6px;
-  margin-left: 6px;
-  border-radius: 50%;
-  background: var(--gold);
-}
-
-/* ===== CTA ===== */
-.navbar__end a,
+/* ===== CTA BUTTON ===== */
 .nav-cta a {
-  display: inline-flex;
+  display: inline-flex !important;
   align-items: center;
   gap: 6px;
-  padding: 9px 18px;
-  background-color: var(--gold);
-  color: var(--navy-dark);
-  font-size: 0.875rem;
-  font-weight: 600;
-  border-radius: 6px;
+  padding: 9px 18px !important;
+  background-color: var(--gold) !important;
+  color: var(--navy-dark) !important;
+  font-size: 0.875rem !important;
+  font-weight: 600 !important;
+  border-radius: 6px !important;
   text-decoration: none;
-  transition: 0.2s;
+  transition: background-color 0.2s, transform 0.2s !important;
+  white-space: nowrap;
 }
 
-.navbar__end a:hover {
-  background: var(--gold-light);
+.nav-cta a:hover {
+  background-color: var(--gold-light) !important;
+  color: var(--navy-dark) !important;
   transform: translateY(-1px);
 }
 
-/* ===== TOGGLE ===== */
+.nav-cta a svg {
+  transition: transform 0.2s;
+}
+
+.nav-cta a:hover svg {
+  transform: translateX(3px);
+}
+
+/* ===== MOBILE TOGGLE ===== */
 .navbar__toggle {
   display: none;
   align-items: center;
@@ -192,25 +208,26 @@
   flex-shrink: 0;
   transition: background var(--speed), border-color var(--speed);
 }
+
 .navbar__toggle:hover {
   background: var(--gold-dim);
-  border-color: var(--gold);
 }
 
 /* ===== OVERLAY ===== */
-.mobile-overlay {
+.navbar__menu-overlay {
   display: none;
   position: fixed;
   inset: 0;
-  background: rgba(0, 0, 0, 0.65);
-  opacity: 0;
-  transition: 0.3s;
+  background: rgba(6, 15, 34, 0.7);
   z-index: 998;
+  opacity: 0;
+  transition: opacity var(--speed) ease;
+  pointer-events: none;
 }
 
-.mobile-overlay--open {
-  display: block;
+.navbar__menu-overlay.active {
   opacity: 1;
+  pointer-events: auto;
 }
 
 /* ============================================================
@@ -224,27 +241,21 @@
 }
 
 /* ============================================================
-   MOBILE DRAWER
+   RESPONSIVE — MOBILE DRAWER (≤ 900px)
    ============================================================ */
 @media (max-width: 900px) {
 
+  /* Show toggle, show overlay */
   .navbar__toggle {
     display: flex;
+    z-index: 1001;
   }
 
-  .navbar__links::before + * ,
-  .navbar__links img {
-    max-height: 34px;
-    width: auto;
+  .navbar__menu-overlay {
+    display: block;
   }
 
-  .mobile-drawer__head img,
-  .navbar__links img {
-    height: 32px;
-    width: auto;
-    object-fit: contain;
-  }
-
+  /* ── Drawer panel ── */
   .navbar__links {
     position: fixed;
     top: 0;
@@ -284,41 +295,95 @@
     width: 100%;
   }
 
+  /* ── Link rows ── */
   .navbar__links li a {
     display: flex;
+    align-items: center;
     justify-content: space-between;
     width: 100%;
-    padding: 1rem 1.5rem;
-    border-bottom: 1px solid var(--border-dim);
-    text-transform: uppercase;
-    font-size: 0.8rem;
+    font-size: 0.82rem;
+    font-weight: 400;
     letter-spacing: 0.08em;
+    text-transform: uppercase;
+    padding: 1rem 1.5rem;
+    border-radius: 0;
+    border-bottom: 1px solid var(--border-dim);
     color: var(--muted);
+    position: relative;
+    transition: color var(--speed), background var(--speed), padding-left var(--speed);
+  }
+
+  /* Left gold accent bar */
+  .navbar__links li a::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 0;
+    bottom: 0;
+    width: 2px;
+    background: var(--gold);
+    transform: scaleY(0);
+    transform-origin: bottom;
+    transition: transform 0.2s var(--ease-out);
   }
 
   .navbar__links li a:hover {
-    background: rgba(218,165,32,0.05);
-    color: var(--gold);
+    color: var(--gold-light);
+    background: rgba(218, 165, 32, 0.04);
+    padding-left: 1.75rem;
   }
 
-  .navbar__link--active {
+  .navbar__links li a:hover::before {
+    transform: scaleY(1);
+  }
+
+  .navbar__links li a.active-link {
+    color: var(--gold);
+    font-weight: 500;
     background: var(--gold-dim);
-    color: var(--gold);
+    padding-left: 1.75rem;
   }
 
-  /* CTA bottom */
-  .navbar__end {
+  .navbar__links li a.active-link::before {
+    transform: scaleY(1);
+  }
+
+  /* ── CTA footer slot ── */
+  .nav-cta {
     margin-top: auto;
-    padding: 1.25rem;
+    width: 100%;
+    padding: 1.25rem 1.5rem;
     border-top: 1px solid var(--gold-border);
     background: var(--navy-head);
-    width: 100%;
   }
 
-  .navbar__end a {
-    width: 100%;
+  .nav-cta a {
+    width: 100% !important;
     justify-content: center;
+    padding: 0.875rem 1.25rem !important;
+    font-size: 0.78rem !important;
+    letter-spacing: 0.1em;
     text-transform: uppercase;
+    border-radius: 2px !important;
+    background: var(--gold) !important;
+    color: var(--navy-dark) !important;
+  }
+
+  .nav-cta a:hover {
+    background: var(--gold-light) !important;
+    transform: translateY(-1px);
+  }
+
+  .nav-cta a svg {
+    transition: transform 0.2s;
+  }
+
+  .nav-cta a:hover svg {
+    transform: translateX(3px);
+  }
+
+  .contact-info {
+    gap: 12px;
   }
 
   .top-bar__right {
@@ -326,10 +391,24 @@
   }
 }
 
-/* ===== SMALL SCREEN ===== */
+/* ============================================================
+   RESPONSIVE — 480px
+   ============================================================ */
 @media (max-width: 480px) {
-  .container { padding: 0 16px; }
-  .navbar__BraveLion img { height: 36px; }
-  .contact-item span { display: none; }
-  .contact-item svg { width: 14px; height: 14px; }
+  .container {
+    padding: 0 16px;
+  }
+
+  .navbar__BraveLion img {
+    height: 36px;
+  }
+
+  .contact-item span {
+    display: none;
+  }
+
+  .contact-item svg {
+    width: 14px;
+    height: 14px;
+  }
 }

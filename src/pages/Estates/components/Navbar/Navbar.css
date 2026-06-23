@@ -19,7 +19,6 @@
   --white:          #ffffff;
   --muted:          #94a3b8;
   --muted-dim:      rgba(148, 163, 184, 0.5);
-  --green-accent:   #2d8c5a;
   --topbar-h:       40px;
   --navbar-h:       76px;
   --transition:     0.3s cubic-bezier(0.4, 0, 0.2, 1);
@@ -201,7 +200,7 @@
   left: 1rem;
   right: 1rem;
   height: 1px;
-  background: var(--green-accent);
+  background: var(--gold);
   border-radius: 1px 1px 0 0;
 }
 
@@ -384,7 +383,7 @@
   top: 0;
   bottom: 0;
   width: 2px;
-  background: var(--green-accent);
+  background: var(--gold);
   transform: scaleY(0);
   transform-origin: bottom;
   transition: transform 0.2s var(--ease-out);
