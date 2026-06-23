@@ -14,6 +14,13 @@
   align-items: flex-end;
   gap: 12px;
 
+  /* Allow page interactions when chat is collapsed */
+  pointer-events: none;
+
+  /* Ensure it never blocks navbar CTA clicks */
+  mix-blend-mode: normal;
+
+
   /* Hidden until JS mounts */
   opacity: 0;
   transform: translateY(12px);
