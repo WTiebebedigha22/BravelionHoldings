@@ -238,7 +238,7 @@ const Navbar = () => {
               onClick={() => setMobileDropdownOpen((v) => !v)}
               aria-expanded={mobileDropdownOpen}
             >
-              <span>DIVISIONS</span>
+              <span>Divisions</span>
               <ChevronDown
                 size={15}
                 className={`mobile-drawer__accordion-icon${mobileDropdownOpen ? " mobile-drawer__accordion-icon--open" : ""}`}
