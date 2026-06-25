@@ -61,30 +61,30 @@ function App() {
         <Route path="/about"   element={<DefaultLayout><About /></DefaultLayout>} />
         <Route path="/contact" element={<DefaultLayout><Contact /></DefaultLayout>} />
 
-        {/* ── Estates ── */}
-        <Route path="/estates"                      element={<DefaultLayout><Estates /></DefaultLayout>} />
-        <Route path="/estates/why"              element={<DefaultLayout><WhyUs /></DefaultLayout>} />
-        <Route path="/estates/insights"        element={<DefaultLayout><InsightsPage /></DefaultLayout>} />
-        <Route path="/estates/investor-relations" element={<DefaultLayout><InvestorRelations /></DefaultLayout>} />
-        <Route path="/estates/property"        element={<DefaultLayout><Property /></DefaultLayout>} />
+        {/* ── Estates (use division footers only) ── */}
+        <Route path="/estates"                      element={<BareLayout><Estates /></BareLayout>} />
+        <Route path="/estates/why"              element={<BareLayout><WhyUs /></BareLayout>} />
+        <Route path="/estates/insights"        element={<BareLayout><InsightsPage /></BareLayout>} />
+        <Route path="/estates/investor-relations" element={<BareLayout><InvestorRelations /></BareLayout>} />
+        <Route path="/estates/property"        element={<BareLayout><Property /></BareLayout>} />
 
-        {/* ── Services ── */}
-        <Route path="/services"                       element={<DefaultLayout><Services /></DefaultLayout>} />
-        <Route path="/services/advisory"            element={<DefaultLayout><Advisory /></DefaultLayout>} />
-        <Route path="/services/consulting"          element={<DefaultLayout><Consulting /></DefaultLayout>} />
-        <Route path="/services/engineering"         element={<DefaultLayout><EngineeringPage /></DefaultLayout>} />
-        <Route path="/services/energy"              element={<DefaultLayout><EnergyPage /></DefaultLayout>} />
-        <Route path="/services/training"            element={<DefaultLayout><TrainingPage /></DefaultLayout>} />
-        <Route path="/services/business"            element={<DefaultLayout><BusinessPage /></DefaultLayout>} />
+        {/* ── Services (use division footers only) ── */}
+        <Route path="/services"                       element={<BareLayout><Services /></BareLayout>} />
+        <Route path="/services/advisory"            element={<BareLayout><Advisory /></BareLayout>} />
+        <Route path="/services/consulting"          element={<BareLayout><Consulting /></BareLayout>} />
+        <Route path="/services/engineering"         element={<BareLayout><EngineeringPage /></BareLayout>} />
+        <Route path="/services/energy"              element={<BareLayout><EnergyPage /></BareLayout>} />
+        <Route path="/services/training"            element={<BareLayout><TrainingPage /></BareLayout>} />
+        <Route path="/services/business"            element={<BareLayout><BusinessPage /></BareLayout>} />
 
-        {/* ── Training ── */}
-        <Route path="/training"                 element={<DefaultLayout><Training /></DefaultLayout>} />
-        <Route path="/training/courses"         element={<DefaultLayout><CoursesPage /></DefaultLayout>} />
-        <Route path="/training/hse"             element={<DefaultLayout><HSEPage /></DefaultLayout>} />
-        <Route path="/training/certifications"  element={<DefaultLayout><CertificationsPage /></DefaultLayout>} />
-        <Route path="/training/corporate"       element={<DefaultLayout><CorporatePage /></DefaultLayout>} />
-        <Route path="/training/schedule"        element={<DefaultLayout><SchedulePage /></DefaultLayout>} />
-        <Route path="/training/enroll"          element={<DefaultLayout><EnrollPage /></DefaultLayout>} />
+        {/* ── Training (use division footers only) ── */}
+        <Route path="/training"                 element={<BareLayout><Training /></BareLayout>} />
+        <Route path="/training/courses"         element={<BareLayout><CoursesPage /></BareLayout>} />
+        <Route path="/training/hse"             element={<BareLayout><HSEPage /></BareLayout>} />
+        <Route path="/training/certifications"  element={<BareLayout><CertificationsPage /></BareLayout>} />
+        <Route path="/training/corporate"       element={<BareLayout><CorporatePage /></BareLayout>} />
+        <Route path="/training/schedule"        element={<BareLayout><SchedulePage /></BareLayout>} />
+        <Route path="/training/enroll"          element={<BareLayout><EnrollPage /></BareLayout>} />
 
       </Routes>
     </BrowserRouter>
