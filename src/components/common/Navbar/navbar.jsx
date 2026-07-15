@@ -8,6 +8,7 @@ const divisionGroups = [
   { label: "Bravelion Services", to: "/services" },
   { label: "Bravelion Estates & Development", to: "/estates" },
   { label: "Bravelion Training & Consulting", to: "/training" },
+  { label: "Bravelion Energy Ltd", to: "/energy" },
 ];
 
 const navLinks = [
@@ -57,21 +58,23 @@ const Navbar = () => {
     const focusableSelector = 'a[href], area[href], input:not([disabled]), select:not([disabled]), textarea:not([disabled]), button:not([disabled]), [tabindex]:not([tabindex="-1"])';
     let previousActive = null;
 
-    const handleKeyDown = (e) => {
+    const handleKeyDown = (evt) => {
       if (!menuOpen) return;
-      if (e.key === 'Escape') {
+      if (evt.key === "Escape") {
         setMenuOpen(false);
       }
-      if (e.key === 'Tab') {
-        const focusables = drawer ? Array.from(drawer.querySelectorAll(focusableSelector)) : [];
+      if (evt.key === "Tab") {
+        const focusables = drawer
+          ? Array.from(drawer.querySelectorAll(focusableSelector))
+          : [];
         if (!focusables.length) return;
         const first = focusables[0];
         const last = focusables[focusables.length - 1];
-        if (e.shiftKey && document.activeElement === first) {
-          e.preventDefault();
+        if (evt.shiftKey && document.activeElement === first) {
+          evt.preventDefault();
           last.focus();
-        } else if (!e.shiftKey && document.activeElement === last) {
-          e.preventDefault();
+        } else if (!evt.shiftKey && document.activeElement === last) {
+          evt.preventDefault();
           first.focus();
         }
       }
@@ -89,7 +92,7 @@ const Navbar = () => {
 
     return () => {
       document.removeEventListener('keydown', handleKeyDown);
-      try { previousActive?.focus?.(); } catch (e) { /* ignore */ }
+      try { previousActive?.focus?.(); } catch { /* ignore */ }
     };
   }, [menuOpen]);
 
@@ -200,7 +203,7 @@ const Navbar = () => {
         role="dialog"
         aria-modal={menuOpen}
         aria-hidden={!menuOpen}
-        onClick={(e) => e.stopPropagation()}
+        onClick={() => {}}
       >
         <div className="mobile-drawer__head">
           <Link to="/" className="navbar__logo" onClick={() => setMenuOpen(false)}>

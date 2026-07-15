@@ -1,0 +1,290 @@
+:root{
+  --goldenrod: goldenrod;
+}
+
+.en-energy-page{
+  background:#fff;
+}
+
+/* Shared hero styling (matches other divisions style conventions) */
+.sv-hero-custom{
+  position:relative;
+  min-height:85vh;
+  display:flex;
+  align-items:center;
+  color:#fff;
+  overflow:hidden;
+  padding:7rem 0;
+  background-size:cover;
+  background-position:center;
+}
+
+.en-energy-hero.sv-hero-custom{
+  background: linear-gradient(rgba(11,29,46,0.92), rgba(11,29,46,0.92)),
+    url('https://images.unsplash.com/photo-1518709268805-4e9042af9f23?auto=format&fit=crop&q=80&w=2000');
+}
+
+.en-energy-hero__inner{
+  display:grid;
+  grid-template-columns: 1.2fr 1fr;
+  gap:4rem;
+  align-items:center;
+}
+
+.en-energy-hero__text h1{
+  margin:0 0 1.2rem;
+}
+
+.en-energy-hero__text .cert-hero__sub{
+  color:rgba(255,255,255,0.75);
+  line-height:1.7;
+}
+
+.en-energy-hero__actions{
+  display:flex;
+  gap:1rem;
+  flex-wrap:wrap;
+  margin-top:2rem;
+}
+
+.en-energy-hero__visual{
+  position:relative;
+  border:1px solid rgba(193,155,90,0.3);
+  padding:1rem;
+}
+
+.en-energy-hero__img{
+  width:100%;
+  height:500px;
+  object-fit:cover;
+  display:block;
+}
+
+.en-energy-hero__badge{
+  position:absolute;
+  bottom:-20px;
+  right:-20px;
+  background: var(--goldenrod);
+  padding:2rem;
+  color:#0a1a0f;
+  min-width:160px;
+  text-align:center;
+  box-shadow: 20px 20px 60px rgba(0,0,0,0.3);
+}
+
+.badge-val{
+  display:block;
+  font-family:'Cormorant Garamond',serif;
+  font-size:2.2rem;
+  font-weight:700;
+  line-height:1;
+}
+
+.badge-lab{
+  font-size:0.65rem;
+  text-transform:uppercase;
+  font-weight:700;
+  letter-spacing:1px;
+}
+
+/* Stats */
+.en-energy-stats{
+  background:#fff;
+  padding:4rem 0;
+  border-bottom:1px solid #e4e6e0;
+}
+
+.en-energy-stats__grid{
+  display:flex;
+  justify-content:space-around;
+  gap:2rem;
+  flex-wrap:wrap;
+}
+
+.en-energy-stat{
+  text-align:center;
+  min-width:150px;
+}
+
+.en-energy-stat__value{
+  display:block;
+  font-family:'Cormorant Garamond',serif;
+  font-size:2.5rem;
+  font-weight:700;
+  color: var(--navy, #0a1a0f);
+}
+
+.en-energy-stat__label{
+  font-size:0.7rem;
+  text-transform:uppercase;
+  letter-spacing:2px;
+  color: var(--goldenrod);
+  font-weight:700;
+}
+
+/* Divisions */
+.en-energy-divisions{
+  padding:10rem 0;
+  background:#fafaf8;
+}
+
+.en-energy-divisions__header{
+  text-align:center;
+  margin-bottom:4rem;
+}
+
+.en-energy-divisions__sub{
+  max-width:700px;
+  margin: 1rem auto 0;
+  color: var(--muted, #94a3b8);
+  line-height:1.7;
+}
+
+.en-energy-tabs{
+  display:flex;
+  justify-content:center;
+  gap:1rem;
+  flex-wrap:wrap;
+  margin-top:2.5rem;
+}
+
+.en-energy-tab{
+  background:#fff;
+  border:1px solid #e4e6e0;
+  padding:1rem 1.25rem;
+  cursor:pointer;
+  transition:all .25s ease;
+  border-radius:6px;
+  font-weight:600;
+  color: var(--navy, #0a1a0f);
+}
+
+.en-energy-tab--active{
+  background: var(--navy, #0a1a0f);
+  border-color: var(--navy, #0a1a0f);
+  color:#fff;
+}
+
+.en-energy-division-panel{
+  margin-top:0;
+  background:#fff;
+  border:1px solid #e4e6e0;
+  border-radius:12px;
+  overflow:hidden;
+}
+
+.en-energy-division-panel__left{
+  padding:4.5rem 3rem;
+}
+
+.en-energy-division-panel__icon{
+  color: var(--goldenrod);
+  margin-bottom:1rem;
+}
+
+.en-energy-division-panel__left h3{
+  font-family:'Cormorant Garamond',serif;
+  font-size:2.4rem;
+  color: var(--navy, #0a1a0f);
+  margin:0 0 1rem;
+}
+
+.en-energy-division-panel__left p{
+  color: var(--muted, #94a3b8);
+  line-height:1.7;
+  margin:0 0 2rem;
+}
+
+.en-energy-division-panel__bullets{
+  display:grid;
+  gap:.9rem;
+  margin-bottom:2rem;
+}
+
+.en-energy-bullet{
+  display:flex;
+  align-items:center;
+  gap:.6rem;
+  color: var(--navy, #0a1a0f);
+  font-weight:600;
+}
+
+.en-energy-division-panel__cta{
+  margin-top:1rem;
+}
+
+.en-energy-division-panel{
+  display:grid;
+  grid-template-columns: 1.2fr 1fr;
+}
+
+.en-energy-division-panel__right{
+  background: rgba(10,26,15,0.02);
+  padding:3.5rem 2.5rem;
+}
+
+.en-energy-division-panel__card{
+  border:1px solid rgba(10,26,15,0.08);
+  background:#fff;
+  border-radius:12px;
+  padding:2.5rem;
+}
+
+.en-energy-division-panel__card-kicker{
+  color: var(--goldenrod);
+  font-weight:800;
+  letter-spacing:1.5px;
+  text-transform:uppercase;
+  font-size:.65rem;
+}
+
+.en-energy-division-panel__card-title{
+  font-family:'Cormorant Garamond',serif;
+  font-size:2rem;
+  margin:1rem 0;
+  color: var(--navy, #0a1a0f);
+}
+
+.en-energy-division-panel__card-body{
+  color: var(--muted, #94a3b8);
+  line-height:1.7;
+}
+
+.en-energy-division-panel__capabilities{
+  margin-top:2rem;
+  display:grid;
+  gap:1rem;
+}
+
+.en-energy-cap{
+  display:flex;
+  gap:.9rem;
+  align-items:flex-start;
+}
+
+.en-energy-cap__icon{
+  color: var(--goldenrod);
+  margin-top:2px;
+}
+
+.en-energy-cap__body{
+  color: var(--muted, #94a3b8);
+  font-size:.9rem;
+  margin-top:.25rem;
+  line-height:1.6;
+}
+
+/* Responsive */
+@media (max-width: 1024px){
+  .en-energy-hero__inner{grid-template-columns:1fr;}
+  .en-energy-hero__img{height:380px;}
+  .en-energy-division-panel{grid-template-columns:1fr;}
+  .en-energy-division-panel__right{padding:2.5rem 1.5rem;}
+  .en-energy-division-panel__left{padding:3.5rem 1.75rem;}
+}
+
+@media (max-width: 480px){
+  .en-energy-hero__img{height:260px;}
+  .en-energy-tabs{gap:.6rem;}
+}
+

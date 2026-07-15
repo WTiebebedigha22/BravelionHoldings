@@ -33,13 +33,22 @@ const subsidiaries = [
     link: "/training",
     image: "https://images.unsplash.com/photo-1552664730-d307ca884978?auto=format&fit=crop&w=800&q=80",
   },
+  {
+    number: "04",
+    name: "Bravelion Energy Ltd",
+    tagline: "Energy Solutions",
+    description:
+      "Engineering-driven energy initiatives focused on resilient infrastructure, operational efficiency, and sustainable growth.",
+    link: "/energy",
+    image: "https://images.unsplash.com/photo-1590712369867-8f7a3cbb5c43?auto=format&fit=crop&w=800&q=80",
+  },
 ];
 
 const stats = [
-  { value: "3",    label: "Specialized Divisions" },
+  { value: "4",    label: "Specialized Divisions" },
   { value: "500+", label: "Professionals Trained" },
   { value: "15+",  label: "Years of Excellence" },
-  { value: "4",    label: "Countries Served" },
+  { value: "4+",    label: "Countries Served" },
 ];
 
 const pillars = [
@@ -104,10 +113,10 @@ const Home = () => {
           <div className="subsidiaries-header">
             <div>
               <span className="home-section-eyebrow">Our Structure</span>
-              <h2>Three Divisions. One Vision.</h2>
+              <h2>Four Divisions. One Vision.</h2>
               <p>
                 Excellence, innovation, and sustainable growth — delivered
-                through three specialised subsidiaries.
+                through four specialised subsidiaries.
               </p>
             </div>
             <Link to="/about" className="link-arrow-home">

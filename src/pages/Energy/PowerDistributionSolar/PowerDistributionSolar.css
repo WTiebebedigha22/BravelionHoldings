@@ -1,0 +1,10 @@
+.power-energy-page .en-energy-hero__img{height:520px;}
+
+.power-energy-page .en-energy-division-panel__card{
+  box-shadow: 0 12px 40px rgba(10,26,15,0.06);
+}
+
+@media (max-width:1024px){
+  .power-energy-page .en-energy-hero__img{height:380px;}
+}
+

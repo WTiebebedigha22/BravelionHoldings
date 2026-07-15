@@ -1,0 +1,139 @@
+:root{
+  --en-energy-navy:#0a1a0f;
+  --en-energy-gold: goldenrod;
+  --en-energy-muted:#94a3b8;
+}
+
+.en-energy-footer{
+  background:#0a1a0f;
+  color: rgba(255,255,255,0.9);
+  margin-top: 4rem;
+}
+
+.en-energy-footer__top{
+  padding: 4rem 0 2.5rem;
+}
+
+.en-energy-footer__container{
+  max-width: 1180px;
+  margin: 0 auto;
+  padding: 0 1.25rem;
+  display:grid;
+  grid-template-columns: 1.2fr 0.8fr 0.8fr 1fr;
+  gap: 2.2rem;
+}
+
+.en-energy-footer__brand-img{
+  height: 40px;
+  width:auto;
+  display:block;
+  margin-bottom: .9rem;
+}
+
+.en-energy-footer__pitch{
+  color: rgba(255,255,255,0.75);
+  line-height:1.7;
+  font-weight:600;
+}
+
+.en-energy-footer__col h4{
+  margin: 0 0 1rem;
+  color: #fff;
+  font-size: .95rem;
+  text-transform: uppercase;
+  letter-spacing: .6px;
+}
+
+.en-energy-footer__col ul{
+  list-style:none;
+  padding:0;
+  margin:0;
+  display:grid;
+  gap: .75rem;
+}
+
+.en-energy-footer__col a{
+  color: rgba(255,255,255,0.78);
+  text-decoration:none;
+  font-weight:700;
+}
+
+.en-energy-footer__col a:hover{
+  color: #fff;
+}
+
+.en-energy-footer__contact-details{
+  display:grid;
+  gap: .75rem;
+  margin: 0 0 1.2rem;
+}
+
+.en-energy-footer__line{
+  display:flex;
+  gap: .7rem;
+  align-items:flex-start;
+}
+
+.en-energy-footer__link{
+  color: rgba(255,255,255,0.9);
+  text-decoration:none;
+}
+
+.en-energy-footer__cta{
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  width:100%;
+  background: var(--en-energy-gold);
+  color: #0a1a0f;
+  padding: .9rem 1rem;
+  border-radius: 12px;
+  text-decoration:none;
+  font-weight: 900;
+}
+
+.en-energy-footer__bottom{
+  border-top: 1px solid rgba(255,255,255,0.12);
+  padding: 1.7rem 0;
+}
+
+.en-energy-footer__bottom-flex{
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap: 1rem;
+}
+
+.en-energy-footer__legal{
+  display:flex;
+  align-items:center;
+  gap: .6rem;
+  color: rgba(255,255,255,0.7);
+  font-weight: 700;
+}
+
+.en-energy-footer__legal a{
+  color: rgba(255,255,255,0.7);
+  text-decoration:none;
+}
+
+.en-energy-footer__legal a:hover{ color:#fff; }
+
+.en-energy-footer__legal .dot{ opacity:.6; }
+
+@media (max-width: 1024px){
+  .en-energy-footer__container{
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+@media (max-width: 520px){
+  .en-energy-footer__container{
+    grid-template-columns: 1fr;
+  }
+  .en-energy-footer__bottom-flex{
+    flex-direction:column;
+    align-items:flex-start;
+  }
+}
+

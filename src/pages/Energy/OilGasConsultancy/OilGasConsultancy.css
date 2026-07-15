@@ -1,0 +1,10 @@
+.oilgas-energy-page .en-energy-hero__img{height:520px;}
+
+.oilgas-energy-page .en-energy-division-panel__right{
+  background: rgba(10,26,15,0.02);
+}
+
+@media (max-width:1024px){
+  .oilgas-energy-page .en-energy-hero__img{height:380px;}
+}
+

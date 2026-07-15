@@ -161,6 +161,13 @@ const divisions = [
     description: "Delivering internationally accredited certification programmes, workforce development, and strategic advisory services.",
     link: "/training",
   },
+  {
+    number: "04",
+    name: "Bravelion Energy Ltd",
+    tagline: "Energy Infrastructure & Advisory",
+    description: "Delivering strategic energy and oil & gas advisory, training, and infrastructure execution for compliant and sustainable outcomes across Africa.",
+    link: "/energy",
+  },
 ];
 
 /* ─── COMPONENT ─────────────────────────────────────────────── */
@@ -214,7 +221,7 @@ const About = () => {
           </div>
           <div className="who-stats">
             <div className="big-stat">
-              <span className="big-stat-number">3</span>
+              <span className="big-stat-number">4</span>
               <span className="big-stat-label">Specialized Divisions</span>
             </div>
             <div className="big-stat">

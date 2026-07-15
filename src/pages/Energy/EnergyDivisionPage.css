@@ -1,0 +1,29 @@
+/* Shared layout for all Energy division sub-pages */
+
+.en-energy-division-page {
+  background: #fff;
+}
+
+.en-energy-division-page .en-energy-hero__inner {
+  align-items: center;
+}
+
+/* Reuse existing panel visuals from Energy.css when possible */
+.en-energy-division-card {
+  border: 1px solid #e4e6e0;
+  border-radius: 14px;
+  background: #fff;
+  overflow: hidden;
+}
+
+/* Make hero sections consistent across the new pages */
+.en-energy-division-page .en-energy-hero {
+  padding: 7rem 0;
+}
+
+/* Small visual tuning for section headers (optional) */
+.en-energy-division-page .en-energy-division-section {
+  padding: 4rem 0 8rem;
+  background: #fafaf8;
+}
+

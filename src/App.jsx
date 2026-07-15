@@ -24,6 +24,13 @@ import EnergyPage from "./pages/Services/Energy/EnergyPage"
 import TrainingPage from "./pages/Services/Training/TrainingPage"
 import BusinessPage from "./pages/Services/Business/BusinessPage"
 
+// Energy division
+import Energy from "./pages/Energy/Energy"
+import OilGasConsultancy from "./pages/Energy/OilGasConsultancy/OilGasConsultancy"
+import EnergyTraining from "./pages/Energy/EnergyTraining/EnergyTraining"
+import PowerDistributionSolar from "./pages/Energy/PowerDistributionSolar/PowerDistributionSolar"
+
+
 // Training
 import CoursesPage from "./pages/Training/Courses/Courses"
 import HSEPage from "./pages/Training/HSE/Hse"
@@ -31,6 +38,7 @@ import CertificationsPage from "./pages/Training/Certification/CertificationsPag
 import CorporatePage from "./pages/Training/Corporate/CorporatePage"
 import SchedulePage from "./pages/Training/Schedule/Schedule"
 import EnrollPage from "./pages/Training/Enroll/Enroll"
+
 
 // Layout WITH shared NavBar + Footer
 function DefaultLayout({ children }) {
@@ -76,6 +84,12 @@ function App() {
         <Route path="/services/energy"              element={<BareLayout><EnergyPage /></BareLayout>} />
         <Route path="/services/training"            element={<BareLayout><TrainingPage /></BareLayout>} />
         <Route path="/services/business"            element={<BareLayout><BusinessPage /></BareLayout>} />
+
+        {/* ── Energy division (use division NavBar + Footer) ── */}
+        <Route path="/energy" element={<BareLayout><Energy /></BareLayout>} />
+        <Route path="/energy/oil-gas-consultancy" element={<BareLayout><OilGasConsultancy /></BareLayout>} />
+        <Route path="/energy/energy-training" element={<BareLayout><EnergyTraining /></BareLayout>} />
+        <Route path="/energy/power-distribution-solar" element={<BareLayout><PowerDistributionSolar /></BareLayout>} />
 
         {/* ── Training (use division footers only) ── */}
         <Route path="/training"                 element={<BareLayout><Training /></BareLayout>} />
