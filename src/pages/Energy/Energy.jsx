@@ -108,7 +108,7 @@ export default function Energy() {
               <div className="en-energy-hero__visual">
                 <img src={sections[0].image} alt="Energy infrastructure" className="en-energy-hero__img" />
                 <div className="en-energy-hero__badge">
-                  <span className="badge-val">15+</span>
+                  <span className="badge-val">5+</span>
                   <span className="badge-lab">Years Focus</span>
                 </div>
               </div>
