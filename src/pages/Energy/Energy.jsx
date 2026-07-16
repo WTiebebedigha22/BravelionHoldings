@@ -1,6 +1,6 @@
 import React, { useEffect, useRef, useState } from "react";
 import { Link } from "react-router-dom";
-import { ArrowRight, ArrowUpRight, CheckCircle, Zap, ShieldCheck, Wrench } from "lucide-react";
+import { ArrowRight, ArrowUpRight, CheckCircle, Zap, Wrench, Lightbulb } from "lucide-react";
 import "./Energy.css";
 import EnergyNavbar from "./components/navbar/EnergyNavbar";
 import EnergyFooter from "./components/footer/EnergyFooter";
@@ -16,8 +16,10 @@ const sections = [
   },
 ];
 
+// FIXED: Added icon property to each division object
 const energyDivisions = [
   {
+    id: "oil-gas",
     title: "Oil & Gas Consultancy",
     desc: "Strategic advisory bridging regulation, technical review, and safe operational delivery for upstream, midstream, and downstream assets.",
     bullets: [
@@ -25,8 +27,11 @@ const energyDivisions = [
       "Technical project review & feasibility",
       "Operations improvement & risk management",
     ],
+    icon: Wrench,
+    to: "/energy/oil-gas-consultancy",
   },
   {
+    id: "energy-training",
     title: "Energy Training & Workforce Readiness",
     desc: "Hands-on training programmes for field personnel—grounded in safety, competence, and operational reality.",
     bullets: [
@@ -34,8 +39,11 @@ const energyDivisions = [
       "Energy management & equipment handling",
       "Emergency response & crisis preparedness",
     ],
+    icon: Lightbulb,
+    to: "/energy/energy-training",
   },
   {
+    id: "power-solar",
     title: "Power Distribution & Solar Solutions",
     desc: "End-to-end power delivery support—from design and installation through monitoring and maintenance.",
     bullets: [
@@ -43,6 +51,8 @@ const energyDivisions = [
       "Off-grid & hybrid energy solutions",
       "Distribution setup, monitoring & upkeep",
     ],
+    icon: Zap,
+    to: "/energy/power-distribution-solar",
   },
 ];
 
@@ -83,7 +93,7 @@ export default function Energy() {
       <EnergyNavbar />
       <div className="en-energy-page">
         {/* ===== HERO ===== */}
-        <section className="en-energy-hero sv-hero-custom">
+        <section className="en-energy-hero sv-hero-custom" aria-label="Energy division hero section">
           <div className="cert-container">
             <div className="en-energy-hero__inner cert-reveal">
               <div className="en-energy-hero__text">
@@ -96,18 +106,23 @@ export default function Energy() {
                   {sections[0].subtitle}
                 </p>
                 <div className="cert-hero__actions">
-                  <Link to="/contact" className="cert-btn-primary">
-                    Engage Energy Team <ArrowRight size={15} />
+                  <Link to="/contact" className="cert-btn-primary" aria-label="Contact energy team">
+                    Engage Energy Team <ArrowRight size={15} aria-hidden="true" />
                   </Link>
-                  <Link to="/services/energy" className="cert-btn-outline">
-                    View Energy Capabilities <ArrowUpRight size={15} />
+                  <Link to="/services/energy" className="cert-btn-outline" aria-label="View energy capabilities">
+                    View Energy Capabilities <ArrowUpRight size={15} aria-hidden="true" />
                   </Link>
                 </div>
               </div>
 
               <div className="en-energy-hero__visual">
-                <img src={sections[0].image} alt="Energy infrastructure" className="en-energy-hero__img" />
-                <div className="en-energy-hero__badge">
+                <img 
+                  src={sections[0].image} 
+                  alt="Energy infrastructure and offshore vessels" 
+                  className="en-energy-hero__img" 
+                  loading="lazy"
+                />
+                <div className="en-energy-hero__badge" aria-label="5 plus years focus badge">
                   <span className="badge-val">5+</span>
                   <span className="badge-lab">Years Focus</span>
                 </div>
@@ -117,7 +132,7 @@ export default function Energy() {
         </section>
 
         {/* ===== STATS ===== */}
-        <section className="en-energy-stats cert-reveal">
+        <section className="en-energy-stats cert-reveal" aria-label="Energy division statistics">
           <div className="cert-container">
             <div className="en-energy-stats__grid">
               {stats.map((s) => (
@@ -131,7 +146,7 @@ export default function Energy() {
         </section>
 
         {/* ===== DIVISIONS ===== */}
-        <section className="en-energy-divisions">
+        <section className="en-energy-divisions" aria-label="Business divisions section">
           <div className="cert-container">
             <div className="en-energy-divisions__header cert-reveal">
               <span className="cert-eyebrow dark">Business Divisions</span>
@@ -140,35 +155,30 @@ export default function Energy() {
                 Switch between focus areas to explore how the division delivers value through compliance, competence, and execution.
               </p>
 
-              <div className="en-energy-tabs" role="tablist">
-                {energyDivisions.map((d, i) => {
-                  const to =
-                    d.title === "Oil & Gas Consultancy"
-                      ? "/energy/oil-gas-consultancy"
-                      : d.title === "Energy Training & Workforce Readiness"
-                        ? "/energy/energy-training"
-                        : "/energy/power-distribution-solar";
-
-                  return (
-                    <Link
-                      key={d.title}
-                      to={to}
-                      className={`en-energy-tab${active === i ? " en-energy-tab--active" : ""}`}
-                      role="tab"
-                      aria-selected={active === i}
-                      onClick={() => setActive(i)}
-                    >
-                      {d.title}
-                    </Link>
-                  );
-                })}
+              <div className="en-energy-tabs" role="tablist" aria-label="Energy division tabs">
+                {energyDivisions.map((d, i) => (
+                  <Link
+                    key={d.id}
+                    to={d.to}
+                    className={`en-energy-tab${active === i ? " en-energy-tab--active" : ""}`}
+                    role="tab"
+                    aria-selected={active === i}
+                    aria-label={`${d.title} division`}
+                    onClick={(e) => {
+                      e.preventDefault();
+                      setActive(i);
+                    }}
+                  >
+                    {d.title}
+                  </Link>
+                ))}
               </div>
             </div>
 
             <div className="en-energy-division-panel cert-reveal">
               <div className="en-energy-division-panel__left">
-                <div className="en-energy-division-panel__icon">
-                  {React.createElement(current.icon, { size: 18 })}
+                <div className="en-energy-division-panel__icon" aria-hidden="true">
+                  {React.createElement(current.icon, { size: 24, strokeWidth: 1.5 })}
                 </div>
                 <h3>{current.title}</h3>
                 <p>{current.desc}</p>
@@ -176,7 +186,7 @@ export default function Energy() {
                 <div className="en-energy-division-panel__bullets">
                   {current.bullets.map((b) => (
                     <div className="en-energy-bullet" key={b}>
-                      <CheckCircle size={14} />
+                      <CheckCircle size={16} aria-hidden="true" />
                       <span>{b}</span>
                     </div>
                   ))}
@@ -184,7 +194,7 @@ export default function Energy() {
 
                 <div className="en-energy-division-panel__cta">
                   <Link to="/contact" className="cert-btn-primary">
-                    Start a Project <ArrowRight size={15} />
+                    Start a Project <ArrowRight size={15} aria-hidden="true" />
                   </Link>
                 </div>
               </div>
@@ -199,8 +209,8 @@ export default function Energy() {
                   <div className="en-energy-division-panel__capabilities">
                     {capabilities.map((c) => (
                       <div className="en-energy-cap" key={c.title}>
-                        <span className="en-energy-cap__icon">
-                          <c.icon size={14} />
+                        <span className="en-energy-cap__icon" aria-hidden="true">
+                          <c.icon size={16} strokeWidth={1.5} />
                         </span>
                         <div>
                           <strong>{c.title}</strong>
@@ -216,19 +226,19 @@ export default function Energy() {
         </section>
 
         {/* ===== CTA ===== */}
-        <section className="cert-cta">
+        <section className="cert-cta" aria-label="Call to action section">
           <div className="cert-container">
             <div className="cert-cta__inner cert-reveal">
               <div className="cert-cta__text">
                 <span className="cert-eyebrow light">Get in touch</span>
                 <h2>Build energy capacity with Bravelion.</h2>
                 <p>
-                  Share your scope and we’ll respond with a clear engagement plan.
+                  Share your scope and we'll respond with a clear engagement plan.
                 </p>
               </div>
               <div className="cert-cta__actions">
                 <Link to="/contact" className="cert-btn-primary">
-                  Contact Our Team <ArrowUpRight size={15} />
+                  Contact Our Team <ArrowUpRight size={15} aria-hidden="true" />
                 </Link>
               </div>
             </div>
@@ -239,5 +249,3 @@ export default function Energy() {
     </div>
   );
 }
-
-
