@@ -1,290 +1,617 @@
 :root{
-  --goldenrod: goldenrod;
+  --goldenrod: #c19b5a;
+  --navy: #0a1a0f;
+  --muted: #94a3b8;
+  --border-light: #e4e6e0;
+  --bg-light: #fafaf8;
+  --white: #fff;
+  --transition-smooth: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .en-energy-page{
-  background:#fff;
+  background: var(--white);
 }
 
 /* Shared hero styling (matches other divisions style conventions) */
 .sv-hero-custom{
-  position:relative;
-  min-height:85vh;
-  display:flex;
-  align-items:center;
-  color:#fff;
-  overflow:hidden;
-  padding:7rem 0;
-  background-size:cover;
-  background-position:center;
+  position: relative;
+  min-height: 85vh;
+  display: flex;
+  align-items: center;
+  color: var(--white);
+  overflow: hidden;
+  padding: 7rem 0;
+  background-size: cover;
+  background-position: center;
 }
 
 .en-energy-hero.sv-hero-custom{
-  background: linear-gradient(rgba(11,29,46,0.92), rgba(11,29,46,0.92)),
+  background: linear-gradient(rgba(11, 29, 46, 0.92), rgba(11, 29, 46, 0.92)),
     url('https://images.unsplash.com/photo-1518709268805-4e9042af9f23?auto=format&fit=crop&q=80&w=2000');
+  background-attachment: fixed;
 }
 
 .en-energy-hero__inner{
-  display:grid;
+  display: grid;
   grid-template-columns: 1.2fr 1fr;
-  gap:4rem;
-  align-items:center;
+  gap: 4rem;
+  align-items: center;
 }
 
 .en-energy-hero__text h1{
-  margin:0 0 1.2rem;
+  margin: 0 0 1.2rem;
+  font-size: clamp(2.5rem, 5vw, 3.5rem);
+  line-height: 1.2;
 }
 
 .en-energy-hero__text .cert-hero__sub{
-  color:rgba(255,255,255,0.75);
-  line-height:1.7;
+  color: rgba(255, 255, 255, 0.85);
+  line-height: 1.8;
+  font-size: clamp(0.95rem, 2vw, 1.1rem);
 }
 
 .en-energy-hero__actions{
-  display:flex;
-  gap:1rem;
-  flex-wrap:wrap;
-  margin-top:2rem;
+  display: flex;
+  gap: 1rem;
+  flex-wrap: wrap;
+  margin-top: 2rem;
 }
 
 .en-energy-hero__visual{
-  position:relative;
-  border:1px solid rgba(193,155,90,0.3);
-  padding:1rem;
+  position: relative;
+  border: 1px solid rgba(193, 155, 90, 0.3);
+  padding: 1rem;
+  animation: fadeInUp 0.8s ease-out 0.3s both;
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
 
 .en-energy-hero__img{
-  width:100%;
-  height:500px;
-  object-fit:cover;
-  display:block;
+  width: 100%;
+  height: 500px;
+  object-fit: cover;
+  display: block;
+  border-radius: 4px;
 }
 
 .en-energy-hero__badge{
-  position:absolute;
-  bottom:-20px;
-  right:-20px;
+  position: absolute;
+  bottom: -20px;
+  right: -20px;
   background: var(--goldenrod);
-  padding:2rem;
-  color:#0a1a0f;
-  min-width:160px;
-  text-align:center;
-  box-shadow: 20px 20px 60px rgba(0,0,0,0.3);
+  padding: 2rem;
+  color: var(--navy);
+  min-width: 160px;
+  text-align: center;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+  border-radius: 4px;
+  font-weight: 700;
 }
 
 .badge-val{
-  display:block;
-  font-family:'Cormorant Garamond',serif;
-  font-size:2.2rem;
-  font-weight:700;
-  line-height:1;
+  display: block;
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 2.2rem;
+  font-weight: 700;
+  line-height: 1;
 }
 
 .badge-lab{
-  font-size:0.65rem;
-  text-transform:uppercase;
-  font-weight:700;
-  letter-spacing:1px;
+  font-size: 0.65rem;
+  text-transform: uppercase;
+  font-weight: 700;
+  letter-spacing: 1px;
+  margin-top: 0.5rem;
 }
 
 /* Stats */
 .en-energy-stats{
-  background:#fff;
-  padding:4rem 0;
-  border-bottom:1px solid #e4e6e0;
+  background: var(--white);
+  padding: 4rem 0;
+  border-bottom: 1px solid var(--border-light);
 }
 
 .en-energy-stats__grid{
-  display:flex;
-  justify-content:space-around;
-  gap:2rem;
-  flex-wrap:wrap;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+  gap: 2rem;
 }
 
 .en-energy-stat{
-  text-align:center;
-  min-width:150px;
+  text-align: center;
+  padding: 1rem;
+  transition: var(--transition-smooth);
+}
+
+.en-energy-stat:hover {
+  transform: translateY(-4px);
 }
 
 .en-energy-stat__value{
-  display:block;
-  font-family:'Cormorant Garamond',serif;
-  font-size:2.5rem;
-  font-weight:700;
-  color: var(--navy, #0a1a0f);
+  display: block;
+  font-family: 'Cormorant Garamond', serif;
+  font-size: clamp(2rem, 4vw, 2.8rem);
+  font-weight: 700;
+  color: var(--navy);
+  line-height: 1;
 }
 
 .en-energy-stat__label{
-  font-size:0.7rem;
-  text-transform:uppercase;
-  letter-spacing:2px;
+  font-size: 0.7rem;
+  text-transform: uppercase;
+  letter-spacing: 2px;
   color: var(--goldenrod);
-  font-weight:700;
+  font-weight: 700;
+  margin-top: 0.5rem;
 }
 
 /* Divisions */
 .en-energy-divisions{
-  padding:10rem 0;
-  background:#fafaf8;
+  padding: 10rem 0;
+  background: var(--bg-light);
 }
 
 .en-energy-divisions__header{
-  text-align:center;
-  margin-bottom:4rem;
+  text-align: center;
+  margin-bottom: 4rem;
 }
 
 .en-energy-divisions__sub{
-  max-width:700px;
+  max-width: 700px;
   margin: 1rem auto 0;
-  color: var(--muted, #94a3b8);
-  line-height:1.7;
+  color: var(--muted);
+  line-height: 1.8;
+  font-size: 0.95rem;
 }
 
 .en-energy-tabs{
-  display:flex;
-  justify-content:center;
-  gap:1rem;
-  flex-wrap:wrap;
-  margin-top:2.5rem;
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+  flex-wrap: wrap;
+  margin-top: 2.5rem;
 }
 
 .en-energy-tab{
-  background:#fff;
-  border:1px solid #e4e6e0;
-  padding:1rem 1.25rem;
-  cursor:pointer;
-  transition:all .25s ease;
-  border-radius:6px;
-  font-weight:600;
-  color: var(--navy, #0a1a0f);
+  background: var(--white);
+  border: 2px solid var(--border-light);
+  padding: 0.85rem 1.25rem;
+  cursor: pointer;
+  transition: var(--transition-smooth);
+  border-radius: 6px;
+  font-weight: 600;
+  color: var(--navy);
+  font-size: 0.95rem;
+  position: relative;
+  overflow: hidden;
+}
+
+.en-energy-tab::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(135deg, var(--goldenrod), transparent);
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  z-index: -1;
+}
+
+.en-energy-tab:hover {
+  border-color: var(--navy);
+  transform: translateY(-2px);
 }
 
 .en-energy-tab--active{
-  background: var(--navy, #0a1a0f);
-  border-color: var(--navy, #0a1a0f);
-  color:#fff;
+  background: var(--navy);
+  border-color: var(--navy);
+  color: var(--white);
+  box-shadow: 0 4px 12px rgba(10, 26, 15, 0.15);
 }
 
 .en-energy-division-panel{
-  margin-top:0;
-  background:#fff;
-  border:1px solid #e4e6e0;
-  border-radius:12px;
-  overflow:hidden;
+  margin-top: 0;
+  background: var(--white);
+  border: 1px solid var(--border-light);
+  border-radius: 12px;
+  overflow: hidden;
+  display: grid;
+  grid-template-columns: 1.2fr 1fr;
+  transition: var(--transition-smooth);
+}
+
+.en-energy-division-panel:hover {
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.08);
 }
 
 .en-energy-division-panel__left{
-  padding:4.5rem 3rem;
+  padding: 4.5rem 3rem;
 }
 
 .en-energy-division-panel__icon{
   color: var(--goldenrod);
-  margin-bottom:1rem;
+  margin-bottom: 1.5rem;
+  width: 50px;
+  height: 50px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(193, 155, 90, 0.1);
+  border-radius: 8px;
+  animation: slideInLeft 0.6s ease-out;
+}
+
+@keyframes slideInLeft {
+  from {
+    opacity: 0;
+    transform: translateX(-20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
 }
 
 .en-energy-division-panel__left h3{
-  font-family:'Cormorant Garamond',serif;
-  font-size:2.4rem;
-  color: var(--navy, #0a1a0f);
-  margin:0 0 1rem;
+  font-family: 'Cormorant Garamond', serif;
+  font-size: clamp(1.8rem, 3vw, 2.4rem);
+  color: var(--navy);
+  margin: 0 0 1rem;
+  line-height: 1.2;
 }
 
 .en-energy-division-panel__left p{
-  color: var(--muted, #94a3b8);
-  line-height:1.7;
-  margin:0 0 2rem;
+  color: var(--muted);
+  line-height: 1.8;
+  margin: 0 0 2rem;
+  font-size: 0.95rem;
 }
 
 .en-energy-division-panel__bullets{
-  display:grid;
-  gap:.9rem;
-  margin-bottom:2rem;
+  display: grid;
+  gap: 0.9rem;
+  margin-bottom: 2rem;
 }
 
 .en-energy-bullet{
-  display:flex;
-  align-items:center;
-  gap:.6rem;
-  color: var(--navy, #0a1a0f);
-  font-weight:600;
+  display: flex;
+  align-items: flex-start;
+  gap: 0.8rem;
+  color: var(--navy);
+  font-weight: 500;
+  font-size: 0.95rem;
+  line-height: 1.5;
+}
+
+.en-energy-bullet svg {
+  flex-shrink: 0;
+  margin-top: 2px;
+  color: var(--goldenrod);
 }
 
 .en-energy-division-panel__cta{
-  margin-top:1rem;
-}
-
-.en-energy-division-panel{
-  display:grid;
-  grid-template-columns: 1.2fr 1fr;
+  margin-top: 1.5rem;
 }
 
 .en-energy-division-panel__right{
-  background: rgba(10,26,15,0.02);
-  padding:3.5rem 2.5rem;
+  background: rgba(10, 26, 15, 0.02);
+  padding: 3.5rem 2.5rem;
+  display: flex;
+  align-items: center;
 }
 
 .en-energy-division-panel__card{
-  border:1px solid rgba(10,26,15,0.08);
-  background:#fff;
-  border-radius:12px;
-  padding:2.5rem;
+  border: 1px solid rgba(10, 26, 15, 0.08);
+  background: var(--white);
+  border-radius: 12px;
+  padding: 2.5rem;
+  height: 100%;
+  transition: var(--transition-smooth);
+}
+
+.en-energy-division-panel__card:hover {
+  box-shadow: 0 8px 20px rgba(193, 155, 90, 0.1);
+  border-color: var(--goldenrod);
 }
 
 .en-energy-division-panel__card-kicker{
   color: var(--goldenrod);
-  font-weight:800;
-  letter-spacing:1.5px;
-  text-transform:uppercase;
-  font-size:.65rem;
+  font-weight: 800;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  font-size: 0.65rem;
+  display: inline-block;
+  padding: 0.5rem 1rem;
+  background: rgba(193, 155, 90, 0.1);
+  border-radius: 4px;
 }
 
 .en-energy-division-panel__card-title{
-  font-family:'Cormorant Garamond',serif;
-  font-size:2rem;
-  margin:1rem 0;
-  color: var(--navy, #0a1a0f);
+  font-family: 'Cormorant Garamond', serif;
+  font-size: clamp(1.6rem, 2.5vw, 2rem);
+  margin: 1.5rem 0 1rem;
+  color: var(--navy);
+  line-height: 1.2;
 }
 
 .en-energy-division-panel__card-body{
-  color: var(--muted, #94a3b8);
-  line-height:1.7;
+  color: var(--muted);
+  line-height: 1.8;
+  font-size: 0.9rem;
 }
 
 .en-energy-division-panel__capabilities{
-  margin-top:2rem;
-  display:grid;
-  gap:1rem;
+  margin-top: 2rem;
+  display: grid;
+  gap: 1.2rem;
 }
 
 .en-energy-cap{
-  display:flex;
-  gap:.9rem;
-  align-items:flex-start;
+  display: flex;
+  gap: 1rem;
+  align-items: flex-start;
+  padding: 0.75rem;
+  border-radius: 6px;
+  transition: var(--transition-smooth);
+}
+
+.en-energy-cap:hover {
+  background: rgba(193, 155, 90, 0.05);
 }
 
 .en-energy-cap__icon{
   color: var(--goldenrod);
-  margin-top:2px;
+  margin-top: 2px;
+  flex-shrink: 0;
+}
+
+.en-energy-cap strong {
+  display: block;
+  color: var(--navy);
+  margin-bottom: 0.25rem;
+  font-size: 0.95rem;
 }
 
 .en-energy-cap__body{
-  color: var(--muted, #94a3b8);
-  font-size:.9rem;
-  margin-top:.25rem;
-  line-height:1.6;
+  color: var(--muted);
+  font-size: 0.85rem;
+  line-height: 1.6;
+}
+
+/* Button styles - ensure consistency */
+.cert-btn-primary,
+.cert-btn-outline {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.85rem 1.75rem;
+  border-radius: 6px;
+  font-weight: 600;
+  transition: var(--transition-smooth);
+  text-decoration: none;
+  border: 2px solid transparent;
+  cursor: pointer;
+  font-size: 0.95rem;
+}
+
+.cert-btn-primary {
+  background: var(--navy);
+  color: var(--white);
+}
+
+.cert-btn-primary:hover {
+  background: var(--goldenrod);
+  color: var(--navy);
+  transform: translateX(2px);
+}
+
+.cert-btn-outline {
+  background: transparent;
+  color: var(--navy);
+  border-color: var(--navy);
+}
+
+.cert-btn-outline:hover {
+  background: var(--navy);
+  color: var(--white);
+}
+
+/* CTA Section */
+.cert-cta {
+  padding: 6rem 0;
+  background: linear-gradient(135deg, rgba(10, 26, 15, 0.95), rgba(10, 26, 15, 0.88));
+  color: var(--white);
+}
+
+.cert-cta__inner {
+  display: grid;
+  grid-template-columns: 1fr auto;
+  gap: 3rem;
+  align-items: center;
+}
+
+.cert-cta__text h2 {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: clamp(2rem, 4vw, 2.8rem);
+  margin: 1rem 0 1rem;
+  line-height: 1.2;
+}
+
+.cert-eyebrow {
+  display: inline-block;
+  font-size: 0.7rem;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  font-weight: 800;
+  margin-bottom: 1rem;
+}
+
+.cert-eyebrow.light {
+  color: var(--goldenrod);
+}
+
+.cert-eyebrow.dark {
+  color: var(--muted);
+}
+
+.section-title {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: clamp(2rem, 5vw, 3.2rem);
+  color: var(--navy);
+  margin: 0 0 1rem;
+  line-height: 1.2;
+}
+
+.cert-highlight {
+  color: var(--goldenrod);
+}
+
+.cert-container {
+  max-width: 1260px;
+  margin: 0 auto;
+  padding: 0 2rem;
+  box-sizing: border-box;
+}
+
+.cert-reveal {
+  opacity: 0;
+  animation: fadeInUp 0.8s ease-out forwards;
+}
+
+.cert-visible {
+  opacity: 1;
 }
 
 /* Responsive */
 @media (max-width: 1024px){
-  .en-energy-hero__inner{grid-template-columns:1fr;}
-  .en-energy-hero__img{height:380px;}
-  .en-energy-division-panel{grid-template-columns:1fr;}
-  .en-energy-division-panel__right{padding:2.5rem 1.5rem;}
-  .en-energy-division-panel__left{padding:3.5rem 1.75rem;}
+  .en-energy-hero__inner{
+    grid-template-columns: 1fr;
+  }
+  
+  .en-energy-hero__img{
+    height: 380px;
+  }
+  
+  .en-energy-division-panel{
+    grid-template-columns: 1fr;
+  }
+  
+  .en-energy-division-panel__right{
+    padding: 2.5rem 1.5rem;
+  }
+  
+  .en-energy-division-panel__left{
+    padding: 3.5rem 1.75rem;
+  }
+
+  .cert-cta__inner {
+    grid-template-columns: 1fr;
+  }
+
+  .en-energy-stats__grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 768px){
+  .en-energy-hero__visual{
+    margin-top: 2rem;
+  }
+
+  .en-energy-division-panel__left{
+    padding: 2.5rem 1.5rem;
+  }
+
+  .en-energy-tabs {
+    gap: 0.5rem;
+  }
+
+  .en-energy-tab {
+    padding: 0.75rem 1rem;
+    font-size: 0.9rem;
+  }
+
+  .section-title {
+    font-size: 2rem;
+  }
+
+  .cert-cta {
+    padding: 4rem 0;
+  }
 }
 
 @media (max-width: 480px){
-  .en-energy-hero__img{height:260px;}
-  .en-energy-tabs{gap:.6rem;}
+  .en-energy-hero__img{
+    height: 260px;
+  }
+  
+  .en-energy-tabs{
+    gap: 0.6rem;
+  }
+
+  .en-energy-tab {
+    padding: 0.65rem 0.85rem;
+    font-size: 0.85rem;
+  }
+
+  .en-energy-hero__inner {
+    gap: 2rem;
+  }
+
+  .en-energy-hero__text h1 {
+    font-size: 1.8rem;
+  }
+
+  .en-energy-division-panel__left {
+    padding: 2rem 1rem;
+  }
+
+  .en-energy-division-panel__right {
+    padding: 2rem 1rem;
+  }
+
+  .section-title {
+    font-size: 1.5rem;
+  }
+
+  .cert-eyebrow {
+    font-size: 0.6rem;
+  }
+
+  .en-energy-stats__grid {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+  }
 }
 
+/* Performance optimizations */
+@media (prefers-reduced-motion: reduce) {
+  * {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+
+/* Print styles */
+@media print {
+  .en-energy-hero__badge,
+  .cert-btn-primary,
+  .cert-btn-outline,
+  .cert-cta__actions {
+    display: none;
+  }
+
+  .en-energy-page {
+    background: white;
+    color: black;
+  }
+}
