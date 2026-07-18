@@ -142,28 +142,28 @@ const leadershipTeam = [
 const divisions = [
   {
     number: "01",
-    name: "Bravelion Services Ltd",
+    name: "Bravelion Services",
     tagline: "Technical Services & NDT",
     description: "Providing professional operational support, procurement, and enterprise technical solutions across oil & gas, power, and construction.",
     link: "/services",
   },
   {
     number: "02",
-    name: "Bravelion Estates & Development Ltd",
+    name: "Bravelion Estates & Development",
     tagline: "Real Estate & Development",
     description: "Developing premium residential and commercial real estate projects designed for long-term asset value across Nigeria.",
     link: "/estates",
   },
   {
     number: "03",
-    name: "Bravelion Training & Consulting Ltd",
+    name: "Bravelion Training & Consulting",
     tagline: "Executive Education & Advisory",
     description: "Delivering internationally accredited certification programmes, workforce development, and strategic advisory services.",
     link: "/training",
   },
   {
     number: "04",
-    name: "Bravelion Energy Ltd",
+    name: "Bravelion Energy",
     tagline: "Energy Infrastructure & Advisory",
     description: "Delivering strategic energy and oil & gas advisory, training, and infrastructure execution for compliant and sustainable outcomes across Africa.",
     link: "/energy",
