@@ -47,6 +47,7 @@ const contacts = [
       { text: "info@bravelionholdings.com",    href: "mailto:info@bravelionholdings.com" },
       { text: "training@bravelionholdings.com", href: "mailto:training@bravelionholdings.com" },
       { text: "services@bravelionholdings.com", href: "mailto:services@bravelionholdings.com" },
+      { text: "energy@bravelionholdings.com", href: "mailto:energy@bravelionholdings.com" },
     ],
   },
   {
