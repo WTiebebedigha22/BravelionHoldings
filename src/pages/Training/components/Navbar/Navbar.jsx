@@ -64,7 +64,9 @@ const TrainingNavbar = () => {
       <nav className="navbar navbar--training">
         <div className="container navbar__inner">
 
-          <Link to="/training" className="navbar__logo" aria-label="Bravelion Training — Home">
+          <Link to="/"
+            className="navbar__logo" 
+            aria-label="Bravelion Training — Home">
             <img src="/BraveLion.png" alt="Bravelion Group" />
           </Link>
 
