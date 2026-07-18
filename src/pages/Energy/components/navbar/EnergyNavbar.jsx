@@ -67,9 +67,9 @@ const EnergyNavbar = () => {
         <div className="container navbar__inner">
           {/* Logo + division badge */}
           <Link
-            to="/energy"
+            to="/"
             className="navbar__logo"
-            aria-label="Bravelion Energy — Home"
+            aria-label="Bravelion Holdings"
           >
             <img src="/BraveLion.png" alt="Bravelion Group" />
           </Link>
