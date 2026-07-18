@@ -32,7 +32,7 @@ const WHATSAPP_DATA = {
     label: 'Energy',
     accent: '#1a5c3a',
     accentLight: '#fdf0e6',
-    greeting: 'Looking for your quality and afforadble energy solutions? Chat with our team right now on WhatsApp
+    greeting: 'Looking for your quality and afforadble energy solutions? Chat with our team right now on WhatsApp.',
     templateMessage: 'Hello Bravelion Energy, I am interested in your quality energy services and would like to find out about the offers.',
   },
 
