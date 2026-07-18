@@ -8,7 +8,7 @@ import "./Home.css";
 const subsidiaries = [
   {
     number: "01",
-    name: "Bravelion Services Ltd",
+    name: "Bravelion Services",
     tagline: "Technical Services & NDT",
     description:
       "Professional facility management, non-destructive testing, procurement, and operational support for oil & gas, construction, and power sectors.",
@@ -17,7 +17,7 @@ const subsidiaries = [
   },
   {
     number: "02",
-    name: "Bravelion Estates & Development Ltd",
+    name: "Bravelion Estates & Development",
     tagline: "Real Estate & Development",
     description:
       "Premium residential, commercial, and mixed-use developments engineered for long-term asset value across Nigeria's fastest-growing cities.",
@@ -26,7 +26,7 @@ const subsidiaries = [
   },
   {
     number: "03",
-    name: "Bravelion Training & Consulting Ltd",
+    name: "Bravelion Training & Consulting",
     tagline: "Executive Education & Advisory",
     description:
       "Internationally accredited certification programmes, workforce development, and strategic consulting designed to transform individuals and organisations.",
@@ -35,7 +35,7 @@ const subsidiaries = [
   },
   {
     number: "04",
-    name: "Bravelion Energy Ltd",
+    name: "Bravelion Energy",
     tagline: "Energy Solutions",
     description:
       "Engineering-driven energy initiatives focused on resilient infrastructure, operational efficiency, and sustainable growth.",
