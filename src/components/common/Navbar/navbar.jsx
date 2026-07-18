@@ -8,7 +8,7 @@ const divisionGroups = [
   { label: "Bravelion Services", to: "/services" },
   { label: "Bravelion Estates & Development", to: "/estates" },
   { label: "Bravelion Training & Consulting", to: "/training" },
-  { label: "Bravelion Energy Ltd", to: "/energy" },
+  { label: "Bravelion Energy", to: "/energy" },
 ];
 
 const navLinks = [
