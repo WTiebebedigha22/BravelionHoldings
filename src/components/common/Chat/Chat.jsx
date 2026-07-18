@@ -27,6 +27,14 @@ const WHATSAPP_DATA = {
     greeting: 'Interested in a professional course or corporate HSE certification? Message our admissions desk on WhatsApp.',
     templateMessage: 'Hello Bravelion Training, I am interested in your professional training programs and would like to find out about upcoming cohorts.',
   },
+  
+  energy: {
+    label: 'Energy',
+    accent: '#1a5c3a',
+    accentLight: '#fdf0e6',
+    greeting: 'Looking for your quality and afforadble energy solutions? Chat with our team right now on WhatsApp
+    templateMessage: 'Hello Bravelion Energy, I am interested in your quality energy services and would like to find out about the offers.',
+  },
 
   general: {
     label: 'General',
@@ -46,6 +54,7 @@ function useDivision() {
   if (pathname.startsWith('/estates')) return 'estates';
   if (pathname.startsWith('/services')) return 'services';
   if (pathname.startsWith('/training')) return 'training';
+  if (pathname.startsWith('/energy')) return 'energy';
   return 'general';
 }
 
