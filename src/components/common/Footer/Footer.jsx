@@ -29,9 +29,10 @@ const Footer = () => {
           <div className="footer-column">
             <h4 className="footer-heading">Our Companies</h4>
             <ul className="footer-links">
-              <li><Link to="/services">Bravelion Services Ltd</Link></li>
-              <li><Link to="/estates">Bravelion Estates & Development Ltd</Link></li>
-              <li><Link to="/training">Bravelion Training & Consulting Ltd</Link></li>
+              <li><Link to="/services">Bravelion Services</Link></li>
+              <li><Link to="/estates">Bravelion Estates</Link></li>
+              <li><Link to="/training">Bravelion Training</Link></li>
+              <li><Link to="/energy">Bravelion Energy</Link></li>
             </ul>
           </div>
 
