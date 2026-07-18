@@ -73,7 +73,7 @@ const EstatesNavbar = () => {
         <div className="container navbar__inner">
           {/* Logo + division badge */}
           <Link
-            to="/estates"
+            to="/"
             className="navbar__logo"
             aria-label="Bravelion Estates — Home"
           >
