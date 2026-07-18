@@ -241,7 +241,7 @@ const About = () => {
         <div className="container">
           <div className="divisions-header">
             <span className="section-eyebrow">Our Structure</span>
-            <h2>Three pillars. One group.</h2>
+            <h2>Four pillars. One group.</h2>
           </div>
           <div className="divisions-list">
             {divisions.map((d) => (
