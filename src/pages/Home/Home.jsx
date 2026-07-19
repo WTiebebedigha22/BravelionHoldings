@@ -40,7 +40,7 @@ const subsidiaries = [
     description:
       "Engineering-driven energy initiatives focused on resilient infrastructure, operational efficiency, and sustainable growth.",
     link: "/energy",
-    image: "https://images.unsplash.com/photo-1590712369867-8f7a3cbb5c43?auto=format&fit=crop&w=800&q=80",
+    image: "https://images.unsplash.com/photo-1466611653911-95081537e5b7?auto=format&fit=crop&w=800&q=80",
   },
 ];
 
